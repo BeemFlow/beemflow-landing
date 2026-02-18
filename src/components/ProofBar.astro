@@ -4,14 +4,11 @@ import { PROOF_CLIENTS, PROOF_STATS } from '../data/content';
 
 <section class="proof" data-fade>
   <div class="container proof__inner">
-    <div class="proof__stats">
-      {PROOF_STATS.map((s) => (
-        <div class="proof__stat">
-          <span class="proof__stat-num">{s.num}</span>
-          <span class="proof__stat-label">{s.label}</span>
-        </div>
+    <p class="proof__inline label-mono">
+      {PROOF_STATS.map((s, i) => (
+        <span>{s.num} {s.label}{i < PROOF_STATS.length - 1 ? <span class="proof__sep"> &middot; </span> : ''}</span>
       ))}
-    </div>
+    </p>
     <div class="proof__divider"></div>
     <div class="proof__clients">
       <span class="label-mono proof__label">Built for</span>
@@ -35,39 +32,22 @@ import { PROOF_CLIENTS, PROOF_STATS } from '../data/content';
     gap: 0;
   }
 
-  .proof__stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+  .proof__inline {
+    color: var(--color-text-muted);
     text-align: center;
-    padding-bottom: 32px;
+    padding-bottom: 28px;
+    line-height: 2;
+  }
+
+  .proof__sep {
+    color: var(--color-text-faint);
+    margin: 0 4px;
   }
 
   .proof__divider {
     width: 100%;
     height: 1px;
     background: var(--color-border-subtle);
-  }
-
-  .proof__stat {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .proof__stat-num {
-    font-family: var(--font-display);
-    font-size: 40px;
-    font-weight: 400;
-    color: var(--color-text);
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-
-  .proof__stat-label {
-    font-size: 13px;
-    color: var(--color-text-dim);
-    letter-spacing: 0.01em;
   }
 
   .proof__clients {
@@ -91,9 +71,8 @@ import { PROOF_CLIENTS, PROOF_STATS } from '../data/content';
   }
 
   @media (max-width: 500px) {
-    .proof__stats {
-      grid-template-columns: 1fr;
-      gap: 28px;
+    .proof__inline {
+      text-align: left;
     }
   }
 </style>

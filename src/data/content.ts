@@ -9,6 +9,7 @@ export interface Step {
   description: string;
   deliverables?: string[];
   endState?: string;
+  guarantee?: string;
 }
 
 export interface Service {
@@ -19,9 +20,9 @@ export interface Service {
 }
 
 export interface CaseStudy {
-  label: string;
-  company: string;
+  headline: string;
   role: string;
+  resultSummary: string;
   situation: string;
   result: string;
   metrics: string[];
@@ -51,9 +52,9 @@ export const PROOF_CLIENTS = [
 ];
 
 export const PROOF_STATS = [
-  { num: "15+", label: "products shipped to production" },
   { num: "10+", label: "years building together" },
-  { num: "1", label: "company founded & exited" },
+  { num: "15+", label: "products shipped to production" },
+  { num: "1", label: "VC\u2011backed company founded & exited" },
 ];
 
 // --- How We Work: Three-Step Journey ---
@@ -66,14 +67,15 @@ export const STEPS: Step[] = [
     timeline: "1\u20132 weeks",
     price: "$8K",
     description:
-      "We map your users, core jobs, and constraints into a story\u2011mapped v1 that is actually buildable.",
+      "We map your users, core jobs, and constraints into a story\u2011mapped v1 that is actually buildable by real engineers on a real timeline.",
     deliverables: [
       "A release\u2011by\u2011release story map",
       "Technical architecture and stack decisions",
       "A clear \u201Claunch milestone\u201D tied to a business goal (raise, sell, or onboard first customers)",
+      "Structured so both human engineers and AI agents can execute",
     ],
     endState:
-      "Structured so both human engineers and AI agents can execute. You can build with us or any team.",
+      "End state: a buildable v1 plan your board and engineers can\u2019t easily poke holes in. You can build with us or any team.",
   },
   {
     number: "02",
@@ -82,13 +84,16 @@ export const STEPS: Step[] = [
     timeline: "6\u20138 weeks",
     price: "From $40K",
     description:
-      "We take the Blueprint and ship a market\u2011ready v1: live in production, demoable, with analytics wired and real users hitting it.",
+      "We take the Blueprint and ship a market\u2011ready v1 to production: live, demoable, and ready to onboard your first real users.",
     deliverables: [
-      "We use AI coding agents for repetitive implementation while we own architecture, product decisions, and quality",
-      "Weekly releases, real users, real data",
+      "AI coding agents for repetitive implementation while we own architecture, product decisions, and quality",
+      "Weekly releases so you can see real progress and click through the product early",
+      "Analytics, logging, and basic onboarding wired so you can invite users in and see what they actually do",
     ],
     endState:
-      "End state: deployed product, real users, analytics wired, a polished demo script, and a short technical appendix for your next investor update.",
+      "End state: deployed product, on your infrastructure, with analytics wired, a coherent on\u2011brand UI, a polished demo script, and a short technical appendix for your next investor update.",
+    guarantee:
+      "If we miss the agreed launch milestone by more than 2 weeks for reasons in our control, we work for free until we hit it.",
   },
   {
     number: "03",
@@ -116,28 +121,28 @@ export const SERVICES: Service[] = [
     label: "Core",
     title: "AI\u2011Accelerated Product Engineering",
     description:
-      "From fuzzy idea to market\u2011ready v1 with real users, typically in 6\u20118 weeks once scope is locked. One team that owns product, engineering, and security, powered by our BeemSpec coordination system.",
+      "From fuzzy idea to market\u2011ready v1 in 6\u20138 weeks once scope is locked. One team that owns product strategy, UX/UI design, engineering, and security, powered by our BeemSpec coordination system. We design and build the first version of your product so it\u2019s ready for real users, investor demos, and your next round of conversations.",
   },
   {
     icon: "\u{1F512}",
     label: "Built\u2011in",
     title: "Security & Infrastructure",
     description:
-      "Security\u2011minded architecture and hardening by default. Deeper pentesting and cryptographic design when the product warrants it.",
+      "Security\u2011minded architecture and hardening by default, with deeper pentesting and cryptographic design when the product warrants it. We set up infrastructure on accounts you own, with logging, monitoring, and basic incident response so your early usage doesn\u2019t turn into a fire drill.",
   },
   {
     icon: "\u26A1",
     label: "Expansion",
     title: "Operations Automation",
     description:
-      "Once the product works, we automate the work around it: reporting, alerts, back\u2011office workflows, integrations between your tools. Built on n8n and open\u2011source infrastructure you own.",
+      "Once the product works, we automate the work around it: reporting, alerts, back\u2011office workflows, and integrations between your tools. Often built on n8n and other open\u2011source tools where it makes sense, and paired with SaaS vendors when that\u2019s the better choice for reliability or speed.",
   },
   {
     icon: "\u{1F91D}",
     label: "Upsell",
     title: "Fractional CTO",
     description:
-      "Ongoing technical strategy, architecture decisions, and engineering team building once you\u2019re past v1.",
+      "Ongoing technical strategy, architecture decisions, and engineering team building once you\u2019re past v1 and need a real engineering org, not just a contractor. We help you hire, onboard, and transition to an internal team while keeping the roadmap and architecture coherent.",
   },
 ];
 
@@ -145,39 +150,42 @@ export const SERVICES: Service[] = [
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    label: "0\u21921 Product",
-    company: "Travel Money",
+    headline: "Travel Money \u2013 0\u21921 Fintech Product as Sole CTO",
     role: "CTO",
+    resultSummary:
+      "Shipped a production iOS app with AI\u2011powered product detection, payments, and French customs integration from zero internal tech team.",
     situation:
-      "Non-technical founder had a fintech thesis around VAT export arbitrage, seed funding, and French customs regulations to navigate\u2014but no product and no tech team.",
+      "A non\u2011technical founder had a fintech thesis around VAT export arbitrage, seed funding, and French customs to navigate\u2014but no product and no tech team.",
     result:
-      "Built full iOS application with AI-powered product detection, payment processing, and French customs integration (PABLO/Article 275 CGI). Sole technical leadership from day one.",
+      "We acted as sole CTO and built the full iOS app: AI\u2011powered product detection, payment processing, and customs integration (PABLO / Article 275 CGI), plus the underlying infrastructure.",
     metrics: [
       "Sole CTO \u2014 entire technical operation",
       "iOS app + AI detection + payments + customs integration",
     ],
   },
   {
-    label: "Founded & Exited",
-    company: "Valist \u2192 HyperPlay",
+    headline: "Valist \u2192 HyperPlay \u2013 Founded, Funded, and Acquired",
     role: "Co-founders",
+    resultSummary:
+      "Two\u2011engineer founding team \u2192 pre\u2011seed from 2048 Ventures \u2192 acquisition and integration into a platform with 100K+ users.",
     situation:
-      "Two engineers, no funding, one thesis: build a developer-first software distribution platform.",
+      "We co\u2011founded Valist, a developer\u2011first software distribution platform.",
     result:
-      "Built the core product, raised pre-seed from 2048 Ventures, led the full acquisition process\u2014due diligence, negotiations, and integration into HyperPlay.",
+      "We built the core product, raised pre\u2011seed from 2048 Ventures, and led the full acquisition process\u2014due diligence, negotiations, and integration into HyperPlay\u2019s ecosystem.",
     metrics: [
       "2 founders \u2192 pre-seed raise \u2192 acquisition",
       "Product integrated into platform with 100K+ users",
     ],
   },
   {
-    label: "Scale",
-    company: "HyperPlay Labs",
+    headline: "HyperPlay Labs \u2013 Head of Product for 0 \u2192 100K+ Downloads",
     role: "Head of Product",
+    resultSummary:
+      "Shipped a cross\u2011platform gaming client and supported a $12M Series A raise.",
     situation:
-      "Post-acquisition, HyperPlay needed to ship a desktop gaming platform and raise a Series A. Fast.",
+      "Post\u2011acquisition, HyperPlay needed to ship a desktop gaming platform and raise a Series A fast.",
     result:
-      "Led product development and security across Windows, Mac, Linux, and Steam Deck. Established partnerships, contributed to fundraising strategy. Now serving as Strategic Advisors.",
+      "We led product development and security across Windows, Mac, Linux, and Steam Deck, established key partnerships, and contributed to the fundraising strategy through HyperPlay\u2019s $12M Series A. We continue as Strategic Advisors.",
     metrics: [
       "0 \u2192 100K+ downloads",
       "$12M Series A raised",
@@ -185,13 +193,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    label: "Education at Scale",
-    company: "2U FinTech Bootcamp",
+    headline: "2U FinTech Bootcamp \u2013 Curriculum Engineering Across 60+ Universities",
     role: "Curriculum Engineering",
+    resultSummary:
+      "Production\u2011quality full\u2011stack and distributed systems curriculum deployed at 60+ universities, including Columbia, Rice, and University of Toronto.",
     situation:
-      "2U needed production-quality full-stack and distributed systems curriculum that could scale across their university partner network.",
+      "2U needed scalable, production\u2011grade curriculum in full\u2011stack development, distributed systems, and cryptography for their university partner network.",
     result:
-      "Authored comprehensive curriculum covering distributed systems, cryptography, and full-stack development. Built production apps used as teaching tools across 60+ universities.",
+      "We authored the curriculum and built production apps used as teaching tools, which have since been deployed across 60+ universities.",
     metrics: [
       "0 \u2192 60+ university deployments",
       "Columbia, Rice, University of Toronto",
@@ -227,7 +236,7 @@ export const TESTIMONIALS: Testimonial[] = [
 export const FAQS: FAQ[] = [
   {
     q: "Who is this for?",
-    a: "Funded SaaS and AI\u2011product founders (pre\u2011seed to Series A) who need a real v1, not just a prototype, and don\u2019t have senior product + engineering in\u2011house.",
+    a: "Funded software, SaaS, and AI\u2011product founders (pre\u2011seed to Series A) who need a real v1, not just a prototype, and don\u2019t have senior product + engineering in\u2011house.",
   },
   {
     q: "How are you faster than a typical agency?",
@@ -235,7 +244,11 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "Do I own everything you build?",
-    a: "Yes. Code, infra, automations, and documentation are all yours. We build on open\u2011source stacks so you\u2019re never locked into us or a vendor.",
+    a: "Yes. Code, infra accounts, automations, and documentation are all yours. We set everything up in accounts you control and avoid hard vendor lock\u2011in wherever practical. When paid tools or cloud vendors are the better choice, we pick ones that are easy to migrate away from later.",
+  },
+  {
+    q: "Do you also get us users?",
+    a: "No. You bring the users (or audience, or pipeline). We design and build the product, onboarding, and analytics so those users can actually use it and you can learn from real data.",
   },
   // Equity FAQ removed from public site. Keep as internal lever only.
 ];

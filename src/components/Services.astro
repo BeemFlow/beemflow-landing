@@ -31,17 +31,12 @@ import SectionHeader from './SectionHeader.astro';
             {step.endState && (
               <p class="text-body how__step-endstate">{step.endState}</p>
             )}
+            {step.guarantee && (
+              <p class="how__step-guarantee">{step.guarantee}</p>
+            )}
           </div>
         </div>
       ))}
-    </div>
-
-    <!-- Guarantee -->
-    <div class="how__guarantee" data-fade data-fade-delay="0.2">
-      <p class="how__guarantee-text">
-        If we miss the agreed launch milestone by more than 2 weeks for reasons
-        in our control, we work for free until we hit it.
-      </p>
     </div>
 
     <!-- BeemSpec Callout — prominent section -->
@@ -79,6 +74,10 @@ import SectionHeader from './SectionHeader.astro';
           <p class="text-body how__service-desc">{s.description}</p>
         </div>
       ))}
+    </div>
+
+    <div class="how__cta" data-fade data-fade-delay="0.35">
+      <a href="#contact" class="btn-primary">Book a 30-minute fit call &rarr;</a>
     </div>
 
     <!-- Equity hybrid removed from public site.
@@ -203,39 +202,30 @@ import SectionHeader from './SectionHeader.astro';
     line-height: 1.6;
   }
 
-  /* ── Guarantee ── */
-  .how__guarantee {
-    margin-bottom: 80px;
-    padding: 28px 32px;
+  .how__step-guarantee {
+    margin-top: 16px;
+    padding: 14px 18px;
     border: 1px solid var(--color-border-accent);
     background: var(--color-accent-soft);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .how__guarantee-text {
     font-family: var(--font-display);
-    font-size: 18px;
+    font-size: 15px;
     font-style: italic;
-    font-weight: 400;
     color: var(--color-text);
     line-height: 1.5;
-    letter-spacing: -0.01em;
-    margin: 0;
+    max-width: 600px;
   }
 
-  .how__guarantee-text::before {
+  .how__step-guarantee::before {
     content: "Guarantee — ";
     font-style: normal;
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--color-accent);
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   /* ── BeemSpec Callout ── */
@@ -368,5 +358,10 @@ import SectionHeader from './SectionHeader.astro';
     .how__services {
       grid-template-columns: 1fr;
     }
+  }
+
+  .how__cta {
+    text-align: center;
+    padding-top: 16px;
   }
 </style>

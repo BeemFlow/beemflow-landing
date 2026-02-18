@@ -10,12 +10,10 @@ import SectionHeader from './SectionHeader.astro';
       {CASE_STUDIES.map((c, i) => (
         <div class="cases__card" data-fade data-fade-delay={String(i * 0.08)}>
           <div class="cases__card-header">
-            <div>
-              <span class="label-mono cases__label">{c.label}</span>
-              <span class="text-title-sm cases__company">{c.company}</span>
-            </div>
+            <h3 class="cases__headline">{c.headline}</h3>
             <span class="text-mono-sm cases__role">{c.role}</span>
           </div>
+          <p class="cases__result-summary">{c.resultSummary}</p>
           <div class="cases__body">
             <p class="text-body cases__situation">{c.situation}</p>
             <p class="text-body cases__result">{c.result}</p>
@@ -27,6 +25,9 @@ import SectionHeader from './SectionHeader.astro';
           </div>
         </div>
       ))}
+    </div>
+    <div class="cases__cta" data-fade data-fade-delay="0.3">
+      <a href="#contact" class="btn-primary">See if your v1 fits our sprint model &rarr;</a>
     </div>
   </div>
 </section>
@@ -51,23 +52,45 @@ import SectionHeader from './SectionHeader.astro';
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
     gap: 8px;
   }
 
-  .cases__label {
-    font-size: 10px;
-    color: var(--color-accent);
-    background: var(--color-accent-soft);
-    padding: 4px 12px;
-    border-radius: 2px;
-    margin-right: 16px;
-    font-weight: 600;
+  .cases__headline {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    line-height: 1.3;
   }
 
   .cases__role {
     color: var(--color-text-dim);
+    flex-shrink: 0;
+  }
+
+  .cases__result-summary {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+    line-height: 1.5;
+    max-width: 680px;
+  }
+
+  .cases__result-summary::before {
+    content: "Result: ";
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 4px;
   }
 
   .cases__body {
@@ -99,5 +122,10 @@ import SectionHeader from './SectionHeader.astro';
     padding: 6px 14px;
     border-radius: 2px;
     border: 1px solid var(--color-border-accent);
+  }
+
+  .cases__cta {
+    text-align: center;
+    padding-top: 48px;
   }
 </style>
