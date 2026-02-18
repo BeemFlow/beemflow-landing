@@ -6,9 +6,10 @@ import { PROOF_CLIENTS, PROOF_STATS } from '../data/content';
   <div class="container proof__inner">
     <p class="proof__inline label-mono">
       {PROOF_STATS.map((s, i) => (
-        <span>{s.num} {s.label}{i < PROOF_STATS.length - 1 ? <span class="proof__sep"> &middot; </span> : ''}</span>
+        <span>{s.num ? `${s.num} ` : ''}{s.label}{i < PROOF_STATS.length - 1 ? <span class="proof__sep"> &middot; </span> : ''}</span>
       ))}
     </p>
+    <p class="proof__protection label-mono">Milestone overrun protection included</p>
     <div class="proof__divider"></div>
     <div class="proof__clients">
       <span class="label-mono proof__label">Built for</span>
@@ -35,13 +36,20 @@ import { PROOF_CLIENTS, PROOF_STATS } from '../data/content';
   .proof__inline {
     color: var(--color-text-muted);
     text-align: center;
-    padding-bottom: 28px;
+    padding-bottom: 8px;
     line-height: 2;
   }
 
   .proof__sep {
     color: var(--color-text-faint);
     margin: 0 4px;
+  }
+
+  .proof__protection {
+    color: var(--color-accent);
+    text-align: center;
+    padding-bottom: 28px;
+    opacity: 0.8;
   }
 
   .proof__divider {

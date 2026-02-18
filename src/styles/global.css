@@ -42,7 +42,7 @@
 
   /* ── Layout ── */
   --max-width: 960px;
-  --max-width-narrow: 720px;
+  --max-width-narrow: 650px;
   --max-width-form: 600px;
   --section-padding: 140px 32px;
 }

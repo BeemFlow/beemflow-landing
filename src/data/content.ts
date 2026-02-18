@@ -53,7 +53,7 @@ export const PROOF_CLIENTS = [
 
 export const PROOF_STATS = [
   { num: "10+", label: "years building together" },
-  { num: "15+", label: "products shipped to production" },
+  { num: "15+", label: "products shipped" },
   { num: "1", label: "VC\u2011backed company founded & exited" },
 ];
 
@@ -93,7 +93,7 @@ export const STEPS: Step[] = [
     endState:
       "End state: deployed product, on your infrastructure, with analytics wired, a coherent on\u2011brand UI, a polished demo script, and a short technical appendix for your next investor update.",
     guarantee:
-      "If we miss the agreed launch milestone by more than 2 weeks for reasons in our control, we work for free until we hit it.",
+      "We agree on a v1 launch milestone upfront. If we miss it by more than 2 weeks for reasons in our control and within the agreed scope, we keep working at no extra cost until we hit it.",
   },
   {
     number: "03",
@@ -121,7 +121,7 @@ export const SERVICES: Service[] = [
     label: "Core",
     title: "AI\u2011Accelerated Product Engineering",
     description:
-      "From fuzzy idea to market\u2011ready v1 in 6\u20138 weeks once scope is locked. One team that owns product strategy, UX/UI design, engineering, and security, powered by our BeemSpec coordination system. We design and build the first version of your product so it\u2019s ready for real users, investor demos, and your next round of conversations.",
+      "From fuzzy idea to market\u2011ready v1 in 6\u20138 weeks once scope is locked. A small senior squad that owns product strategy, UX/UI design, engineering, and security, led by the two founders and powered by our BeemSpec coordination system. We design and build the first version of your product so it\u2019s ready for real users, investor demos, and your next round of conversations.",
   },
   {
     icon: "\u{1F512}",
@@ -153,13 +153,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     headline: "Travel Money \u2013 0\u21921 Fintech Product as Sole CTO",
     role: "CTO",
     resultSummary:
-      "Shipped a production iOS app with AI\u2011powered product detection, payments, and French customs integration from zero internal tech team.",
+      "Shipped a production iOS app and Chrome extension with AI\u2011powered product detection, payments, and French customs integration from zero internal tech team.",
     situation:
-      "A non\u2011technical founder had a fintech thesis around VAT export arbitrage, seed funding, and French customs to navigate\u2014but no product and no tech team.",
+      "A non\u2011technical founder had a fintech thesis around VAT export arbitrage, seed funding, and French customs to navigate, but no product and no tech team.",
     result:
-      "We acted as sole CTO and built the full iOS app: AI\u2011powered product detection, payment processing, and customs integration (PABLO / Article 275 CGI), plus the underlying infrastructure.",
+      "We acted as sole CTO and built the full iOS app and Chrome extension: AI\u2011powered product detection, payment processing, and customs integration (PABLO / Article 275 CGI), plus the underlying infrastructure.",
     metrics: [
-      "Sole CTO \u2014 entire technical operation",
+      "Sole CTO, entire technical operation",
       "iOS app + AI detection + payments + customs integration",
     ],
   },
@@ -171,7 +171,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     situation:
       "We co\u2011founded Valist, a developer\u2011first software distribution platform.",
     result:
-      "We built the core product, raised pre\u2011seed from 2048 Ventures, and led the full acquisition process\u2014due diligence, negotiations, and integration into HyperPlay\u2019s ecosystem.",
+      "We built the core product, raised pre\u2011seed from 2048 Ventures, and led the full acquisition process: due diligence, negotiations, and integration into HyperPlay\u2019s ecosystem.",
     metrics: [
       "2 founders \u2192 pre-seed raise \u2192 acquisition",
       "Product integrated into platform with 100K+ users",
@@ -250,6 +250,14 @@ export const FAQS: FAQ[] = [
     q: "Do you also get us users?",
     a: "No. You bring the users (or audience, or pipeline). We design and build the product, onboarding, and analytics so those users can actually use it and you can learn from real data.",
   },
+  {
+    q: "Aren\u2019t you just two people? What if something happens or you get busy?",
+    a: "We\u2019re the two founders you deal with day\u2011to\u2011day, but we\u2019re not the only people on your product. Each build uses the same pattern: both founders plus a product designer we\u2019ve shipped with before, and (when needed) infra / security specialists from our regular bench. We cap concurrent builds and book in sprints so we don\u2019t oversell capacity. If we\u2019re full, we tell you and schedule the next slot. All plans, decisions, and code live in shared systems (docs, BeemSpec, repos you own), so the work is not stuck in one person\u2019s head and can be handed off cleanly if you later grow an internal team.",
+  },
+  {
+    q: "What happens if things take longer than expected?",
+    a: "Before we start, we agree on v1 scope and a launch milestone. If we miss that milestone by more than 2 weeks for reasons in our control and within the agreed scope, we keep working at no extra cost until we hit it. If you decide to expand scope mid\u2011sprint (it happens!), we\u2019ll either move those items to a follow\u2011up sprint or revise the budget and timeline together so there are no surprises.",
+  },
   // Equity FAQ removed from public site. Keep as internal lever only.
 ];
 
@@ -257,7 +265,7 @@ export const FAQS: FAQ[] = [
 
 export const CREDENTIALS = [
   {
-    label: "2nd Place \u2014 HACKtheMACHINE at MIT",
+    label: "2nd Place, HACKtheMACHINE at MIT",
     href: "https://www.cma.fraunhofer.org/en/News/Fraunhofer_places_second_in_US_Navys_HackTheMachine_Cyber_Competition.html",
   },
   {

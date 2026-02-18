@@ -7,6 +7,13 @@ import SectionHeader from './SectionHeader.astro';
   <div class="container">
     <SectionHeader label="How we work">Blueprint. Build. Launch.</SectionHeader>
 
+    <p class="how__squad text-body" data-fade data-fade-delay="0.05">
+      For each build, we assemble a small senior squad: both founders, a product
+      designer we trust, and (when needed) infra / security specialists we've
+      worked with before. You don't get handed to layers of juniors. We stay
+      your single point of accountability.
+    </p>
+
     <!-- Three-Step Journey -->
     <div class="how__steps">
       {STEPS.map((step, i) => (
@@ -39,7 +46,7 @@ import SectionHeader from './SectionHeader.astro';
       ))}
     </div>
 
-    <!-- BeemSpec Callout — prominent section -->
+    <!-- BeemSpec Callout -->
     <div class="how__beemspec" data-fade data-fade-delay="0.25">
       <h3 class="how__beemspec-title">Why we ship faster: BeemSpec, our AI coordination system</h3>
       <p class="text-body how__beemspec-intro">
@@ -90,6 +97,12 @@ import SectionHeader from './SectionHeader.astro';
 <style>
   .how {
     background: var(--color-bg-elevated);
+  }
+
+  .how__squad {
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin-bottom: 48px;
   }
 
   /* ── Three-Step Journey ── */
@@ -216,7 +229,7 @@ import SectionHeader from './SectionHeader.astro';
   }
 
   .how__step-guarantee::before {
-    content: "Guarantee — ";
+    content: "Milestone overrun protection: ";
     font-style: normal;
     font-family: var(--font-mono);
     font-size: 9px;
