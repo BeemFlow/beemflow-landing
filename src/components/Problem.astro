@@ -5,42 +5,63 @@ import SectionHeader from './SectionHeader.astro';
 <section class="section problem">
   <div class="container--narrow">
     <SectionHeader>
-      You have funding and a thesis.<br />
-      <span class="text-accent">Now what?</span>
+      You have runway and a thesis.<br />
+      <span class="text-accent">You don't have a product team.</span>
     </SectionHeader>
-    <div data-fade data-fade-delay="0.1">
+
+    <div class="problem__block" data-fade data-fade-delay="0.1">
       <p class="text-body-lg problem__text">
-        You're not technical, and every engineer you talk to gives you a different
-        answer about what to build, how long it'll take, and what it should cost.
-        You can't evaluate their answers. You don't know which corners are safe to
-        cut and which ones will cost you six months later. The longer you spend
-        figuring this out, the more runway you burn and the wider your market
-        window opens for someone else.
+        You've raised or set aside capital, you know the problem you want to solve,
+        but there's no senior product + engineering in&#8209;house.
+      </p>
+      <p class="text-body-lg problem__text">
+        Every agency and freelancer gives you a different story about scope, timeline,
+        and cost. You can't tell who's right. Meanwhile, with no product, you have
+        no traction, no investor story, and no way to learn from real users.
       </p>
     </div>
-    <div data-fade data-fade-delay="0.12">
-      <p class="text-body-lg problem__text">
-        Maybe you've tried vibe coding a prototype yourself. It works until it
-        doesn't. No auth, no error handling, no infrastructure, no security. You
-        end up with a demo that can't become a product and a codebase that has to
-        be thrown away.
+
+    <div class="problem__block problem__block--secondary" data-fade data-fade-delay="0.15">
+      <h3 class="problem__block-title">Agencies are slow. Freelancers disappear. AI alone ships the wrong thing.</h3>
+      <p class="text-body problem__text">
+        AI coding agents are powerful, but on their own they build random features,
+        not a fundable product. Someone has to decide <em>what</em> to build,
+        <em>why now</em>, and <em>what &ldquo;good&rdquo; looks like.</em>
       </p>
     </div>
+
     <div data-fade data-fade-delay="0.2">
-      <p class="text-body-lg problem__text">
-        You don't need a bigger team. You don't need another vendor who disappears
-        after launch. You need a team that's been on both sides of that table.
-        Who's been the CTO at an early-stage company, built products from scratch,
-        and knows exactly what it takes to get something real into the market.
+      <p class="text-body-lg problem__closer">
+        We've been founding CTOs, built and exited our own company, and shipped 15+
+        products to production. Now we use our own AI&#8209;native build system to do
+        the same work faster and with more control. You get founder&#8209;level judgment
+        and execution speed in one package.
       </p>
-    </div>
-    <div data-fade data-fade-delay="0.25">
-      <p class="text-body-lg problem__closer">That's what we do.</p>
     </div>
   </div>
 </section>
 
 <style>
+  .problem__block {
+    margin-bottom: 40px;
+  }
+
+  .problem__block--secondary {
+    margin-bottom: 48px;
+  }
+
+  .problem__block-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .problem__block--secondary .problem__block-title {
+    color: var(--color-text-muted);
+  }
+
   .problem__text {
     color: var(--color-text-muted);
     margin-bottom: 20px;

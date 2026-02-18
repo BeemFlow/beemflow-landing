@@ -1,0 +1,76 @@
+---
+import { TESTIMONIALS } from '../data/content';
+---
+
+<!--
+  YC: "A one-line testimonial from a Travel Money founder or a HyperPlay
+  investor would be worth more than every stat on this page combined."
+
+  This section renders once you fill in the [TODO] quotes in content.ts.
+  It's hidden if all quotes still contain [TODO].
+-->
+
+{TESTIMONIALS.some((t) => !t.quote.includes("[TODO")) && (
+  <section class="section testimonials">
+    <div class="container--narrow">
+      <div class="testimonials__grid">
+        {TESTIMONIALS.filter((t) => !t.quote.includes("[TODO")).map((t, i) => (
+          <blockquote class="testimonial" data-fade data-fade-delay={String(i * 0.1)}>
+            <p class="testimonial__quote">&ldquo;{t.quote}&rdquo;</p>
+            <footer class="testimonial__attribution">
+              <span class="testimonial__name">{t.name}</span>
+              <span class="testimonial__role">{t.role}, {t.company}</span>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .testimonials {
+    padding: 80px 24px;
+    border-top: 1px solid var(--color-border-subtle);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .testimonials__grid {
+    display: grid;
+    gap: 48px;
+  }
+
+  .testimonial {
+    padding-left: 24px;
+    border-left: 2px solid var(--color-accent);
+  }
+
+  .testimonial__quote {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--color-text);
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .testimonial__attribution {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .testimonial__name {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .testimonial__role {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-text-faint);
+    letter-spacing: 0.02em;
+  }
+</style>

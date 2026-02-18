@@ -1,13 +1,23 @@
 ---
-import { PROOF_CLIENTS } from '../data/content';
+import { PROOF_CLIENTS, PROOF_STATS } from '../data/content';
 ---
 
 <section class="proof" data-fade>
   <div class="container proof__inner">
-    <span class="label-mono proof__label">Built for</span>
-    {PROOF_CLIENTS.map((name) => (
-      <span class="proof__client">{name}</span>
-    ))}
+    <div class="proof__stats">
+      {PROOF_STATS.map((s) => (
+        <div class="proof__stat">
+          <span class="proof__stat-num">{s.num}</span>
+          <span class="proof__stat-label">{s.label}</span>
+        </div>
+      ))}
+    </div>
+    <div class="proof__clients">
+      <span class="label-mono proof__label">Built for</span>
+      {PROOF_CLIENTS.map((name) => (
+        <span class="proof__client">{name}</span>
+      ))}
+    </div>
   </div>
 </section>
 
@@ -19,6 +29,38 @@ import { PROOF_CLIENTS } from '../data/content';
   }
 
   .proof__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .proof__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px;
+    text-align: center;
+  }
+
+  .proof__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .proof__stat-num {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .proof__stat-label {
+    font-size: 13px;
+    color: var(--color-text-faint);
+    letter-spacing: 0.01em;
+  }
+
+  .proof__clients {
     display: flex;
     align-items: center;
     gap: 32px;

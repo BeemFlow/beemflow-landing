@@ -4,7 +4,10 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Founder-engineers who help you build right, ship fast, and scale without the wasted runway." } = Astro.props;
+const {
+  title,
+  description = "From fuzzy idea to investor-ready product in 8 weeks. AI-accelerated product engineering from founder-engineers with 15+ products shipped, an exit, and our own AI coordination system."
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -14,7 +17,18 @@ const { title, description = "Founder-engineers who help you build right, ship f
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://beemflow.com" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
