@@ -22,17 +22,18 @@
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 16px 24px;
+    padding: 20px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(14, 13, 11, var(--nav-bg-opacity));
+    background: rgba(248, 245, 240, var(--nav-bg-opacity));
     border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.4s ease;
   }
 
   .nav--blur {
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
   .nav--bordered {
@@ -41,9 +42,9 @@
 
   .nav__logo {
     font-family: var(--font-mono);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 15px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     color: var(--color-text);
   }
 
@@ -52,9 +53,7 @@
   }
 
   .nav__cta {
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 8px 20px;
+    font-size: 11px;
+    padding: 10px 24px;
   }
 </style>

@@ -6,7 +6,7 @@ interface Props {
 
 const {
   title,
-  description = "From fuzzy idea to investor-ready product, typically in 6-8 weeks. AI-accelerated product engineering from founder-engineers with 15+ products shipped, an exit, and our own AI coordination system."
+  description = "Ship a market-ready v1 with real users in 6-8 weeks, not quarters. AI-accelerated product engineering from founder-engineers with 15+ products shipped, an exit, and our own AI coordination system."
 } = Astro.props;
 ---
 
@@ -39,7 +39,7 @@ const {
       crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Outfit:wght@300..700&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -59,7 +59,7 @@ const {
             }
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
       );
 
       document.querySelectorAll('[data-fade]').forEach((el) => {

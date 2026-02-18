@@ -1,26 +1,28 @@
 <section class="hero">
-  <div class="hero__glow"></div>
   <div class="container">
     <div data-fade data-fade-delay="0.1">
+      <p class="hero__kicker label-mono">The Market&#8209;Ready V1 Sprint (6&#8209;8 Weeks)</p>
       <h1 class="hero__heading">
-        From fuzzy idea to investor&#8209;ready product.<br />
-        <span class="text-accent">Most builds land in 6&#8209;8&nbsp;weeks once scope is locked.</span>
+        Ship a market&#8209;ready v1 with real users.<br />
+        <span class="text-accent">6&#8209;8&nbsp;weeks, not quarters.</span>
       </h1>
     </div>
-    <div data-fade data-fade-delay="0.15">
+    <div data-fade data-fade-delay="0.2">
       <p class="hero__subheading">
-        We plug in as your de facto product &amp; engineering team
-        for the first phase. Two founder&#8209;engineers with an exit, 15+ products
-        shipped, and our own AI coordination system (BeemSpec) that lets us
-        ship real products in weeks, not quarters.
+        We plug in as your de facto product &amp; engineering team to take you
+        from fuzzy idea to a production&#8209;ready v1 with real users. Two
+        founder&#8209;engineers with an exit, 15+ products shipped, powered by
+        our BeemSpec AI coordination system so you can launch, learn, and
+        iterate on startup time, not enterprise time.
       </p>
       <p class="hero__avatar">
         For funded SaaS and AI&#8209;product founders (pre&#8209;seed to
-        Series&nbsp;A) who need a real v1, not just a prototype, and don't
-        have senior product + engineering in&#8209;house.
+        Series&nbsp;A) who've raised the round but don't yet have senior
+        product + engineering in&#8209;house, and need something real in
+        market that users can actually touch.
       </p>
     </div>
-    <div class="hero__actions" data-fade data-fade-delay="0.2">
+    <div class="hero__actions" data-fade data-fade-delay="0.3">
       <a href="#contact" class="btn-primary">Book a 30-minute fit call &rarr;</a>
       <a href="#work" class="hero__link">See how we build &darr;</a>
     </div>
@@ -33,33 +35,37 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 120px 24px 80px;
+    padding: 140px 32px 100px;
     position: relative;
   }
 
-  .hero__glow {
-    position: absolute;
-    top: 15%;
-    right: -20%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(ellipse, rgba(184, 168, 138, 0.06) 0%, transparent 70%);
-    pointer-events: none;
+  .hero__kicker {
+    margin-bottom: 20px;
+    color: var(--color-accent);
   }
 
   .hero__heading {
-    font-size: clamp(32px, 5.5vw, 56px);
-    font-weight: 700;
-    line-height: 1.1;
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6.5vw, 72px);
+    font-weight: 400;
+    line-height: 1.12;
     letter-spacing: -0.03em;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
+    max-width: 900px;
+  }
+
+  .hero__heading .text-accent {
+    font-style: italic;
+    display: block;
+    margin-top: 4px;
+    font-size: clamp(22px, 4vw, 46px);
   }
 
   .hero__subheading {
     font-size: 18px;
     line-height: 1.7;
     color: var(--color-text-muted);
-    max-width: 560px;
+    max-width: 620px;
     margin-bottom: 16px;
   }
 
@@ -68,28 +74,51 @@
     font-size: 13px;
     line-height: 1.6;
     letter-spacing: 0.01em;
-    color: var(--color-text-faint);
+    color: var(--color-text-dim);
     max-width: 520px;
-    margin-bottom: 40px;
+    margin-bottom: 48px;
   }
 
   .hero__actions {
     display: flex;
-    gap: 16px;
+    gap: 24px;
     flex-wrap: wrap;
     align-items: center;
   }
 
   .hero__link {
     font-family: var(--font-mono);
-    font-size: 13px;
-    letter-spacing: 0.03em;
-    color: var(--color-text-muted);
-    padding: 14px 0;
-    transition: color 0.2s ease;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    padding: 15px 0;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .hero__link::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-text);
+    transition: width 0.3s ease;
   }
 
   .hero__link:hover {
     color: var(--color-text);
+  }
+
+  .hero__link:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 120px 20px 80px;
+    }
   }
 </style>

@@ -1,28 +1,59 @@
+/* ═══════════════════════════════════════════
+   BeemFlow — Atelier Design System
+   Warm parchment + editorial serif + amber accent
+   ═══════════════════════════════════════════ */
+
 :root {
-  --color-bg: #0e0d0b;
-  --color-bg-elevated: #13120f;
-  --color-bg-subtle: rgba(255, 255, 255, 0.015);
-  --color-text: #e8e4de;
-  --color-text-muted: #9a9489;
-  --color-text-dim: #7a756d;
-  --color-text-faint: #5a564e;
-  --color-text-ghost: #3a3730;
-  --color-accent: #b8a88a;
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-subtle: rgba(255, 255, 255, 0.04);
-  --color-border-accent: rgba(184, 168, 138, 0.15);
-  --color-accent-soft: rgba(184, 168, 138, 0.1);
-  --color-accent-hover: rgba(184, 168, 138, 0.2);
-  --color-input-bg: rgba(255, 255, 255, 0.04);
-  --color-input-border: rgba(255, 255, 255, 0.08);
-  --color-input-focus: rgba(184, 168, 138, 0.3);
-  --font-sans: 'DM Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --max-width: 900px;
-  --max-width-narrow: 700px;
-  --max-width-form: 560px;
-  --section-padding: 120px 24px;
+  /* ── Palette ── */
+  --color-bg: #F8F5F0;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-subtle: rgba(26, 23, 20, 0.018);
+  --color-bg-invert: #1A1714;
+  --color-bg-invert-elevated: #252119;
+
+  --color-text: #1A1714;
+  --color-text-muted: #6B6560;
+  --color-text-dim: #9E9890;
+  --color-text-faint: #C4BFB8;
+  --color-text-ghost: #E0DBD4;
+
+  --color-text-on-dark: #EDE9E3;
+  --color-text-muted-on-dark: #9A948C;
+  --color-text-dim-on-dark: #6B655E;
+  --color-text-faint-on-dark: #4A4540;
+
+  --color-accent: #B45309;
+  --color-accent-soft: rgba(180, 83, 9, 0.06);
+  --color-accent-hover: rgba(180, 83, 9, 0.10);
+  --color-border-accent: rgba(180, 83, 9, 0.2);
+
+  --color-border: rgba(26, 23, 20, 0.10);
+  --color-border-subtle: rgba(26, 23, 20, 0.06);
+  --color-border-on-dark: rgba(255, 255, 255, 0.08);
+
+  --color-input-bg: rgba(26, 23, 20, 0.03);
+  --color-input-border: rgba(26, 23, 20, 0.12);
+  --color-input-focus: rgba(180, 83, 9, 0.3);
+
+  /* ── Typography ── */
+  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Menlo', monospace;
+
+  /* ── Layout ── */
+  --max-width: 960px;
+  --max-width-narrow: 720px;
+  --max-width-form: 600px;
+  --section-padding: 140px 32px;
 }
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 100px 20px;
+  }
+}
+
+/* ── Reset ── */
 
 *,
 *::before,
@@ -40,9 +71,28 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+::selection {
+  background: rgba(180, 83, 9, 0.14);
+  color: var(--color-text);
 }
 
 a {
@@ -55,11 +105,14 @@ img {
   display: block;
 }
 
-/* Fade-in animation */
+/* ── Fade-in animation ── */
+
 [data-fade] {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-fade].visible {
@@ -67,88 +120,101 @@ img {
   transform: translateY(0);
 }
 
-/* --- Typography utilities --- */
+/* ── Typography utilities ── */
 
-/* Mono uppercase label base */
 .label-mono {
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
-/* Small mono text (no transform) */
 .text-mono-sm {
   font-family: var(--font-mono);
   font-size: 12px;
 }
 
-/* Body text (15px) */
 .text-body {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
-/* Body text large (17px) */
 .text-body-lg {
   font-size: 17px;
   line-height: 1.8;
 }
 
-/* Small title (cards, items) */
 .text-title-sm {
-  font-size: 20px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
   letter-spacing: -0.02em;
 }
 
-/* Accent color */
 .text-accent {
   color: var(--color-accent);
 }
 
-/* --- Component utilities --- */
+/* ── Component utilities ── */
 
-/* Section label (accent-colored mono label with spacing) */
 .section-label {
   color: var(--color-accent);
   margin-bottom: 16px;
 }
 
-/* Section heading */
 .section-heading {
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 64px;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.5vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1.5px;
+  background: var(--color-accent);
+  margin-top: 20px;
 }
 
 .section-heading--compact {
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
-/* Primary CTA button */
+.section-heading--compact::after {
+  margin-top: 16px;
+}
+
+/* Primary CTA */
 .btn-primary {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.03em;
-  color: var(--color-bg);
-  background: var(--color-text);
-  padding: 14px 32px;
-  border-radius: 4px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: var(--color-accent);
+  padding: 15px 32px;
+  border-radius: 2px;
   border: none;
   cursor: pointer;
   font-weight: 500;
-  transition: background 0.2s ease;
+  transition: background 0.3s ease, transform 0.15s ease;
 }
 
 .btn-primary:hover {
-  background: var(--color-accent);
+  background: #92400E;
 }
 
-/* --- Layout utilities --- */
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* ── Layout utilities ── */
 
 .container {
   max-width: var(--max-width);
@@ -165,7 +231,6 @@ img {
   margin: 0 auto;
 }
 
-/* Section with default padding */
 .section {
   padding: var(--section-padding);
 }

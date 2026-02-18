@@ -36,6 +36,14 @@ import SectionHeader from './SectionHeader.astro';
       ))}
     </div>
 
+    <!-- Guarantee -->
+    <div class="how__guarantee" data-fade data-fade-delay="0.2">
+      <p class="how__guarantee-text">
+        If we miss the agreed launch milestone by more than 2 weeks for reasons
+        in our control, we work for free until we hit it.
+      </p>
+    </div>
+
     <!-- BeemSpec Callout — prominent section -->
     <div class="how__beemspec" data-fade data-fade-delay="0.25">
       <h3 class="how__beemspec-title">Why we ship faster: BeemSpec, our AI coordination system</h3>
@@ -82,35 +90,37 @@ import SectionHeader from './SectionHeader.astro';
 
 <style>
   .how {
-    background: var(--color-bg-subtle);
+    background: var(--color-bg-elevated);
   }
 
-  /* Three-Step Journey */
+  /* ── Three-Step Journey ── */
   .how__steps {
-    display: grid;
-    gap: 1px;
-    background: var(--color-border-subtle);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
   }
 
   .how__step {
-    background: var(--color-bg-elevated);
-    padding: 40px 36px;
+    padding: 48px 0;
     display: flex;
-    gap: 32px;
+    gap: 40px;
     align-items: flex-start;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .how__step:last-child {
+    border-bottom: 1px solid var(--color-border);
   }
 
   .how__step-number {
-    font-family: var(--font-mono);
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--color-accent);
-    line-height: 1;
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--color-text-faint);
+    line-height: 0.85;
     flex-shrink: 0;
-    opacity: 0.4;
+    min-width: 80px;
+    letter-spacing: -0.04em;
   }
 
   .how__step-content {
@@ -122,13 +132,14 @@ import SectionHeader from './SectionHeader.astro';
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
   .how__step-title {
-    font-size: 20px;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
     letter-spacing: -0.02em;
   }
 
@@ -145,33 +156,34 @@ import SectionHeader from './SectionHeader.astro';
   }
 
   .how__step-timeline {
-    color: var(--color-text-faint);
+    color: var(--color-text-dim);
     letter-spacing: 0.02em;
   }
 
   .how__step-subtitle {
     font-weight: 400;
     font-size: 16px;
-    color: var(--color-text-faint);
+    color: var(--color-text-dim);
+    font-family: var(--font-sans);
   }
 
   .how__step-desc {
-    color: var(--color-text-dim);
+    color: var(--color-text-muted);
     max-width: 640px;
   }
 
   .how__step-deliverables {
     list-style: none;
     padding: 0;
-    margin: 12px 0 0;
+    margin: 16px 0 0;
   }
 
   .how__step-deliverable {
-    color: var(--color-text-dim);
-    padding-left: 16px;
+    color: var(--color-text-muted);
+    padding-left: 20px;
     position: relative;
-    margin-bottom: 6px;
-    font-size: 14px;
+    margin-bottom: 8px;
+    font-size: 15px;
     line-height: 1.6;
   }
 
@@ -180,88 +192,64 @@ import SectionHeader from './SectionHeader.astro';
     position: absolute;
     left: 0;
     color: var(--color-accent);
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   .how__step-endstate {
-    color: var(--color-text-muted);
-    margin-top: 12px;
-    font-size: 14px;
+    color: var(--color-text);
+    margin-top: 16px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 1.6;
   }
 
-  /* Service Offerings Grid */
-  .how__services-label {
-    margin-bottom: 24px;
-  }
-
-  .how__services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 32px;
-    margin-bottom: 48px;
-  }
-
-  .how__service {
-    padding: 24px;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    transition: border-color 0.3s ease;
-  }
-
-  .how__service:hover {
-    border-color: var(--color-accent-hover);
-  }
-
-  .how__service-header {
+  /* ── Guarantee ── */
+  .how__guarantee {
+    margin-bottom: 80px;
+    padding: 28px 32px;
+    border: 1px solid var(--color-border-accent);
+    background: var(--color-accent-soft);
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 16px;
   }
 
-  .how__service-icon {
-    font-size: 20px;
-    line-height: 1;
+  .how__guarantee-text {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-text);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin: 0;
   }
 
-  .how__service-label {
+  .how__guarantee-text::before {
+    content: "Guarantee — ";
+    font-style: normal;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--color-accent);
-    opacity: 0.7;
-  }
-
-  .how__service-title {
-    font-size: 16px;
-    font-weight: 600;
+    display: block;
     margin-bottom: 8px;
-    letter-spacing: -0.01em;
-    color: var(--color-text);
   }
 
-  .how__service-desc {
-    color: var(--color-text-dim);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  /* BeemSpec Callout */
+  /* ── BeemSpec Callout ── */
   .how__beemspec {
-    margin-bottom: 64px;
-    padding: 36px;
-    border: 1px solid var(--color-border-accent);
-    border-radius: 8px;
-    background: var(--color-bg-elevated);
+    margin-bottom: 80px;
+    padding: 40px;
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-accent-soft);
   }
 
   .how__beemspec-title {
-    font-size: 18px;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
     letter-spacing: -0.01em;
     margin-bottom: 16px;
     color: var(--color-text);
@@ -274,7 +262,7 @@ import SectionHeader from './SectionHeader.astro';
   }
 
   .how__beemspec-text {
-    color: var(--color-text-dim);
+    color: var(--color-text-muted);
     margin-bottom: 12px;
   }
 
@@ -285,11 +273,11 @@ import SectionHeader from './SectionHeader.astro';
   }
 
   .how__beemspec-list li {
-    color: var(--color-text-dim);
-    padding-left: 16px;
+    color: var(--color-text-muted);
+    padding-left: 20px;
     position: relative;
-    margin-bottom: 6px;
-    font-size: 14px;
+    margin-bottom: 8px;
+    font-size: 15px;
     line-height: 1.6;
   }
 
@@ -298,7 +286,7 @@ import SectionHeader from './SectionHeader.astro';
     position: absolute;
     left: 0;
     color: var(--color-accent);
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   .how__beemspec-closer {
@@ -306,75 +294,79 @@ import SectionHeader from './SectionHeader.astro';
     font-style: italic;
   }
 
-  /* Equity Hybrid */
-  .how__equity {
-    padding: 32px 36px;
-    border: 1px solid var(--color-border-accent);
-    border-radius: 8px;
+  /* ── Service Offerings Grid ── */
+  .how__services-label {
+    margin-bottom: 24px;
   }
 
-  .how__equity-header {
+  .how__services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    margin-bottom: 48px;
+  }
+
+  .how__service {
+    padding: 32px;
+    background: var(--color-bg-elevated);
+    transition: background 0.3s ease;
+  }
+
+  .how__service:hover {
+    background: var(--color-accent-soft);
+  }
+
+  .how__service-header {
     display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
   }
 
-  .how__equity-label {
-    font-size: 13px;
+  .how__service-icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .how__service-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
     font-weight: 600;
-  }
-
-  .how__equity-qualifier {
-    color: var(--color-text-faint);
-    font-size: 12px;
-  }
-
-  .how__equity-text {
-    color: var(--color-text-dim);
-    line-height: 1.6;
-    margin-bottom: 8px;
-  }
-
-  .how__equity-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 16px;
-  }
-
-  .how__equity-list li {
-    color: var(--color-text-dim);
-    padding-left: 16px;
-    position: relative;
-    margin-bottom: 4px;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .how__equity-list li::before {
-    content: "\2013";
-    position: absolute;
-    left: 0;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--color-accent);
-    opacity: 0.5;
   }
 
-  .how__equity-closer {
-    color: var(--color-text-muted);
+  .how__service-title {
+    font-family: var(--font-display);
+    font-size: 18px;
     font-weight: 500;
-    font-style: italic;
-    margin-top: 8px;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
   }
 
-  @media (max-width: 600px) {
+  .how__service-desc {
+    color: var(--color-text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
     .how__step {
       flex-direction: column;
       gap: 16px;
+      padding: 36px 0;
     }
 
     .how__step-number {
-      font-size: 24px;
+      font-size: 48px;
+    }
+
+    .how__services {
+      grid-template-columns: 1fr;
     }
   }
 </style>
