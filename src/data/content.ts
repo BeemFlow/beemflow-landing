@@ -82,10 +82,9 @@ export const STEPS: Step[] = [
     timeline: "6\u20138 weeks",
     price: "From $40K",
     description:
-      "We take the Blueprint and ship a live, investor\u2011ready product.",
+      "We take the Blueprint and ship an investor\u2011ready product: live in production, demoable, with analytics wired and real users hitting it.",
     deliverables: [
-      "AI agents handle repetitive implementation",
-      "We own architecture, product decisions, and quality",
+      "We use AI coding agents for repetitive implementation while we own architecture, product decisions, and quality",
       "Weekly releases, real users, real data",
     ],
     endState:
@@ -117,14 +116,14 @@ export const SERVICES: Service[] = [
     label: "Core",
     title: "AI\u2011Accelerated Product Engineering",
     description:
-      "From fuzzy idea to live, investor\u2011ready product in ~8 weeks. One team that owns product, engineering, and security, powered by our BeemSpec coordination system.",
+      "From fuzzy idea to investor\u2011ready product, typically in 6\u20118 weeks once scope is locked. One team that owns product, engineering, and security, powered by our BeemSpec coordination system.",
   },
   {
     icon: "\u{1F512}",
     label: "Built\u2011in",
     title: "Security & Infrastructure",
     description:
-      "Pentesting mindset, applied cryptography, and infrastructure hardening baked into every build. We build it and we harden it.",
+      "Security\u2011minded architecture and hardening by default. Deeper pentesting and cryptographic design when the product warrants it.",
   },
   {
     icon: "\u26A1",
