@@ -1,0 +1,15 @@
+---
+interface Props {
+  label?: string;
+  compact?: boolean;
+}
+
+const { label, compact } = Astro.props;
+---
+
+<div data-fade>
+  {label && <p class="label-mono section-label">{label}</p>}
+  <h2 class:list={["section-heading", { "section-heading--compact": compact }]}>
+    <slot />
+  </h2>
+</div>

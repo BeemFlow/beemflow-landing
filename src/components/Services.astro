@@ -1,0 +1,101 @@
+---
+import { SERVICES } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+---
+
+<section class="section services">
+  <div class="container">
+    <SectionHeader label="What we do">Strategy to ship to scale</SectionHeader>
+    <div class="services__list">
+      {SERVICES.map((s, i) => (
+        <div class="services__item" data-fade data-fade-delay={String(i * 0.06)}>
+          <div class="services__header">
+            <h3 class="text-title-sm services__title">
+              {s.icon} <span>{s.title}</span>
+            </h3>
+            <span class="text-mono-sm services__timeline">{s.timeline}</span>
+          </div>
+          <p class="text-body services__desc">{s.description}</p>
+          {s.note && <p class="text-accent services__note">{s.note}</p>}
+        </div>
+      ))}
+    </div>
+    <div class="services__equity" data-fade data-fade-delay="0.3">
+      <span class="text-mono-sm text-accent services__equity-label">Equity Hybrid</span>
+      <span class="text-body services__equity-text">
+        Available on any engagement. We blend cash and equity on the right
+        projects because we want to be invested in your success, not just your
+        invoice.
+      </span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background: var(--color-bg-subtle);
+  }
+
+  .services__list {
+    display: grid;
+    gap: 1px;
+    background: var(--color-border-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .services__item {
+    background: var(--color-bg-elevated);
+    padding: 40px 36px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .services__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .services__title span {
+    margin-left: 8px;
+  }
+
+  .services__timeline {
+    color: var(--color-text-faint);
+    letter-spacing: 0.02em;
+  }
+
+  .services__desc {
+    color: var(--color-text-dim);
+    max-width: 640px;
+  }
+
+  .services__note {
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  .services__equity {
+    margin-top: 32px;
+    padding: 28px 36px;
+    border: 1px solid var(--color-border-accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .services__equity-label {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .services__equity-text {
+    color: var(--color-text-dim);
+    line-height: 1.6;
+  }
+</style>

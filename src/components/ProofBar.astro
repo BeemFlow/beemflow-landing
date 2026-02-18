@@ -1,0 +1,39 @@
+---
+import { PROOF_CLIENTS } from '../data/content';
+---
+
+<section class="proof" data-fade>
+  <div class="container proof__inner">
+    <span class="label-mono proof__label">Built for</span>
+    {PROOF_CLIENTS.map((name) => (
+      <span class="proof__client">{name}</span>
+    ))}
+  </div>
+</section>
+
+<style>
+  .proof {
+    border-top: 1px solid var(--color-border-subtle);
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding: 40px 24px;
+  }
+
+  .proof__inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .proof__label {
+    color: var(--color-text-faint);
+  }
+
+  .proof__client {
+    font-size: 14px;
+    color: var(--color-text-dim);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+</style>

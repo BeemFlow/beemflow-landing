@@ -1,0 +1,126 @@
+---
+import { CONTACT_FIELDS } from '../data/content';
+---
+
+<section class="contact" id="contact">
+  <div class="container--form">
+    <div data-fade>
+      <h2 class="contact__heading">Let's build something.</h2>
+      <p class="contact__subheading">
+        Tell us about your project. If it's a fit, we'll set up a 30-minute
+        call to dig in.
+      </p>
+    </div>
+    <div data-fade data-fade-delay="0.1">
+      <form class="contact__form">
+        {CONTACT_FIELDS.map((field) => (
+          <div class="contact__field">
+            <label class="label-mono contact__label" for={field.id}>{field.label}</label>
+            {field.type === 'textarea' ? (
+              <textarea
+                id={field.id}
+                name={field.id}
+                class="contact__input contact__textarea"
+                placeholder={field.placeholder}
+                rows="3"
+              />
+            ) : field.type === 'select' ? (
+              <select id={field.id} name={field.id} class="contact__input contact__select">
+                <option value="">Select stage...</option>
+                {field.options!.map((o) => (
+                  <option value={o}>{o}</option>
+                ))}
+              </select>
+            ) : (
+              <input
+                id={field.id}
+                name={field.id}
+                type={field.type}
+                class="contact__input"
+                placeholder={field.placeholder}
+              />
+            )}
+          </div>
+        ))}
+        <button type="submit" class="btn-primary contact__submit">
+          Send it &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: 120px 24px 80px;
+    background: var(--color-bg-subtle);
+  }
+
+  .contact__heading {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    margin-bottom: 16px;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .contact__subheading {
+    font-size: 16px;
+    color: var(--color-text-dim);
+    text-align: center;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .contact__form {
+    display: grid;
+    gap: 20px;
+  }
+
+  .contact__label {
+    display: block;
+    font-size: 11px;
+    color: var(--color-text-faint);
+    margin-bottom: 8px;
+  }
+
+  .contact__input {
+    width: 100%;
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-input-border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    color: var(--color-text);
+    font-size: 15px;
+    font-family: var(--font-sans);
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .contact__input:focus {
+    border-color: var(--color-input-focus);
+  }
+
+  .contact__input::placeholder {
+    color: var(--color-text-faint);
+  }
+
+  .contact__textarea {
+    resize: vertical;
+  }
+
+  .contact__select {
+    appearance: none;
+    color: var(--color-text-muted);
+  }
+
+  .contact__submit {
+    margin-top: 8px;
+    width: 100%;
+    font-size: 14px;
+    padding: 16px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import SectionHeader from './SectionHeader.astro';
+---
+
+<section class="section problem">
+  <div class="container--narrow">
+    <SectionHeader>
+      You have funding and a thesis.<br />
+      <span class="text-accent">Now what?</span>
+    </SectionHeader>
+    <div data-fade data-fade-delay="0.1">
+      <p class="text-body-lg problem__text">
+        You're not technical, and every engineer you talk to gives you a different
+        answer about what to build, how long it'll take, and what it should cost.
+        You can't evaluate their answers. You don't know which corners are safe to
+        cut and which ones will cost you six months later. The longer you spend
+        figuring this out, the more runway you burn and the wider your market
+        window opens for someone else.
+      </p>
+    </div>
+    <div data-fade data-fade-delay="0.12">
+      <p class="text-body-lg problem__text">
+        Maybe you've tried vibe coding a prototype yourself. It works until it
+        doesn't. No auth, no error handling, no infrastructure, no security. You
+        end up with a demo that can't become a product and a codebase that has to
+        be thrown away.
+      </p>
+    </div>
+    <div data-fade data-fade-delay="0.2">
+      <p class="text-body-lg problem__text">
+        You don't need a bigger team. You don't need another vendor who disappears
+        after launch. You need a team that's been on both sides of that table.
+        Who's been the CTO at an early-stage company, built products from scratch,
+        and knows exactly what it takes to get something real into the market.
+      </p>
+    </div>
+    <div data-fade data-fade-delay="0.25">
+      <p class="text-body-lg problem__closer">That's what we do.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem__text {
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+  }
+
+  .problem__closer {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+</style>

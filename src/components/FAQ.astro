@@ -1,0 +1,63 @@
+---
+import { FAQS } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+---
+
+<section class="section faq">
+  <div class="container--narrow">
+    <SectionHeader label="Questions" compact>Things founders ask</SectionHeader>
+    <div data-fade data-fade-delay="0.1">
+      {FAQS.map((faq) => (
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span>{faq.q}</span>
+            <span class="faq__icon">+</span>
+          </summary>
+          <p class="text-body faq__answer">{faq.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq__item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq__question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+    color: var(--color-text);
+    font-size: 16px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    list-style: none;
+  }
+
+  .faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq__icon {
+    font-size: 20px;
+    color: var(--color-accent);
+    margin-left: 16px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .faq__item[open] .faq__icon {
+    transform: rotate(45deg);
+  }
+
+  .faq__answer {
+    color: var(--color-text-muted);
+    padding-bottom: 20px;
+  }
+</style>

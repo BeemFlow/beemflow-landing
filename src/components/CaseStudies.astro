@@ -1,0 +1,85 @@
+---
+import { CASE_STUDIES } from '../data/content';
+import SectionHeader from './SectionHeader.astro';
+---
+
+<section class="section cases" id="work">
+  <div class="container">
+    <SectionHeader label="Track record">What we've built</SectionHeader>
+    <div class="cases__grid">
+      {CASE_STUDIES.map((c, i) => (
+        <div class="cases__card" data-fade data-fade-delay={String(i * 0.08)}>
+          <div class="cases__card-header">
+            <div>
+              <span class="label-mono cases__label">{c.label}</span>
+              <span class="text-title-sm cases__company">{c.company}</span>
+            </div>
+            <span class="text-mono-sm cases__role">{c.role}</span>
+          </div>
+          <div class="cases__body">
+            <p class="text-body cases__situation">{c.situation}</p>
+            <p class="text-body cases__action">{c.action}</p>
+            <p class="text-body text-accent cases__outcome">{c.outcome}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cases__grid {
+    display: grid;
+    gap: 40px;
+  }
+
+  .cases__card {
+    padding: 36px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+
+  .cases__card:hover {
+    border-color: var(--color-accent-hover);
+  }
+
+  .cases__card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cases__label {
+    font-size: 11px;
+    color: var(--color-accent);
+    background: var(--color-accent-soft);
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-right: 12px;
+  }
+
+  .cases__role {
+    color: var(--color-text-faint);
+  }
+
+  .cases__body {
+    display: grid;
+    gap: 12px;
+  }
+
+  .cases__situation {
+    color: var(--color-text-muted);
+  }
+
+  .cases__action {
+    color: var(--color-text-dim);
+  }
+
+  .cases__outcome {
+    font-weight: 500;
+  }
+</style>

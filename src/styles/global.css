@@ -1,0 +1,171 @@
+:root {
+  --color-bg: #0e0d0b;
+  --color-bg-elevated: #13120f;
+  --color-bg-subtle: rgba(255, 255, 255, 0.015);
+  --color-text: #e8e4de;
+  --color-text-muted: #9a9489;
+  --color-text-dim: #7a756d;
+  --color-text-faint: #5a564e;
+  --color-text-ghost: #3a3730;
+  --color-accent: #b8a88a;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-subtle: rgba(255, 255, 255, 0.04);
+  --color-border-accent: rgba(184, 168, 138, 0.15);
+  --color-accent-soft: rgba(184, 168, 138, 0.1);
+  --color-accent-hover: rgba(184, 168, 138, 0.2);
+  --color-input-bg: rgba(255, 255, 255, 0.04);
+  --color-input-border: rgba(255, 255, 255, 0.08);
+  --color-input-focus: rgba(184, 168, 138, 0.3);
+  --font-sans: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --max-width: 900px;
+  --max-width-narrow: 700px;
+  --max-width-form: 560px;
+  --section-padding: 120px 24px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Fade-in animation */
+[data-fade] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-fade].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Typography utilities --- */
+
+/* Mono uppercase label base */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Small mono text (no transform) */
+.text-mono-sm {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* Body text (15px) */
+.text-body {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Body text large (17px) */
+.text-body-lg {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Small title (cards, items) */
+.text-title-sm {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Accent color */
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* --- Component utilities --- */
+
+/* Section label (accent-colored mono label with spacing) */
+.section-label {
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+/* Section heading */
+.section-heading {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 64px;
+}
+
+.section-heading--compact {
+  margin-bottom: 48px;
+}
+
+/* Primary CTA button */
+.btn-primary {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--color-bg);
+  background: var(--color-text);
+  padding: 14px 32px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent);
+}
+
+/* --- Layout utilities --- */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.container--narrow {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+}
+
+.container--form {
+  max-width: var(--max-width-form);
+  margin: 0 auto;
+}
+
+/* Section with default padding */
+.section {
+  padding: var(--section-padding);
+}

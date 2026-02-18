@@ -1,0 +1,78 @@
+<section class="hero">
+  <div class="hero__glow"></div>
+  <div class="container">
+    <div data-fade data-fade-delay="0.1">
+      <h1 class="hero__heading">
+        The wrong hire costs six months.<br />
+        <span class="text-accent">The wrong agency costs more.</span>
+      </h1>
+    </div>
+    <div data-fade data-fade-delay="0.15">
+      <p class="hero__subheading">
+        We're founder-engineers with 20+ products shipped and an exit before 30.
+        We help you build right, ship fast, and scale without the wasted runway.
+      </p>
+    </div>
+    <div class="hero__actions" data-fade data-fade-delay="0.2">
+      <a href="#contact" class="btn-primary">Tell us about your project &rarr;</a>
+      <a href="#work" class="hero__link">See the work &darr;</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 24px 80px;
+    position: relative;
+  }
+
+  .hero__glow {
+    position: absolute;
+    top: 15%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(184, 168, 138, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero__heading {
+    font-size: clamp(32px, 5.5vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+
+  .hero__subheading {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    max-width: 560px;
+    margin-bottom: 40px;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero__link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted);
+    padding: 14px 0;
+    transition: color 0.2s ease;
+  }
+
+  .hero__link:hover {
+    color: var(--color-text);
+  }
+</style>

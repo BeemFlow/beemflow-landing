@@ -1,0 +1,60 @@
+<nav class="nav" id="main-nav">
+  <div class="nav__logo">aw<span class="nav__dot">.</span></div>
+  <a href="#contact" class="btn-primary nav__cta">Start a project</a>
+</nav>
+
+<script>
+  const nav = document.getElementById('main-nav')!;
+
+  window.addEventListener('scroll', () => {
+    const opacity = Math.min(window.scrollY / 200, 0.95);
+    nav.style.setProperty('--nav-bg-opacity', String(opacity));
+    nav.classList.toggle('nav--blur', opacity > 0.1);
+    nav.classList.toggle('nav--bordered', opacity > 0.3);
+  }, { passive: true });
+</script>
+
+<style>
+  .nav {
+    --nav-bg-opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(14, 13, 11, var(--nav-bg-opacity));
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  .nav--blur {
+    backdrop-filter: blur(20px);
+  }
+
+  .nav--bordered {
+    border-bottom-color: var(--color-border-subtle);
+  }
+
+  .nav__logo {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .nav__dot {
+    color: var(--color-accent);
+  }
+
+  .nav__cta {
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+  }
+</style>
