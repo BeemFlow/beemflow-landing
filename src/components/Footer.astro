@@ -1,6 +1,10 @@
+---
+import BrandMark from './BrandMark.astro';
+---
+
 <footer class="footer">
   <div class="footer__inner">
-    <p class="text-mono-sm footer__brand">beemflow<span class="footer__dot">.</span></p>
+    <p class="text-mono-sm footer__brand"><BrandMark /></p>
     <p class="text-mono-sm footer__text">&copy; 2026 AW Ops LLC</p>
   </div>
 </footer>
@@ -24,10 +28,6 @@
     color: var(--color-text-muted-on-dark);
     font-weight: 600;
     letter-spacing: -0.02em;
-  }
-
-  .footer__dot {
-    color: var(--color-accent);
   }
 
   .footer__text {

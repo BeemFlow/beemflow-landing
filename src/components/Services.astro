@@ -18,7 +18,7 @@ import SectionHeader from './SectionHeader.astro';
     <div class="how__steps">
       {STEPS.map((step, i) => (
         <div class="how__step" data-fade data-fade-delay={String(i * 0.08)}>
-          <div class="how__step-number">{step.number}</div>
+          <div class="how__step-number">{String(i + 1).padStart(2, '0')}</div>
           <div class="how__step-content">
             <div class="how__step-header">
               <h3 class="how__step-title">{step.title}{step.subtitle && <span class="how__step-subtitle"> ({step.subtitle})</span>}</h3>
@@ -29,9 +29,9 @@ import SectionHeader from './SectionHeader.astro';
             </div>
             <p class="text-body how__step-desc">{step.description}</p>
             {step.deliverables && (
-              <ul class="how__step-deliverables">
+              <ul class="how__step-deliverables list-dash">
                 {step.deliverables.map((d) => (
-                  <li class="text-body how__step-deliverable">{d}</li>
+                  <li class="text-body">{d}</li>
                 ))}
               </ul>
             )}
@@ -55,7 +55,7 @@ import SectionHeader from './SectionHeader.astro';
       <p class="text-body how__beemspec-text">
         BeemSpec is our AI&#8209;native planning and coordination layer:
       </p>
-      <ul class="how__beemspec-list">
+      <ul class="how__beemspec-list list-dash">
         <li class="text-body">Story maps become structured, executable specs</li>
         <li class="text-body">AI coding agents pull exactly the context they need, when they need it</li>
         <li class="text-body">No manual copy&#8209;paste between planning tools and implementation</li>
@@ -185,26 +185,14 @@ import SectionHeader from './SectionHeader.astro';
   }
 
   .how__step-deliverables {
-    list-style: none;
-    padding: 0;
     margin: 16px 0 0;
   }
 
-  .how__step-deliverable {
+  .how__step-deliverables li {
     color: var(--color-text-muted);
-    padding-left: 20px;
-    position: relative;
     margin-bottom: 8px;
     font-size: 15px;
     line-height: 1.6;
-  }
-
-  .how__step-deliverable::before {
-    content: "\2013";
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    opacity: 0.6;
   }
 
   .how__step-endstate {
@@ -270,26 +258,14 @@ import SectionHeader from './SectionHeader.astro';
   }
 
   .how__beemspec-list {
-    list-style: none;
-    padding: 0;
     margin: 0 0 16px;
   }
 
   .how__beemspec-list li {
     color: var(--color-text-muted);
-    padding-left: 20px;
-    position: relative;
     margin-bottom: 8px;
     font-size: 15px;
     line-height: 1.6;
-  }
-
-  .how__beemspec-list li::before {
-    content: "\2013";
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    opacity: 0.6;
   }
 
   .how__beemspec-closer {

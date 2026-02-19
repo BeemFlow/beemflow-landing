@@ -1,5 +1,9 @@
+---
+import BrandMark from './BrandMark.astro';
+---
+
 <nav class="nav" id="main-nav">
-  <div class="nav__logo">beemflow<span class="nav__dot">.</span></div>
+  <BrandMark class="nav__logo" />
   <a href="#contact" class="btn-primary nav__cta">Book a call</a>
 </nav>
 
@@ -23,10 +27,6 @@
     font-size: 15px;
     letter-spacing: -0.01em;
     color: var(--color-text);
-  }
-
-  .nav__dot {
-    color: var(--color-accent);
   }
 
   .nav__cta {

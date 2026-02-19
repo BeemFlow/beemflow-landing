@@ -1,7 +1,6 @@
 // --- Types ---
 
 export interface Step {
-  number: string;
   title: string;
   subtitle: string;
   timeline: string;
@@ -61,7 +60,6 @@ export const PROOF_STATS = [
 
 export const STEPS: Step[] = [
   {
-    number: "01",
     title: "Milestone Blueprint",
     subtitle: "Strategy Sprint",
     timeline: "1\u20132 weeks",
@@ -78,7 +76,6 @@ export const STEPS: Step[] = [
       "End state: a buildable v1 plan your board and engineers can\u2019t easily poke holes in. You can build with us or any team.",
   },
   {
-    number: "02",
     title: "Launch Build",
     subtitle: "",
     timeline: "6\u20138 weeks",
@@ -96,7 +93,6 @@ export const STEPS: Step[] = [
       "We agree on a v1 launch milestone upfront. If we miss it by more than 2 weeks for reasons in our control and within the agreed scope, we keep working at no extra cost until we hit it.",
   },
   {
-    number: "03",
     title: "Scale & Stewardship",
     subtitle: "Optional",
     timeline: "Ongoing",

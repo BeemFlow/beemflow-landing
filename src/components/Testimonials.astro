@@ -1,5 +1,9 @@
 ---
 import { TESTIMONIALS } from '../data/content';
+
+const publishedTestimonials = TESTIMONIALS.filter(
+  (testimonial) => !testimonial.quote.includes('[TODO')
+);
 ---
 
 <!--
@@ -10,11 +14,11 @@ import { TESTIMONIALS } from '../data/content';
   It's hidden if all quotes still contain [TODO].
 -->
 
-{TESTIMONIALS.some((t) => !t.quote.includes("[TODO")) && (
+{publishedTestimonials.length > 0 && (
   <section class="section testimonials">
     <div class="container--narrow">
       <div class="testimonials__grid">
-        {TESTIMONIALS.filter((t) => !t.quote.includes("[TODO")).map((t, i) => (
+        {publishedTestimonials.map((t, i) => (
           <blockquote class="testimonial" data-fade data-fade-delay={String(i * 0.1)}>
             <p class="testimonial__quote">&ldquo;{t.quote}&rdquo;</p>
             <footer class="testimonial__attribution">

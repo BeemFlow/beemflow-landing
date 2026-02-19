@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<span class:list={["brand-mark", className]}>
+  beemflow<span class="brand-mark__dot">.</span>
+</span>
+
+<style>
+  .brand-mark__dot {
+    color: var(--color-accent);
+  }
+</style>

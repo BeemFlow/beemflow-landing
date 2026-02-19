@@ -1,43 +1,34 @@
-# Astro Starter Kit: Minimal
+# BeemFlow Marketing Site
+
+Astro-based marketing site for BeemFlow.
+
+## Quick start
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Scripts
 
-## 🚀 Project Structure
+- `npm run dev` - Start local dev server.
+- `npm run build` - Build production assets in `dist/`.
+- `npm run preview` - Preview the production build locally.
+- `npm run astro` - Run Astro CLI commands.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+  components/   Reusable section and UI components
+  data/         Typed content objects used by sections
+  layouts/      Shared page layout and metadata
+  pages/        Route entry points
+  styles/       Global design tokens and utilities
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Editing guidelines
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Prefer updating copy in `src/data/content.ts` over hardcoding text in components.
+- Keep shared UI patterns in `src/styles/global.css` (tokens, utilities).
+- Use component-level styles for section-specific rules.

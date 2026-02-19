@@ -234,3 +234,21 @@ img {
 .section {
   padding: var(--section-padding);
 }
+
+.list-dash {
+  list-style: none;
+  padding: 0;
+}
+
+.list-dash > li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.list-dash > li::before {
+  content: "\2013";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  opacity: 0.6;
+}
