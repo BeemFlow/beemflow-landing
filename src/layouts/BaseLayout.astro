@@ -8,6 +8,23 @@ const {
   title,
   description = "Get a market-ready software v1 in 6-8 weeks, ready for your first real users. AI-accelerated product engineering from ex-CEO/CTO founder-engineers with 15+ products shipped, an exit, and our own AI coordination system."
 } = Astro.props;
+
+const siteUrl = 'https://beemflow.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = new URL('/og-image.svg', siteUrl).toString();
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'BeemFlow',
+  url: siteUrl,
+  logo: new URL('/favicon.svg', siteUrl).toString(),
+};
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'BeemFlow',
+  url: siteUrl,
+};
 ---
 
 <html lang="en">
@@ -17,17 +34,23 @@ const {
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#F8F5F0" />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://beemflow.com" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="BeemFlow" />
+    <meta property="og:image" content={ogImageUrl} />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <link
       rel="preconnect"
@@ -43,6 +66,8 @@ const {
       rel="stylesheet"
     />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
   </head>
   <body>
     <slot />
