@@ -29,12 +29,8 @@
     background: rgba(248, 245, 240, var(--nav-bg-opacity));
     border-bottom: 1px solid transparent;
     transition: border-color 0.4s ease;
-  }
-
-  @supports (-webkit-touch-callout: none) {
-    .nav {
-      position: sticky;
-    }
+    isolation: isolate;
+    transform: translateZ(0);
   }
 
   .nav--blur {
