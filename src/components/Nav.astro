@@ -7,7 +7,7 @@
   const nav = document.getElementById('main-nav')!;
 
   window.addEventListener('scroll', () => {
-    const opacity = Math.min(window.scrollY / 200, 0.95);
+    const opacity = Math.min(window.scrollY / 200, 1);
     nav.style.setProperty('--nav-bg-opacity', String(opacity));
     nav.classList.toggle('nav--blur', opacity > 0.1);
     nav.classList.toggle('nav--bordered', opacity > 0.3);
