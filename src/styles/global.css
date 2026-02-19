@@ -105,13 +105,6 @@ img {
   display: block;
 }
 
-/* ── Page content stacking ── */
-
-.page-content {
-  position: relative;
-  z-index: 1;
-}
-
 /* ── Fade-in animation ── */
 
 [data-fade] {
