@@ -132,14 +132,14 @@ export const SERVICES: Service[] = [
   },
   {
     icon: "\u26A1",
-    label: "Optimization",
+    label: "Automate",
     title: "Operations Automation",
     description:
       "Once the product works, we automate the work around it: reporting, alerts, back\u2011office workflows, and integrations between your tools. Often built on n8n and other open\u2011source tools where it makes sense, and paired with SaaS vendors when that\u2019s the better choice for reliability or speed.",
   },
   {
     icon: "\u{1F91D}",
-    label: "Expansion",
+    label: "Partnership",
     title: "Fractional CTO",
     description:
       "Ongoing technical strategy, architecture decisions, and engineering team building once you\u2019re past v1 and need a real engineering org, not just a contractor. We help you hire, onboard, and transition to an internal team while keeping the roadmap and architecture coherent.",
