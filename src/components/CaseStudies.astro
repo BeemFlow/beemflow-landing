@@ -1,34 +1,39 @@
 ---
 import { CASE_STUDIES } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
+import FadeIn from './FadeIn.astro';
 ---
 
-<section class="section cases" id="work">
+<section class="section cases" id="work" aria-label="Case studies">
   <div class="container">
     <SectionHeader label="Track record">What we've built</SectionHeader>
     <div class="cases__grid">
       {CASE_STUDIES.map((c, i) => (
-        <div class="cases__card" data-fade data-fade-delay={String(i * 0.08)}>
-          <div class="cases__card-header">
-            <h3 class="cases__headline">{c.headline}</h3>
-            <span class="text-mono-sm cases__role">{c.role}</span>
-          </div>
-          <p class="cases__result-summary">{c.resultSummary}</p>
-          <div class="cases__body">
-            <p class="text-body cases__situation">{c.situation}</p>
-            <p class="text-body cases__result">{c.result}</p>
-            <div class="cases__metrics">
-              {c.metrics.map((m) => (
-                <span class="cases__metric">{m}</span>
-              ))}
+        <FadeIn delay={i * 0.08}>
+          <div class="cases__card">
+            <div class="cases__card-header">
+              <h3 class="cases__headline">{c.headline}</h3>
+              <span class="text-mono-sm cases__role">{c.role}</span>
+            </div>
+            <p class="cases__result-summary">{c.resultSummary}</p>
+            <div class="cases__body">
+              <p class="text-body cases__situation">{c.situation}</p>
+              <p class="text-body cases__result">{c.result}</p>
+              <div class="cases__metrics">
+                {c.metrics.map((m) => (
+                  <span class="cases__metric">{m}</span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </FadeIn>
       ))}
     </div>
-    <div class="cases__cta" data-fade data-fade-delay="0.3">
-      <a href="#contact" class="btn-primary">See if your v1 fits our sprint model &rarr;</a>
-    </div>
+    <FadeIn delay={0.3}>
+      <div class="cases__cta">
+        <a href="#contact" class="btn-primary">See if your v1 fits our sprint model &rarr;</a>
+      </div>
+    </FadeIn>
   </div>
 </section>
 
@@ -41,7 +46,7 @@ import SectionHeader from './SectionHeader.astro';
   .cases__card {
     padding: 44px 0;
     border-top: 1px solid var(--color-border);
-    transition: background 0.3s ease;
+    transition: background var(--motion-hover) var(--ease-standard);
   }
 
   .cases__card:last-child {

@@ -1,13 +1,17 @@
-<section class="hero">
+---
+import FadeIn from './FadeIn.astro';
+---
+
+<section class="hero" aria-label="Introduction">
   <div class="container">
-    <div data-fade data-fade-delay="0.1">
+    <FadeIn delay={0.1}>
       <p class="hero__eyebrow label-mono">For funded software, SaaS &amp; AI founders (pre&#8209;seed to Series&nbsp;A)</p>
       <h1 class="hero__heading">
         Ship a production&#8209;ready v1.<br />
         <span class="text-accent">6&#8209;8&nbsp;weeks, not quarters.</span>
       </h1>
-    </div>
-    <div data-fade data-fade-delay="0.2">
+    </FadeIn>
+    <FadeIn delay={0.2}>
       <p class="hero__body">
         BeemFlow is a founder&#8209;led product studio. We plug in as your
         product, engineering, and design team to take you from fuzzy thesis
@@ -17,11 +21,13 @@
         analytics are ready for them.
       </p>
 
-    </div>
-    <div class="hero__actions" data-fade data-fade-delay="0.3">
-      <a href="#contact" class="btn-primary">Book a 30-minute fit call &rarr;</a>
-      <a href="#work" class="hero__link">See how we build &darr;</a>
-    </div>
+    </FadeIn>
+    <FadeIn delay={0.3}>
+      <div class="hero__actions">
+        <a href="#contact" class="btn-primary">Book a 30-minute fit call &rarr;</a>
+        <a href="#work" class="hero__link">See how we build &darr;</a>
+      </div>
+    </FadeIn>
   </div>
 </section>
 
@@ -79,7 +85,7 @@
     text-transform: uppercase;
     color: var(--color-text-dim);
     padding: 15px 0;
-    transition: color 0.3s ease;
+    transition: color var(--motion-hover) var(--ease-standard);
     position: relative;
   }
 
@@ -91,7 +97,7 @@
     width: 0;
     height: 1px;
     background: var(--color-text);
-    transition: width 0.3s ease;
+    transition: width var(--motion-hover) var(--ease-standard);
   }
 
   .hero__link:hover {

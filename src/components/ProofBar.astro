@@ -1,24 +1,27 @@
 ---
 import { PROOF_CLIENTS, PROOF_STATS } from '../data/content';
+import FadeIn from './FadeIn.astro';
 ---
 
-<section class="proof" data-fade>
-  <div class="container proof__inner">
-    <p class="proof__inline label-mono">
-      {PROOF_STATS.map((s, i) => (
-        <span>{s.num ? `${s.num} ` : ''}{s.label}{i < PROOF_STATS.length - 1 ? <span class="proof__sep"> &middot; </span> : ''}</span>
-      ))}
-    </p>
-    <p class="proof__protection label-mono">Milestone overrun protection included</p>
-    <div class="proof__divider"></div>
-    <div class="proof__clients">
-      <span class="label-mono proof__label">Built for</span>
-      {PROOF_CLIENTS.map((name) => (
-        <span class="proof__client">{name}</span>
-      ))}
+<FadeIn>
+  <section class="proof" aria-label="Credentials">
+    <div class="container proof__inner">
+      <p class="proof__inline label-mono">
+        {PROOF_STATS.map((s, i) => (
+          <span>{s.num ? `${s.num} ` : ''}{s.label}{i < PROOF_STATS.length - 1 ? <span class="proof__sep"> &middot; </span> : ''}</span>
+        ))}
+      </p>
+      <p class="proof__protection label-mono">Milestone overrun protection: if we miss your agreed v1 launch by &gt;2&nbsp;weeks for reasons in our control, we eat the&nbsp;overage.</p>
+      <div class="proof__divider"></div>
+      <div class="proof__clients">
+        <span class="label-mono proof__label">Built for</span>
+        {PROOF_CLIENTS.map((name) => (
+          <span class="proof__client">{name}</span>
+        ))}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</FadeIn>
 
 <style>
   .proof {

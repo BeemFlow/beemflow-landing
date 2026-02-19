@@ -1,4 +1,6 @@
 ---
+import FadeIn from './FadeIn.astro';
+
 interface Props {
   label?: string;
   compact?: boolean;
@@ -7,9 +9,9 @@ interface Props {
 const { label, compact } = Astro.props;
 ---
 
-<div data-fade>
+<FadeIn>
   {label && <p class="label-mono section-label">{label}</p>}
   <h2 class:list={["section-heading", { "section-heading--compact": compact }]}>
     <slot />
   </h2>
-</div>
+</FadeIn>

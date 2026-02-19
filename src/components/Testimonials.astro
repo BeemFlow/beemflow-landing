@@ -1,5 +1,6 @@
 ---
 import { TESTIMONIALS } from '../data/content';
+import FadeIn from './FadeIn.astro';
 
 const publishedTestimonials = TESTIMONIALS.filter(
   (testimonial) => !testimonial.quote.includes('[TODO')
@@ -19,13 +20,15 @@ const publishedTestimonials = TESTIMONIALS.filter(
     <div class="container--narrow">
       <div class="testimonials__grid">
         {publishedTestimonials.map((t, i) => (
-          <blockquote class="testimonial" data-fade data-fade-delay={String(i * 0.1)}>
-            <p class="testimonial__quote">&ldquo;{t.quote}&rdquo;</p>
-            <footer class="testimonial__attribution">
-              <span class="testimonial__name">{t.name}</span>
-              <span class="testimonial__role">{t.role}, {t.company}</span>
-            </footer>
-          </blockquote>
+          <FadeIn delay={i * 0.1}>
+            <blockquote class="testimonial">
+              <p class="testimonial__quote">&ldquo;{t.quote}&rdquo;</p>
+              <footer class="testimonial__attribution">
+                <span class="testimonial__name">{t.name}</span>
+                <span class="testimonial__role">{t.role}, {t.company}</span>
+              </footer>
+            </blockquote>
+          </FadeIn>
         ))}
       </div>
     </div>

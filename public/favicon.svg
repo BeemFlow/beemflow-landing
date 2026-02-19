@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
   <rect width="32" height="32" rx="6" fill="#0e0d0b"/>
-  <text x="5" y="23" font-family="monospace" font-weight="700" font-size="20" fill="#e8e4de">b</text>
-  <text x="16" y="23" font-family="monospace" font-weight="700" font-size="20" fill="#b8a88a">f</text>
+  <!-- "b" glyph as path -->
+  <path d="M7 6h2.4v7.2h.1c.6-1 1.8-1.6 3.1-1.6 2.8 0 4.4 2.2 4.4 5.2s-1.6 5.2-4.4 5.2c-1.3 0-2.5-.6-3.1-1.6h-.1V22H7V6Zm5 14.6c1.8 0 2.8-1.4 2.8-3.8S13.8 13 12 13c-1.8 0-2.8 1.4-2.8 3.8s1 3.8 2.8 3.8Z" fill="#e8e4de"/>
+  <!-- "f" glyph as path -->
+  <path d="M19.6 12.8c0-2.8 1.2-4.8 3.8-4.8 1.2 0 2 .4 2.4.8l-.8 1.8c-.3-.3-.8-.4-1.2-.4-1.2 0-1.6.8-1.6 2.4v.8H24v2h-1.8V22h-2.4v-6.6h-1.4v-2h1.2v-.6Z" fill="#b8a88a"/>
 </svg>

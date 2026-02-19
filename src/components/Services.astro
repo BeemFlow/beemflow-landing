@@ -1,91 +1,103 @@
 ---
 import { STEPS, SERVICES } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
+import FadeIn from './FadeIn.astro';
 ---
 
-<section class="section how">
+<section class="section how" aria-label="How we work">
   <div class="container">
     <SectionHeader label="How we work">Blueprint. Build. Launch.</SectionHeader>
 
-    <p class="how__squad text-body" data-fade data-fade-delay="0.05">
-      For each build, we assemble a small senior squad: both founders, a product
-      designer we trust, and (when needed) infra / security specialists we've
-      worked with before. You don't get handed to layers of juniors. We stay
-      your single point of accountability.
-    </p>
+    <FadeIn delay={0.05}>
+      <p class="how__squad text-body">
+        For each build, we assemble a small senior squad: both founders, a product
+        designer we trust, and (when needed) infra / security specialists we've
+        worked with before. You don't get handed to layers of juniors. We stay
+        your single point of accountability.
+      </p>
+    </FadeIn>
 
     <!-- Three-Step Journey -->
     <div class="how__steps">
       {STEPS.map((step, i) => (
-        <div class="how__step" data-fade data-fade-delay={String(i * 0.08)}>
-          <div class="how__step-number">{String(i + 1).padStart(2, '0')}</div>
-          <div class="how__step-content">
-            <div class="how__step-header">
-              <h3 class="how__step-title">{step.title}{step.subtitle && <span class="how__step-subtitle"> ({step.subtitle})</span>}</h3>
-              <div class="how__step-meta">
-                <span class="text-mono-sm how__step-price">{step.price}</span>
-                <span class="text-mono-sm how__step-timeline">{step.timeline}</span>
+        <FadeIn delay={i * 0.08}>
+          <div class="how__step">
+            <div class="how__step-number">{String(i + 1).padStart(2, '0')}</div>
+            <div class="how__step-content">
+              <div class="how__step-header">
+                <h3 class="how__step-title">{step.title}{step.subtitle && <span class="how__step-subtitle"> ({step.subtitle})</span>}</h3>
+                <div class="how__step-meta">
+                  <span class="text-mono-sm how__step-price">{step.price}</span>
+                  <span class="text-mono-sm how__step-timeline">{step.timeline}</span>
+                </div>
               </div>
+              <p class="text-body how__step-desc">{step.description}</p>
+              {step.deliverables && (
+                <ul class="how__step-deliverables list-dash">
+                  {step.deliverables.map((d) => (
+                    <li class="text-body">{d}</li>
+                  ))}
+                </ul>
+              )}
+              {step.endState && (
+                <p class="text-body how__step-endstate">{step.endState}</p>
+              )}
+              {step.guarantee && (
+                <p class="how__step-guarantee">{step.guarantee}</p>
+              )}
             </div>
-            <p class="text-body how__step-desc">{step.description}</p>
-            {step.deliverables && (
-              <ul class="how__step-deliverables list-dash">
-                {step.deliverables.map((d) => (
-                  <li class="text-body">{d}</li>
-                ))}
-              </ul>
-            )}
-            {step.endState && (
-              <p class="text-body how__step-endstate">{step.endState}</p>
-            )}
-            {step.guarantee && (
-              <p class="how__step-guarantee">{step.guarantee}</p>
-            )}
           </div>
-        </div>
+        </FadeIn>
       ))}
     </div>
 
     <!-- BeemSpec Callout -->
-    <div class="how__beemspec" data-fade data-fade-delay="0.25">
-      <h3 class="how__beemspec-title">Why we ship faster: BeemSpec, our AI coordination system</h3>
-      <p class="text-body how__beemspec-intro">
-        Most teams bolt AI onto a traditional process. We rebuilt the process around AI from day one.
-      </p>
-      <p class="text-body how__beemspec-text">
-        BeemSpec is our AI&#8209;native planning and coordination layer:
-      </p>
-      <ul class="how__beemspec-list list-dash">
-        <li class="text-body">Story maps become structured, executable specs</li>
-        <li class="text-body">AI coding agents pull exactly the context they need, when they need it</li>
-        <li class="text-body">No manual copy&#8209;paste between planning tools and implementation</li>
-      </ul>
-      <p class="text-body how__beemspec-closer">
-        We don't sell BeemSpec to you as a separate product (yet). We use it on every
-        engagement so two founder&#8209;engineers can reliably deliver like a much larger team.
-      </p>
-    </div>
+    <FadeIn delay={0.25}>
+      <div class="how__beemspec">
+        <h3 class="how__beemspec-title">Why we ship faster: BeemSpec, our AI coordination system</h3>
+        <p class="text-body how__beemspec-intro">
+          Most teams bolt AI onto a traditional process. We rebuilt the process around AI from day one.
+        </p>
+        <p class="text-body how__beemspec-text">
+          BeemSpec is our AI&#8209;native planning and coordination layer:
+        </p>
+        <ul class="how__beemspec-list list-dash">
+          <li class="text-body">Story maps become structured, executable specs</li>
+          <li class="text-body">AI coding agents pull exactly the context they need, when they need it</li>
+          <li class="text-body">No manual copy&#8209;paste between planning tools and implementation</li>
+        </ul>
+        <p class="text-body how__beemspec-intro">
+          BeemSpec is how we get the speed of agents without the slop, security risk, or&nbsp;rewrites.
+        </p>
+        <p class="text-body how__beemspec-closer">
+          We don't sell BeemSpec to you as a separate product (yet). We use it on every
+          engagement so two founder&#8209;engineers can reliably deliver like a much larger team.
+        </p>
+      </div>
+    </FadeIn>
 
     <!-- Service Offerings -->
-    <div class="how__services-label" data-fade data-fade-delay="0.3">
-      <p class="label-mono text-accent">What we offer</p>
-    </div>
-    <div class="how__services">
-      {SERVICES.map((s, i) => (
-        <div class="how__service" data-fade data-fade-delay={String(0.28 + i * 0.06)}>
-          <div class="how__service-header">
-            <span class="how__service-icon">{s.icon}</span>
-            <span class="how__service-label">{s.label}</span>
+    <FadeIn delay={0.3}>
+      <div class="how__services-label">
+        <p class="label-mono text-accent">What we offer</p>
+      </div>
+      <div class="how__services">
+        {SERVICES.map((s) => (
+          <div class="how__service">
+            <div class="how__service-header">
+              <span class="how__service-icon" aria-hidden="true">{s.icon}</span>
+              <span class="how__service-label">{s.label}</span>
+            </div>
+            <h4 class="how__service-title">{s.title}</h4>
+            <p class="text-body how__service-desc">{s.description}</p>
           </div>
-          <h4 class="how__service-title">{s.title}</h4>
-          <p class="text-body how__service-desc">{s.description}</p>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
 
-    <div class="how__cta" data-fade data-fade-delay="0.35">
-      <a href="#contact" class="btn-primary">Book a 30-minute fit call &rarr;</a>
-    </div>
+      <div class="how__cta">
+        <a href="#contact" class="btn-primary">Book a 30-minute fit call &rarr;</a>
+      </div>
+    </FadeIn>
 
     <!-- Equity hybrid removed from public site.
          Internal lever only: propose 2-5% equity on top of normal fees
@@ -290,7 +302,7 @@ import SectionHeader from './SectionHeader.astro';
   .how__service {
     padding: 32px;
     background: var(--color-bg-elevated);
-    transition: background 0.3s ease;
+    transition: background var(--motion-hover) var(--ease-standard);
   }
 
   .how__service:hover {

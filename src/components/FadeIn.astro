@@ -1,0 +1,18 @@
+---
+interface Props {
+  delay?: number | string;
+}
+
+const { delay = 0 } = Astro.props;
+
+const delayValue =
+  typeof delay === 'number'
+    ? `${delay}s`
+    : /(ms|s)$/.test(delay.trim())
+      ? delay.trim()
+      : `${delay.trim()}s`;
+---
+
+<div class="fade-in" style={`--fade-delay: ${delayValue};`}>
+  <slot />
+</div>

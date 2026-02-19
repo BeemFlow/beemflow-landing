@@ -51,6 +51,9 @@ const websiteSchema = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
 
     <link
       rel="preconnect"
@@ -70,26 +73,31 @@ const websiteSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <slot />
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const el = entry.target as HTMLElement;
-              const delay = el.dataset.fadeDelay || '0';
-              el.style.transitionDelay = `${delay}s`;
-              el.classList.add('visible');
-              observer.unobserve(el);
-            }
-          });
-        },
-        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
-      );
+      const targets = document.querySelectorAll<HTMLElement>('.fade-in');
 
-      document.querySelectorAll('[data-fade]').forEach((el) => {
-        observer.observe(el);
-      });
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach((el) => el.classList.add('visible'));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target as HTMLElement;
+                el.classList.add('visible');
+                observer.unobserve(el);
+              }
+            });
+          },
+          { threshold: 0.01, rootMargin: '0px 0px -20px 0px' }
+        );
+
+        targets.forEach((el) => {
+          observer.observe(el);
+        });
+      }
     </script>
   </body>
 </html>

@@ -81,7 +81,7 @@ export const STEPS: Step[] = [
     timeline: "6\u20138 weeks",
     price: "From $40K",
     description:
-      "We take the Blueprint and ship a market\u2011ready v1 to production: live, demoable, and ready to onboard your first real users.",
+      "We take the Blueprint and ship a market\u2011ready v1 to production: live, demoable, and ready to onboard.",
     deliverables: [
       "AI coding agents for repetitive implementation while we own architecture, product decisions, and quality",
       "Weekly releases so you can see real progress and click through the product early",
@@ -90,7 +90,7 @@ export const STEPS: Step[] = [
     endState:
       "End state: deployed product, on your infrastructure, with analytics wired, a coherent on\u2011brand UI, a polished demo script, and a short technical appendix for your next investor update.",
     guarantee:
-      "We agree on a v1 launch milestone upfront. If we miss it by more than 2 weeks for reasons in our control and within the agreed scope, we keep working at no extra cost until we hit it.",
+      "If we miss your agreed v1 launch by more than 2 weeks for reasons in our control, we eat the overage.",
   },
   {
     title: "Scale & Stewardship",
@@ -105,7 +105,7 @@ export const STEPS: Step[] = [
       "Transition cleanly to an internal team, or keep us on as fractional product & engineering leadership",
     ],
     endState:
-      "You keep everything: code, infra, automations, documentation.",
+      "You keep everything: code, infra, automations, documentation. No black boxes.",
   },
 ];
 
@@ -252,7 +252,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "What happens if things take longer than expected?",
-    a: "Before we start, we agree on v1 scope and a launch milestone. If we miss that milestone by more than 2 weeks for reasons in our control and within the agreed scope, we keep working at no extra cost until we hit it. If you decide to expand scope mid\u2011sprint (it happens!), we\u2019ll either move those items to a follow\u2011up sprint or revise the budget and timeline together so there are no surprises.",
+    a: "Before we start, we agree on v1 scope and a launch milestone. If we miss that milestone by more than 2 weeks for reasons in our control, we eat the overage. If you decide to expand scope mid\u2011sprint (it happens!), we\u2019ll either move those items to a follow\u2011up sprint or revise the budget and timeline together so there are no surprises.",
   },
   // Equity FAQ removed from public site. Keep as internal lever only.
 ];

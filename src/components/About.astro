@@ -1,17 +1,18 @@
 ---
 import { CREDENTIALS } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
+import FadeIn from './FadeIn.astro';
 ---
 
-<section class="section about">
+<section class="section about" aria-label="About us">
   <div class="container--narrow">
     <SectionHeader label="Who we are" compact>
       Alec Wantoch &amp; Zach Pelkey
     </SectionHeader>
-    <div data-fade data-fade-delay="0.05">
+    <FadeIn delay={0.05}>
       <p class="text-mono-sm about__subtitle">Founder&#8209;Led Product Studio</p>
-    </div>
-    <div data-fade data-fade-delay="0.1">
+    </FadeIn>
+    <FadeIn delay={0.1}>
       <p class="text-body-lg about__text about__text--strong">
         BeemFlow is a founder&#8209;led product studio. Every engagement is led
         by Alec and Zach, two founder&#8209;engineers with an exit, plus a small
@@ -27,29 +28,31 @@ import SectionHeader from './SectionHeader.astro';
         security engineering: pentesting, applied cryptography, and infrastructure
         hardening.
       </p>
-    </div>
-    <div data-fade data-fade-delay="0.15">
+    </FadeIn>
+    <FadeIn delay={0.15}>
       <p class="text-body-lg about__text">
         Now we run BeemFlow and build every client product using BeemSpec, our
         AI&#8209;native coordination system. That's how a small, senior team
         consistently ships like a much larger one.
       </p>
-    </div>
-    <div class="about__credentials" data-fade data-fade-delay="0.2">
-      {CREDENTIALS.map((cred) =>
-        cred.href ? (
-          <a class="about__credential about__credential--link" href={cred.href} target="_blank" rel="noopener noreferrer">{cred.label}</a>
-        ) : (
-          <span class="about__credential">{cred.label}</span>
-        )
-      )}
-    </div>
-    <div data-fade data-fade-delay="0.25">
+    </FadeIn>
+    <FadeIn delay={0.2}>
+      <div class="about__credentials">
+        {CREDENTIALS.map((cred) =>
+          cred.href ? (
+            <a class="about__credential about__credential--link" href={cred.href} target="_blank" rel="noopener noreferrer">{cred.label}</a>
+          ) : (
+            <span class="about__credential">{cred.label}</span>
+          )
+        )}
+      </div>
+    </FadeIn>
+    <FadeIn delay={0.25}>
       <p class="text-body-lg about__closer">
         We care about building the right thing, then building it fast.
         And helping founders avoid the expensive mistakes we already paid for.
       </p>
-    </div>
+    </FadeIn>
   </div>
 </section>
 
@@ -92,7 +95,9 @@ import SectionHeader from './SectionHeader.astro';
   }
 
   .about__credential--link {
-    transition: border-color 0.2s ease, color 0.2s ease;
+    transition:
+      border-color var(--motion-hover) var(--ease-standard),
+      color var(--motion-hover) var(--ease-standard);
   }
 
   .about__credential--link:hover {

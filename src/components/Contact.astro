@@ -1,16 +1,28 @@
-<section class="contact" id="contact">
+---
+import FadeIn from './FadeIn.astro';
+---
+
+<section class="contact" id="contact" aria-label="Contact">
   <div class="container--narrow">
-    <div data-fade>
+    <FadeIn>
       <h2 class="contact__heading">Tell us what you're building.</h2>
       <p class="contact__subheading">
         Book a 30-minute call. If there's a fit, we'll map your product
         and show you how fast we can ship it.
       </p>
       <p class="contact__capacity">We take on 2&ndash;3 engagements at a time so every client gets founder-level attention.</p>
-    </div>
-    <div class="contact__embed" data-fade data-fade-delay="0.1">
-      <div id="cal-embed"></div>
-    </div>
+    </FadeIn>
+    <FadeIn delay={0.1}>
+      <div class="contact__embed">
+        <div id="cal-embed" role="region" aria-label="Schedule a call"></div>
+        <noscript>
+          <p class="contact__fallback">
+            JavaScript is required for the embedded scheduler. You can still
+            <a href="https://cal.com/alecw" target="_blank" rel="noopener noreferrer">book directly on Cal.com</a>.
+          </p>
+        </noscript>
+      </div>
+    </FadeIn>
   </div>
 </section>
 
@@ -93,6 +105,18 @@
     min-height: 400px;
     border-radius: 4px;
     overflow: hidden;
+  }
+
+  .contact__fallback {
+    margin-top: 12px;
+    color: var(--color-text-muted-on-dark);
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .contact__fallback a {
+    color: var(--color-accent);
+    text-decoration: underline;
   }
 
   @media (max-width: 768px) {

@@ -1,12 +1,13 @@
 ---
 import { FAQS } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
+import FadeIn from './FadeIn.astro';
 ---
 
-<section class="section faq">
+<section class="section faq" aria-label="Frequently asked questions">
   <div class="container--narrow">
     <SectionHeader label="Questions" compact>Things founders ask</SectionHeader>
-    <div data-fade data-fade-delay="0.1">
+    <FadeIn delay={0.1}>
       {FAQS.map((faq) => (
         <details class="faq__item">
           <summary class="faq__question">
@@ -16,7 +17,7 @@ import SectionHeader from './SectionHeader.astro';
           <p class="text-body faq__answer">{faq.a}</p>
         </details>
       ))}
-    </div>
+    </FadeIn>
   </div>
 </section>
 
@@ -42,7 +43,7 @@ import SectionHeader from './SectionHeader.astro';
     font-weight: 400;
     letter-spacing: -0.01em;
     list-style: none;
-    transition: color 0.2s ease;
+    transition: color var(--motion-hover) var(--ease-standard);
   }
 
   .faq__question:hover {
@@ -58,7 +59,7 @@ import SectionHeader from './SectionHeader.astro';
     color: var(--color-accent);
     margin-left: 16px;
     flex-shrink: 0;
-    transition: transform 0.3s ease;
+    transition: transform var(--motion-hover) var(--ease-standard);
     font-family: var(--font-mono);
     font-weight: 400;
   }

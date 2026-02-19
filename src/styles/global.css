@@ -13,13 +13,13 @@
 
   --color-text: #1A1714;
   --color-text-muted: #6B6560;
-  --color-text-dim: #9E9890;
-  --color-text-faint: #C4BFB8;
+  --color-text-dim: #8A847D;
+  --color-text-faint: #A8A29C;
   --color-text-ghost: #E0DBD4;
 
   --color-text-on-dark: #EDE9E3;
-  --color-text-muted-on-dark: #9A948C;
-  --color-text-dim-on-dark: #6B655E;
+  --color-text-muted-on-dark: #A8A29A;
+  --color-text-dim-on-dark: #7A746C;
   --color-text-faint-on-dark: #4A4540;
 
   --color-accent: #B45309;
@@ -45,6 +45,13 @@
   --max-width-narrow: 650px;
   --max-width-form: 600px;
   --section-padding: 140px 32px;
+
+  /* ── Motion ── */
+  --motion-fade: 0.8s;
+  --motion-hover: 120ms;
+  --motion-press: 120ms;
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: ease-out;
 }
 
 @media (max-width: 768px) {
@@ -105,19 +112,64 @@ img {
   display: block;
 }
 
+/* ── Skip link ── */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 10001;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 10px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ── Focus styles ── */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 /* ── Fade-in animation ── */
 
-[data-fade] {
+.fade-in {
+  opacity: 1;
+  transform: none;
+}
+
+.js .fade-in {
   opacity: 0;
   transform: translateY(20px);
   transition:
-    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity var(--motion-fade) var(--ease-emphasized) var(--fade-delay, 0s),
+    transform var(--motion-fade) var(--ease-emphasized) var(--fade-delay, 0s);
 }
 
-[data-fade].visible {
+.js .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* ── Typography utilities ── */
@@ -203,7 +255,9 @@ img {
   border: none;
   cursor: pointer;
   font-weight: 500;
-  transition: background 0.3s ease, transform 0.15s ease;
+  transition:
+    background var(--motion-hover) var(--ease-standard),
+    transform var(--motion-press) var(--ease-standard);
 }
 
 .btn-primary:hover {
