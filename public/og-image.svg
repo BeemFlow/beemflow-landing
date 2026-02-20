@@ -1,6 +1,6 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">BeemFlow</title>
-  <desc id="desc">Founder-led product studio shipping production-ready v1s in 6-8 weeks.</desc>
+  <desc id="desc">Founder-led product studio shipping market-ready v1s in 6-8 weeks.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#F8F5F0" />
@@ -16,7 +16,7 @@
   </text>
 
   <!-- Headline -->
-  <text x="90" y="240" fill="#1A1714" font-size="72" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" letter-spacing="-2">Ship a production-ready v1.</text>
+  <text x="90" y="240" fill="#1A1714" font-size="72" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" letter-spacing="-2">Ship a market-ready v1.</text>
   <text x="90" y="310" font-size="40" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" font-style="italic" letter-spacing="-1">
     <tspan fill="#B45309">6-8 </tspan><tspan fill="#8A847D" text-decoration="line-through">months</tspan><tspan fill="#B45309"> weeks.</tspan>
   </text>
