@@ -16,12 +16,11 @@ import FadeIn from './FadeIn.astro';
           You've raised or set aside capital. You know the problem you want to solve.
           But there's no senior product, engineering, or design leadership in&#8209;house.
         </p>
-        <p class="text-body-lg problem__text">
-          Every agency and freelancer gives you a different story on scope, timeline,
-          and cost. You can't tell who's right. Meanwhile, with no product you have
-          no traction, no real user data, and nothing new to show your board except
-          another deck.
-        </p>
+        <ul class="problem__list list-dash">
+          <li class="text-body-lg">Every agency and freelancer gives you a different story on scope, timeline, and cost</li>
+          <li class="text-body-lg">You can't tell who's right</li>
+          <li class="text-body-lg">No traction, no real user data, and nothing new to show your board except another&nbsp;deck</li>
+        </ul>
       </div>
     </FadeIn>
 
@@ -46,14 +45,14 @@ import FadeIn from './FadeIn.astro';
 
     <FadeIn delay={0.2}>
       <p class="text-body-lg problem__closer">
-        You don't get an account manager and a room of juniors. You get two
-        founder&#8209;level engineers leading your build, plus a small senior bench
-        of design and infrastructure specialists behind them.
-        <br/><br/>
-        We cap ourselves at 2&#8209;3 concurrent builds so we don't dilute attention. When scope
-        demands it, we scale the squad with our trusted design, infra, and
-        security partners instead of scrambling for random contractors.
+        You don't get an account manager and a room of juniors.
       </p>
+      <ul class="problem__list list-dash">
+        <li class="text-body-lg">Two founder&#8209;level engineers leading your build</li>
+        <li class="text-body-lg">A small senior bench of design and infrastructure specialists behind them</li>
+        <li class="text-body-lg">Capped at 2&#8209;3 concurrent builds so we don't dilute attention</li>
+        <li class="text-body-lg">When scope demands it, we scale with trusted partners instead of random contractors</li>
+      </ul>
     </FadeIn>
   </div>
 </section>
@@ -87,8 +86,13 @@ import FadeIn from './FadeIn.astro';
     color: var(--color-text);
   }
 
+  .problem__list {
+    margin-bottom: var(--space-md);
+  }
+
   .problem__closer {
     color: var(--color-text);
     font-weight: 500;
+    margin-bottom: var(--space-sm);
   }
 </style>

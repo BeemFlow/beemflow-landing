@@ -10,16 +10,15 @@ import FadeIn from './FadeIn.astro';
         Book a 30-minute call. If there's a fit, we'll map your product
         and show you how fast we can ship it.
       </p>
-      <p class="contact__capacity">We take on 2&ndash;3 engagements at a time so every client gets founder-level attention.</p>
+      <p class="contact__capacity">We take on 2&ndash;3 engagements at a time. If we're full, we'll schedule the next&nbsp;sprint.</p>
     </FadeIn>
+  </div>
+  <div class="contact__embed-wrapper">
     <FadeIn delay={0.1}>
       <div class="contact__embed">
         <div id="cal-embed" role="region" aria-label="Schedule a call"></div>
         <noscript>
-          <p class="contact__fallback">
-            JavaScript is required for the embedded scheduler. You can still
-            <a href="https://cal.com/alecw" target="_blank" rel="noopener noreferrer">book directly on Cal.com</a>.
-          </p>
+          <a href="mailto:alec@beemflow.com?subject=BeemFlow%20%E2%80%93%20Fit%20Call&body=Hey%20Alec%2C%0A%0AI%27m%20interested%20in%20a%2030-minute%20fit%20call.%20Here%27s%20a%20quick%20summary%20of%20what%20I%27m%20building%3A%0A%0A" class="btn-primary contact__fallback-btn">Email us to book a call &rarr;</a>
         </noscript>
       </div>
     </FadeIn>
@@ -53,7 +52,7 @@ import FadeIn from './FadeIn.astro';
   (window as any).Cal("init", { origin: "https://cal.com" });
   (window as any).Cal("inline", {
     elementOrSelector: "#cal-embed",
-    calLink: "alecw",
+    calLink: "alecw/30min",
     layout: "month_view",
   });
   (window as any).Cal("ui", {
@@ -97,21 +96,21 @@ import FadeIn from './FadeIn.astro';
     margin-bottom: 56px;
   }
 
+  .contact__embed-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
   .contact__embed {
     min-height: 400px;
     border-radius: 4px;
     overflow: hidden;
   }
 
-  .contact__fallback {
-    margin-top: 12px;
-    color: var(--color-text-muted-on-dark);
-    font-size: var(--fs-sm);
-  }
-
-  .contact__fallback a {
-    color: var(--color-accent);
-    text-decoration: underline;
+  .contact__fallback-btn {
+    display: inline-block;
+    margin-top: 24px;
   }
 
   @media (max-width: 768px) {

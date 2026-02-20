@@ -40,10 +40,24 @@ import FadeIn from './FadeIn.astro';
                 </ul>
               )}
               {step.endState && (
-                <p class="text-body how__step-endstate">{step.endState}</p>
+                Array.isArray(step.endState) ? (
+                  <div class="how__step-endstate">
+                    <span class="how__step-endstate-label">End state:</span>
+                    <ul class="how__step-endstate-list list-dash">
+                      {step.endState.map((item) => (
+                        <li class="text-body">{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <p class="text-body how__step-endstate">{step.endState}</p>
+                )
               )}
               {step.guarantee && (
                 <p class="how__step-guarantee" data-label="Milestone overrun protection: ">{step.guarantee}</p>
+              )}
+              {step.ascensionNote && (
+                <p class="text-body how__step-endstate" style="font-style: italic; color: var(--color-text-dim);">{step.ascensionNote}</p>
               )}
             </div>
           </div>
@@ -54,24 +68,15 @@ import FadeIn from './FadeIn.astro';
     <!-- BeemSpec Callout -->
     <FadeIn delay={0.25}>
       <div class="how__beemspec">
-        <h3 class="how__beemspec-title">Why we ship faster: BeemSpec, our AI coordination system</h3>
+        <h3 class="how__beemspec-title">Why we ship faster</h3>
         <p class="text-body how__beemspec-intro">
-          Most teams bolt AI onto a traditional process. We rebuilt the process around AI from day one.
-        </p>
-        <p class="text-body how__beemspec-text">
-          BeemSpec is our AI&#8209;native planning and coordination layer:
-        </p>
-        <ul class="how__beemspec-list list-dash">
-          <li class="text-body">Story maps become structured, executable specs</li>
-          <li class="text-body">AI coding agents pull exactly the context they need, when they need it</li>
-          <li class="text-body">No manual copy&#8209;paste between planning tools and implementation</li>
-        </ul>
-        <p class="text-body how__beemspec-intro">
-          BeemSpec is how we get the speed of agents without the slop, security risk, or&nbsp;rewrites.
+          BeemSpec is our AI&#8209;native spec system that lets AI agents code the
+          repetitive parts while we keep architecture and security sane. It's how
+          two founder&#8209;engineers deliver like a much larger&nbsp;team.
         </p>
         <p class="text-body how__beemspec-closer">
-          We don't sell BeemSpec to you as a separate product (yet). We use it on every
-          engagement so two founder&#8209;engineers can reliably deliver like a much larger team.
+          We use it on every engagement. You get the speed without the slop,
+          security risk, or expensive&nbsp;rewrites.
         </p>
       </div>
     </FadeIn>
@@ -200,6 +205,16 @@ import FadeIn from './FadeIn.astro';
     margin-top: var(--space-sm);
     font-size: var(--fs-body-sm);
     font-weight: 500;
+  }
+
+  .how__step-endstate-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .how__step-endstate-list {
+    margin: 0;
   }
 
   .how__step-guarantee {

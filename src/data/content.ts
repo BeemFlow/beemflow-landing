@@ -7,8 +7,9 @@ export interface Step {
   price: string;
   description: string;
   deliverables?: string[];
-  endState?: string;
+  endState?: string | string[];
   guarantee?: string;
+  ascensionNote?: string;
 }
 
 export interface Service {
@@ -72,8 +73,12 @@ export const STEPS: Step[] = [
       "A clear \u201Claunch milestone\u201D tied to a business goal (raise, sell, or onboard first customers)",
       "Structured so both human engineers and AI agents can execute",
     ],
-    endState:
-      "End state: a buildable v1 plan your board and engineers can\u2019t easily poke holes in. You can build with us or any team.",
+    endState: [
+      "A buildable v1 plan your board and engineers can\u2019t easily poke holes in",
+      "You can build with us or any team",
+    ],
+    ascensionNote:
+      "If we\u2019re a fit and you roll into the Launch Build, we credit part of the Blueprint fee toward the build.",
   },
   {
     title: "Launch Build",
@@ -87,8 +92,12 @@ export const STEPS: Step[] = [
       "Weekly releases so you can see real progress and click through the product early",
       "Analytics, logging, and basic onboarding wired so you can invite users in and see what they actually do",
     ],
-    endState:
-      "End state: deployed product, on your infrastructure, with analytics wired, a coherent on\u2011brand UI, a polished demo script, and a short technical appendix for your next investor update.",
+    endState: [
+      "Deployed product, on your infrastructure",
+      "Analytics wired and a coherent on\u2011brand UI",
+      "A polished demo script for investor conversations",
+      "A short technical appendix for your next investor update",
+    ],
     guarantee:
       "If we miss your agreed v1 launch by more than 2 weeks for reasons in our control, we eat the overage.",
   },
@@ -104,8 +113,10 @@ export const STEPS: Step[] = [
       "Automate key ops around the product (alerts, reporting, workflows)",
       "Transition cleanly to an internal team, or keep us on as fractional product & engineering leadership",
     ],
-    endState:
-      "You keep everything: code, infra, automations, documentation. No black boxes.",
+    endState: [
+      "You keep everything: code, infra, automations, documentation",
+      "No black boxes",
+    ],
   },
 ];
 
@@ -146,20 +157,6 @@ export const SERVICES: Service[] = [
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    headline: "Travel Money \u2013 0\u21921 Fintech Product as Sole CTO",
-    role: "CTO",
-    resultSummary:
-      "Shipped a production iOS app and Chrome extension with AI\u2011powered product detection, payments, and French customs integration from zero internal tech team.",
-    situation:
-      "A non\u2011technical founder had a fintech thesis around VAT export arbitrage, seed funding, and French customs to navigate, but no product and no tech team.",
-    result:
-      "We acted as sole CTO and built the full iOS app and Chrome extension: AI\u2011powered product detection, payment processing, and customs integration (PABLO / Article 275 CGI), plus the underlying infrastructure.",
-    metrics: [
-      "Sole CTO, entire technical operation",
-      "iOS app + AI detection + payments + customs integration",
-    ],
-  },
-  {
     headline: "Valist \u2192 HyperPlay \u2013 Founded, Funded, and Acquired",
     role: "Co-founders",
     resultSummary:
@@ -174,10 +171,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    headline: "HyperPlay Labs \u2013 Head of Product for 0 \u2192 100K+ Downloads",
-    role: "Head of Product",
+    headline: "HyperPlay Labs \u2013 0\u2192100K+ Downloads, $12M Series A",
+    role: "Head of Product & VP Engineering",
     resultSummary:
-      "Shipped a cross\u2011platform gaming client and supported a $12M Series A raise.",
+      "Led product from zero to 100K+ downloads across Windows, Mac, Linux, and Steam Deck. Supported a $12M Series A raise.",
     situation:
       "Post\u2011acquisition, HyperPlay needed to ship a desktop gaming platform and raise a Series A fast.",
     result:
@@ -186,6 +183,20 @@ export const CASE_STUDIES: CaseStudy[] = [
       "0 \u2192 100K+ downloads",
       "$12M Series A raised",
       "Transitioned to Strategic Advisors",
+    ],
+  },
+  {
+    headline: "Travel Money \u2013 0\u21921 Fintech Product",
+    role: "CTO",
+    resultSummary:
+      "Shipped a production iOS app and Chrome extension with AI\u2011powered product detection, payments, and French customs integration from zero internal tech team.",
+    situation:
+      "A non\u2011technical founder had a fintech thesis around VAT export arbitrage, seed funding, and French customs to navigate, but no product and no tech team.",
+    result:
+      "We acted as sole CTO and built the full iOS app and Chrome extension: AI\u2011powered product detection, payment processing, and customs integration (PABLO / Article 275 CGI), plus the underlying infrastructure.",
+    metrics: [
+      "Sole CTO, entire technical operation",
+      "iOS app + AI detection + payments + customs integration",
     ],
   },
   {
