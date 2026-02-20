@@ -54,12 +54,11 @@ const publishedTestimonials = TESTIMONIALS.filter(
 
   .testimonial__quote {
     font-family: var(--font-display);
-    font-size: 22px;
-    line-height: 1.6;
+    font-size: var(--fs-title);
     color: var(--color-text);
     font-weight: 400;
     font-style: italic;
-    margin-bottom: 20px;
+    margin-bottom: var(--space-md);
   }
 
   .testimonial__attribution {
@@ -70,16 +69,15 @@ const publishedTestimonials = TESTIMONIALS.filter(
 
   .testimonial__name {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: var(--fs-mono);
     font-weight: 600;
-    color: var(--color-text-muted);
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
 
   .testimonial__role {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: var(--fs-label);
     color: var(--color-text-dim);
     letter-spacing: 0.02em;
   }

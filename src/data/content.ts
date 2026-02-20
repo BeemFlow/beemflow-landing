@@ -79,7 +79,7 @@ export const STEPS: Step[] = [
     title: "Launch Build",
     subtitle: "",
     timeline: "6\u20138 weeks",
-    price: "From $40K",
+    price: "From $50K",
     description:
       "We take the Blueprint and ship a market\u2011ready v1 to production: live, demoable, and ready to onboard.",
     deliverables: [

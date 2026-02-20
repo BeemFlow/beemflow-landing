@@ -40,11 +40,35 @@
   --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', 'Menlo', monospace;
 
+  /* ── Type Scale ── */
+  --fs-micro:    9px;   /* ::before pseudo-labels                       */
+  --fs-label:   11px;   /* mono labels, badges, credentials             */
+  --fs-mono:    12px;   /* buttons, small mono, attribution              */
+  --fs-sm:      14px;   /* secondary / supporting text                   */
+  --fs-body-sm: 15px;   /* deliverables, descriptions, list items        */
+  --fs-body:    16px;   /* default body copy                             */
+  --fs-body-lg: 17px;   /* lead paragraphs (.text-body-lg)               */
+  --fs-body-xl: 18px;   /* hero body, service titles                      */
+  --fs-title-sm: 20px;  /* block titles, card headlines                  */
+  --fs-label-sm: 10px;  /* service category labels                        */
+  --fs-title-faq: 19px; /* FAQ questions                                 */
+  --fs-title:   22px;   /* section subtitles, testimonial quotes         */
+  --fs-title-lg: 24px;  /* step titles                                   */
+  --fs-display-number: 64px; /* decorative step numbers                  */
+
   /* ── Layout ── */
   --max-width: 960px;
   --max-width-narrow: 650px;
   --max-width-form: 600px;
+  --content-measure: 640px;
   --section-padding: 140px 32px;
+
+  /* ── Spacing ── */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 20px;
+  --space-lg: 48px;
+  --space-xl: 80px;
 
   /* ── Motion ── */
   --motion-fade: 0.8s;
@@ -112,6 +136,21 @@ img {
   display: block;
 }
 
+/* ── Base element typography ── */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+h3, h4 {
+  font-weight: 500;
+}
+
+p, li {
+  color: var(--color-text-muted);
+}
+
 /* ── Skip link ── */
 
 .skip-link {
@@ -123,7 +162,7 @@ img {
   color: #fff;
   padding: 10px 20px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-mono);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   border-radius: 2px;
@@ -176,7 +215,7 @@ img {
 
 .label-mono {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-label);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
@@ -184,22 +223,27 @@ img {
 
 .text-mono-sm {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-mono);
+}
+
+.text-body-sm {
+  font-size: var(--fs-body-sm);
+  line-height: 1.6;
 }
 
 .text-body {
-  font-size: 16px;
+  font-size: var(--fs-body);
   line-height: 1.7;
 }
 
 .text-body-lg {
-  font-size: 17px;
+  font-size: var(--fs-body-lg);
   line-height: 1.8;
 }
 
 .text-title-sm {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: var(--fs-title);
   font-weight: 500;
   letter-spacing: -0.02em;
 }
@@ -212,11 +256,10 @@ img {
 
 .section-label {
   color: var(--color-accent);
-  margin-bottom: 16px;
+  margin-bottom: var(--space-sm);
 }
 
 .section-heading {
-  font-family: var(--font-display);
   font-size: clamp(30px, 4.5vw, 48px);
   font-weight: 400;
   letter-spacing: -0.025em;
@@ -245,7 +288,7 @@ img {
 .btn-primary {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--fs-mono);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #FFFFFF;
@@ -297,6 +340,9 @@ img {
 .list-dash > li {
   position: relative;
   padding-left: 20px;
+  margin-bottom: var(--space-xs);
+  font-size: var(--fs-body-sm);
+  line-height: 1.6;
 }
 
 .list-dash > li::before {
@@ -305,4 +351,19 @@ img {
   left: 0;
   color: var(--color-accent);
   opacity: 0.6;
+}
+
+/* ── Pseudo-label (::before micro mono labels) ── */
+
+[data-label]::before {
+  content: attr(data-label);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 6px;
+  font-style: normal;
 }

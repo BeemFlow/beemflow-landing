@@ -27,7 +27,8 @@ import FadeIn from './FadeIn.astro';
   .proof {
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
-    padding: 48px 32px;
+    padding: var(--space-lg) 32px;
+    text-align: center;
   }
 
   .proof__inner {
@@ -37,9 +38,7 @@ import FadeIn from './FadeIn.astro';
   }
 
   .proof__inline {
-    color: var(--color-text-muted);
-    text-align: center;
-    padding-bottom: 8px;
+    padding-bottom: var(--space-xs);
     line-height: 2;
   }
 
@@ -50,7 +49,6 @@ import FadeIn from './FadeIn.astro';
 
   .proof__protection {
     color: var(--color-accent);
-    text-align: center;
     padding-bottom: 28px;
     opacity: 0.8;
   }
@@ -75,8 +73,7 @@ import FadeIn from './FadeIn.astro';
   }
 
   .proof__client {
-    font-size: 14px;
-    color: var(--color-text-muted);
+    font-size: var(--fs-sm);
     font-weight: 500;
     letter-spacing: -0.01em;
   }
