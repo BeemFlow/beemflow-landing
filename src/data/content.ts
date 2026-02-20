@@ -104,10 +104,11 @@ export const STEPS: Step[] = [
     timeline: "Ongoing",
     price: "From $8K/mo",
     description:
-      "Available once your v1 is live. This is for ongoing leadership and fast iteration on the product we\u2019ve shipped together based on real user feedback, not a net\u2011new product build.",
+      "Available once your v1 is live. This is for ongoing leadership, operations automation, and fast iteration on the product we\u2019ve shipped together based on real user feedback, not a net\u2011new product build.",
     deliverables: [
-      "Help you define the roles, vet candidates, and onboard your first engineers",
-      "Iterate on the live product based on user behavior (small improvements, refining flows)",
+      "Build your internal team: hire and onboard your first engineers so you\u2019re not dependent on us forever",
+      "Automate back\u2011office workflows, alerts, reporting, and integrations between your tools with custom agents and n8n",
+      "Iterate on the live product based on user behavior and feedback, with a focus on the highest\u2011leverage improvements",
       "Guide roadmap, architecture decisions, and smaller improvements to the existing product",
       "When you\u2019re ready for a major new module or product line, we\u2019ll Blueprint and price that as its own sprint",
     ],
@@ -135,9 +136,9 @@ export const SERVICES: Service[] = [
   {
     icon: "\u26A1",
     label: "Automate",
-    title: "Operations Automation",
+    title: "Operations Automation (Post\u2011Launch)",
     description:
-      "Once the product works, we automate the work around it: reporting, alerts, back\u2011office workflows, and integrations between your tools. Often built on n8n and other open\u2011source tools where it makes sense, and paired with SaaS vendors when that\u2019s the better choice for reliability or speed.",
+      "Available as part of Scale & Stewardship once we\u2019ve shipped your v1. We automate the work around it: back\u2011office workflows, alerts, reporting, and integrations between your tools. Often built on n8n and custom agents to solve problems custom to your business.",
   },
   {
     icon: "\u{1F91D}",
@@ -259,6 +260,10 @@ export const FAQS: FAQ[] = [
   {
     q: "What happens if things take longer than expected?",
     a: "Before we start, we agree on V1 scope and a launch milestone. Our launch guarantee applies to that scope, as long as you\u2019re giving feedback and access within a few business days. If we miss that milestone by more than 2 weeks for reasons in our control, we eat the overage.\n\nIf you decide to expand scope mid\u2011sprint (it happens!), the default is we park those ideas in the next sprint. If you want them pulled into this sprint, we\u2019ll adjust the budget and timeline together so there are no surprises.",
+  },
+  {
+    q: "Do you also help automate internal operations?",
+    a: "Yes. Once we\u2019ve shipped your v1 and real users are in the product, we\u2019ll identify the back\u2011office workflows, alterts, and reporting that are chewing up founder / team time. Then we automate them (often with n8n and other open\u2011source tools on infra you own) as part of Scale & Stewardship, so you don\u2019t have to hire a shadow ops team just to keep up.",
   },
   // Equity FAQ removed from public site. Keep as internal lever only.
 ];
