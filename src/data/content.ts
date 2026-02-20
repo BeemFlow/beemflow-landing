@@ -272,12 +272,8 @@ export const FAQS: FAQ[] = [
 
 export const CREDENTIALS = [
   {
-    label: "2nd Place, HACKtheMACHINE at MIT",
-    href: "https://www.cma.fraunhofer.org/en/News/Fraunhofer_places_second_in_US_Navys_HackTheMachine_Cyber_Competition.html",
-  },
-  {
-    label: 'IPFS "Building Web3" Series',
-    href: "https://blog.ipfs.tech/2021-12-07-building-web3-valist/",
+    label: "2048 Ventures",
+    href: "https://www.2048.vc/blog/our-investment-in-valist",
   },
   {
     label: "Nasdaq",
@@ -286,6 +282,14 @@ export const CREDENTIALS = [
   {
     label: "Coinbase Bytes",
     href: "https://www.coinbase.com/bytes/archive/themes-to-watch-in-2024",
+  },
+  {
+    label: "2nd Place, HACKtheMACHINE at MIT",
+    href: "https://www.cma.fraunhofer.org/en/News/Fraunhofer_places_second_in_US_Navys_HackTheMachine_Cyber_Competition.html",
+  },
+  {
+    label: 'IPFS "Building Web3" Series',
+    href: "https://blog.ipfs.tech/2021-12-07-building-web3-valist/",
   },
   {
     label: "Central Penn Business Journal",

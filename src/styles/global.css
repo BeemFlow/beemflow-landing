@@ -13,16 +13,18 @@
 
   --color-text: #1A1714;
   --color-text-muted: #6B6560;
-  --color-text-dim: #8A847D;
-  --color-text-faint: #A8A29C;
+  --color-text-dim: #736D66;
+  --color-text-faint: #918B84;
   --color-text-ghost: #E0DBD4;
 
   --color-text-on-dark: #EDE9E3;
   --color-text-muted-on-dark: #A8A29A;
-  --color-text-dim-on-dark: #7A746C;
+  --color-text-dim-on-dark: #948E86;
   --color-text-faint-on-dark: #4A4540;
 
   --color-accent: #B45309;
+  --color-accent-dark: #9A4408;
+  --color-accent-on-dark: #D97706;
   --color-accent-soft: rgba(180, 83, 9, 0.06);
   --color-accent-hover: rgba(180, 83, 9, 0.10);
   --color-border-accent: rgba(180, 83, 9, 0.2);
