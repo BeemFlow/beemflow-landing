@@ -1,6 +1,6 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">BeemFlow</title>
-  <desc id="desc">Founder-led product studio shipping market-ready v1s in 6-8 weeks.</desc>
+  <desc id="desc">Founder-led product studio shipping production-ready v1s in 6-8 weeks.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#F8F5F0" />
@@ -8,10 +8,26 @@
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" />
-  <rect x="48" y="48" width="1104" height="534" rx="12" fill="none" stroke="#C9B6A2" stroke-width="2" />
+  <rect x="48" y="48" width="1104" height="534" rx="12" fill="none" stroke="#C9B6A2" stroke-width="1.5" />
 
-  <text x="90" y="176" fill="#B45309" font-size="34" font-family="'IBM Plex Mono', monospace" letter-spacing="3">BEEMFLOW</text>
-  <text x="90" y="286" fill="#1A1714" font-size="82" font-family="'Newsreader', Georgia, serif" font-weight="500">Ship a market-ready v1.</text>
-  <text x="90" y="358" fill="#6B6560" font-size="42" font-family="'Outfit', sans-serif">Founder-led. Production-ready. In 6-8 weeks.</text>
-  <text x="90" y="516" fill="#1A1714" font-size="28" font-family="'IBM Plex Mono', monospace">beemflow.com</text>
+  <!-- Brand mark: "beemflow" in mono + "." in accent, matching BrandMark.astro -->
+  <text x="90" y="138" font-size="32" font-family="'IBM Plex Mono', 'Menlo', monospace" font-weight="500" letter-spacing="-0.3">
+    <tspan fill="#1A1714">beemflow</tspan><tspan fill="#B45309">.</tspan>
+  </text>
+
+  <!-- Headline -->
+  <text x="90" y="240" fill="#1A1714" font-size="72" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" letter-spacing="-2">Ship a production-ready v1.</text>
+  <text x="90" y="310" fill="#B45309" font-size="40" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" font-style="italic" letter-spacing="-1">6-8 weeks, not months.</text>
+
+  <!-- Subline -->
+  <text x="90" y="390" fill="#6B6560" font-size="24" font-family="'Outfit', system-ui, sans-serif" font-weight="400">Founder-led product studio. We plug in as your product,</text>
+  <text x="90" y="422" fill="#6B6560" font-size="24" font-family="'Outfit', system-ui, sans-serif" font-weight="400">engineering, and design team to take you from thesis to a live v1.</text>
+
+  <!-- Proof -->
+  <text x="90" y="530" fill="#8A847D" font-size="12" font-family="'IBM Plex Mono', monospace" font-weight="500" letter-spacing="2">10+ YEARS BUILDING TOGETHER  ·  15+ PRODUCTS SHIPPED  ·  1 VC-BACKED EXIT</text>
+
+  <!-- URL -->
+  <text x="1110" y="530" font-size="14" font-family="'IBM Plex Mono', 'Menlo', monospace" font-weight="500" text-anchor="end">
+    <tspan fill="#1A1714">beemflow</tspan><tspan fill="#B45309">.com</tspan>
+  </text>
 </svg>
