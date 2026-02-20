@@ -9,12 +9,20 @@ import FadeIn from './FadeIn.astro';
     <SectionHeader label="How we work">Blueprint. Build. Launch.</SectionHeader>
 
     <FadeIn delay={0.05}>
-      <p class="how__squad text-body">
-        For each build, we assemble a small senior squad: both founders, a product
-        designer we trust, and (when needed) infra / security specialists we've
-        worked with before. You don't get handed to layers of juniors. We stay
-        your single point of accountability.
-      </p>
+      <div class="how__squad">
+        <p class="text-body">
+          For each build, we assemble a small senior squad: <strong>both founders</strong>, a product
+          designer we trust, and (when needed) infra / security specialists we've
+          worked with before. You don't get handed to layers of juniors. We stay
+          your <strong>single point of&nbsp;accountability</strong>.
+        </p>
+        <p class="text-body">
+          When scope demands more hands, we add engineers inside that squad&nbsp;–
+          they plug into our BeemSpec system, our standards, and our review, so you
+          still have one accountable brain trust instead of a revolving door
+          of&nbsp;contractors.
+        </p>
+      </div>
     </FadeIn>
 
     <!-- Three-Step Journey -->
@@ -127,7 +135,12 @@ import FadeIn from './FadeIn.astro';
   .how__squad {
     max-width: var(--content-measure);
     margin-bottom: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
   }
+
+
 
   /* ── Three-Step Journey ── */
   .how__steps {

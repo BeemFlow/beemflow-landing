@@ -259,7 +259,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "Aren\u2019t you just two people? What if something happens or you get busy?",
-    a: "We\u2019re the two founders you deal with day\u2011to\u2011day, but we\u2019re not the only people on your product. Each build uses the same pattern: both founders plus a product designer we\u2019ve shipped with before, and (when needed) infra / security specialists from our regular bench. We cap concurrent builds and book in sprints so we don\u2019t oversell capacity. If we\u2019re full, we tell you and schedule the next slot. All plans, decisions, and code live in shared systems (docs, BeemSpec, repos you own), so the work is not stuck in one person\u2019s head and can be handed off cleanly if you later grow an internal team.",
+    a: "Day\u2011to\u2011day, you work directly with the two founders. Every build starts with the same core pod: both founders plus a product designer we\u2019ve shipped with before.\n\nWhen a project needs more implementation horsepower, we scale the pod with senior engineers, infra, and security specialists from our regular bench. They work inside our BeemSpec system, our repos, and our review process\u2009\u2013\u2009we stay responsible for product decisions, architecture, and final code.\n\nWe cap concurrent builds and book in sprints so we don\u2019t oversell capacity. All plans, decisions, and code live in shared systems you own, so the work isn\u2019t stuck in one person\u2019s head and can be handed off cleanly as you grow your internal team.",
   },
   {
     q: "What happens if things take longer than expected?",
