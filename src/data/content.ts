@@ -8,8 +8,7 @@ export interface Step {
   description: string;
   deliverables?: string[];
   endState?: string | string[];
-  guarantee?: string;
-  ascensionNote?: string;
+  callout?: { label: string; text: string };
 }
 
 export interface Service {
@@ -77,8 +76,7 @@ export const STEPS: Step[] = [
       "A buildable v1 plan your board and engineers can\u2019t easily poke holes in",
       "You can build with us or any team",
     ],
-    ascensionNote:
-      "If we\u2019re a fit and you roll into the Launch Build within 60 days, we credit the full $8K Blueprint fee toward your build.",
+    callout: { label: "Launch Build credit: ", text: "If we\u2019re a fit and you roll into the Launch Build within 60 days, we credit the full $8K Blueprint fee toward your build." },
   },
   {
     title: "Launch Build",
@@ -98,8 +96,7 @@ export const STEPS: Step[] = [
       "A polished demo script for investor conversations",
       "A short technical appendix for your next investor update",
     ],
-    guarantee:
-      "If we miss your agreed v1 launch by more than 2 weeks for reasons in our control, we eat the overage.",
+    callout: { label: "Milestone overrun protection: ", text: "If we miss your agreed v1 launch by more than 2 weeks for reasons in our control, we eat the overage." },
   },
   {
     title: "Scale & Stewardship",
@@ -107,16 +104,14 @@ export const STEPS: Step[] = [
     timeline: "Ongoing",
     price: "From $8K/mo",
     description:
-      "Once you\u2019re live, we help you grow and transition:",
+      "Available once your v1 is live. This is for ongoing leadership and fast iteration on the product we\u2019ve shipped together based on real user feedback, not a net\u2011new product build.",
     deliverables: [
-      "Hire and onboard your first engineers",
-      "Automate key ops around the product (alerts, reporting, workflows)",
-      "Transition cleanly to an internal team, or keep us on as fractional product & engineering leadership",
+      "Help you define the roles, vet candidates, and onboard your first engineers",
+      "Iterate on the live product based on user behavior (small improvements, refining flows)",
+      "Guide roadmap, architecture decisions, and smaller improvements to the existing product",
+      "When you\u2019re ready for a major new module or product line, we\u2019ll Blueprint and price that as its own sprint",
     ],
-    endState: [
-      "You keep everything: code, infra, automations, documentation",
-      "No black boxes",
-    ],
+    callout: { label: "Love shipping with us?", text: "If you love how we ship together and want us embedded more deeply, we can design an engagement that feels like an internal squad while keeping the same clarity on scope and timelines we use for our builds." },
   },
 ];
 
@@ -259,11 +254,11 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "Aren\u2019t you just two people? What if something happens or you get busy?",
-    a: "Day\u2011to\u2011day, you work directly with the two founders. Every build starts with the same core pod: both founders plus a product designer we\u2019ve shipped with before.\n\nWhen a project needs more implementation horsepower, we scale the pod with senior engineers, infra, and security specialists from our regular bench. They work inside our BeemSpec system, our repos, and our review process\u2009\u2013\u2009we stay responsible for product decisions, architecture, and final code.\n\nWe cap concurrent builds and book in sprints so we don\u2019t oversell capacity. All plans, decisions, and code live in shared systems you own, so the work isn\u2019t stuck in one person\u2019s head and can be handed off cleanly as you grow your internal team.",
+    a: "Day\u2011to\u2011day, you work directly with the two founders. Every build starts with the same core pod: both founders plus a product designer we\u2019ve shipped with before.\n\nWhen a project needs more implementation horsepower, we scale the pod with senior engineers, infra, and security specialists from our regular bench. They work inside our BeemSpec system, our repos, and our review process. We stay responsible for product decisions, architecture, and final code.\n\nWe cap concurrent builds and book in sprints so we don\u2019t oversell capacity. All plans, decisions, and code live in shared systems you own, so the work isn\u2019t stuck in one person\u2019s head and can be handed off cleanly as you grow your internal team.",
   },
   {
     q: "What happens if things take longer than expected?",
-    a: "Before we start, we agree on v1 scope and a launch milestone. If we miss that milestone by more than 2 weeks for reasons in our control, we eat the overage. If you decide to expand scope mid\u2011sprint (it happens!), we\u2019ll either move those items to a follow\u2011up sprint or revise the budget and timeline together so there are no surprises.",
+    a: "Before we start, we agree on V1 scope and a launch milestone. Our launch guarantee applies to that scope, as long as you\u2019re giving feedback and access within a few business days. If we miss that milestone by more than 2 weeks for reasons in our control, we eat the overage.\n\nIf you decide to expand scope mid\u2011sprint (it happens!), the default is we park those ideas in the next sprint. If you want them pulled into this sprint, we\u2019ll adjust the budget and timeline together so there are no surprises.",
   },
   // Equity FAQ removed from public site. Keep as internal lever only.
 ];
