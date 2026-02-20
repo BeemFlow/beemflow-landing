@@ -58,7 +58,7 @@ import FadeIn from './FadeIn.astro';
   (window as any).Cal("ui", {
     theme: "dark",
     styles: {
-      branding: { brandColor: "#B45309" },
+      branding: { brandColor: "#B45309" }, /* must match --color-accent; Cal.com JS can't read CSS vars */
     },
     hideEventTypeDetails: false,
     layout: "month_view",

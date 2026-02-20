@@ -57,7 +57,7 @@ import FadeIn from './FadeIn.astro';
                 <p class="how__step-guarantee" data-label="Milestone overrun protection: ">{step.guarantee}</p>
               )}
               {step.ascensionNote && (
-                <p class="text-body how__step-endstate" style="font-style: italic; color: var(--color-text-dim);">{step.ascensionNote}</p>
+                <p class="text-body how__step-endstate" style="font-style: italic; color: var(--color-text-muted);">{step.ascensionNote}</p>
               )}
             </div>
           </div>
@@ -181,14 +181,14 @@ import FadeIn from './FadeIn.astro';
   }
 
   .how__step-timeline {
-    color: var(--color-text-dim);
+    color: var(--color-text-muted);
     letter-spacing: 0.02em;
   }
 
   .how__step-subtitle {
     font-weight: 400;
     font-size: var(--fs-body);
-    color: var(--color-text-dim);
+    color: var(--color-text-muted);
     font-family: var(--font-sans);
   }
 
