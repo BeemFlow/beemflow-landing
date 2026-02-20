@@ -57,7 +57,7 @@ import FadeIn from './FadeIn.astro';
                 <p class="how__step-guarantee" data-label="Milestone overrun protection: ">{step.guarantee}</p>
               )}
               {step.ascensionNote && (
-                <p class="text-body how__step-endstate" style="font-style: italic; color: var(--color-text-muted);">{step.ascensionNote}</p>
+                <p class="how__step-guarantee" data-label="Launch Build credit: ">{step.ascensionNote}</p>
               )}
             </div>
           </div>
@@ -70,13 +70,21 @@ import FadeIn from './FadeIn.astro';
       <div class="how__beemspec">
         <h3 class="how__beemspec-title">Why we ship faster</h3>
         <p class="text-body how__beemspec-intro">
-          BeemSpec is our AI&#8209;native spec system that lets AI agents code the
-          repetitive parts while we keep architecture and security sane. It's how
-          two founder&#8209;engineers deliver like a much larger&nbsp;team.
+          BeemSpec is our AI&#8209;native product management and coordination system.
+          We map your whole product in one place: users, flows, specs, releases,
+          designs, and architecture, so every human and every agent is working from
+          the same source of&nbsp;truth.
+        </p>
+        <p class="text-body how__beemspec-intro">
+          AI coding agents then operate inside that structure, handling the
+          repetitive work while we stay on top of product decisions, architecture,
+          security, and code review. We supervise the agents, review their output
+          as we go, and keep the system&nbsp;clean.
         </p>
         <p class="text-body how__beemspec-closer">
-          We use it on every engagement. You get the speed without the slop,
-          security risk, or expensive&nbsp;rewrites.
+          You get the speed of agents with the judgment of two founder&#8209;engineers:
+          faster execution, solid architecture, and higher&#8209;quality code guided by
+          years of shipping real products to&nbsp;production.
         </p>
       </div>
     </FadeIn>

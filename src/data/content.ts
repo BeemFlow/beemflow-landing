@@ -78,13 +78,13 @@ export const STEPS: Step[] = [
       "You can build with us or any team",
     ],
     ascensionNote:
-      "If we\u2019re a fit and you roll into the Launch Build, we credit part of the Blueprint fee toward the build.",
+      "If we\u2019re a fit and you roll into the Launch Build within 60 days, we credit the full $8K Blueprint fee toward your build.",
   },
   {
     title: "Launch Build",
     subtitle: "",
     timeline: "6\u20138 weeks",
-    price: "From $50K",
+    price: "From $80K",
     description:
       "We take the Blueprint and ship a market\u2011ready v1 to production: live, demoable, and ready to onboard.",
     deliverables: [
