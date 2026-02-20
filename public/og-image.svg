@@ -17,7 +17,9 @@
 
   <!-- Headline -->
   <text x="90" y="240" fill="#1A1714" font-size="72" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" letter-spacing="-2">Ship a production-ready v1.</text>
-  <text x="90" y="310" fill="#B45309" font-size="40" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" font-style="italic" letter-spacing="-1">6-8 weeks, not months.</text>
+  <text x="90" y="310" font-size="40" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" font-style="italic" letter-spacing="-1">
+    <tspan fill="#B45309">6-8 </tspan><tspan fill="#8A847D" text-decoration="line-through">months</tspan><tspan fill="#B45309"> weeks.</tspan>
+  </text>
 
   <!-- Subline -->
   <text x="90" y="390" fill="#6B6560" font-size="24" font-family="'Outfit', system-ui, sans-serif" font-weight="400">Founder-led product studio. We plug in as your product,</text>

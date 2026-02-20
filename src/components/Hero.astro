@@ -8,7 +8,7 @@ import FadeIn from './FadeIn.astro';
       <p class="hero__eyebrow label-mono">For funded software, SaaS &amp; AI founders (pre&#8209;seed to Series&nbsp;A)</p>
       <h1 class="hero__heading">
         Ship a production&#8209;ready v1.<br />
-        <span class="text-accent">6&#8209;8&nbsp;weeks, not months.</span>
+        <span class="hero__timeline text-accent">6&#8209;8 <s>months</s> weeks.</span>
       </h1>
     </FadeIn>
     <FadeIn delay={0.2}>
@@ -55,11 +55,17 @@ import FadeIn from './FadeIn.astro';
     max-width: 900px;
   }
 
-  .hero__heading .text-accent {
-    font-style: italic;
+  .hero__timeline {
     display: block;
     margin-top: 4px;
     font-size: clamp(22px, 4vw, 46px);
+    font-style: italic;
+  }
+
+  .hero__timeline s {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: var(--color-text-dim);
   }
 
   .hero__body {
