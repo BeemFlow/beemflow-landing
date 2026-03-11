@@ -11,7 +11,6 @@ interface StepLike {
   bullets?: string[];
   endState?: string | string[];
   callout?: { label: string; text: string };
-  guarantee?: string;
 }
 
 interface Props {
@@ -24,8 +23,8 @@ const { steps } = Astro.props;
 <div class="step-cards">
   {steps.map((step, i) => {
     const listItems = step.deliverables ?? step.bullets;
-    const calloutText = step.callout?.text ?? step.guarantee;
-    const calloutLabel = step.callout?.label ?? 'Our guarantee';
+    const calloutText = step.callout?.text;
+    const calloutLabel = step.callout?.label;
 
     return (
       <FadeIn delay={i * 0.08}>
@@ -45,7 +44,7 @@ const { steps } = Astro.props;
             {listItems && (
               <ul class="offer-steps__list list-dash">
                 {listItems.map((item) => (
-                  <li class="text-body">{item}</li>
+                  <li class="text-body" set:html={item} />
                 ))}
               </ul>
             )}

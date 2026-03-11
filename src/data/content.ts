@@ -276,7 +276,6 @@ export interface OpsOfferStep {
   price: string;
   description: string;
   bullets: string[];
-  guarantee?: string;
   callout?: { label: string; text: string };
 }
 
@@ -289,38 +288,36 @@ export const OPS_OFFER_STEPS: OpsOfferStep[] = [
   {
     title: "Workflow & AI Ops Assessment",
     subtitle: "",
-    price: "3K fixed",
-    description: "2 weeks. One working workflow before it\u2019s over.",
+    price: "$3K fixed",
+    description: "3K fixed. 2 weeks. One live workflow you keep, plus a plan to reclaim 10+ hours/month\u00A0\u2013 or we build another workflow at our cost.",
     bullets: [
       "60\u201390 min discovery with the people who actually run the process",
-      "We walk \u201Cyesterday\u201D hour by hour and map 10\u201320 key workflows and failure points",
-      "AI\u2011assisted analysis to surface 5\u20137 highest\u2011ROI automations with estimated hours/month saved",
-      "A polished report: priorities, tools, and a 30\u2011day implementation plan",
+      "We walk \u201Cyesterday\u201D hour by hour and map <strong>10\u201320 key workflows</strong> and failure points",
+      "AI\u2011assisted analysis to surface <strong>5\u20137 highest\u2011ROI automations</strong> with estimated hours/month saved",
+      "A polished report: priorities, tools, and a <strong>30\u2011day implementation plan</strong>",
       "We ship one live workflow during the sprint (examples: no\u2011show reminders, quote follow\u2011up, lead routing, basic reporting)",
     ],
-    guarantee:
-      "If by the end of the Assessment we haven\u2019t (a) shipped at least one workflow you decide to keep live and (b) shown a realistic path to 10+ hours/month saved, we\u2019ll build an additional workflow at our cost.",
+    callout: { label: "Our guarantee", text: "If by the end of the Assessment we haven\u2019t shipped at least one workflow you decide to keep live and shown a realistic path to 10+ hours/month saved, we\u2019ll build an additional workflow at our cost." },
   },
   {
     title: "Implementation Sprints",
     subtitle: "",
-    price: "15K\u201330K each",
-    description: "3\u20135 automations per sprint, scoped to one function.",
+    price: "$15K\u201330K each",
+    description: "2\u20134 workflows per sprint, scoped to one function.",
     bullets: [
-      "Scoped to one function (for example: \u201CLead \u2192 Booking,\u201D \u201CQuote \u2192 Cash,\u201D \u201CMulti\u2011location reporting\u201D)",
-      "4\u20136 week fixed window with weekly check\u2011ins and visible progress",
+      "Scoped to one function (for example: Lead \u2192 Booking, Quote \u2192 Cash, Multi\u2011location reporting)",
+      "2\u20134 week fixed window with weekly check\u2011ins and visible progress",
       "Built on your existing stack (CRM, booking, billing, messaging) plus n8n / supervised AI agents for the glue",
-      "Your 3K Assessment fee credits into your first Sprint",
     ],
+    callout: { label: "Assessment credit", text: "Your $3K Assessment fee credits into your first Sprint." },
   },
   {
     title: "Ops Stewardship",
     subtitle: "Optional",
-    price: "2K\u20136K/mo",
+    price: "$2K\u20136K/mo",
     description: "Ongoing monitoring, maintenance, and iteration.",
     bullets: [
       "Monitoring, break/fix, and updates as tools and APIs change",
-      "One meaningful new workflow or major upgrade per month",
       "Quarterly review: \u201CWhere are humans still the glue?\u201D and what to automate next",
       "Clear boundaries so your team knows what we own and what they own",
     ],
@@ -356,11 +353,12 @@ export const OPS_PROBLEM_BULLETS: string[] = [
   "CRMs, inboxes, spreadsheets, and booking tools all disagree",
   "You\u2019re paying good people to move data between tools all day",
   "Everyone talks about \u201Cusing AI\u201D but nothing in your business actually changed",
+  "The manual glue work costs 10\u201340 hours/month per location",
 ];
 
 export const OPS_FIT_BULLETS: string[] = [
   "You\u2019re doing $3M\u2013$50M+ across one or more locations",
-  "At least 5+ people touch the same workflows (sales, scheduling, billing, ops)",
+  "At least 5+ people touch the same workflows (sales, scheduling, billing, inventory, ops)",
   "You know there\u2019s automation potential, but no one owns it",
   "You want systems that run quietly, not another hero who \u201Csaves the day\u201D",
 ];
