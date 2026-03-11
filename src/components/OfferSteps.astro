@@ -39,7 +39,7 @@ const { steps } = Astro.props;
               </div>
             </div>
 
-            <p class="text-body step-card__desc">{step.description}</p>
+            <p class="text-body step-card__desc" set:html={step.description} />
 
             {listItems && (
               <ul class="offer-steps__list list-dash">

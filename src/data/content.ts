@@ -7,6 +7,7 @@ export interface Step {
   price: string;
   description: string;
   deliverables?: string[];
+  bullets?: string[];
   endState?: string | string[];
   callout?: { label: string; text: string };
 }
@@ -67,8 +68,7 @@ export const STEPS: Step[] = [
     description:
       "We map your users, core jobs, and constraints into a story\u2011mapped v1 that is actually buildable by real engineers on a real timeline.",
     deliverables: [
-      "A release\u2011by\u2011release story map",
-      "Technical architecture and stack decisions",
+      "A polished <strong>Milestone Blueprint</strong>: release\u2011by\u2011release story map, technical architecture, and stack decisions",
       "A clear \u201Claunch milestone\u201D tied to a business goal (raise, sell, or onboard first customers)",
       "Structured so both human engineers and AI agents can execute",
     ],
@@ -270,43 +270,36 @@ export const FAQS: FAQ[] = [
 
 // --- Operations Page ---
 
-export interface OpsOfferStep {
-  title: string;
-  subtitle: string;
-  price: string;
-  description: string;
-  bullets: string[];
-  callout?: { label: string; text: string };
-}
-
 export interface OpsProcessStep {
   title: string;
   description: string;
 }
 
-export const OPS_OFFER_STEPS: OpsOfferStep[] = [
+export const OPS_OFFER_STEPS: Step[] = [
   {
     title: "Workflow & AI Ops Assessment",
     subtitle: "",
-    price: "$3K fixed",
-    description: "3K fixed. 2 weeks. One live workflow you keep, plus a plan to reclaim 10+ hours/month\u00A0\u2013 or we build another workflow at our cost.",
+    timeline: "2 weeks",
+    price: "$3K",
+    description: "<strong>$3K. 2 weeks.</strong> One live workflow, an Ops Blueprint, and a plan to reclaim <strong>10+ hours/month.</strong>",
     bullets: [
-      "60\u201390 min discovery with the people who actually run the process",
-      "We walk \u201Cyesterday\u201D hour by hour and map <strong>10\u201320 key workflows</strong> and failure points",
-      "AI\u2011assisted analysis to surface <strong>5\u20137 highest\u2011ROI automations</strong> with estimated hours/month saved",
-      "A polished report: priorities, tools, and a <strong>30\u2011day implementation plan</strong>",
-      "We ship one live workflow during the sprint (examples: no\u2011show reminders, quote follow\u2011up, lead routing, basic reporting)",
+      "We sit with your operators and walk \u201Cyesterday\u201D hour by hour across one or more working sessions, mapping how work actually happens across teams",
+      "Using <strong>AI\u2011assisted analysis</strong>, we identify <strong>5\u20137 high\u2011ROI automation opportunities</strong> with estimated hours/month saved",
+      "You get a polished <strong>Ops Blueprint</strong>: clear diagrams, priorities, and a <strong>30\u2011day execution plan</strong> based on those opportunities",
+      "We ship <strong>one live workflow</strong> during the sprint (e.g., no\u2011show reminders, quote follow\u2011up, lead routing, basic reporting)",
+      "2 weeks assumes timely access to your tools and people: if approvals stall, you still get the Blueprint on time and we ship the workflow as soon as access clears",
     ],
-    callout: { label: "Our guarantee", text: "If by the end of the Assessment we haven\u2019t shipped at least one workflow you decide to keep live and shown a realistic path to 10+ hours/month saved, we\u2019ll build an additional workflow at our cost." },
+    callout: { label: "Our guarantee", text: "If we haven\u2019t shipped at least one workflow you decide to keep live and shown you a realistic path to reclaiming 10+ hours/month, we\u2019ll build an additional workflow at our cost." },
   },
   {
     title: "Implementation Sprints",
     subtitle: "",
-    price: "$15K\u201330K each",
-    description: "2\u20134 workflows per sprint, scoped to one function.",
+    timeline: "4 weeks",
+    price: "$20K\u201340K each",
+    description: "4\u2011week sprints. 2\u20133 meaningful workflows per sprint, scoped to one function.",
     bullets: [
       "Scoped to one function (for example: Lead \u2192 Booking, Quote \u2192 Cash, Multi\u2011location reporting)",
-      "2\u20134 week fixed window with weekly check\u2011ins and visible progress",
+      "4\u2011week fixed window with weekly check\u2011ins and visible progress",
       "Built on your existing stack (CRM, booking, billing, messaging) plus n8n / supervised AI agents for the glue",
     ],
     callout: { label: "Assessment credit", text: "Your $3K Assessment fee credits into your first Sprint." },
@@ -314,7 +307,8 @@ export const OPS_OFFER_STEPS: OpsOfferStep[] = [
   {
     title: "Ops Stewardship",
     subtitle: "Optional",
-    price: "$2K\u20136K/mo",
+    timeline: "Ongoing",
+    price: "From $3K\u20136K/mo",
     description: "Ongoing monitoring, maintenance, and iteration.",
     bullets: [
       "Monitoring, break/fix, and updates as tools and APIs change",
