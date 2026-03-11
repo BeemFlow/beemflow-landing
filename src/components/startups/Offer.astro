@@ -21,7 +21,7 @@ import OfferSteps from '../OfferSteps.astro';
         </p>
         <p class="text-body">
           When scope demands more hands, we add engineers inside that squad&nbsp;–
-          they plug into our BeemSpec system, our standards, and our review, so you
+          they plug into our <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer">BeemSpec</a> system, our standards, and our review, so you
           still have one accountable brain trust instead of a revolving door
           of&nbsp;contractors.
         </p>
@@ -35,7 +35,7 @@ import OfferSteps from '../OfferSteps.astro';
       <div class="how__beemspec">
         <h3 class="how__beemspec-title">Why we ship faster</h3>
         <p class="text-body how__beemspec-intro">
-          BeemSpec is our AI&#8209;native product management and coordination system.
+          <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer">BeemSpec</a> is our AI&#8209;native product management and coordination system.
           We map your whole product in one place: users, flows, specs, releases,
           designs, and architecture, so every human and every agent is working from
           the same source of&nbsp;truth.
@@ -67,7 +67,7 @@ import OfferSteps from '../OfferSteps.astro';
               <span class="how__service-label">{s.label}</span>
             </div>
             <h4 class="how__service-title">{s.title}</h4>
-            <p class="text-body how__service-desc">{s.description}</p>
+            <p class="text-body how__service-desc" set:html={s.description} />
           </div>
         ))}
       </div>

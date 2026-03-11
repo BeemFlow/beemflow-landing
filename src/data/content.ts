@@ -124,7 +124,7 @@ export const SERVICES: Service[] = [
     label: "Core",
     title: "AI\u2011Accelerated Product Engineering",
     description:
-      "From fuzzy idea to market\u2011ready v1 in 6\u20138 weeks once scope is locked. A small senior squad that owns product strategy, UX/UI design, engineering, and security, led by the two founders and powered by our BeemSpec coordination system. We design and build the first version of your product so it\u2019s ready for real users, investor demos, and your next round of conversations.",
+      "From idea to market\u2011ready v1 in 6\u20138 weeks once scope is locked. A small senior squad that owns product strategy, UX/UI design, engineering, and security, led by the two founders and powered by our <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> coordination system. We design and build the first version of your product so it\u2019s ready for real users, investor demos, and your next round of conversations.",
   },
   {
     icon: "\u{1F512}",
@@ -243,7 +243,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "How are you faster than a typical agency?",
-    a: "We only take a few builds at a time, we\u2019re the ones actually doing the work, and we use BeemSpec to coordinate AI agents instead of handing tasks to layers of juniors. That lets us commit to aggressive timelines without playing games on quality.",
+    a: "We only take a few builds at a time, we\u2019re the ones actually doing the work, and we use <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> to coordinate AI agents instead of handing tasks to layers of juniors. That lets us commit to aggressive timelines without playing games on quality.",
   },
   {
     q: "Do I own everything you build?",
@@ -255,7 +255,7 @@ export const FAQS: FAQ[] = [
   },
   {
     q: "Aren\u2019t you just two people? What if something happens or you get busy?",
-    a: "Day\u2011to\u2011day, you work directly with the two founders. Every build starts with the same core pod: both founders plus a product designer we\u2019ve shipped with before.\n\nWhen a project needs more implementation horsepower, we scale the pod with senior engineers, infra, and security specialists from our regular bench. They work inside our BeemSpec system, our repos, and our review process. We stay responsible for product decisions, architecture, and final code.\n\nWe cap concurrent builds and book in sprints so we don\u2019t oversell capacity. All plans, decisions, and code live in shared systems you own, so the work isn\u2019t stuck in one person\u2019s head and can be handed off cleanly as you grow your internal team.",
+    a: "Day\u2011to\u2011day, you work directly with the two founders. Every build starts with the same core pod: both founders plus a product designer we\u2019ve shipped with before.\n\nWhen a project needs more implementation horsepower, we scale the pod with senior engineers, infra, and security specialists from our regular bench. They work inside our <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> system, our repos, and our review process. We stay responsible for product decisions, architecture, and final code.\n\nWe cap concurrent builds and book in sprints so we don\u2019t oversell capacity. All plans, decisions, and code live in shared systems you own, so the work isn\u2019t stuck in one person\u2019s head and can be handed off cleanly as you grow your internal team.",
   },
   {
     q: "What happens if things take longer than expected?",

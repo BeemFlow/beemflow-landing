@@ -23,7 +23,7 @@ const { items, heading, label = 'Questions', id } = Astro.props;
             <span>{faq.q}</span>
             <span class="faq__icon">+</span>
           </summary>
-          <p class="text-body faq__answer">{faq.a}</p>
+          <div class="text-body faq__answer" set:html={faq.a.replace(/\n\n/g, '<br/><br/>')} />
         </details>
       ))}
     </FadeIn>
