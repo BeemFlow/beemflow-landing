@@ -28,7 +28,7 @@ import FadeIn from '../FadeIn.astro';
         </div>
 
         <div class="ops-contact__field">
-          <label class="ops-contact__label" for="ops-revenue">Annual revenue band</label>
+          <label class="ops-contact__label" for="ops-revenue">Annual revenue</label>
           <select class="ops-contact__input ops-contact__select" id="ops-revenue" name="revenue" required>
             <option value="" disabled selected>Select&hellip;</option>
             <option value="under-3m">Under $3M</option>
@@ -116,22 +116,16 @@ import FadeIn from '../FadeIn.astro';
       }
 
       const data = new FormData(form);
-
-      // Collect form data for email / webhook
       const payload = Object.fromEntries(data.entries());
 
-      // Send to your endpoint (n8n webhook, Formspree, etc.)
-      // Replace this URL with your actual endpoint
-      const WEBHOOK_URL = '';
-      if (WEBHOOK_URL) {
-        fetch(WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        }).catch(() => {
-          // Silently fail — still show the next step
-        });
-      }
+      // Send to Attio via Vercel serverless function
+      fetch('/api/ops-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).catch(() => {
+        // Silently fail — still show the next step
+      });
 
       // Simple qualification: revenue band and team size
       const revenue = data.get('revenue') as string;
