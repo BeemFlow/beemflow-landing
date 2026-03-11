@@ -13,7 +13,28 @@ Source of truth for token values: `global.css` (the `:root` block).
 - **Product posture:** premium and grounded, never flashy.
 - **Texture:** a subtle fractal-noise grain overlay sits on top of the entire viewport (`body::before`, `mix-blend-mode: multiply`). This is a signature detail — reproduce it if possible, skip it if the framework makes it awkward.
 
-## 2) Design Tokens
+## 2) Brand Mark
+
+The wordmark is the text **beemflow.** rendered in the mono font. The trailing period is colored in the accent color; the rest is primary text color.
+
+- **Font:** `--font-mono` (IBM Plex Mono), weight 500
+- **Size:** `--fs-body-sm` (15px) in the nav/header context
+- **Tracking:** `-0.01em`
+- **Text color:** `--color-text` (`#1A1714`)
+- **Dot color:** `--color-accent` (`#B45309`)
+- **On dark surfaces:** text becomes `--color-text-on-dark`, dot stays `--color-accent-on-dark`
+
+The word is always lowercase. The dot is always present. There is no icon or logomark — the typographic wordmark is the entire brand identity.
+
+### Favicon
+
+A rounded-rect (`rx="6"`) on the brand background (`#F8F5F0`) containing the monogram **bf.** — the "bf" glyphs in primary text color (`#1A1714`) and the trailing dot as a filled circle in accent (`#B45309`). The favicon is an SVG; the source is in `public/favicon.svg` in the consulting repo if you need to copy it directly.
+
+### OG Image
+
+1200x630. Parchment background with a subtle warm gradient (`#F8F5F0` → `#EFE7DB`), a thin inset border (`#C9B6A2`), the wordmark top-left, a display-font headline, a sans subline, and mono proof points at the bottom. Rebuild this per-product using the same typographic hierarchy — don't reuse the consulting site's copy.
+
+## 3) Design Tokens
 
 All tokens are CSS custom properties defined on `:root` in `global.css`. When working in a system that uses its own token format (e.g. Tailwind `theme.extend`, shadcn CSS variables, Swift asset catalogs), map the values below into that system rather than fighting it. The names and values here are canonical.
 
@@ -118,7 +139,7 @@ Base typographic rules:
 
 Always respect `prefers-reduced-motion: reduce` — disable entrance animations and smooth scrolling.
 
-## 3) UI Patterns
+## 4) UI Patterns
 
 These are the recurring visual patterns in the design system. Implement them using whatever component/styling approach your framework provides. The descriptions below define the *visual spec* — not a specific CSS class you must use.
 
@@ -140,7 +161,7 @@ Elements enter the viewport by translating up `20px` and fading from `opacity: 0
 ### Page Frame
 The standard page structure is: nav at top, hero as first section, alternating background colors (`--color-bg` / `--color-bg-elevated`) for subsequent sections, a dark (`--color-bg-invert`) contact or CTA section near the bottom, and a dark footer.
 
-## 4) Composition Rules
+## 5) Composition Rules
 
 - **Tokens are the contract.** All color, spacing, type, and motion values come from tokens. Never introduce ad-hoc hex values, magic-number sizes, or one-off font stacks.
 - **Typographic hierarchy is fixed:** display serif for headings/statements, sans for body, mono for metadata/labels/buttons. Do not mix these roles.
@@ -149,7 +170,7 @@ The standard page structure is: nav at top, hero as first section, alternating b
 - **Section headings always get the amber underline rule.**
 - **Content/copy should be centralized** in a data file or CMS — not hardcoded in templates. This makes it possible to port the same design to a different product by swapping the content layer.
 
-## 5) Adapting to a Component Library
+## 6) Adapting to a Component Library
 
 When using an existing component library (shadcn/ui, Radix, MUI, etc.):
 
@@ -160,7 +181,7 @@ When using an existing component library (shadcn/ui, Radix, MUI, etc.):
 5. **Preserve the grain overlay** if feasible. It's a fixed `body::before` pseudo-element with a fractal-noise SVG background and `mix-blend-mode: multiply`. In frameworks with a root layout, this is straightforward. If it causes z-index issues with modals/overlays, reduce its `z-index` or skip it.
 6. **`<meta name="theme-color">` should be `#F8F5F0`** (matches `--color-bg`). This cannot read CSS vars, so hardcode it.
 
-## 6) Guardrails
+## 7) Guardrails
 
 - Do not introduce colors outside the palette. If a new shade is genuinely needed, derive it from an existing base and add it to the token set.
 - Do not use rounded/pill button shapes or large border-radii. The system is deliberately squared-off.

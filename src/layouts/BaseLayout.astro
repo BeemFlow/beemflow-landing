@@ -2,16 +2,18 @@
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
 const {
   title,
-  description = "Get a market-ready software v1 in 6-8 weeks, ready for your first real users. AI-accelerated product engineering from ex-CEO/CTO founder-engineers with 15+ products shipped, an exit, and our own AI coordination system."
+  description = "Get a market-ready software v1 in 6-8 weeks, ready for your first real users. AI-accelerated product engineering from ex-CEO/CTO founder-engineers with 15+ products shipped, an exit, and our own AI coordination system.",
+  ogImage = '/og-image.png',
 } = Astro.props;
 
 const siteUrl = 'https://beemflow.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const ogImageUrl = new URL('/og-image.svg', siteUrl).toString();
+const ogImageUrl = new URL(ogImage, siteUrl).toString();
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
