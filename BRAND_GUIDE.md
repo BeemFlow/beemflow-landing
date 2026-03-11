@@ -1,18 +1,21 @@
 # BeemFlow Brand Guide
 
-Portable reference for porting the BeemFlow design system to other products.
-Source of truth: `src/styles/global.css`.
+Framework-agnostic design system reference. Copy this file and `global.css` into any project and use them as the source of truth for all visual decisions.
+
+Source of truth for token values: `global.css` (the `:root` block).
+
+---
 
 ## 1) Brand Direction
 
 - **Tone:** senior, editorial, trustworthy, high-signal.
 - **Visual metaphor:** warm parchment canvas + technical mono labels + amber action accents.
 - **Product posture:** premium and grounded, never flashy.
-- **Texture:** a subtle fractal-noise grain overlay sits on top of the entire page (`body::before`, `mix-blend-mode: multiply`). This is a signature detail worth preserving.
+- **Texture:** a subtle fractal-noise grain overlay sits on top of the entire viewport (`body::before`, `mix-blend-mode: multiply`). This is a signature detail — reproduce it if possible, skip it if the framework makes it awkward.
 
 ## 2) Design Tokens
 
-All tokens live in `:root` in `src/styles/global.css`.
+All tokens are CSS custom properties defined on `:root` in `global.css`. When working in a system that uses its own token format (e.g. Tailwind `theme.extend`, shadcn CSS variables, Swift asset catalogs), map the values below into that system rather than fighting it. The names and values here are canonical.
 
 ### Color Palette
 
@@ -21,7 +24,7 @@ All tokens live in `:root` in `src/styles/global.css`.
 | `--color-bg` | `#F8F5F0` | Default page background |
 | `--color-bg-elevated` | `#FFFFFF` | Elevated cards, alternating sections |
 | `--color-bg-subtle` | `rgba(26, 23, 20, 0.018)` | Subtle fills |
-| `--color-bg-invert` | `#1A1714` | Dark sections (contact, footer) |
+| `--color-bg-invert` | `#1A1714` | Dark sections (footer, contact areas) |
 | `--color-bg-invert-elevated` | `#252119` | Inputs on dark backgrounds |
 | `--color-text` | `#1A1714` | Primary text |
 | `--color-text-muted` | `#6B6560` | Secondary / supporting text |
@@ -29,7 +32,7 @@ All tokens live in `:root` in `src/styles/global.css`.
 | `--color-text-on-dark` | `#EDE9E3` | Primary text on dark surfaces |
 | `--color-text-on-accent` | `#FFFFFF` | Text on accent-colored buttons |
 | `--color-text-muted-on-dark` | `#948E86` | Secondary text on dark surfaces |
-| `--color-accent` | `#B45309` | Primary accent / CTA color (amber) |
+| `--color-accent` | `#B45309` | Primary accent / CTA color (amber-700) |
 | `--color-accent-dark` | `#9A4408` | Darker accent variant |
 | `--color-accent-on-dark` | `#D97706` | Accent on dark backgrounds |
 | `--color-accent-hover` | `#92400E` | Accent hover state |
@@ -43,41 +46,45 @@ All tokens live in `:root` in `src/styles/global.css`.
 | `--color-input-border` | `rgba(26, 23, 20, 0.12)` | Form input borders |
 | `--color-input-focus` | `rgba(180, 83, 9, 0.3)` | Form input focus ring |
 
-**Note:** `::selection` uses `rgba(180, 83, 9, 0.14)` (accent at 14% opacity). The `<meta name="theme-color">` in `BaseLayout.astro` is hardcoded to `#F8F5F0` to match `--color-bg` (meta tags can't read CSS vars). Third-party JS integrations (Cal.com) also hardcode `#B45309` for the same reason.
+`::selection` uses `rgba(180, 83, 9, 0.14)` (accent at 14% opacity).
+
+When a context cannot read CSS custom properties (meta tags, third-party JS widgets, native mobile), hardcode the raw hex value and leave a comment noting which token it maps to.
 
 ### Typography
 
-| Token | Full Value | Usage |
+| Role | Font Stack | Usage |
 | --- | --- | --- |
-| `--font-display` | `'Newsreader', Georgia, 'Times New Roman', serif` | Hero headings, section headings, testimonial quotes |
-| `--font-sans` | `'Outfit', system-ui, -apple-system, sans-serif` | Body text, default font |
-| `--font-mono` | `'IBM Plex Mono', 'Menlo', monospace` | Labels, badges, buttons, metadata, attribution |
+| Display | `'Newsreader', Georgia, 'Times New Roman', serif` | Hero headings, section headings, pull quotes |
+| Sans (body) | `'Outfit', system-ui, -apple-system, sans-serif` | Body text, default font |
+| Mono | `'IBM Plex Mono', 'Menlo', monospace` | Labels, badges, buttons, metadata |
 
-Fonts are loaded via Google Fonts in `BaseLayout.astro`:
-- Newsreader: ital + weight 300-700, optical size 6-72
-- Outfit: weight 300-700
-- IBM Plex Mono: regular + medium + semibold, with italics
+**Font loading — load these from Google Fonts or self-host:**
+- Newsreader: italic + weight 300–700, optical size 6–72
+- Outfit: weight 300–700
+- IBM Plex Mono: 400, 500, 600 (regular + italic for each)
 
 ### Type Scale
 
 | Token | Size | Usage |
 | --- | --- | --- |
-| `--fs-micro` | `9px` | `::before` pseudo-labels (`[data-label]`) |
-| `--fs-label-sm` | `10px` | Service category labels |
+| `--fs-micro` | `9px` | Micro labels (decorative pseudo-labels) |
+| `--fs-label-sm` | `10px` | Category labels |
 | `--fs-label` | `11px` | Mono labels, badges, credentials |
 | `--fs-mono` | `12px` | Buttons, small mono text, attribution |
 | `--fs-sm` | `14px` | Secondary / supporting text |
-| `--fs-body-sm` | `15px` | Deliverables, descriptions, list items |
+| `--fs-body-sm` | `15px` | Descriptions, list items |
 | `--fs-body` | `16px` | Default body copy |
 | `--fs-body-lg` | `17px` | Lead paragraphs |
 | `--fs-body-xl` | `18px` | Hero body, service titles |
 | `--fs-title-faq` | `19px` | FAQ question text |
-| `--fs-title-sm` | `20px` | Block titles, card headlines |
+| `--fs-title-sm` | `20px` | Card headlines, block titles |
 | `--fs-title` | `22px` | Section subtitles, testimonial quotes |
-| `--fs-title-lg` | `24px` | Step card titles |
-| `--fs-display-number` | `64px` | Decorative step numbers |
+| `--fs-title-lg` | `24px` | Step/card titles |
+| `--fs-display-number` | `64px` | Decorative large numbers |
 
-Base element rules: all `h1-h4` use `--font-display` with `-0.02em` tracking. `h3`/`h4` are weight 500. All `p`/`li` default to `--color-text-muted`.
+Base typographic rules:
+- `h1`–`h4` use the display font with `-0.02em` tracking. `h3`/`h4` are weight 500.
+- `p` and `li` default to `--color-text-muted`.
 
 ### Layout
 
@@ -106,88 +113,57 @@ Base element rules: all `h1-h4` use `--font-display` with `-0.02em` tracking. `h
 | `--motion-fade` | `0.8s` | Scroll-triggered fade-in |
 | `--motion-hover` | `120ms` | Hover transitions |
 | `--motion-press` | `120ms` | Active/press transitions |
-| `--ease-emphasized` | `cubic-bezier(0.16, 1, 0.3, 1)` | Fade-in animations |
+| `--ease-emphasized` | `cubic-bezier(0.16, 1, 0.3, 1)` | Fade-in entrance animations |
 | `--ease-standard` | `ease-out` | Hover/press transitions |
 
-`prefers-reduced-motion: reduce` disables all fade-in transitions and smooth scrolling.
+Always respect `prefers-reduced-motion: reduce` — disable entrance animations and smooth scrolling.
 
-## 3) Reusable CSS Classes
+## 3) UI Patterns
 
-These exist in `global.css`. Use them before creating one-off styles.
+These are the recurring visual patterns in the design system. Implement them using whatever component/styling approach your framework provides. The descriptions below define the *visual spec* — not a specific CSS class you must use.
 
-### Layout
-- `.container` -- max-width `960px`, centered
-- `.container--narrow` -- max-width `650px`, centered
-- `.container--form` -- max-width `600px`, centered
-- `.section` -- applies `--section-padding`
+### Section Header
+A section is introduced by an **accent-colored mono label** (uppercase, `11px`, `0.1em` tracking) followed by a **display-font heading** (`clamp(30px, 4.5vw, 48px)`, weight 400, `-0.025em` tracking). The heading has a short amber underline rule below it (`32px` wide, `1.5px` thick, `20px` gap).
 
-### Typography
-- `.label-mono` -- mono, `11px`, `0.1em` tracking, uppercase, weight 500
-- `.text-mono-sm` -- mono, `12px`
-- `.text-body-sm` -- `15px`, line-height 1.6
-- `.text-body` -- `16px`, line-height 1.7
-- `.text-body-lg` -- `17px`, line-height 1.8
-- `.text-title-sm` -- display font, `22px`, weight 500, `-0.02em` tracking
-- `.text-accent` -- accent color
+### Primary Button
+Mono font, `12px`, uppercase, `0.04em` tracking, weight 500. Amber background (`--color-accent`), white text, `15px 32px` padding, `2px` border-radius. Hover darkens to `--color-accent-hover`. Active scales to `0.98`. Transition: `120ms ease-out`.
 
-### Section Headers
-- `.section-label` -- accent-colored label above headings
-- `.section-heading` -- responsive heading (`clamp(30px, 4.5vw, 48px)`), weight 400, with a `32px` amber underline rule via `::after`
-- `.section-heading--compact` -- tighter bottom margin variant
-- These are composed together in `SectionHeader.astro`
+### Dash List
+An unordered list with no bullets. Each item is prefixed by an em-dash (`\2013`) in the accent color at 60% opacity, offset `20px` from the left.
 
-### Buttons
-- `.btn-primary` -- mono font, `12px`, uppercase, amber background, white text, `2px` border-radius, scale-down on `:active`
+### Data Label
+Any element can display a decorative micro label above its content. The label is mono, `9px`, weight 600, `0.06em` tracking, uppercase, accent-colored. Implement via `::before` pseudo-element with a `data-label` attribute, or as a discrete label component — whatever fits the framework.
 
-### Lists
-- `.list-dash` -- no bullets, each `li` gets an em-dash prefix in accent color via `::before`
+### Fade-in Entrance
+Elements enter the viewport by translating up `20px` and fading from `opacity: 0` to `1` over `0.8s` using the emphasized easing curve. A configurable delay supports staggered sequences. Implementation typically uses an `IntersectionObserver`; use whatever scroll-animation primitive your framework provides (e.g. `framer-motion`, `useInView`, CSS `@starting-style`).
 
-### Pseudo-labels
-- `[data-label]` -- any element with a `data-label` attribute gets a micro mono label rendered via `::before` (`9px`, accent color, uppercase)
+### Page Frame
+The standard page structure is: nav at top, hero as first section, alternating background colors (`--color-bg` / `--color-bg-elevated`) for subsequent sections, a dark (`--color-bg-invert`) contact or CTA section near the bottom, and a dark footer.
 
-### Step Cards
-- `.step-cards` -- flex column container
-- `.step-card` -- horizontal layout with number + content, separated by top borders
-- `.step-card__number`, `__content`, `__header`, `__title`, `__subtitle`, `__meta`, `__price`, `__timeline`, `__desc`, `__callout`
-- Responsive: stacks vertically below `640px`
+## 4) Composition Rules
 
-### Animation
-- `.fade-in` -- scroll-triggered entrance animation (translate-up + opacity), driven by `IntersectionObserver` in `BaseLayout.astro`. Supports `--fade-delay` custom property for staggering.
+- **Tokens are the contract.** All color, spacing, type, and motion values come from tokens. Never introduce ad-hoc hex values, magic-number sizes, or one-off font stacks.
+- **Typographic hierarchy is fixed:** display serif for headings/statements, sans for body, mono for metadata/labels/buttons. Do not mix these roles.
+- **Accent is intentional.** Use `--color-accent` for CTAs, section labels, dividers, callout borders, and key highlights. It should feel earned, not decorative. Don't over-apply it.
+- **Border-radius is minimal:** `2px` for buttons and inputs, `4px` max for cards/containers. No large radii or pill shapes.
+- **Section headings always get the amber underline rule.**
+- **Content/copy should be centralized** in a data file or CMS — not hardcoded in templates. This makes it possible to port the same design to a different product by swapping the content layer.
 
-## 4) Shared Astro Components
+## 5) Adapting to a Component Library
 
-| Component | Purpose |
-| --- | --- |
-| `FadeIn.astro` | Wraps content in a `.fade-in` div with configurable delay |
-| `SectionHeader.astro` | Renders a `.label-mono` + `.section-heading` with optional compact mode |
-| `OfferSteps.astro` | Renders an array of step objects as numbered `.step-card` cards |
-| `ClientsBar.astro` | Horizontal logo/name bar with a label |
-| `BrandMark.astro` | The "beemflow." wordmark (mono font, accent dot) |
-| `ProcessSteps.astro` | Simpler numbered step list (no pricing, used on ops page) |
-| `CrossOfferBanner.astro` | Accent-tinted banner linking between the two site verticals |
+When using an existing component library (shadcn/ui, Radix, MUI, etc.):
 
-## 5) Composition Rules
+1. **Map tokens into the library's theme system.** For shadcn/Tailwind, this means extending `tailwind.config` with the brand colors, fonts, and spacing under semantic names, or mapping directly to shadcn's CSS variable conventions (e.g. `--primary` = `--color-accent`, `--background` = `--color-bg`).
+2. **Override default radii.** Most libraries default to large radii. Set the base radius to `2px`.
+3. **Override default fonts.** Set the sans font to Outfit, the serif/display font to Newsreader, and the mono font to IBM Plex Mono.
+4. **Don't fight the library's component structure.** Use its Button, Card, Input, etc. components — but restyle them to match the tokens above. The goal is brand consistency, not pixel-perfect reproduction of a specific CSS class.
+5. **Preserve the grain overlay** if feasible. It's a fixed `body::before` pseudo-element with a fractal-noise SVG background and `mix-blend-mode: multiply`. In frameworks with a root layout, this is straightforward. If it causes z-index issues with modals/overlays, reduce its `z-index` or skip it.
+6. **`<meta name="theme-color">` should be `#F8F5F0`** (matches `--color-bg`). This cannot read CSS vars, so hardcode it.
 
-- Section-specific styling stays scoped in each `.astro` component's `<style>` block.
-- Tokens and cross-section primitives live in `global.css`.
-- Prefer the text utility classes (`.text-body`, `.label-mono`, etc.) over writing one-off font declarations.
-- Use `SectionHeader.astro` for section headings instead of manually composing `.section-label` + `.section-heading`.
-- Content/copy lives in `src/data/content.ts`, not hardcoded in components.
+## 6) Guardrails
 
-## 6) Porting Checklist
-
-1. Copy `src/styles/global.css` -- this is the entire token + utility layer.
-2. Load fonts: Newsreader, Outfit, IBM Plex Mono (see the Google Fonts `<link>` in `BaseLayout.astro` for the exact weight/style config).
-3. Reproduce the grain overlay (`body::before`) if you want the texture.
-4. Port shared components: `FadeIn.astro`, `SectionHeader.astro`, `BrandMark.astro` are the most reusable.
-5. Match the page frame: nav at top, hero as first section, alternating `--color-bg` / `--color-bg-elevated` section backgrounds, dark `--color-bg-invert` contact section, dark footer.
-6. For third-party JS that needs color values (Cal.com, etc.), hardcode `#B45309` with a comment referencing `--color-accent`.
-7. Keep accent usage intentional: CTAs, section labels, dividers, callout borders, key highlights. Don't over-apply it.
-
-## 7) Guardrails
-
-- Do not introduce ad-hoc hex values -- use existing tokens.
-- Keep border-radius minimal: `2px` for buttons/inputs, `4px` max for containers.
-- Preserve the typographic hierarchy: display serif for statements, sans for body, mono for metadata/labels.
-- Section headings always get the amber underline rule (via `.section-heading::after`).
-- The accent color (`#B45309`, amber-700) is used sparingly and intentionally. It should feel earned, not decorative.
+- Do not introduce colors outside the palette. If a new shade is genuinely needed, derive it from an existing base and add it to the token set.
+- Do not use rounded/pill button shapes or large border-radii. The system is deliberately squared-off.
+- Do not use the display font for body text or the sans font for headings.
+- Do not apply the accent color to large surface areas (full-width backgrounds, hero gradients). It is a highlight color, not a surface color.
+- Respect reduced-motion preferences in all animation implementations.
