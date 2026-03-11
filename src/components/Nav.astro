@@ -15,9 +15,11 @@ const ctaHref = isOpsPage ? '#ops-final-cta' : '#contact';
     </a>
   </div>
   <div class="nav__right">
-    <a href="/" class:list={["nav__link", { "nav__link--active": isHomePage }]}>For Startups</a>
-    <a href="/operations" class:list={["nav__link", { "nav__link--active": isOpsPage }]}>For Operators</a>
-    <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer" class="nav__link">BeemSpec</a>
+    <div class="nav__links">
+      <a href="/" class:list={["nav__link", { "nav__link--active": isHomePage }]}>For Startups</a>
+      <a href="/operations" class:list={["nav__link", { "nav__link--active": isOpsPage }]}>For Operators</a>
+      <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer" class="nav__link nav__link--beemspec">BeemSpec</a>
+    </div>
     <a href={ctaHref} class="btn-primary nav__cta">Book a call</a>
   </div>
 </nav>
@@ -50,6 +52,12 @@ const ctaHref = isOpsPage ? '#ops-final-cta' : '#contact';
   }
 
   .nav__right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav__links {
     display: flex;
     align-items: center;
     gap: 24px;
@@ -102,15 +110,30 @@ const ctaHref = isOpsPage ? '#ops-final-cta' : '#contact';
 
   @media (max-width: 768px) {
     .nav {
-      padding: 16px 20px;
+      padding: 14px 16px;
+      gap: 0;
     }
 
     .nav__right {
-      gap: 16px;
+      gap: 12px;
+    }
+
+    .nav__links {
+      gap: 12px;
+    }
+
+    .nav__link {
+      font-size: 10px;
+      padding: 6px 0;
+      white-space: nowrap;
+    }
+
+    .nav__link--beemspec {
+      display: none;
     }
 
     .nav__cta {
-      padding: 10px 18px;
+      display: none;
     }
   }
 </style>

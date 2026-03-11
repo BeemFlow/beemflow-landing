@@ -25,7 +25,7 @@ const {
     <div class="container cross-offer-banner__inner">
       <p class="cross-offer-banner__text">
         <strong>{lead}</strong>
-        {body}
+        <span>{body}</span>
       </p>
       <a href={linkHref} class="cross-offer-banner__link">{linkText} &rarr;</a>
     </div>
@@ -78,13 +78,27 @@ const {
 
   @media (max-width: 640px) {
     .cross-offer-banner {
-      padding: 18px 20px;
+      padding: 10px 20px;
     }
 
     .cross-offer-banner__inner {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: baseline;
       gap: 8px;
+    }
+
+    .cross-offer-banner__text {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .cross-offer-banner__text span {
+      display: none;
+    }
+
+    .cross-offer-banner__link {
+      font-size: 10px;
+      flex-shrink: 0;
     }
   }
 </style>

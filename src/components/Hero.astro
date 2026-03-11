@@ -138,8 +138,35 @@ const { eyebrow, body, ctaHref, ctaText, secondaryHref, secondaryText, id } = As
 
   @media (max-width: 768px) {
     .hero {
-      padding: 84px 20px 60px;
       min-height: calc(100svh - var(--hero-top-offset, 0px));
+      justify-content: center;
+      padding: 32px 20px 36px;
+    }
+
+    .hero__eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .hero__heading {
+      margin-bottom: 16px;
+      font-size: clamp(30px, 8vw, 46px);
+      line-height: 1.1;
+    }
+
+    .hero__heading :global(.hero__timeline),
+    .hero__heading :global(.hero__accent) {
+      font-size: clamp(18px, 4.5vw, 30px);
+      margin-top: 2px;
+    }
+
+    .hero__body {
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .hero__actions {
+      gap: 16px;
     }
   }
 </style>
