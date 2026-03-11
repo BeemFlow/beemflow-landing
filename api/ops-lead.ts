@@ -68,19 +68,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  try {
-    // 1. Assert (upsert) the company in Attio
-    const domain = domainFromUrl(payload.website);
+  // Run Attio and Slack independently — neither blocks the other
+  const attioPromise = (async () => {
+    if (!ATTIO_API_KEY) return;
 
+    // 1. Assert (upsert) the company
+    const domain = domainFromUrl(payload.website);
     const companyValues: Record<string, unknown> = {
       name: [{ value: payload.company }],
     };
-
     if (domain) {
       companyValues.domains = [{ domain }];
     }
 
-    // PUT to assert (upsert by domain) or POST to create (no domain to match on)
     const companyRes = domain
       ? await attioFetch(
           'PUT',
@@ -96,10 +96,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const companyRecordId: string =
       companyRes.data?.id?.record_id ?? companyRes.data?.id;
 
-    // 2. Assert (upsert) the person in Attio, matched by email
+    // 2. Assert (upsert) the person, linked to company
     const nameParts = payload.name.trim().split(/\s+/);
     const firstName = nameParts[0] ?? '';
-    const lastName = nameParts.slice(1).join(' ') || null;
+    const lastName = nameParts.slice(1).join(' ') || '';
+    const fullName = payload.name.trim();
 
     await attioFetch(
       'PUT',
@@ -108,28 +109,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         data: {
           values: {
             email_addresses: [{ email_address: payload.email }],
-            name: [
-              {
-                first_name: firstName,
-                ...(lastName ? { last_name: lastName } : {}),
-              },
-            ],
+            name: [{ first_name: firstName, last_name: lastName, full_name: fullName }],
             ...(companyRecordId
-              ? {
-                  company: [
-                    {
-                      target_object: 'companies',
-                      target_record_id: companyRecordId,
-                    },
-                  ],
-                }
+              ? { company: [{ target_object: 'companies', target_record_id: companyRecordId }] }
               : {}),
           },
         },
       },
     );
 
-    // 3. Create a note on the company with form details
+    // 3. Create a note on the company
     const noteLines = [
       `## Ops Assessment Lead`,
       '',
@@ -158,31 +147,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         },
       });
     }
+  })().catch((err) => console.error('Attio error:', err));
 
-    // 3. Notify via Slack
-    if (SLACK_WEBHOOK_URL) {
-      await fetch(SLACK_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: payload.name,
-          email: payload.email,
-          company: payload.company,
-          website: payload.website ?? '',
-          revenue: payload.revenue,
-          locations: payload.locations ?? '',
-          team_size: payload.team_size,
-          pain: payload.pain.slice(0, 500),
-        }),
-      }).catch((slackErr) => {
-        // Log but don't fail the request if Slack is down
-        console.error('Slack notification failed:', slackErr);
-      });
-    }
+  const slackPromise = (async () => {
+    if (!SLACK_WEBHOOK_URL) return;
 
-    return res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error('Attio error:', err);
-    return res.status(502).json({ error: 'Failed to save lead' });
-  }
+    await fetch(SLACK_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: payload.name,
+        email: payload.email,
+        company: payload.company,
+        website: payload.website ?? '',
+        revenue: payload.revenue,
+        locations: payload.locations ?? '',
+        team_size: payload.team_size,
+        pain: payload.pain.slice(0, 500),
+      }),
+    });
+  })().catch((err) => console.error('Slack error:', err));
+
+  await Promise.allSettled([attioPromise, slackPromise]);
+
+  return res.status(200).json({ ok: true });
 }
