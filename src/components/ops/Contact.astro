@@ -17,14 +17,26 @@ import FadeIn from '../FadeIn.astro';
   <div class="ops-contact__form-wrapper">
     <FadeIn delay={0.1}>
       <form class="ops-contact__form container--form" id="ops-qualify-form" novalidate>
-        <div class="ops-contact__field">
-          <label class="ops-contact__label" for="ops-company">Company name</label>
-          <input class="ops-contact__input" type="text" id="ops-company" name="company" required />
+        <div class="ops-contact__row">
+          <div class="ops-contact__field">
+            <label class="ops-contact__label" for="ops-name">Your name</label>
+            <input class="ops-contact__input" type="text" id="ops-name" name="name" required />
+          </div>
+          <div class="ops-contact__field">
+            <label class="ops-contact__label" for="ops-email">Email</label>
+            <input class="ops-contact__input" type="email" id="ops-email" name="email" required />
+          </div>
         </div>
 
-        <div class="ops-contact__field">
-          <label class="ops-contact__label" for="ops-website">Website</label>
-          <input class="ops-contact__input" type="url" id="ops-website" name="website" placeholder="https://" />
+        <div class="ops-contact__row">
+          <div class="ops-contact__field">
+            <label class="ops-contact__label" for="ops-company">Company name</label>
+            <input class="ops-contact__input" type="text" id="ops-company" name="company" required />
+          </div>
+          <div class="ops-contact__field">
+            <label class="ops-contact__label" for="ops-website">Website</label>
+            <input class="ops-contact__input" type="url" id="ops-website" name="website" placeholder="https://" />
+          </div>
         </div>
 
         <div class="ops-contact__field">

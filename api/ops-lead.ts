@@ -2,8 +2,11 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const ATTIO_API_KEY = process.env.ATTIO_API_KEY ?? '';
 const ATTIO_BASE = 'https://api.attio.com/v2';
+const SLACK_WEBHOOK_URL = process.env.SLACK_OPS_WEBHOOK_URL ?? '';
 
 interface FormPayload {
+  name: string;
+  email: string;
   company: string;
   website?: string;
   revenue: string;
@@ -61,7 +64,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const payload = req.body as FormPayload;
 
-  if (!payload.company || !payload.revenue || !payload.team_size || !payload.pain) {
+  if (!payload.name || !payload.email || !payload.company || !payload.revenue || !payload.team_size || !payload.pain) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -93,10 +96,44 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const companyRecordId: string =
       companyRes.data?.id?.record_id ?? companyRes.data?.id;
 
-    // 2. Create a note on the company with form details
+    // 2. Assert (upsert) the person in Attio, matched by email
+    const nameParts = payload.name.trim().split(/\s+/);
+    const firstName = nameParts[0] ?? '';
+    const lastName = nameParts.slice(1).join(' ') || null;
+
+    await attioFetch(
+      'PUT',
+      '/objects/people/records?matching_attribute=email_addresses',
+      {
+        data: {
+          values: {
+            email_addresses: [{ email_address: payload.email }],
+            name: [
+              {
+                first_name: firstName,
+                ...(lastName ? { last_name: lastName } : {}),
+              },
+            ],
+            ...(companyRecordId
+              ? {
+                  company: [
+                    {
+                      target_object: 'companies',
+                      target_record_id: companyRecordId,
+                    },
+                  ],
+                }
+              : {}),
+          },
+        },
+      },
+    );
+
+    // 3. Create a note on the company with form details
     const noteLines = [
       `## Ops Assessment Lead`,
       '',
+      `**Contact:** ${payload.name} (${payload.email})`,
       `**Company:** ${payload.company}`,
       payload.website ? `**Website:** ${payload.website}` : null,
       `**Revenue:** ${payload.revenue}`,
@@ -119,6 +156,27 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           format: 'markdown',
           content: noteLines,
         },
+      });
+    }
+
+    // 3. Notify via Slack
+    if (SLACK_WEBHOOK_URL) {
+      await fetch(SLACK_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: payload.name,
+          email: payload.email,
+          company: payload.company,
+          website: payload.website ?? '',
+          revenue: payload.revenue,
+          locations: payload.locations ?? '',
+          team_size: payload.team_size,
+          pain: payload.pain.slice(0, 500),
+        }),
+      }).catch((slackErr) => {
+        // Log but don't fail the request if Slack is down
+        console.error('Slack notification failed:', slackErr);
       });
     }
 
