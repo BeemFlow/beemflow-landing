@@ -268,6 +268,126 @@ export const FAQS: FAQ[] = [
   // Equity FAQ removed from public site. Keep as internal lever only.
 ];
 
+// --- Operations Page ---
+
+export interface OpsOfferStep {
+  title: string;
+  subtitle: string;
+  price: string;
+  description: string;
+  bullets: string[];
+  guarantee?: string;
+  callout?: { label: string; text: string };
+}
+
+export interface OpsProcessStep {
+  title: string;
+  description: string;
+}
+
+export const OPS_OFFER_STEPS: OpsOfferStep[] = [
+  {
+    title: "Workflow & AI Ops Assessment",
+    subtitle: "",
+    price: "3K fixed",
+    description: "2 weeks. One working workflow before it\u2019s over.",
+    bullets: [
+      "60\u201390 min discovery with the people who actually run the process",
+      "We walk \u201Cyesterday\u201D hour by hour and map 10\u201320 key workflows and failure points",
+      "AI\u2011assisted analysis to surface 5\u20137 highest\u2011ROI automations with estimated hours/month saved",
+      "A polished report: priorities, tools, and a 30\u2011day implementation plan",
+      "We ship one live workflow during the sprint (examples: no\u2011show reminders, quote follow\u2011up, lead routing, basic reporting)",
+    ],
+    guarantee:
+      "If by the end of the Assessment we haven\u2019t (a) shipped at least one workflow you decide to keep live and (b) shown a realistic path to 10+ hours/month saved, we\u2019ll build an additional workflow at our cost.",
+  },
+  {
+    title: "Implementation Sprints",
+    subtitle: "",
+    price: "15K\u201330K each",
+    description: "3\u20135 automations per sprint, scoped to one function.",
+    bullets: [
+      "Scoped to one function (for example: \u201CLead \u2192 Booking,\u201D \u201CQuote \u2192 Cash,\u201D \u201CMulti\u2011location reporting\u201D)",
+      "4\u20136 week fixed window with weekly check\u2011ins and visible progress",
+      "Built on your existing stack (CRM, booking, billing, messaging) plus n8n / supervised AI agents for the glue",
+      "Your 3K Assessment fee credits into your first Sprint",
+    ],
+  },
+  {
+    title: "Ops Stewardship",
+    subtitle: "Optional",
+    price: "2K\u20136K/mo",
+    description: "Ongoing monitoring, maintenance, and iteration.",
+    bullets: [
+      "Monitoring, break/fix, and updates as tools and APIs change",
+      "One meaningful new workflow or major upgrade per month",
+      "Quarterly review: \u201CWhere are humans still the glue?\u201D and what to automate next",
+      "Clear boundaries so your team knows what we own and what they own",
+    ],
+  },
+];
+
+export const OPS_PROCESS_STEPS: OpsProcessStep[] = [
+  {
+    title: "Listen",
+    description:
+      "We sit with your operators and walk through a real day. No slide deck. No AI hype. Just \u201Cshow us what actually happens.\u201D",
+  },
+  {
+    title: "Map",
+    description:
+      "We turn that into explicit workflows, edge cases, and systems diagrams\u00A0\u2013 where data comes from, where it goes, and where it dies.",
+  },
+  {
+    title: "Automate",
+    description:
+      "We design and implement the highest\u2011leverage workflows using AI\u2011native tooling, n8n, and your existing stack. You see one working workflow before the Assessment ends.",
+  },
+  {
+    title: "Decide",
+    description:
+      "You get a clear plan and numbers: what to automate next, what it\u2019s worth, and whether it makes sense to move into an Implementation Sprint or have your team run with it.",
+  },
+];
+
+export const OPS_PROBLEM_BULLETS: string[] = [
+  "Quotes and leads only get followed up when someone remembers",
+  "Every location runs \u201Ctheir own version\u201D of the process",
+  "CRMs, inboxes, spreadsheets, and booking tools all disagree",
+  "You\u2019re paying good people to move data between tools all day",
+  "Everyone talks about \u201Cusing AI\u201D but nothing in your business actually changed",
+];
+
+export const OPS_FIT_BULLETS: string[] = [
+  "You\u2019re doing $3M\u2013$50M+ across one or more locations",
+  "At least 5+ people touch the same workflows (sales, scheduling, billing, ops)",
+  "You know there\u2019s automation potential, but no one owns it",
+  "You want systems that run quietly, not another hero who \u201Csaves the day\u201D",
+];
+
+export const OPS_FAQS: FAQ[] = [
+  {
+    q: "How is this different from hiring an internal engineer or \u201CAI person\u201D?",
+    a: "Internal hires are great once you know exactly what to build. Most teams don\u2019t. We specialize in the front part of the problem: mapping, prioritizing, and proving out the first systems. After that, we can either keep running it with you or help you hire and onboard the right internal team.",
+  },
+  {
+    q: "What happens when something breaks?",
+    a: "In the Assessment and Implementation Sprints, we include a stabilization window to fix anything we ship. If you want ongoing coverage beyond that, that\u2019s what the Stewardship retainer is for\u00A0\u2013 monitoring, break/fix, and upgrades.",
+  },
+  {
+    q: "Do you replace my team?",
+    a: "No. We remove the repetitive glue work so your team can do the work you actually hired them for. The best projects free up your best people; they don\u2019t get rid of them.",
+  },
+  {
+    q: "What if we\u2019re not sure what to automate?",
+    a: "That\u2019s normal. Most clients come in with \u201Cthis feels messy.\u201D The Assessment is designed to turn \u201Cwe\u2019re drowning in manual work\u201D into a specific list of workflows, hours saved, and a build plan.",
+  },
+  {
+    q: "Can you work with our existing tools and security constraints?",
+    a: "Yes. We start from your current stack and constraints. If something truly can\u2019t be done safely with your systems, we\u2019ll say so and offer options rather than forcing a pet tool on you.",
+  },
+];
+
 // --- About ---
 
 export const CREDENTIALS = [

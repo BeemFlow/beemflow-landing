@@ -1,0 +1,87 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import FadeIn from './FadeIn.astro';
+
+interface ProcessItem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: ProcessItem[];
+  heading: string;
+  id?: string;
+  label?: string;
+  ariaLabel?: string;
+}
+
+const {
+  items,
+  heading,
+  id,
+  label = 'Process',
+  ariaLabel = 'How it works',
+} = Astro.props;
+---
+
+<section class="section process-steps" id={id} aria-label={ariaLabel}>
+  <div class="container--narrow">
+    <SectionHeader label={label} compact>{heading}</SectionHeader>
+
+    <div class="process-steps__list">
+      {items.map((step, i) => (
+        <FadeIn delay={i * 0.08}>
+          <div class="process-steps__item">
+            <span class="process-steps__num label-mono">{String(i + 1).padStart(2, '0')}</span>
+            <div class="process-steps__body">
+              <h3 class="process-steps__title">{step.title}</h3>
+              <p class="text-body">{step.description}</p>
+            </div>
+          </div>
+        </FadeIn>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process-steps__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .process-steps__item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 28px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .process-steps__item:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .process-steps__num {
+    color: var(--color-accent);
+    flex-shrink: 0;
+    min-width: 28px;
+    padding-top: 4px;
+  }
+
+  .process-steps__body {
+    flex: 1;
+  }
+
+  .process-steps__title {
+    font-size: var(--fs-title-sm);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 640px) {
+    .process-steps__item {
+      gap: 16px;
+    }
+  }
+</style>

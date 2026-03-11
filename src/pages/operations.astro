@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import CrossOfferBanner from '../components/CrossOfferBanner.astro';
+import Hero from '../components/Hero.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import Trust from '../components/ops/Trust.astro';
+import ProblemFit from '../components/ops/ProblemFit.astro';
+import Offer from '../components/ops/Offer.astro';
+import AI from '../components/ops/AI.astro';
+import FAQ from '../components/FAQ.astro';
+import { OPS_FAQS, OPS_PROCESS_STEPS } from '../data/content';
+import Contact from '../components/ops/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="BeemFlow | Workflow & AI Ops for PE-Backed and Multi-Location Businesses"
+  description="Turn manual, people-as-glue operations into quiet, reliable AI-powered systems. Workflow assessment, implementation sprints, and ongoing stewardship for businesses doing $3M–$50M."
+>
+  <Nav />
+  <CrossOfferBanner
+    lead="Building a funded software or AI product?"
+    body="We also run market-ready v1 sprints for founders who need product, engineering, and design leadership."
+    linkHref="/"
+    linkText="See Startup V1 Sprints"
+    ariaLabel="Startup offer"
+  />
+  <main id="main-content">
+    <Hero
+      eyebrow="For PE&#8209;backed and multi&#8209;location service businesses ($3M&#8211;$50M)"
+      body="We sit with your operators, map the real work, and turn your most painful workflows into AI&#8209;powered systems your team actually&nbsp;trusts."
+      ctaHref="#ops-final-cta"
+      ctaText="Book a Workflow &amp; AI Ops Assessment"
+      secondaryHref="#ops-process"
+      secondaryText="See how it works"
+      id="ops-hero"
+    >
+      Turn &ldquo;people as glue&rdquo; operations<br />
+      <span class="hero__accent text-accent">into quiet, reliable systems.</span>
+    </Hero>
+    <Trust />
+    <ProblemFit />
+    <Offer />
+    <ProcessSteps
+      id="ops-process"
+      label="The Assessment"
+      heading="How it works"
+      ariaLabel="How the assessment works"
+      items={OPS_PROCESS_STEPS}
+    />
+    <AI />
+    <FAQ items={OPS_FAQS} heading="Questions you should be asking" id="ops-faq" />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>

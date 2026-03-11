@@ -1,7 +1,8 @@
 ---
-import { STEPS, SERVICES } from '../data/content';
-import SectionHeader from './SectionHeader.astro';
-import FadeIn from './FadeIn.astro';
+import { STEPS, SERVICES } from '../../data/content';
+import SectionHeader from '../SectionHeader.astro';
+import FadeIn from '../FadeIn.astro';
+import OfferSteps from '../OfferSteps.astro';
 ---
 
 <section class="section how" aria-label="How we work">
@@ -27,53 +28,7 @@ import FadeIn from './FadeIn.astro';
       </div>
     </FadeIn>
 
-    <!-- Three-Step Journey -->
-    <div class="how__steps">
-      {STEPS.map((step, i) => (
-        <FadeIn delay={i * 0.08}>
-          <div class="how__step">
-            <div class="how__step-number">{String(i + 1).padStart(2, '0')}</div>
-            <div class="how__step-content">
-              <div class="how__step-header">
-                <h3 class="how__step-title">{step.title}{step.subtitle && <span class="how__step-subtitle"> ({step.subtitle})</span>}</h3>
-                <div class="how__step-meta">
-                  <span class="text-mono-sm how__step-price">{step.price}</span>
-                  <span class="text-mono-sm how__step-timeline">{step.timeline}</span>
-                </div>
-              </div>
-              <p class="text-body how__step-desc">{step.description}</p>
-              {step.deliverables && (
-                <ul class="how__step-deliverables list-dash">
-                  {step.deliverables.map((d) => (
-                    <li class="text-body">{d}</li>
-                  ))}
-                </ul>
-              )}
-              {step.endState && (
-                Array.isArray(step.endState) ? (
-                  <div class="how__step-endstate">
-                    <span class="how__step-endstate-label">End state:</span>
-                    <ul class="how__step-endstate-list list-dash">
-                      {step.endState.map((item) => (
-                        <li class="text-body">{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <div class="how__step-endstate">
-                    <span class="how__step-endstate-label">End state:</span>
-                    <p class="text-body-sm">{step.endState}</p>
-                  </div>
-                )
-              )}
-              {step.callout && (
-                <p class="how__step-guarantee" data-label={step.callout.label}>{step.callout.text}</p>
-              )}
-            </div>
-          </div>
-        </FadeIn>
-      ))}
-    </div>
+    <OfferSteps steps={STEPS} />
 
     <!-- BeemSpec Callout -->
     <FadeIn delay={0.25}>
@@ -142,117 +97,6 @@ import FadeIn from './FadeIn.astro';
     gap: var(--space-sm);
   }
 
-
-
-  /* ── Three-Step Journey ── */
-  .how__steps {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: var(--space-xl);
-  }
-
-  .how__step {
-    padding: 48px 0;
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .how__step:last-child {
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .how__step-number {
-    font-family: var(--font-display);
-    font-size: var(--fs-display-number);
-    font-weight: 300;
-    color: var(--color-text-faint);
-    line-height: 0.85;
-    flex-shrink: 0;
-    min-width: 80px;
-    letter-spacing: -0.04em;
-  }
-
-  .how__step-content {
-    flex: 1;
-  }
-
-  .how__step-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: var(--space-sm);
-  }
-
-  .how__step-title {
-    font-size: var(--fs-title-lg);
-  }
-
-  .how__step-meta {
-    display: flex;
-    gap: var(--space-sm);
-    align-items: baseline;
-  }
-
-  .how__step-price {
-    color: var(--color-accent);
-    font-weight: 600;
-    letter-spacing: 0.02em;
-  }
-
-  .how__step-timeline {
-    color: var(--color-text-muted);
-    letter-spacing: 0.02em;
-  }
-
-  .how__step-subtitle {
-    font-weight: 400;
-    font-size: var(--fs-body);
-    color: var(--color-text-muted);
-    font-family: var(--font-sans);
-  }
-
-  .how__step-desc {
-    max-width: var(--content-measure);
-  }
-
-  .how__step-deliverables {
-    margin: var(--space-sm) 0 0;
-  }
-
-  .how__step-endstate {
-    color: var(--color-text);
-    margin-top: var(--space-sm);
-    font-size: var(--fs-body-sm);
-    font-weight: 500;
-  }
-
-  .how__step-endstate-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .how__step-endstate-list {
-    margin: 0;
-  }
-
-  .how__step-guarantee {
-    margin-top: var(--space-sm);
-    padding: 14px 18px;
-    border: 1px solid var(--color-border-accent);
-    background: var(--color-accent-soft);
-    font-family: var(--font-display);
-    font-size: var(--fs-body-sm);
-    font-style: italic;
-    color: var(--color-text);
-    line-height: 1.5;
-    max-width: var(--content-measure);
-  }
-
   /* ── BeemSpec Callout ── */
   .how__beemspec {
     margin-bottom: var(--space-xl);
@@ -271,14 +115,6 @@ import FadeIn from './FadeIn.astro';
   .how__beemspec-intro {
     margin-bottom: var(--space-sm);
     font-weight: 500;
-  }
-
-  .how__beemspec-text {
-    margin-bottom: 12px;
-  }
-
-  .how__beemspec-list {
-    margin: 0 0 var(--space-sm);
   }
 
   .how__beemspec-closer {
@@ -342,16 +178,6 @@ import FadeIn from './FadeIn.astro';
   }
 
   @media (max-width: 640px) {
-    .how__step {
-      flex-direction: column;
-    gap: var(--space-sm);
-      padding: 36px 0;
-    }
-
-    .how__step-number {
-      font-size: calc(var(--fs-display-number) * 0.75);
-    }
-
     .how__services {
       grid-template-columns: 1fr;
     }

@@ -1,0 +1,50 @@
+---
+import FadeIn from '../FadeIn.astro';
+import ClientsBar from '../ClientsBar.astro';
+---
+
+<FadeIn>
+  <section class="ops-trust" id="ops-trust" aria-label="Credentials">
+    <div class="container ops-trust__inner">
+      <p class="ops-trust__eyebrow label-mono text-accent">You don't need more dashboards. You need fewer fires.</p>
+      <p class="ops-trust__body text-body-lg">
+        We've shipped 15+ production systems that quietly use AI under the
+        hood&nbsp;&ndash; from VC&#8209;backed SaaS products to PE portfolio companies.
+        Same standards. Different&nbsp;workflows.
+      </p>
+      <ClientsBar />
+    </div>
+  </section>
+</FadeIn>
+
+<style>
+  .ops-trust {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-lg) 32px;
+    text-align: center;
+  }
+
+  .ops-trust__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .ops-trust__eyebrow {
+    margin-bottom: var(--space-sm);
+  }
+
+  .ops-trust__body {
+    max-width: var(--content-measure);
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    .ops-trust {
+      padding: 32px 20px;
+    }
+  }
+</style>

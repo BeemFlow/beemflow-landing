@@ -1,6 +1,6 @@
 ---
-import { TESTIMONIALS } from '../data/content';
-import FadeIn from './FadeIn.astro';
+import { TESTIMONIALS } from '../../data/content';
+import FadeIn from '../FadeIn.astro';
 
 const publishedTestimonials = TESTIMONIALS.filter(
   (testimonial) => !testimonial.quote.includes('[TODO')

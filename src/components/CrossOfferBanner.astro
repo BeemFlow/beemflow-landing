@@ -1,0 +1,90 @@
+---
+import FadeIn from './FadeIn.astro';
+
+interface Props {
+  lead: string;
+  body: string;
+  linkHref: string;
+  linkText: string;
+  ariaLabel?: string;
+  delay?: number;
+}
+
+const {
+  lead,
+  body,
+  linkHref,
+  linkText,
+  ariaLabel = 'Related offer',
+  delay = 0.35,
+} = Astro.props;
+---
+
+<FadeIn delay={delay}>
+  <div class="cross-offer-banner" aria-label={ariaLabel}>
+    <div class="container cross-offer-banner__inner">
+      <p class="cross-offer-banner__text">
+        <strong>{lead}</strong>
+        {body}
+      </p>
+      <a href={linkHref} class="cross-offer-banner__link">{linkText} &rarr;</a>
+    </div>
+  </div>
+</FadeIn>
+
+<style>
+  .cross-offer-banner {
+    position: relative;
+    z-index: 5;
+    padding: 22px 32px;
+    background: var(--color-accent-soft);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cross-offer-banner__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .cross-offer-banner__text {
+    font-size: var(--fs-body-sm);
+    color: var(--color-text-muted);
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  .cross-offer-banner__text strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .cross-offer-banner__link {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color var(--motion-hover) var(--ease-standard);
+  }
+
+  .cross-offer-banner__link:hover {
+    color: var(--color-accent-hover);
+  }
+
+  @media (max-width: 640px) {
+    .cross-offer-banner {
+      padding: 18px 20px;
+    }
+
+    .cross-offer-banner__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
+</style>

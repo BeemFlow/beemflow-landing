@@ -2,28 +2,47 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
-import ProofBar from '../components/ProofBar.astro';
-import Problem from '../components/Problem.astro';
-import Services from '../components/Services.astro';
-import CaseStudies from '../components/CaseStudies.astro';
-import Testimonials from '../components/Testimonials.astro';
-import About from '../components/About.astro';
+import CrossOfferBanner from '../components/CrossOfferBanner.astro';
+import ProofBar from '../components/startups/ProofBar.astro';
+import Problem from '../components/startups/Problem.astro';
+import Offer from '../components/startups/Offer.astro';
+import CaseStudies from '../components/startups/CaseStudies.astro';
+import Testimonials from '../components/startups/Testimonials.astro';
+import About from '../components/startups/About.astro';
 import FAQ from '../components/FAQ.astro';
-import Contact from '../components/Contact.astro';
+import { FAQS } from '../data/content';
+import Contact from '../components/startups/Contact.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout title="BeemFlow | Market-Ready V1 Sprint: Ship in 6-8 Weeks">
   <Nav />
+  <CrossOfferBanner
+    lead="Already running a profitable business?"
+    body="We use the same engineering and AI tooling to automate messy operations for PE-backed and multi-location companies."
+    linkHref="/operations"
+    linkText="See Workflow & AI Ops"
+    ariaLabel="Operations offer"
+  />
   <main id="main-content">
-    <Hero />
+    <Hero
+      eyebrow="For funded software, SaaS & AI founders (pre&#8209;seed to Series&nbsp;A)"
+      body="BeemFlow is a founder&#8209;led product studio. We plug in as your product, engineering, and design team to take you from fuzzy thesis to a live v1 that's ready for your first real users.<br/><br/>You bring the users. We make sure the product, onboarding, analytics and key workflows are ready for them once it's live."
+      ctaHref="#contact"
+      ctaText="Book a 30-minute fit call"
+      secondaryHref="#work"
+      secondaryText="See how we build"
+    >
+      Ship a market&#8209;ready v1.<br />
+      <span class="hero__timeline text-accent">6&#8209;8 <s>months</s> weeks.</span>
+    </Hero>
     <ProofBar />
     <Problem />
-    <Services />
+    <Offer />
     <CaseStudies />
     <Testimonials />
     <About />
-    <FAQ />
+    <FAQ items={FAQS} heading="Things founders ask" />
     <Contact />
   </main>
   <Footer />

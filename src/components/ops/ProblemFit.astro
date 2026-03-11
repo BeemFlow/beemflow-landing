@@ -1,0 +1,80 @@
+---
+import { OPS_PROBLEM_BULLETS, OPS_FIT_BULLETS } from '../../data/content';
+import FadeIn from '../FadeIn.astro';
+---
+
+<section class="section ops-pf" id="ops-problem-fit" aria-label="Problem and fit">
+  <div class="container">
+    <div class="ops-pf__grid">
+      <FadeIn delay={0.1}>
+        <div class="ops-pf__col">
+          <h3 class="ops-pf__col-heading">Your ops aren't broken.<br /><span class="text-accent">They're held together by&nbsp;people.</span></h3>
+          <ul class="ops-pf__list list-dash">
+            {OPS_PROBLEM_BULLETS.map((b) => (
+              <li class="text-body">{b}</li>
+            ))}
+          </ul>
+        </div>
+      </FadeIn>
+      <FadeIn delay={0.2}>
+        <div class="ops-pf__col ops-pf__col--fit">
+          <h3 class="ops-pf__col-heading">We're a fit&nbsp;if:</h3>
+          <ul class="ops-pf__list list-dash">
+            {OPS_FIT_BULLETS.map((b) => (
+              <li class="text-body" set:html={b} />
+            ))}
+          </ul>
+        </div>
+      </FadeIn>
+    </div>
+    <FadeIn delay={0.25}>
+      <div class="ops-pf__cta">
+        <a href="#ops-final-cta" class="btn-primary">Check if the Assessment makes sense for you &rarr;</a>
+      </div>
+    </FadeIn>
+  </div>
+</section>
+
+<style>
+  .ops-pf__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .ops-pf__col-heading {
+    font-size: var(--fs-title);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .ops-pf__col--fit {
+    padding: 32px;
+    background: var(--color-accent-soft);
+    border-left: 2px solid var(--color-accent);
+  }
+
+  .ops-pf__list {
+    margin: 0;
+  }
+
+  .ops-pf__list > li {
+    margin-bottom: 12px;
+    font-size: var(--fs-body);
+  }
+
+  .ops-pf__cta {
+    text-align: center;
+    padding-top: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .ops-pf__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

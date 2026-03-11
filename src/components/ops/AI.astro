@@ -1,0 +1,82 @@
+---
+import FadeIn from '../FadeIn.astro';
+---
+
+<section class="section ops-ai" id="ops-ai-explainer" aria-label="How we use AI">
+  <div class="container--narrow">
+    <FadeIn>
+      <h2 class="ops-ai__heading">AI is the mechanism.<br /><span class="text-accent">Not the product.</span></h2>
+    </FadeIn>
+
+    <FadeIn delay={0.1}>
+      <p class="text-body-lg ops-ai__lead">
+        Everyone on your team has heard "we should be using AI by&nbsp;now."
+        Almost nobody can point to a single workflow that actually runs
+        differently because of&nbsp;it.
+      </p>
+    </FadeIn>
+
+    <FadeIn delay={0.15}>
+      <div class="ops-ai__methods">
+        <p class="label-mono text-accent ops-ai__label">We use:</p>
+        <ul class="list-dash">
+          <li class="text-body"><strong>AI&#8209;native planning</strong> to analyze calls, map processes, and spot patterns humans miss</li>
+          <li class="text-body"><strong>Supervised AI agents</strong> to do repetitive implementation work inside clear guardrails</li>
+          <li class="text-body"><strong>n8n&#8209;style automation</strong> to connect the tools you already use</li>
+        </ul>
+      </div>
+    </FadeIn>
+
+    <FadeIn delay={0.2}>
+      <p class="text-body-lg ops-ai__closer">
+        Our job isn't to cram AI into everything. It's to pull humans out of the
+        10&ndash;20% of work they should never have been doing in the first&nbsp;place.
+      </p>
+    </FadeIn>
+  </div>
+</section>
+
+<style>
+  .ops-ai {
+    background: var(--color-bg-elevated);
+  }
+
+  .ops-ai__heading {
+    font-size: clamp(30px, 4.5vw, 48px);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  .ops-ai__heading::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1.5px;
+    background: var(--color-accent);
+    margin-top: 20px;
+  }
+
+  .ops-ai__lead {
+    margin-bottom: var(--space-lg);
+  }
+
+  .ops-ai__methods {
+    margin-bottom: var(--space-lg);
+    padding: 32px;
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-accent-soft);
+  }
+
+  .ops-ai__label {
+    margin-bottom: var(--space-sm);
+  }
+
+  .ops-ai__closer {
+    color: var(--color-text);
+    font-weight: 500;
+    font-style: italic;
+    font-family: var(--font-display);
+  }
+</style>

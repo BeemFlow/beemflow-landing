@@ -1,44 +1,66 @@
 ---
 import FadeIn from './FadeIn.astro';
+
+interface Props {
+  eyebrow: string;
+  body: string;
+  ctaHref: string;
+  ctaText: string;
+  secondaryHref: string;
+  secondaryText: string;
+  id?: string;
+}
+
+const { eyebrow, body, ctaHref, ctaText, secondaryHref, secondaryText, id } = Astro.props;
 ---
 
-<section class="hero" aria-label="Introduction">
+<section class="hero" id={id} aria-label="Introduction">
   <div class="container">
     <FadeIn delay={0.1}>
-      <p class="hero__eyebrow label-mono">For funded software, SaaS &amp; AI founders (pre&#8209;seed to Series&nbsp;A)</p>
+      <p class="hero__eyebrow label-mono">{eyebrow}</p>
       <h1 class="hero__heading">
-        Ship a market&#8209;ready v1.<br />
-        <span class="hero__timeline text-accent">6&#8209;8 <s>months</s> weeks.</span>
+        <slot />
       </h1>
     </FadeIn>
     <FadeIn delay={0.2}>
-      <p class="hero__body">
-        BeemFlow is a founder&#8209;led product studio. We plug in as your
-        product, engineering, and design team to take you from fuzzy thesis
-        to a live v1 that's ready for your first real users.
-        <br/><br/>
-        You bring the users. We make sure the product, onboarding, analytics
-        and key workflows are ready for them once it's live.
-      </p>
-
+      <p class="hero__body" set:html={body} />
     </FadeIn>
     <FadeIn delay={0.3}>
       <div class="hero__actions">
-        <a href="#contact" class="btn-primary">Book a 30-minute fit call &rarr;</a>
-        <a href="#work" class="hero__link">See how we build &darr;</a>
+        <a href={ctaHref} class="btn-primary">{ctaText} &rarr;</a>
+        <a href={secondaryHref} class="hero__link">{secondaryText} &darr;</a>
       </div>
     </FadeIn>
   </div>
 </section>
 
+<script>
+  const updateHeroViewport = () => {
+    const heroes = document.querySelectorAll<HTMLElement>('.hero');
+    heroes.forEach((hero) => {
+      const top = hero.getBoundingClientRect().top;
+      hero.style.setProperty('--hero-top-offset', `${Math.max(0, Math.round(top))}px`);
+    });
+  };
+
+  requestAnimationFrame(updateHeroViewport);
+  window.addEventListener('resize', updateHeroViewport);
+</script>
+
 <style>
   .hero {
-    min-height: 100vh;
+    min-height: calc(100svh - var(--hero-top-offset, 0px));
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 104px 32px 100px;
     position: relative;
+  }
+
+  .hero > .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
   }
 
   .hero__eyebrow {
@@ -53,19 +75,6 @@ import FadeIn from './FadeIn.astro';
     letter-spacing: -0.03em;
     margin-bottom: 32px;
     max-width: 900px;
-  }
-
-  .hero__timeline {
-    display: block;
-    margin-top: 4px;
-    font-size: clamp(22px, 4vw, 46px);
-    font-style: italic;
-  }
-
-  .hero__timeline s {
-    text-decoration: line-through;
-    text-decoration-thickness: 2px;
-    color: var(--color-text-muted);
   }
 
   .hero__body {
@@ -112,10 +121,25 @@ import FadeIn from './FadeIn.astro';
     width: 100%;
   }
 
+  /* Heading accent variants (used via slots) */
+  .hero__heading :global(.hero__timeline),
+  .hero__heading :global(.hero__accent) {
+    display: block;
+    margin-top: 4px;
+    font-size: clamp(22px, 4vw, 46px);
+    font-style: italic;
+  }
+
+  .hero__heading :global(.hero__timeline s) {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color: var(--color-text-muted);
+  }
+
   @media (max-width: 768px) {
     .hero {
       padding: 84px 20px 60px;
-      min-height: auto;
+      min-height: calc(100svh - var(--hero-top-offset, 0px));
     }
   }
 </style>

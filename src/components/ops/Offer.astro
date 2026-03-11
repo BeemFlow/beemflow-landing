@@ -1,0 +1,42 @@
+---
+import { OPS_OFFER_STEPS } from '../../data/content';
+import SectionHeader from '../SectionHeader.astro';
+import FadeIn from '../FadeIn.astro';
+import OfferSteps from '../OfferSteps.astro';
+---
+
+<section class="section ops-offer" id="ops-offer" aria-label="What we do">
+  <div class="container">
+    <SectionHeader label="What we do">Assessment. Sprint. Stewardship.</SectionHeader>
+
+    <FadeIn delay={0.05}>
+      <p class="text-body ops-offer__intro">
+        We don't sell "AI ideas." We sell working workflows. Three&nbsp;parts:
+      </p>
+    </FadeIn>
+
+    <OfferSteps steps={OPS_OFFER_STEPS} />
+
+    <FadeIn delay={0.3}>
+      <div class="ops-offer__cta">
+        <a href="#ops-final-cta" class="btn-primary">Talk about your workflows &rarr;</a>
+      </div>
+    </FadeIn>
+  </div>
+</section>
+
+<style>
+  .ops-offer {
+    background: var(--color-bg-elevated);
+  }
+
+  .ops-offer__intro {
+    max-width: var(--content-measure);
+    margin-bottom: var(--space-lg);
+  }
+
+  .ops-offer__cta {
+    text-align: center;
+    padding-top: 16px;
+  }
+</style>

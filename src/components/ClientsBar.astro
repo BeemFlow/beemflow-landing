@@ -1,0 +1,52 @@
+---
+import { PROOF_CLIENTS } from '../data/content';
+
+interface Props {
+  label?: string;
+}
+
+const { label = 'Built for' } = Astro.props;
+---
+
+<div class="clients-bar">
+  <div class="clients-bar__divider"></div>
+  <div class="clients-bar__list">
+    <span class="label-mono clients-bar__label">{label}</span>
+    {PROOF_CLIENTS.map((name) => (
+      <span class="clients-bar__name">{name}</span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .clients-bar__divider {
+    width: 100%;
+    height: 1px;
+    background: var(--color-border-subtle);
+  }
+
+  .clients-bar__list {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 28px;
+  }
+
+  .clients-bar__label {
+    color: var(--color-text-muted);
+  }
+
+  .clients-bar__name {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 500px) {
+    .clients-bar__list {
+      gap: 12px 20px;
+    }
+  }
+</style>

@@ -353,6 +353,107 @@ p, li {
   opacity: 0.6;
 }
 
+/* ── Numbered Step Cards ── */
+
+.step-cards {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-xl);
+}
+
+.step-card {
+  padding: 48px 0;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  border-top: 1px solid var(--color-border);
+}
+
+.step-card:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.step-card__number {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-number);
+  font-weight: 300;
+  color: var(--color-text-faint);
+  line-height: 0.85;
+  flex-shrink: 0;
+  min-width: 80px;
+  letter-spacing: -0.04em;
+}
+
+.step-card__content {
+  flex: 1;
+}
+
+.step-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: var(--space-sm);
+}
+
+.step-card__title {
+  font-size: var(--fs-title-lg);
+}
+
+.step-card__subtitle {
+  font-weight: 400;
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+}
+
+.step-card__meta {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: baseline;
+}
+
+.step-card__price {
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.step-card__timeline {
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.step-card__desc {
+  max-width: var(--content-measure);
+}
+
+.step-card__callout {
+  margin-top: var(--space-sm);
+  padding: 14px 18px;
+  border: 1px solid var(--color-border-accent);
+  background: var(--color-accent-soft);
+  font-family: var(--font-display);
+  font-size: var(--fs-body-sm);
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.5;
+  max-width: var(--content-measure);
+}
+
+@media (max-width: 640px) {
+  .step-card {
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: 36px 0;
+  }
+
+  .step-card__number {
+    font-size: calc(var(--fs-display-number) * 0.75);
+  }
+}
+
 /* ── Pseudo-label (::before micro mono labels) ── */
 
 [data-label]::before {

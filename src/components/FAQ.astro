@@ -1,14 +1,23 @@
 ---
-import { FAQS } from '../data/content';
+import type { FAQ } from '../data/content';
 import SectionHeader from './SectionHeader.astro';
 import FadeIn from './FadeIn.astro';
+
+interface Props {
+  items: FAQ[];
+  heading: string;
+  label?: string;
+  id?: string;
+}
+
+const { items, heading, label = 'Questions', id } = Astro.props;
 ---
 
-<section class="section faq" aria-label="Frequently asked questions">
+<section class="section faq" id={id} aria-label="Frequently asked questions">
   <div class="container--narrow">
-    <SectionHeader label="Questions" compact>Things founders ask</SectionHeader>
+    <SectionHeader label={label} compact>{heading}</SectionHeader>
     <FadeIn delay={0.1}>
-      {FAQS.map((faq) => (
+      {items.map((faq) => (
         <details class="faq__item">
           <summary class="faq__question">
             <span>{faq.q}</span>

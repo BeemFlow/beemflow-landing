@@ -1,6 +1,7 @@
 ---
-import { PROOF_CLIENTS, PROOF_STATS } from '../data/content';
-import FadeIn from './FadeIn.astro';
+import { PROOF_STATS } from '../../data/content';
+import ClientsBar from '../ClientsBar.astro';
+import FadeIn from '../FadeIn.astro';
 ---
 
 <FadeIn>
@@ -12,13 +13,7 @@ import FadeIn from './FadeIn.astro';
         ))}
       </p>
       <p class="proof__protection label-mono">Milestone overrun protection: if we miss your agreed v1 launch by &gt;2&nbsp;weeks for reasons in our control, we eat the&nbsp;overage.</p>
-      <div class="proof__divider"></div>
-      <div class="proof__clients">
-        <span class="label-mono proof__label">Built for</span>
-        {PROOF_CLIENTS.map((name) => (
-          <span class="proof__client">{name}</span>
-        ))}
-      </div>
+      <ClientsBar />
     </div>
   </section>
 </FadeIn>
@@ -52,38 +47,9 @@ import FadeIn from './FadeIn.astro';
     padding-bottom: 28px;
   }
 
-  .proof__divider {
-    width: 100%;
-    height: 1px;
-    background: var(--color-border-subtle);
-  }
-
-  .proof__clients {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 28px;
-  }
-
-  .proof__label {
-    color: var(--color-text-muted);
-  }
-
-  .proof__client {
-    font-size: var(--fs-sm);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-  }
-
   @media (max-width: 500px) {
     .proof {
       padding: 32px 20px;
-    }
-
-    .proof__clients {
-      gap: 12px 20px;
     }
   }
 </style>

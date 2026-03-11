@@ -1,0 +1,369 @@
+---
+import FadeIn from '../FadeIn.astro';
+---
+
+<section class="ops-contact" id="ops-final-cta" aria-label="Get started">
+  <div class="container--narrow">
+    <FadeIn>
+      <h2 class="ops-contact__heading">Ready to stop being the glue in your own&nbsp;operations?</h2>
+      <p class="ops-contact__subheading">
+        Tell us a bit about your business. If the Workflow &amp; AI Ops Assessment
+        isn't a fit, we'll tell you quickly. If it is, we'll come prepared to your
+        first call with ideas tied to your actual&nbsp;workflows.
+      </p>
+    </FadeIn>
+  </div>
+
+  <div class="ops-contact__form-wrapper">
+    <FadeIn delay={0.1}>
+      <form class="ops-contact__form container--form" id="ops-qualify-form" novalidate>
+        <div class="ops-contact__field">
+          <label class="ops-contact__label" for="ops-company">Company name</label>
+          <input class="ops-contact__input" type="text" id="ops-company" name="company" required />
+        </div>
+
+        <div class="ops-contact__field">
+          <label class="ops-contact__label" for="ops-website">Website</label>
+          <input class="ops-contact__input" type="url" id="ops-website" name="website" placeholder="https://" />
+        </div>
+
+        <div class="ops-contact__field">
+          <label class="ops-contact__label" for="ops-revenue">Annual revenue band</label>
+          <select class="ops-contact__input ops-contact__select" id="ops-revenue" name="revenue" required>
+            <option value="" disabled selected>Select&hellip;</option>
+            <option value="under-3m">Under $3M</option>
+            <option value="3-10m">$3M &ndash; $10M</option>
+            <option value="10-25m">$10M &ndash; $25M</option>
+            <option value="25-50m">$25M &ndash; $50M</option>
+            <option value="50m-plus">$50M+</option>
+          </select>
+        </div>
+
+        <div class="ops-contact__row">
+          <div class="ops-contact__field">
+            <label class="ops-contact__label" for="ops-locations">Number of locations</label>
+            <input class="ops-contact__input" type="text" id="ops-locations" name="locations" placeholder="1" />
+          </div>
+          <div class="ops-contact__field">
+            <label class="ops-contact__label" for="ops-team-size">People touching ops/sales workflows</label>
+            <select class="ops-contact__input ops-contact__select" id="ops-team-size" name="team_size" required>
+              <option value="" disabled selected>Select&hellip;</option>
+              <option value="1-5">1&ndash;5</option>
+              <option value="5-15">5&ndash;15</option>
+              <option value="15-50">15&ndash;50</option>
+              <option value="50-plus">50+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ops-contact__field">
+          <label class="ops-contact__label" for="ops-pain">What feels most broken or manual right now?</label>
+          <textarea class="ops-contact__input ops-contact__textarea" id="ops-pain" name="pain" rows="4" required></textarea>
+        </div>
+
+        <div class="ops-contact__field ops-contact__field--checkbox">
+          <label class="ops-contact__checkbox-label">
+            <input type="checkbox" name="acknowledge" required class="ops-contact__checkbox" />
+            <span class="text-body-sm">I understand the Assessment is a fixed 3K engagement</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary ops-contact__submit">Submit &amp; see if we're a fit &rarr;</button>
+      </form>
+    </FadeIn>
+  </div>
+
+  <!-- Post-submit: Cal.com embed (hidden by default) -->
+  <div class="ops-contact__cal-wrapper" id="ops-cal-wrapper" style="display:none;">
+    <div class="container--narrow">
+      <FadeIn>
+        <div class="ops-contact__thanks">
+          <h3 class="ops-contact__thanks-heading">Thanks. Let's get you on the calendar.</h3>
+          <p class="ops-contact__thanks-body">Pick a time for your first conversation. We'll review what you shared and come prepared.</p>
+        </div>
+      </FadeIn>
+    </div>
+    <div class="ops-contact__cal-embed-wrapper">
+      <div id="ops-cal-embed" role="region" aria-label="Schedule a call"></div>
+    </div>
+  </div>
+
+  <!-- Post-submit: review state (for non-qualifying leads) -->
+  <div class="ops-contact__review-wrapper" id="ops-review-wrapper" style="display:none;">
+    <div class="container--narrow">
+      <FadeIn>
+        <div class="ops-contact__thanks">
+          <h3 class="ops-contact__thanks-heading">Thanks. We'll review and get back to you.</h3>
+          <p class="ops-contact__thanks-body">We'll take a look at what you shared and reach out within 1&ndash;2 business days to see if the Assessment is the right fit.</p>
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('ops-qualify-form') as HTMLFormElement | null;
+  const calWrapper = document.getElementById('ops-cal-wrapper');
+  const reviewWrapper = document.getElementById('ops-review-wrapper');
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const data = new FormData(form);
+
+      // Collect form data for email / webhook
+      const payload = Object.fromEntries(data.entries());
+
+      // Send to your endpoint (n8n webhook, Formspree, etc.)
+      // Replace this URL with your actual endpoint
+      const WEBHOOK_URL = '';
+      if (WEBHOOK_URL) {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }).catch(() => {
+          // Silently fail — still show the next step
+        });
+      }
+
+      // Simple qualification: revenue band and team size
+      const revenue = data.get('revenue') as string;
+      const teamSize = data.get('team_size') as string;
+      const qualifies =
+        revenue !== 'under-3m' &&
+        (teamSize === '5-15' || teamSize === '15-50' || teamSize === '50-plus');
+
+      // Hide the form
+      form.style.display = 'none';
+
+      if (qualifies) {
+        // Show Cal.com embed
+        if (calWrapper) {
+          calWrapper.style.display = 'block';
+          calWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Initialize Cal.com inline embed
+          if ((window as any).Cal) {
+            (window as any).Cal("inline", {
+              elementOrSelector: "#ops-cal-embed",
+              calLink: "alecw/30min",
+              layout: "month_view",
+            });
+            (window as any).Cal("ui", {
+              theme: "dark",
+              styles: {
+                branding: { brandColor: "#B45309" },
+              },
+              hideEventTypeDetails: false,
+              layout: "month_view",
+            });
+          }
+        }
+      } else {
+        // Show review message
+        if (reviewWrapper) {
+          reviewWrapper.style.display = 'block';
+          reviewWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  }
+</script>
+
+<!-- Cal.com script loader (same as main site, loaded once) -->
+<script>
+  (function (C: any, A: string, L: string) {
+    let p = function (a: any, ar: any) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal;
+      let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  (window as any).Cal("init", { origin: "https://cal.com" });
+</script>
+
+<style>
+  .ops-contact {
+    padding: 140px 32px 80px;
+    background: var(--color-bg-invert);
+    color: var(--color-text-on-dark);
+    text-align: center;
+  }
+
+  .ops-contact__heading {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    margin-bottom: var(--space-sm);
+    line-height: 1.15;
+    color: var(--color-text-on-dark);
+  }
+
+  .ops-contact__subheading {
+    font-size: var(--fs-body);
+    color: var(--color-text-muted-on-dark);
+    margin-bottom: 56px;
+    max-width: var(--content-measure);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── Form ── */
+
+  .ops-contact__form-wrapper {
+    max-width: var(--max-width-form);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .ops-contact__form {
+    text-align: left;
+  }
+
+  .ops-contact__field {
+    margin-bottom: 24px;
+  }
+
+  .ops-contact__label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted-on-dark);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .ops-contact__input {
+    width: 100%;
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    padding: 12px 16px;
+    background: var(--color-bg-invert-elevated);
+    border: 1px solid var(--color-border-on-dark);
+    color: var(--color-text-on-dark);
+    border-radius: 2px;
+    transition: border-color var(--motion-hover) var(--ease-standard);
+  }
+
+  .ops-contact__input::placeholder {
+    color: var(--color-text-muted-on-dark);
+    opacity: 0.5;
+  }
+
+  .ops-contact__input:focus {
+    outline: none;
+    border-color: var(--color-accent-on-dark);
+  }
+
+  .ops-contact__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23948E86' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  .ops-contact__textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .ops-contact__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .ops-contact__field--checkbox {
+    margin-bottom: 32px;
+  }
+
+  .ops-contact__checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .ops-contact__checkbox {
+    margin-top: 3px;
+    accent-color: var(--color-accent-on-dark);
+    flex-shrink: 0;
+  }
+
+  .ops-contact__checkbox-label span {
+    color: var(--color-text-muted-on-dark);
+  }
+
+  .ops-contact__submit {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ── Post-submit states ── */
+
+  .ops-contact__cal-wrapper,
+  .ops-contact__review-wrapper {
+    padding-top: 56px;
+  }
+
+  .ops-contact__thanks {
+    margin-bottom: 40px;
+  }
+
+  .ops-contact__thanks-heading {
+    font-size: var(--fs-title-lg);
+    color: var(--color-text-on-dark);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .ops-contact__thanks-body {
+    font-size: var(--fs-body);
+    color: var(--color-text-muted-on-dark);
+  }
+
+  .ops-contact__cal-embed-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 32px;
+    min-height: 400px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .ops-contact {
+      padding: 100px 20px 60px;
+    }
+
+    .ops-contact__row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
