@@ -97,7 +97,7 @@ When a context cannot read CSS custom properties (meta tags, third-party JS widg
 **Font loading — load these from Google Fonts or self-host:**
 - Newsreader: italic + weight 300–700, optical size 6–72
 - Outfit: weight 300–700
-- IBM Plex Mono: 400, 500, 600 (regular + italic for each)
+- IBM Plex Mono: 400, 500, 600 (regular only) + 400 italic
 
 ### Type Scale
 
