@@ -11,7 +11,22 @@ Source of truth for token values: `global.css` (the `:root` block).
 - **Tone:** senior, editorial, trustworthy, high-signal.
 - **Visual metaphor:** warm parchment canvas + technical mono labels + amber action accents.
 - **Product posture:** premium and grounded, never flashy.
-- **Texture:** a subtle fractal-noise grain overlay sits on top of the entire viewport (`body::before`, `mix-blend-mode: multiply`). This is a signature detail — reproduce it if possible, skip it if the framework makes it awkward.
+- **Texture:** a nearly-invisible grain overlay sits on the entire viewport. It adds a subtle organic feel to the parchment background — you shouldn't be able to see it consciously. The exact implementation:
+
+```css
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+```
+
+The noise itself is at **3.5% opacity** inside the SVG, then blended with `multiply`. Do not increase the opacity — if the grain is visible to the naked eye, it's too strong. If the framework's root layout makes `body::before` awkward (e.g. z-index conflicts with modals), apply it to a dedicated fixed overlay div instead, or skip it entirely.
 
 ## 2) Brand Mark
 
