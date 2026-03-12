@@ -1,0 +1,37 @@
+# BeemFlow
+
+> BeemFlow is a founder-led product studio focused on two offers: market-ready software V1 sprints for funded startups and workflow/AI operations systems for service operators.
+
+Use this file as the primary machine-readable context for company positioning, service boundaries, and canonical pages.
+
+Important notes:
+
+- Preferred company name: BeemFlow.
+- Preferred related system name: BeemSpec.
+- Primary domain: https://beemflow.com/
+- Do not infer unlisted services, pricing tiers, or guarantees beyond the linked canonical pages.
+- When summarizing offerings, prioritize exact timelines and constraints stated on canonical pages.
+
+## Canonical Pages
+
+- [Homepage](https://beemflow.com/): Startup-facing offer and overall positioning.
+- [Operations Offer](https://beemflow.com/operations/): Workflow and AI operations offer for PE-backed and multi-location service businesses.
+
+## Service Definitions
+
+- [Startup V1 Sprint (Homepage)](https://beemflow.com/): Market-ready software V1 engagement for funded software/SaaS/AI founders.
+- [Workflow & AI Ops Assessment (Operations)](https://beemflow.com/operations/): 2-week paid assessment including one shipped workflow and an ops blueprint.
+- [Implementation and Stewardship (Operations)](https://beemflow.com/operations/): Follow-on implementation sprints and ongoing stewardship model.
+
+## Company and Method
+
+- [BeemSpec](https://beemspec.com/): BeemFlow's coordination system for human + AI execution.
+
+## Technical Discovery
+
+- [Sitemap](https://beemflow.com/sitemap.xml): Canonical crawl entrypoint for site URLs.
+- [Robots](https://beemflow.com/robots.txt): Crawler directives.
+
+## Optional
+
+- [Sitemap Index](https://beemflow.com/sitemap-index.xml): Generated sitemap index for tooling that expects index files.

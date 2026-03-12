@@ -13,14 +13,59 @@ import FAQ from '../components/FAQ.astro';
 import { FAQS } from '../data/content';
 import Contact from '../components/startups/Contact.astro';
 import Footer from '../components/Footer.astro';
+
+const stripHtml = (value: string) => value.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+const pageUrl = 'https://beemflow.com/';
+const pageTitle = 'BeemFlow | Market-Ready V1 Sprint: Ship in 6-8 Weeks';
+const pageDescription =
+  'Get a market-ready software v1 in 6-8 weeks, ready for your first real users. AI-accelerated product engineering from ex-CEO/CTO founder-engineers with 15+ products shipped, an exit, and our own AI coordination system.';
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  url: pageUrl,
+  description: pageDescription,
+  inLanguage: 'en-US',
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'BeemFlow',
+  url: pageUrl,
+  description: pageDescription,
+  serviceType: 'AI-accelerated product engineering',
+  areaServed: 'Global',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: stripHtml(faq.a),
+    },
+  })),
+};
+
+const schemas = [webPageSchema, serviceSchema, faqSchema];
 ---
 
-<BaseLayout title="BeemFlow | Market-Ready V1 Sprint: Ship in 6-8 Weeks">
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  ogImageAlt="BeemFlow market-ready V1 sprint overview"
+  schemas={schemas}
+>
   <Nav />
   <CrossOfferBanner
     lead="Already running a profitable business?"
     body="We use the same engineering and AI tooling to automate messy operations for PE-backed and multi-location companies."
-    linkHref="/operations"
+    linkHref="/operations/"
     linkText="See Workflow & AI Ops"
     ariaLabel="Operations offer"
   />

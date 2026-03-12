@@ -3,17 +3,22 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  schemas?: Record<string, unknown>[];
 }
 
 const {
   title,
   description = "Get a market-ready software v1 in 6-8 weeks, ready for your first real users. AI-accelerated product engineering from ex-CEO/CTO founder-engineers with 15+ products shipped, an exit, and our own AI coordination system.",
   ogImage = '/og-image.png',
+  ogImageAlt = 'BeemFlow overview card',
+  schemas = [],
 } = Astro.props;
 
 const siteUrl = 'https://beemflow.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl = new URL(ogImage, siteUrl).toString();
+const robotsContent = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -35,10 +40,12 @@ const websiteSchema = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index,follow" />
+    <meta name="robots" content={robotsContent} />
+    <meta name="googlebot" content={robotsContent} />
     <!-- must match --color-bg; meta tags can't reference CSS vars -->
     <meta name="theme-color" content="#F8F5F0" />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -46,13 +53,23 @@ const websiteSchema = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="BeemFlow" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:secure_url" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@alecw" />
+    <meta name="twitter:creator" content="@alecw" />
+    <meta name="twitter:url" content={canonicalUrl} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
@@ -73,6 +90,9 @@ const websiteSchema = {
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
+    {schemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    ))}
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>

@@ -11,12 +11,54 @@ import FAQ from '../components/FAQ.astro';
 import { OPS_FAQS, OPS_PROCESS_STEPS } from '../data/content';
 import Contact from '../components/ops/Contact.astro';
 import Footer from '../components/Footer.astro';
+
+const stripHtml = (value: string) => value.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+const pageUrl = 'https://beemflow.com/operations/';
+const pageTitle = 'BeemFlow | Make AI Actually Run Your Operations, Not Just Your Board Deck';
+const pageDescription =
+  'For PE-backed and multi-location service businesses ($3M-$50M). We ship a production-ready workflow in 2 weeks and a plan to reclaim 10+ hours/month of manual work. Workflow assessment, implementation sprints, and ongoing stewardship.';
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  url: pageUrl,
+  description: pageDescription,
+  inLanguage: 'en-US',
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'BeemFlow',
+  url: pageUrl,
+  description: pageDescription,
+  serviceType: 'Workflow and AI operations automation',
+  areaServed: 'Global',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: OPS_FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: stripHtml(faq.a),
+    },
+  })),
+};
+
+const schemas = [webPageSchema, serviceSchema, faqSchema];
 ---
 
 <BaseLayout
-  title="BeemFlow | Make AI Actually Run Your Operations, Not Just Your Board Deck"
-  description="For PE-backed and multi-location service businesses ($3M–$50M). We ship a production-ready workflow in 2 weeks and a plan to reclaim 10+ hours/month of manual work. Workflow assessment, implementation sprints, and ongoing stewardship."
+  title={pageTitle}
+  description={pageDescription}
   ogImage="/og-image-ops.png"
+  ogImageAlt="BeemFlow workflow and AI operations service overview"
+  schemas={schemas}
 >
   <Nav />
   <CrossOfferBanner
