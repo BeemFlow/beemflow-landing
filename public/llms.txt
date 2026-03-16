@@ -14,14 +14,14 @@ Important notes:
 
 ## Canonical Pages
 
-- [Homepage](https://beemflow.com/): Startup-facing offer and overall positioning.
-- [Operations Offer](https://beemflow.com/operations/): Workflow and AI operations offer for PE-backed and multi-location service businesses.
+- [Homepage](https://beemflow.com/): Workflow and AI operations offer for PE-backed and multi-location service businesses.
+- [Startup V1 Sprints](https://beemflow.com/startups/): Market-ready product build offer for funded software, SaaS, and AI founders.
 
 ## Service Definitions
 
-- [Startup V1 Sprint (Homepage)](https://beemflow.com/): Market-ready software V1 engagement for funded software/SaaS/AI founders.
-- [Workflow & AI Ops Assessment (Operations)](https://beemflow.com/operations/): 2-week paid assessment including one shipped workflow and an ops blueprint.
-- [Implementation and Stewardship (Operations)](https://beemflow.com/operations/): Follow-on implementation sprints and ongoing stewardship model.
+- [Workflow & AI Ops Assessment (Homepage)](https://beemflow.com/): 2-week paid assessment including one shipped workflow and an ops blueprint.
+- [Implementation and Stewardship (Homepage)](https://beemflow.com/): Follow-on implementation sprints and ongoing stewardship model.
+- [Startup V1 Sprint](https://beemflow.com/startups/): Market-ready software V1 engagement for funded software/SaaS/AI founders.
 
 ## Company and Method
 

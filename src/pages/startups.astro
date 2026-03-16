@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import CrossOfferBanner from '../components/CrossOfferBanner.astro';
+import ProofBar from '../components/startups/ProofBar.astro';
+import Problem from '../components/startups/Problem.astro';
+import Offer from '../components/startups/Offer.astro';
+import CaseStudies from '../components/startups/CaseStudies.astro';
+import Testimonials from '../components/startups/Testimonials.astro';
+import About from '../components/startups/About.astro';
+import FAQ from '../components/FAQ.astro';
+import { FAQS } from '../data/content';
+import Contact from '../components/startups/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const stripHtml = (value: string) => value.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+const pageUrl = 'https://beemflow.com/startups/';
+const pageTitle = 'BeemFlow | Market-Ready V1 Sprint: Ship in 6-8 Weeks';
+const pageDescription =
+  'Get a market-ready software v1 in 6-8 weeks, ready for your first real users. AI-accelerated product engineering from ex-CEO/CTO founder-engineers with 15+ products shipped, an exit, and our own AI coordination system.';
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  url: pageUrl,
+  description: pageDescription,
+  inLanguage: 'en-US',
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'BeemFlow',
+  url: pageUrl,
+  description: pageDescription,
+  serviceType: 'AI-accelerated product engineering',
+  areaServed: 'Global',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: stripHtml(faq.a),
+    },
+  })),
+};
+
+const schemas = [webPageSchema, serviceSchema, faqSchema];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  ogImageAlt="BeemFlow market-ready V1 sprint overview"
+  schemas={schemas}
+>
+  <Nav />
+  <CrossOfferBanner
+    lead="Already running a profitable business?"
+    body="We use the same engineering and AI tooling to automate messy operations for PE-backed and multi-location companies."
+    linkHref="/"
+    linkText="See Workflow & AI Ops"
+    ariaLabel="Operations offer"
+  />
+  <main id="main-content">
+    <Hero
+      eyebrow="For funded software, SaaS & AI founders (pre&#8209;seed to Series&nbsp;A)"
+      body="BeemFlow is a founder-led product studio. We plug in as your product, engineering, and design team to take you from a thesis to a live v1 your first real users can onboard to.<br/><br/>You bring the users. We make sure the product, onboarding, analytics and key workflows are ready for them once it's live.<br/><br/>If we miss your agreed v1 launch by more than 2 weeks for reasons in our control, we eat the overage."
+      ctaHref="#contact"
+      ctaText="Book a 30-minute fit call"
+      secondaryHref="#work"
+      secondaryText="See how we build"
+    >
+      Ship a market-ready v1.<br />
+      <span class="hero__timeline text-accent">6-8 <s>months</s> weeks.</span>
+    </Hero>
+    <ProofBar />
+    <Problem />
+    <Offer />
+    <CaseStudies />
+    <Testimonials />
+    <About />
+    <FAQ items={FAQS} heading="Things founders ask" />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>
