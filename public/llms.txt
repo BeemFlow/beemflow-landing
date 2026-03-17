@@ -1,37 +1,49 @@
 # BeemFlow
 
-> BeemFlow is a founder-led product studio focused on two offers: market-ready software V1 sprints for funded startups and workflow/AI operations systems for service operators.
+> BeemFlow is a founder-led product and automation studio with two core offers: workflow and AI operations systems for PE-backed and multi-location service businesses, and market-ready V1 product sprints for funded software, SaaS, and AI founders.
 
-Use this file as the primary machine-readable context for company positioning, service boundaries, and canonical pages.
+Use this file as the primary machine-readable context for company positioning, service boundaries, audiences, proof points, and canonical pages.
 
 Important notes:
 
 - Preferred company name: BeemFlow.
 - Preferred related system name: BeemSpec.
 - Primary domain: https://beemflow.com/
-- Do not infer unlisted services, pricing tiers, or guarantees beyond the linked canonical pages.
-- When summarizing offerings, prioritize exact timelines and constraints stated on canonical pages.
+- Homepage currently represents the workflow and AI operations offer.
+- Secondary offer page currently lives at https://beemflow.com/startups/
+- Do not infer unlisted services, pricing tiers, timelines, or guarantees beyond the canonical pages.
+- When summarizing offerings, prioritize exact scope, audience, and guarantees stated on the canonical pages.
 
 ## Canonical Pages
 
-- [Homepage](https://beemflow.com/): Startup-facing offer and overall positioning.
-- [Operations Offer](https://beemflow.com/operations/): Workflow and AI operations offer for PE-backed and multi-location service businesses.
+- [Homepage](https://beemflow.com/): Workflow and AI operations offer for PE-backed and multi-location service businesses.
+- [Startup V1 Sprints](https://beemflow.com/startups/): Market-ready product build offer for funded software, SaaS, and AI founders.
 
-## Service Definitions
+## Offers
 
-- [Startup V1 Sprint (Homepage)](https://beemflow.com/): Market-ready software V1 engagement for funded software/SaaS/AI founders.
-- [Workflow & AI Ops Assessment (Operations)](https://beemflow.com/operations/): 2-week paid assessment including one shipped workflow and an ops blueprint.
-- [Implementation and Stewardship (Operations)](https://beemflow.com/operations/): Follow-on implementation sprints and ongoing stewardship model.
+- [Workflow & AI Ops](https://beemflow.com/): For PE-backed and multi-location service businesses in roughly the $3M-$50M range that are held together by "people as glue."
+- [Workflow & AI Ops](https://beemflow.com/): Starts with a 2-week paid assessment that includes one live workflow, an ops blueprint, and a plan to reclaim 10+ hours per month of manual work.
+- [Workflow & AI Ops](https://beemflow.com/): Can continue into implementation sprints and ongoing ops stewardship.
+- [Startup V1 Sprints](https://beemflow.com/startups/): For funded software, SaaS, and AI founders from pre-seed to Series A who need a production-ready V1, not just a prototype.
+- [Startup V1 Sprints](https://beemflow.com/startups/): Market-ready V1 builds typically target a 6-8 week delivery window once scope is locked.
 
-## Company and Method
+## Team and Proof
 
-- [BeemSpec](https://beemspec.com/): BeemFlow's coordination system for human + AI execution.
+- Founders: Alec Wantoch and Zach Pelkey.
+- Senior design partner: Aise.
+- Team model: founder-led core team plus a small bench of senior specialists in product design, infrastructure, and security.
+- Background: co-founded Valist, raised pre-seed from 2048 Ventures and Active Capital, and led the acquisition into HyperPlay.
+- Experience: product and security leadership through HyperPlay's Series A and first 100K+ downloads.
+- Delivery history: 15+ production systems across fintech, infrastructure, and education.
+- Technical roots: pentesting, applied cryptography, and infrastructure hardening.
+
+## Method
+
+- [BeemSpec](https://beemspec.com/): BeemFlow's AI-native coordination system for human + AI execution.
+- BeemSpec is used to coordinate users, flows, specs, designs, and architecture as a shared source of truth.
 
 ## Technical Discovery
 
 - [Sitemap](https://beemflow.com/sitemap.xml): Canonical crawl entrypoint for site URLs.
 - [Robots](https://beemflow.com/robots.txt): Crawler directives.
-
-## Optional
-
 - [Sitemap Index](https://beemflow.com/sitemap-index.xml): Generated sitemap index for tooling that expects index files.
