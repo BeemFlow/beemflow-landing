@@ -159,7 +159,7 @@ import FadeIn from '../FadeIn.astro';
           if ((window as any).Cal) {
             (window as any).Cal("inline", {
               elementOrSelector: "#ops-cal-embed",
-              calLink: "alecw/30min",
+              calLink: "alecw/beemflow-intro",
               layout: "month_view",
             });
             (window as any).Cal("ui", {
@@ -200,7 +200,7 @@ import FadeIn from '../FadeIn.astro';
       if (ar[0] === L) {
         const api: any = function () { p(api, arguments); };
         const namespace = ar[1];
-        api.q = api.q || [];
+        (api as any).q = (api as any).q || [];
         typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
         return;
       }
