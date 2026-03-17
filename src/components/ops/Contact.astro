@@ -2,7 +2,7 @@
 import FadeIn from '../FadeIn.astro';
 ---
 
-<section class="ops-contact" id="ops-final-cta" aria-label="Get started">
+<section class="ops-contact bg-invert" id="ops-final-cta" aria-label="Get started">
   <div class="container--narrow">
     <FadeIn>
       <h2 class="ops-contact__heading">Ready to stop being the glue in your own&nbsp;operations?</h2>
@@ -198,7 +198,7 @@ import FadeIn from '../FadeIn.astro';
         cal.loaded = true;
       }
       if (ar[0] === L) {
-        const api = function () { p(api, arguments); };
+        const api: any = function () { p(api, arguments); };
         const namespace = ar[1];
         api.q = api.q || [];
         typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
@@ -214,7 +214,6 @@ import FadeIn from '../FadeIn.astro';
 <style>
   .ops-contact {
     padding: 140px 32px 80px;
-    background: var(--color-bg-invert);
     color: var(--color-text-on-dark);
     text-align: center;
   }

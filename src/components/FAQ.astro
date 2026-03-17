@@ -8,12 +8,13 @@ interface Props {
   heading: string;
   label?: string;
   id?: string;
+  class?: string;
 }
 
-const { items, heading, label = 'Questions', id } = Astro.props;
+const { items, heading, label = 'Questions', id, class: className } = Astro.props;
 ---
 
-<section class="section faq" id={id} aria-label="Frequently asked questions">
+<section class:list={["section", "faq", className]} id={id} aria-label="Frequently asked questions">
   <div class="container--narrow">
     <SectionHeader label={label} compact>{heading}</SectionHeader>
     <FadeIn delay={0.1}>

@@ -332,6 +332,22 @@ p, li {
   padding: var(--section-padding);
 }
 
+.bg-base {
+  background: var(--color-bg);
+}
+
+.bg-elevated {
+  background: var(--color-bg-elevated);
+}
+
+.bg-invert {
+  background: var(--color-bg-invert);
+}
+
+.border-top-section {
+  border-top: 1px solid var(--color-border);
+}
+
 .list-dash {
   list-style: none;
   padding: 0;

@@ -2,9 +2,15 @@
 import { CREDENTIALS } from '../../data/content';
 import SectionHeader from '../SectionHeader.astro';
 import FadeIn from '../FadeIn.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
-<section class="section about" aria-label="About us">
+<section class:list={["section", "about", className]} aria-label="About us">
   <div class="container--narrow">
     <SectionHeader label="Who we are" compact>
       Alec Wantoch &amp; Zach Pelkey
@@ -59,8 +65,12 @@ import FadeIn from '../FadeIn.astro';
 </section>
 
 <style>
-  .about {
-    background: var(--color-bg-elevated);
+  .about.bg-base {
+    --about-credential-bg: var(--color-bg-elevated);
+  }
+
+  .about.bg-elevated {
+    --about-credential-bg: var(--color-bg);
   }
 
   .about__subtitle {
@@ -88,7 +98,7 @@ import FadeIn from '../FadeIn.astro';
     font-family: var(--font-mono);
     font-size: var(--fs-label);
     letter-spacing: 0.03em;
-    background: var(--color-bg);
+    background: var(--about-credential-bg, var(--color-bg));
     padding: 7px 14px;
     border-radius: 2px;
     border: 1px solid var(--color-border);

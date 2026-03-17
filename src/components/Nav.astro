@@ -7,7 +7,7 @@ const isStartupsPage = pathname.startsWith('/startups');
 const ctaHref = isOpsPage ? '#ops-final-cta' : '#contact';
 ---
 
-<nav class="nav" id="main-nav">
+<nav class="nav bg-base" id="main-nav">
   <div class="nav__left">
     <a href="/" class="nav__logo-link">
       <BrandMark class="nav__logo" />
@@ -31,7 +31,6 @@ const ctaHref = isOpsPage ? '#ops-final-cta' : '#contact';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--color-bg);
     border-bottom-color: var(--color-border-subtle);
     border-bottom-width: 1px;
     border-bottom-style: solid;
