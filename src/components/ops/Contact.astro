@@ -1,16 +1,28 @@
 ---
 import FadeIn from '../FadeIn.astro';
+
+interface Props {
+  heading?: string;
+  subheading?: string;
+  checkboxText?: string;
+  submitText?: string;
+  id?: string;
+}
+
+const {
+  heading = 'Ready to stop being the glue in your own\u00A0operations?',
+  subheading = 'No slide deck. First call is about your actual workflows. Tell us a bit about your business and we\u2019ll come prepared. If the Ops Audit isn\u2019t the right fit, we\u2019ll tell you\u00A0quickly.',
+  checkboxText = 'I understand the Ops Audit is a fixed $3K engagement',
+  submitText = 'Submit & see if the Ops Audit is a fit',
+  id = 'ops-final-cta',
+} = Astro.props;
 ---
 
-<section class="ops-contact bg-invert" id="ops-final-cta" aria-label="Get started">
+<section class="ops-contact bg-invert" id={id} aria-label="Get started">
   <div class="container--narrow">
     <FadeIn>
-      <h2 class="ops-contact__heading">Ready to stop being the glue in your own&nbsp;operations?</h2>
-      <p class="ops-contact__subheading">
-        No slide deck. First call is about your actual workflows. Tell us a bit
-        about your business and we'll come prepared. If the Ops Audit isn't
-        the right fit, we'll tell you&nbsp;quickly.
-      </p>
+      <h2 class="ops-contact__heading" set:html={heading} />
+      <p class="ops-contact__subheading" set:html={subheading} />
     </FadeIn>
   </div>
 
@@ -76,11 +88,11 @@ import FadeIn from '../FadeIn.astro';
         <div class="ops-contact__field ops-contact__field--checkbox">
           <label class="ops-contact__checkbox-label">
             <input type="checkbox" name="acknowledge" required class="ops-contact__checkbox" />
-            <span class="text-body-sm">I understand the Ops Audit is a fixed $3K engagement</span>
+            <span class="text-body-sm">{checkboxText}</span>
           </label>
         </div>
 
-        <button type="submit" class="btn-primary ops-contact__submit">Submit &amp; see if the Ops Audit is a fit &rarr;</button>
+        <button type="submit" class="btn-primary ops-contact__submit">{submitText} &rarr;</button>
       </form>
     </FadeIn>
   </div>

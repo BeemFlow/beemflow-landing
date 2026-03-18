@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import SolutionPage from '../../components/solutions/SolutionPage.astro';
+import Footer from '../../components/Footer.astro';
+import { SOLUTION_MANUFACTURING } from '../../data/solutions';
+
+const solution = SOLUTION_MANUFACTURING;
+const pageUrl = `https://beemflow.com/solutions/${solution.slug}/`;
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: solution.seo.title,
+  url: pageUrl,
+  description: solution.seo.description,
+  inLanguage: 'en-US',
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'BeemFlow',
+  url: pageUrl,
+  description: solution.seo.description,
+  serviceType: 'Manufacturing workflow automation',
+  areaServed: 'Global',
+};
+
+const schemas = [webPageSchema, serviceSchema];
+---
+
+<BaseLayout
+  title={solution.seo.title}
+  description={solution.seo.description}
+  ogImageAlt={solution.seo.ogImageAlt}
+  schemas={schemas}
+>
+  <Nav />
+  <main id="main-content">
+    <SolutionPage solution={solution} />
+  </main>
+  <Footer />
+</BaseLayout>

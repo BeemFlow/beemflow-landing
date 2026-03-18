@@ -1,10 +1,12 @@
 ---
 import BrandMark from './BrandMark.astro';
+import { SOLUTIONS } from '../data/solutions';
 
 const pathname = Astro.url.pathname;
 const isOpsPage = pathname === '/';
 const isStartupsPage = pathname.startsWith('/startups');
-const ctaHref = isOpsPage ? '#ops-final-cta' : '#contact';
+const isSolutionsPage = pathname.startsWith('/solutions');
+const ctaHref = isOpsPage ? '#ops-final-cta' : isSolutionsPage ? '/#ops-final-cta' : '#contact';
 ---
 
 <nav class="nav bg-base" id="main-nav">
@@ -17,6 +19,21 @@ const ctaHref = isOpsPage ? '#ops-final-cta' : '#contact';
     <div class="nav__links">
       <a href="/" class:list={["nav__link", { "nav__link--active": isOpsPage }]} aria-current={isOpsPage ? 'page' : undefined}>For Operators</a>
       <a href="/startups/" class:list={["nav__link", { "nav__link--active": isStartupsPage }]} aria-current={isStartupsPage ? 'page' : undefined}>For Startups</a>
+      <div class="nav__dropdown">
+        <a
+          href="/solutions/"
+          class:list={["nav__link nav__dropdown-trigger", { "nav__link--active": isSolutionsPage }]}
+          aria-current={isSolutionsPage ? 'true' : undefined}
+        >
+          Solutions<span class="nav__dropdown-arrow" aria-hidden="true"> &#9662;</span>
+        </a>
+        <div class="nav__dropdown-menu" role="menu">
+          <a href="/solutions/" class="nav__dropdown-item" role="menuitem">All Solutions</a>
+          {SOLUTIONS.map((s) => (
+            <a href={`/solutions/${s.slug}/`} class="nav__dropdown-item" role="menuitem">{s.navLabel}</a>
+          ))}
+        </div>
+      </div>
       <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer" class="nav__link nav__link--beemspec">BeemSpec</a>
     </div>
     <a href={ctaHref} class="btn-primary nav__cta">Book a call</a>
@@ -101,6 +118,73 @@ const ctaHref = isOpsPage ? '#ops-final-cta' : '#contact';
     background: var(--color-accent);
   }
 
+  /* ── Dropdown ── */
+
+  .nav__dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__dropdown-arrow {
+    font-size: 8px;
+    vertical-align: 1px;
+    opacity: 0.5;
+    transition: opacity var(--motion-hover) var(--ease-standard);
+  }
+
+  .nav__dropdown-trigger:hover .nav__dropdown-arrow {
+    opacity: 1;
+  }
+
+  .nav__dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 260px;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    padding: 8px 0;
+    z-index: 20;
+    box-shadow: 0 4px 16px rgba(26, 23, 20, 0.08);
+  }
+
+  /* Invisible bridge: covers the gap between trigger and menu */
+  .nav__dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
+  }
+
+  /* Show on hover (desktop) */
+  .nav__dropdown:hover .nav__dropdown-menu {
+    display: block;
+  }
+
+  .nav__dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    transition: color var(--motion-hover) var(--ease-standard),
+                background var(--motion-hover) var(--ease-standard);
+    white-space: nowrap;
+  }
+
+  .nav__dropdown-item:hover {
+    color: var(--color-text);
+    background: var(--color-accent-soft);
+  }
+
   .nav__cta {
     font-size: var(--fs-label);
     padding: 10px 24px;
@@ -131,6 +215,15 @@ const ctaHref = isOpsPage ? '#ops-final-cta' : '#contact';
     }
 
     .nav__cta {
+      display: none;
+    }
+
+    /* On mobile, hide the dropdown menu entirely; link goes to /solutions/ */
+    .nav__dropdown-menu {
+      display: none !important;
+    }
+
+    .nav__dropdown-arrow {
       display: none;
     }
   }

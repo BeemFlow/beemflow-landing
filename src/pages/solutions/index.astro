@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import Footer from '../../components/Footer.astro';
+import { SOLUTIONS } from '../../data/solutions';
+
+const pageUrl = 'https://beemflow.com/solutions/';
+const pageTitle = 'BeemFlow | Solutions: Workflow Automation by Industry';
+const pageDescription =
+  'Problem\u2011specific workflow automation for PE\u2011backed manufacturers, multi\u2011location service businesses, and funded SaaS founders. See how BeemFlow deploys production\u2011ready automation for your industry.';
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  url: pageUrl,
+  description: pageDescription,
+  inLanguage: 'en-US',
+};
+
+const schemas = [webPageSchema];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  ogImageAlt="BeemFlow solutions overview"
+  schemas={schemas}
+>
+  <Nav />
+  <main id="main-content">
+    <section class="sol-hub-hero" aria-label="Solutions overview">
+      <div class="container">
+        <FadeIn delay={0.1}>
+          <p class="sol-hub-hero__eyebrow label-mono">Solutions</p>
+          <h1 class="sol-hub-hero__heading">
+            One system.<br />
+            <span class="text-accent sol-hub-hero__accent">Your workflow, automated.</span>
+          </h1>
+        </FadeIn>
+        <FadeIn delay={0.2}>
+          <p class="sol-hub-hero__body">
+            Every business runs differently. But the pattern is the same: manual handoffs, tribal knowledge, and good people stuck doing data entry. We deploy production-ready workflow automation for specific industries and problems, not generic &ldquo;AI transformation.&rdquo;
+          </p>
+        </FadeIn>
+      </div>
+    </section>
+
+    <section class="section bg-elevated sol-hub-grid-section" id="solutions-list" aria-label="Available solutions">
+      <div class="container">
+        <div class="sol-hub-grid">
+          {SOLUTIONS.map((solution, i) => (
+            <FadeIn delay={0.1 + i * 0.08}>
+              <a href={`/solutions/${solution.slug}/`} class="sol-hub-card">
+                <p class="sol-hub-card__eyebrow label-mono">{solution.hero.eyebrow}</p>
+                <h2 class="sol-hub-card__title">{solution.navLabel}</h2>
+                <p class="sol-hub-card__desc text-body">{solution.hubDescription}</p>
+                <span class="sol-hub-card__link">See the full solution &rarr;</span>
+              </a>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sol-hub-cta bg-invert" aria-label="Get started">
+      <div class="container container--narrow">
+        <FadeIn delay={0.1}>
+          <h2 class="sol-hub-cta__heading">Don&rsquo;t see your&nbsp;workflow?</h2>
+        </FadeIn>
+        <FadeIn delay={0.15}>
+          <p class="sol-hub-cta__body">
+            We scope every engagement from the specific workflow, not the industry label. If your operation is held together by &ldquo;people&nbsp;as&nbsp;glue,&rdquo; the Ops Audit will surface what to automate first.
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.2}>
+          <a href="/#ops-final-cta" class="btn-primary">Book the Ops Audit &rarr;</a>
+        </FadeIn>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* ── Hub Hero ── */
+
+  .sol-hub-hero {
+    padding: 140px 32px 100px;
+    position: relative;
+  }
+
+  .sol-hub-hero > .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .sol-hub-hero__eyebrow {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-muted);
+  }
+
+  .sol-hub-hero__heading {
+    font-size: clamp(36px, 6.5vw, 64px);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+    max-width: 800px;
+  }
+
+  .sol-hub-hero__accent {
+    display: block;
+    margin-top: 4px;
+    font-size: clamp(22px, 4vw, 42px);
+    font-style: italic;
+  }
+
+  .sol-hub-hero__body {
+    font-size: var(--fs-body-xl);
+    line-height: 1.7;
+    max-width: 580px;
+    color: var(--color-text-muted);
+  }
+
+  /* ── Solution Cards Grid ── */
+
+  .sol-hub-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: var(--max-width);
+  }
+
+  .sol-hub-card {
+    display: block;
+    padding: 40px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    transition: border-color var(--motion-hover) var(--ease-standard),
+                background var(--motion-hover) var(--ease-standard);
+    text-decoration: none;
+  }
+
+  .sol-hub-card:hover {
+    border-color: var(--color-border-accent);
+    background: var(--color-accent-soft);
+  }
+
+  .sol-hub-card__eyebrow {
+    color: var(--color-text-faint);
+    margin-bottom: 12px;
+  }
+
+  .sol-hub-card__title {
+    font-size: var(--fs-title-lg);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    color: var(--color-text);
+  }
+
+  .sol-hub-card__desc {
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+
+  .sol-hub-card__link {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 600;
+    transition: color var(--motion-hover) var(--ease-standard);
+  }
+
+  .sol-hub-card:hover .sol-hub-card__link {
+    color: var(--color-accent-hover);
+  }
+
+  /* ── Hub CTA ── */
+
+  .sol-hub-cta {
+    padding: 120px 32px;
+    text-align: center;
+  }
+
+  .sol-hub-cta__heading {
+    font-size: clamp(30px, 4.5vw, 48px);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: var(--color-text-on-dark);
+    margin-bottom: 24px;
+  }
+
+  .sol-hub-cta__body {
+    font-size: var(--fs-body-lg);
+    line-height: 1.7;
+    color: var(--color-text-muted-on-dark);
+    margin-bottom: var(--space-lg);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── Responsive ── */
+
+  @media (max-width: 768px) {
+    .sol-hub-hero {
+      padding: 100px 20px 60px;
+    }
+
+    .sol-hub-hero__heading {
+      font-size: clamp(30px, 8vw, 46px);
+      line-height: 1.1;
+    }
+
+    .sol-hub-hero__accent {
+      font-size: clamp(18px, 4.5vw, 30px);
+    }
+
+    .sol-hub-hero__body {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .sol-hub-card {
+      padding: 28px 24px;
+    }
+
+    .sol-hub-cta {
+      padding: 80px 20px;
+    }
+  }
+</style>

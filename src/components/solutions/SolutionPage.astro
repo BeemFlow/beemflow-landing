@@ -1,0 +1,507 @@
+---
+import type { Solution } from '../../data/solutions';
+import FadeIn from '../FadeIn.astro';
+import SectionHeader from '../SectionHeader.astro';
+import Contact from '../ops/Contact.astro';
+
+interface Props {
+  solution: Solution;
+}
+
+const { solution } = Astro.props;
+const { hero, fit, before, after, build, outcomes, timeline, risk, cta } = solution;
+---
+
+<!-- 1. Hero -->
+<section class="sol-hero" aria-label="Introduction">
+  <div class="container">
+    <FadeIn delay={0.1}>
+      <p class="sol-hero__eyebrow label-mono">{hero.eyebrow}</p>
+      <h1 class="sol-hero__heading">
+        {hero.headline}<br />
+        <span class="sol-hero__accent text-accent">{hero.headlineAccent}</span>
+      </h1>
+    </FadeIn>
+    <FadeIn delay={0.2}>
+      <p class="sol-hero__body">{hero.body}</p>
+    </FadeIn>
+    <FadeIn delay={0.3}>
+      <div class="sol-hero__actions">
+        <a href="#sol-cta" class="btn-primary">{cta.buttonText} &rarr;</a>
+        <a href="#sol-before" class="sol-hero__link">See the problem &darr;</a>
+      </div>
+    </FadeIn>
+  </div>
+</section>
+
+<!-- 2. Who it's for -->
+<section class="section bg-elevated sol-fit" id="sol-fit" aria-label="Who this is for">
+  <div class="container">
+    <SectionHeader label="Who it's for">{fit.heading}</SectionHeader>
+    <FadeIn delay={0.1}>
+      <ul class="sol-fit__list">
+        {fit.bullets.map((b) => (
+          <li class="sol-fit__item">
+            <span class="sol-fit__check" aria-hidden="true">&check;</span>
+            <span class="text-body">{b.text}</span>
+          </li>
+        ))}
+      </ul>
+    </FadeIn>
+  </div>
+</section>
+
+<!-- 3. The ugly "Before" -->
+<section class="section bg-base sol-before" id="sol-before" aria-label="Current workflow problems">
+  <div class="container">
+    <SectionHeader label="The reality today">{before.heading}</SectionHeader>
+    <FadeIn delay={0.1}>
+      <p class="sol-before__narrative text-body-lg">{before.narrative}</p>
+    </FadeIn>
+    <FadeIn delay={0.15}>
+      <ul class="sol-before__list list-dash">
+        {before.bullets.map((b) => (
+          <li class="text-body">{b}</li>
+        ))}
+      </ul>
+    </FadeIn>
+  </div>
+</section>
+
+<!-- 4. The "After" workflow map -->
+<section class="section bg-elevated sol-after" id="sol-after" aria-label="Automated workflow">
+  <div class="container">
+    <SectionHeader label="The workflow, automated">{after.heading}</SectionHeader>
+    <div class="sol-after__steps">
+      {after.steps.map((step, i) => (
+        <FadeIn delay={0.1 + i * 0.05}>
+          <div class="sol-after__step">
+            <div class="sol-after__step-number">{String(i + 1).padStart(2, '0')}</div>
+            <div class="sol-after__step-content">
+              <h3 class="sol-after__step-label">{step.label}</h3>
+              <p class="sol-after__step-desc text-body">{step.description}</p>
+            </div>
+          </div>
+        </FadeIn>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 5. What we actually build -->
+<section class="section bg-base sol-build" id="sol-build" aria-label="What we deploy">
+  <div class="container">
+    <SectionHeader label="What we build">{build.heading}</SectionHeader>
+    <div class="sol-build__grid">
+      {build.items.map((item, i) => (
+        <FadeIn delay={0.1 + i * 0.04}>
+          <div class="sol-build__item">
+            <h3 class="sol-build__item-title">{item.title}</h3>
+            <p class="sol-build__item-desc text-body-sm">{item.description}</p>
+          </div>
+        </FadeIn>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 6. Outcomes & proof -->
+<section class="section bg-elevated sol-outcomes" id="sol-outcomes" aria-label="Outcomes">
+  <div class="container">
+    <SectionHeader label="Outcomes">{outcomes.heading}</SectionHeader>
+    <div class="sol-outcomes__grid">
+      {outcomes.items.map((item, i) => (
+        <FadeIn delay={0.1 + i * 0.04}>
+          <div class="sol-outcomes__item">
+            <p class="sol-outcomes__metric">{item.metric}</p>
+            <p class="sol-outcomes__desc text-body-sm">{item.description}</p>
+          </div>
+        </FadeIn>
+      ))}
+    </div>
+    {outcomes.footnote && (
+      <FadeIn delay={0.3}>
+        <p class="sol-outcomes__footnote text-mono-sm">{outcomes.footnote}</p>
+      </FadeIn>
+    )}
+  </div>
+</section>
+
+<!-- 7. Implementation & timeline -->
+<section class="section bg-base sol-timeline" id="sol-timeline" aria-label="Implementation timeline">
+  <div class="container">
+    <SectionHeader label="Implementation">{timeline.heading}</SectionHeader>
+    <div class="sol-timeline__phases">
+      {timeline.phases.map((phase, i) => (
+        <FadeIn delay={0.1 + i * 0.08}>
+          <div class="sol-timeline__phase">
+            <div class="sol-timeline__phase-header">
+              <h3 class="sol-timeline__phase-name">{phase.phase}</h3>
+              <span class="sol-timeline__phase-duration label-mono">{phase.duration}</span>
+            </div>
+            <p class="sol-timeline__phase-desc text-body" set:html={phase.description} />
+          </div>
+        </FadeIn>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- 8. Risk & ownership -->
+<section class="section bg-elevated sol-risk" id="sol-risk" aria-label="Risk and ownership">
+  <div class="container">
+    <SectionHeader label="Guarantees &amp; ownership">{risk.heading}</SectionHeader>
+    <FadeIn delay={0.1}>
+      <ul class="sol-risk__list list-dash">
+        {risk.points.map((p) => (
+          <li class="text-body">{p}</li>
+        ))}
+      </ul>
+    </FadeIn>
+  </div>
+</section>
+
+<!-- 9. CTA / Contact -->
+<Contact
+  heading={cta.heading}
+  subheading={cta.body}
+  submitText={cta.buttonText}
+  id="sol-cta"
+/>
+
+<style>
+  /* ── 1. Hero ── */
+
+  .sol-hero {
+    min-height: calc(100svh - var(--hero-top-offset, 0px));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 104px 32px 100px;
+    position: relative;
+  }
+
+  .sol-hero > .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .sol-hero__eyebrow {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-muted);
+  }
+
+  .sol-hero__heading {
+    font-size: clamp(36px, 6.5vw, 72px);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+    max-width: 900px;
+  }
+
+  .sol-hero__accent {
+    display: block;
+    margin-top: 4px;
+    font-size: clamp(22px, 4vw, 46px);
+    font-style: italic;
+  }
+
+  .sol-hero__body {
+    font-size: var(--fs-body-xl);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-muted);
+  }
+
+  .sol-hero__actions {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .sol-hero__link {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding: 15px 0;
+    transition: color var(--motion-hover) var(--ease-standard);
+    position: relative;
+  }
+
+  .sol-hero__link::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-text);
+    transition: width var(--motion-hover) var(--ease-standard);
+  }
+
+  .sol-hero__link:hover {
+    color: var(--color-text);
+  }
+
+  .sol-hero__link:hover::after {
+    width: 100%;
+  }
+
+  /* ── 2. Fit ── */
+
+  .sol-fit__list {
+    list-style: none;
+    padding: 0;
+    max-width: var(--content-measure);
+  }
+
+  .sol-fit__item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .sol-fit__check {
+    color: var(--color-accent);
+    font-size: var(--fs-body);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  /* ── 3. Before ── */
+
+  .sol-before__narrative {
+    max-width: var(--content-measure);
+    margin-bottom: var(--space-lg);
+  }
+
+  .sol-before__list {
+    max-width: var(--content-measure);
+  }
+
+  .sol-before__list > li {
+    margin-bottom: 14px;
+  }
+
+  /* ── 4. After (workflow steps) ── */
+
+  .sol-after__steps {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sol-after__step {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding: 36px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .sol-after__step:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sol-after__step-number {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--color-text-faint);
+    line-height: 0.9;
+    flex-shrink: 0;
+    min-width: 60px;
+    letter-spacing: -0.04em;
+  }
+
+  .sol-after__step-content {
+    flex: 1;
+  }
+
+  .sol-after__step-label {
+    font-size: var(--fs-title-lg);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .sol-after__step-desc {
+    max-width: var(--content-measure);
+  }
+
+  /* ── 5. Build ── */
+
+  .sol-build__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .sol-build__item {
+    padding: 28px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-elevated);
+  }
+
+  .sol-build__item-title {
+    font-size: var(--fs-title-sm);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .sol-build__item-desc {
+    max-width: 100%;
+  }
+
+  /* ── 6. Outcomes ── */
+
+  .sol-outcomes__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .sol-outcomes__item {
+    padding: 24px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .sol-outcomes__metric {
+    font-family: var(--font-display);
+    font-size: var(--fs-title);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+  }
+
+  .sol-outcomes__footnote {
+    color: var(--color-text-faint);
+    font-style: italic;
+    max-width: var(--content-measure);
+  }
+
+  /* ── 7. Timeline ── */
+
+  .sol-timeline__phases {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .sol-timeline__phase {
+    padding: 36px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .sol-timeline__phase:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sol-timeline__phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .sol-timeline__phase-name {
+    font-size: var(--fs-title-lg);
+    font-weight: 500;
+  }
+
+  .sol-timeline__phase-duration {
+    color: var(--color-accent);
+  }
+
+  .sol-timeline__phase-desc {
+    max-width: var(--content-measure);
+  }
+
+  /* ── 8. Risk ── */
+
+  .sol-risk__list {
+    max-width: var(--content-measure);
+  }
+
+  .sol-risk__list > li {
+    margin-bottom: 14px;
+  }
+
+  /* ── Responsive ── */
+
+  @media (max-width: 768px) {
+    .sol-hero {
+      min-height: calc(100svh - var(--hero-top-offset, 0px));
+      justify-content: center;
+      padding: 32px 20px 36px;
+    }
+
+    .sol-hero__eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .sol-hero__heading {
+      margin-bottom: 16px;
+      font-size: clamp(30px, 8vw, 46px);
+      line-height: 1.1;
+    }
+
+    .sol-hero__accent {
+      font-size: clamp(18px, 4.5vw, 30px);
+      margin-top: 2px;
+    }
+
+    .sol-hero__body {
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .sol-hero__actions {
+      gap: 16px;
+    }
+
+    .sol-after__step {
+      flex-direction: column;
+      gap: 12px;
+      padding: 28px 0;
+    }
+
+    .sol-after__step-number {
+      font-size: 36px;
+    }
+
+    .sol-build__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .sol-outcomes__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+  }
+</style>
+
+<script>
+  const updateHeroViewport = () => {
+    const heroes = document.querySelectorAll<HTMLElement>('.sol-hero');
+    heroes.forEach((hero) => {
+      const top = hero.getBoundingClientRect().top;
+      hero.style.setProperty('--hero-top-offset', `${Math.max(0, Math.round(top))}px`);
+    });
+  };
+
+  requestAnimationFrame(updateHeroViewport);
+  window.addEventListener('resize', updateHeroViewport);
+</script>
