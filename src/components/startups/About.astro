@@ -13,36 +13,29 @@ const { class: className } = Astro.props;
 <section class:list={["section", "about", className]} aria-label="About us">
   <div class="container--narrow">
     <SectionHeader label="Who we are" compact>
-      Alec Wantoch &amp; Zach Pelkey
+      Built by operators, for operators
     </SectionHeader>
-    <FadeIn delay={0.05}>
-      <p class="text-mono-sm about__subtitle">Founder&#8209;Led Product &amp; Automation Studio</p>
-    </FadeIn>
     <FadeIn delay={0.1}>
-      <p class="text-body-lg about__text about__text--strong">
-        BeemFlow is a founder&#8209;led product and automation studio. Every engagement is led
-        by Alec and Zach, two founder&#8209;engineers with an exit, plus
-        Aise, our senior product design partner, and a small
-        bench of senior specialists we've shipped multiple products with (product
-        design, infra, and security). You work directly with us. We build the
-        squad around you.
+      <p class="text-body-lg about__text">
+        BeemFlow was founded by Alec Wantoch and Zach Pelkey, two engineer&#8209;founders who
+        previously co&#8209;founded Valist (acquired by HyperPlay), led product and security through
+        HyperPlay's Series A and first 100K+ downloads, and shipped 15+ production systems across
+        fintech, infrastructure, and education.
       </p>
       <p class="text-body-lg about__text">
-        Before BeemFlow, we co&#8209;founded Valist, raised pre&#8209;seed from 2048 Ventures and Active Capital, and led the
-        acquisition into HyperPlay. Post&#8209;acquisition, we ran product and
-        security through HyperPlay's Series A and first 100K+ downloads. We've shipped
-        15+ production systems across fintech, infrastructure, and education, with roots in
-        security engineering: pentesting, applied cryptography, and infrastructure hardening.
+        That experience is now embedded in two product assets:
+        <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer">BeemSpec</a>,
+        our AI&#8209;native story mapping and coordination platform that scopes and specs every build,
+        and the <strong>workflow template library</strong> that powers every BeemFlow deployment. The platform is supported
+        by a senior team spanning product design, infrastructure, and security engineering:
+        the same people we've shipped multiple products with.
       </p>
     </FadeIn>
     <FadeIn delay={0.15}>
       <p class="text-body-lg about__text">
-        Now we run BeemFlow and use that same senior squad to do two things: ship market&#8209;ready
-        v1 products for funded software, SaaS, and AI founders, and make AI actually run operations
-        for PE&#8209;backed and multi&#8209;location service businesses. Every build and workflow runs
-        through <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer">BeemSpec</a>,
-        our AI&#8209;native coordination system, so a small senior team can consistently ship like a
-        much larger one.
+        Every deployment is planned through <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer">BeemSpec</a>
+        and built on reusable workflow templates, so a small senior team can consistently deliver
+        enterprise&#8209;grade automation at startup speed.
       </p>
     </FadeIn>
     <FadeIn delay={0.2}>

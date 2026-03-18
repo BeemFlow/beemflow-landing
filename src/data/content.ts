@@ -250,6 +250,10 @@ export const FAQS: FAQ[] = [
     a: "Yes. Code, infra accounts, automations, and documentation are all yours. We set everything up in accounts you control and avoid hard vendor lock\u2011in wherever practical. When paid tools or cloud vendors are the better choice, we pick ones that are easy to migrate away from later.",
   },
   {
+    q: "Who pays for infra and tools?",
+    a: "We set everything up in accounts you own. You pay cloud, databases, LLMs, messaging, and other tools directly at cost. We don\u2019t mark up third\u2011party usage; our fees are for product, design, engineering, and stewardship on top of that stack.",
+  },
+  {
     q: "Do you also get us users?",
     a: "No. You bring the users (or audience, or pipeline). We design and build the product, onboarding, and analytics so those users can actually use it and you can learn from real data.",
   },
@@ -277,67 +281,70 @@ export interface OpsProcessStep {
 
 export const OPS_OFFER_STEPS: Step[] = [
   {
-    title: "Workflow & AI Ops Assessment",
+    title: "Ops Audit + First Deploy",
     subtitle: "",
     timeline: "2 weeks",
     price: "$3K",
-    description: "<strong>$3K. 2 weeks.</strong> One live workflow, an Ops Blueprint, and a plan to reclaim <strong>10+ hours/month.</strong>",
+    description: "<strong>$3K \u00B7 2 weeks \u00B7 Includes <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> planning license.</strong> BeemFlow runs the Ops Audit process, powered by BeemSpec for workflow mapping and scoping, against your live operations to identify failure points and surface 5\u20137 high\u2011ROI automation targets, then deploys your first production workflow before the audit ends.",
     bullets: [
-      "We sit with your operators and walk \u201Cyesterday\u201D hour by hour across one or more working sessions, mapping how work actually happens across teams",
-      "Using <strong>AI\u2011assisted analysis</strong>, we identify <strong>5\u20137 high\u2011ROI automation opportunities</strong> with estimated hours/month saved",
-      "You get a polished <strong>Ops Blueprint</strong>: clear diagrams, priorities, and a <strong>30\u2011day execution plan</strong> based on those opportunities",
-      "We ship <strong>one live workflow</strong> during the sprint (e.g., no\u2011show reminders, quote follow\u2011up, lead routing, basic reporting)",
-      "2 weeks assumes timely access to your tools and people: if approvals stall, you still get the Blueprint on time and we ship the workflow as soon as access clears",
+      "<strong>Ops Audit (via <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a>):</strong> Your operations are mapped as structured stories in BeemSpec (tools, handoffs, edge cases), producing an Ops Blueprint with automation priorities and projected hours reclaimed",
+      "<strong>First workflow deployed:</strong> One live automation (e.g., no\u2011show reminders, quote follow\u2011up, lead routing) running in production on your stack via n8n",
+      "<strong>30\u2011day roadmap:</strong> Prioritized deployment plan for additional workflow modules, scoped to your tools and team",
+      "<strong>Stabilization coverage:</strong> 30 days of included stabilization on anything deployed that breaks under normal use",
     ],
-    callout: { label: "Our guarantee", text: "If we haven\u2019t shipped at least one workflow you decide to keep live and shown you a realistic path to reclaiming 10+ hours/month, we\u2019ll build an additional workflow at our cost." },
+    callout: { label: "Our guarantee", text: "If we haven\u2019t deployed at least one workflow you decide to keep live and shown a realistic path to 10+ hours/month reclaimed, we\u2019ll deploy an additional workflow at our cost." },
   },
   {
-    title: "Implementation Sprints",
+    title: "Workflow Deployment Sprints",
     subtitle: "",
     timeline: "4 weeks",
     price: "$20K\u201340K each",
-    description: "4\u2011week sprints. 2\u20133 meaningful workflows per sprint, scoped to one function.",
+    description: "<strong>$20K\u201340K each \u00B7 4 weeks \u00B7 2\u20133 workflow modules per sprint.</strong> Each sprint deploys 2\u20133 production workflow modules from the BeemFlow template library, configured and integrated into your stack and coordinated end\u2011to\u2011end through <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a>.",
     bullets: [
-      "Scoped to one function (for example: Lead \u2192 Booking, Quote \u2192 Cash, Multi\u2011location reporting)",
-      "4\u2011week fixed window with weekly check\u2011ins and visible progress",
-      "Built on your existing stack (CRM, booking, billing, messaging) plus n8n / supervised AI agents for the glue",
+      "<strong>One function per sprint:</strong> e.g., Lead \u2192 Booking, Quote \u2192 Cash, Multi\u2011location reporting",
+      "<strong>Template\u2011driven:</strong> Each workflow module is drawn from BeemFlow\u2019s tested template library and customized for your tools (CRM, booking, billing, messaging) using n8n and supervised AI agents",
+      "<strong>Coordinated in <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a>:</strong> All builds are scoped and coordinated through BeemSpec for consistent specs and full context",
+      "<strong>Fixed deployment window:</strong> 4\u2011week deployment with weekly progress visibility",
+      "<strong>Stabilization coverage:</strong> 30 days of included stabilization for deployed workflows",
     ],
-    callout: { label: "Assessment credit", text: "Your $3K Assessment fee credits into your first Sprint." },
+    callout: { label: "Ops Audit credit", text: "Your $3K Ops Audit fee credits toward your first Sprint." },
   },
   {
-    title: "Ops Stewardship",
-    subtitle: "Optional",
+    title: "Managed Automation + BeemSpec Access",
+    subtitle: "",
     timeline: "Ongoing",
     price: "From $3K\u20136K/mo",
-    description: "Ongoing monitoring, maintenance, and iteration.",
+    description: "Ongoing managed monitoring, maintenance, and iteration of your deployed workflows, plus continued <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> access for workflow planning and future automation scoping.",
     bullets: [
-      "Monitoring, break/fix, and updates as tools and APIs change",
-      "Quarterly review: \u201CWhere are humans still the glue?\u201D and what to automate next",
-      "Clear boundaries so your team knows what we own and what they own",
+      "Workflow monitoring, incident handling, and updates as APIs and tools change",
+      "Quarterly review to identify new automation targets and scope additional workflow modules via <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a>",
+      "Clear SLAs so your team knows what BeemFlow manages vs. what they own",
+      "For workflows on the critical path, we require at least 6\u00A0months of Managed Automation. After that, you can continue month\u2011to\u2011month or transition to per\u2011incident support at premium rates and lower priority",
     ],
+    callout: { label: "No managed plan?", text: "If you prefer not to use the managed plan, post\u2011stabilization support is available as per\u2011incident workflow support on your deployed modules at published rates." },
   },
 ];
 
 export const OPS_PROCESS_STEPS: OpsProcessStep[] = [
   {
-    title: "Listen",
+    title: "Audit",
     description:
-      "We sit with your operators and walk through a real day. No slide deck. No AI hype. Just \u201Cshow us what actually happens.\u201D",
+      "We map a real day in your business: the calls, tickets, tools, and handoffs. Everything goes into structured stories in BeemSpec, surfacing where work breaks down and where automation has the highest leverage.",
   },
   {
-    title: "Map",
+    title: "Configure",
     description:
-      "We turn that into explicit workflows, edge cases, and systems diagrams\u00A0\u2013 where data comes from, where it goes, and where it dies.",
+      "We select and configure workflow modules from our template library for your specific stack, tools, and edge cases. Every workflow is built on n8n with explicit guardrails and human review checkpoints.",
   },
   {
-    title: "Automate",
+    title: "Deploy",
     description:
-      "We design and implement the highest\u2011leverage workflows using AI\u2011native tooling, n8n, and your existing stack. You see one working workflow before the Assessment ends.",
+      "Your first workflow goes live before the Ops Audit ends. You see it running in your environment, on your data, with your team.",
   },
   {
-    title: "Decide",
+    title: "Scale",
     description:
-      "You get a clear plan and numbers: what to automate next, what it\u2019s worth, and whether it makes sense to move into an Implementation Sprint or have your team run with it.",
+      "You get a prioritized roadmap: which workflow modules to deploy next, projected hours reclaimed, and whether to move into a Deployment Sprint or run the playbook internally.",
   },
 ];
 
@@ -360,11 +367,11 @@ export const OPS_FIT_BULLETS: string[] = [
 export const OPS_FAQS: FAQ[] = [
   {
     q: "How is this different from hiring an internal engineer or \u201CAI person\u201D?",
-    a: "Internal hires are great once you know exactly what to build. Most teams don\u2019t. We specialize in the front part of the problem: mapping, prioritizing, and proving out the first systems. After that, we can either keep running it with you or help you hire and onboard the right internal team.",
+    a: "Internal hires are great once you know exactly what to build and have the infrastructure to support them. BeemFlow gives you two things from day one: <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> for structured planning and scoping, and a library of production\u2011ready workflow templates that deploy on n8n. No ramp\u2011up, no guesswork. After deployment, we can help you hire and onboard the right internal team to manage the workflows going forward.",
   },
   {
     q: "What happens when something breaks?",
-    a: "In the Assessment and Implementation Sprints, we include a stabilization window to fix anything we ship. If you want ongoing coverage beyond that, that\u2019s what the Stewardship retainer is for\u00A0\u2013 monitoring, break/fix, and upgrades.",
+    a: "Every Ops Audit and Deployment Sprint includes a 30\u2011day stabilization window: if something deployed breaks under normal use, we fix it. After that, the Managed Automation plan covers ongoing monitoring, incident handling, and upgrades. If you opt out of the managed plan, post\u2011stabilization support is available as per\u2011incident workflow support at published rates.",
   },
   {
     q: "Do you replace my team?",
@@ -372,11 +379,15 @@ export const OPS_FAQS: FAQ[] = [
   },
   {
     q: "What if we\u2019re not sure what to automate?",
-    a: "That\u2019s normal. Most clients come in with \u201Cthis feels messy.\u201D The Assessment is designed to turn \u201Cwe\u2019re drowning in manual work\u201D into a specific list of workflows, hours saved, and a build plan.",
+    a: "That\u2019s normal. Most clients come in with \u201Cthis feels messy.\u201D The Ops Audit is designed to turn \u201Cwe\u2019re drowning in manual work\u201D into a specific list of workflows, hours saved, and a deployment plan.",
   },
   {
     q: "Can you work with our existing tools and security constraints?",
     a: "Yes. We start from your current stack and constraints. If something truly can\u2019t be done safely with your systems, we\u2019ll say so and offer options rather than forcing a pet tool on you.",
+  },
+  {
+    q: "Who pays for LLMs and automation tools?",
+    a: "All workflows run on your stack: your CRM, inbox, n8n instance, and LLM accounts. We provision and configure everything for you, but infra, LLM usage, and messaging costs are billed directly to you by the vendors. Our fees cover BeemSpec licensing, workflow template configuration, deployment, and ongoing managed automation.",
   },
 ];
 

@@ -17,7 +17,7 @@ const stripHtml = (value: string) => value.replace(/<[^>]*>/g, ' ').replace(/\s+
 const pageUrl = 'https://beemflow.com/';
 const pageTitle = 'BeemFlow | Make AI Actually Run Your Operations, Not Just Your Board Deck';
 const pageDescription =
-  'For PE-backed and multi-location service businesses ($3M-$50M). We ship a production-ready workflow in 2 weeks and a plan to reclaim 10+ hours/month of manual work. Workflow assessment, implementation sprints, and ongoing stewardship.';
+  'For PE-backed and multi-location service businesses ($3M-$50M). We deploy a production-ready workflow in 2 weeks and a plan to reclaim 10+ hours/month of manual work. Ops audit, workflow deployment sprints, and managed automation.';
 
 const webPageSchema = {
   '@context': 'https://schema.org',
@@ -34,7 +34,7 @@ const serviceSchema = {
   name: 'BeemFlow',
   url: pageUrl,
   description: pageDescription,
-  serviceType: 'Workflow and AI operations automation',
+  serviceType: 'Workflow automation platform and managed deployment',
   areaServed: 'Global',
 };
 
@@ -72,9 +72,9 @@ const schemas = [webPageSchema, serviceSchema, faqSchema];
   <main id="main-content">
     <Hero
       eyebrow="Workflow &amp; AI Ops"
-      body="For PE-backed and multi-location service businesses ($3M&#8211;$50M) held together by &ldquo;people&nbsp;as&nbsp;glue.&rdquo;<br/><br/>We ship a production-ready workflow in 2&nbsp;weeks and a plan to reclaim 10+&nbsp;hours/month of manual work.<br/><br/>If we don&rsquo;t deliver, we build an extra workflow at our&nbsp;cost."
+      body="For PE-backed and multi-location service businesses ($3M&#8211;$50M) held together by &ldquo;people&nbsp;as&nbsp;glue.&rdquo;<br/><br/>We deploy a production-ready workflow in 2&nbsp;weeks and a plan to reclaim 10+&nbsp;hours/month of manual work.<br/><br/>If we don&rsquo;t deliver, we deploy an extra workflow at our&nbsp;cost."
       ctaHref="#ops-final-cta"
-      ctaText="Check if the Assessment is a fit"
+      ctaText="Check if the Ops Audit is a fit"
       secondaryHref="#ops-process"
       secondaryText="See how it works"
       id="ops-hero"
@@ -86,9 +86,9 @@ const schemas = [webPageSchema, serviceSchema, faqSchema];
     <Offer />
     <ProcessSteps
       id="ops-process"
-      label="The Assessment"
+      label="The Ops Audit"
       heading="How it works"
-      ariaLabel="How the assessment works"
+      ariaLabel="How the ops audit works"
       items={OPS_PROCESS_STEPS}
     />
     <AI />
