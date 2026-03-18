@@ -327,7 +327,7 @@ export const SOLUTION_HOME_SERVICES: Solution = {
 
   hero: {
     eyebrow: 'Home services groups',
-    headline: 'Leads are ringing. Too many of them fall\u00A0through.',
+    headline: 'Stop letting leads fall through after\u00A0hours.',
     headlineAccent: 'Lead to invoice, automated.',
     body: 'You\u2019re running a multi\u2011location home services group and the dispatch, follow\u2011up, and invoicing still happen the way they always have: manually, inconsistently, and depending on who remembers. We deploy production\u2011ready workflow automation across your entire lead\u2011to\u2011invoice lifecycle, starting in 2\u00A0weeks.',
   },
@@ -518,7 +518,7 @@ export const SOLUTION_HEALTHCARE: Solution = {
 
   hero: {
     eyebrow: 'Dental, vet & multi\u2011location clinic groups',
-    headline: 'New patients are calling. Your front desk is already\u00A0underwater.',
+    headline: 'Stop losing new patients to whoever picks up the phone\u00A0first.',
     headlineAccent: 'Lead to booked visit, automated.',
     body: 'You\u2019ve consolidated 12 offices and the front desks are still running like independent practices. New patient calls go to voicemail at lunch. No\u2011show rates vary wildly by location. We deploy production\u2011ready workflow automation across your entire patient acquisition lifecycle, starting in 2\u00A0weeks.',
   },
@@ -710,7 +710,7 @@ export const SOLUTION_CLEANING: Solution = {
 
   hero: {
     eyebrow: 'Commercial cleaning & facility services',
-    headline: 'You\u2019re managing 60 sites with a spreadsheet and a group\u00A0text.',
+    headline: 'Stop managing 60 sites with a spreadsheet and a group\u00A0text.',
     headlineAccent: 'Bid to inspect, automated.',
     body: 'New contracts get built into schedules by hand. A site gets missed because someone called out and nobody rerouted coverage. The client calls to complain before you know there\u2019s a problem. We deploy production\u2011ready workflow automation across your entire bid\u2011to\u2011inspect lifecycle, starting in 2\u00A0weeks.',
   },
@@ -901,7 +901,7 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
 
   hero: {
     eyebrow: 'B2B field service companies',
-    headline: 'Your service coordinator is the\u00A0system.',
+    headline: 'Stop running your operation through one person\u2019s\u00A0head.',
     headlineAccent: 'Quote to invoice, automated.',
     body: 'When they\u2019re out, things break. Techs call the office for info that should have been in the work order. Invoices don\u2019t go out until billing chases the field. We deploy production\u2011ready workflow automation across your entire quote\u2011to\u2011invoice lifecycle, starting in 2\u00A0weeks.',
   },
