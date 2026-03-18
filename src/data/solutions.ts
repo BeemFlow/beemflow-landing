@@ -882,10 +882,203 @@ export const SOLUTION_CLEANING: Solution = {
   },
 };
 
+// ─── Solution: Field Services ───
+
+export const SOLUTION_FIELD_SERVICES: Solution = {
+  slug: 'field-services-quote-to-invoice',
+  navLabel: 'Field Services: Quote\u2011to\u2011Invoice',
+  hubDescription:
+    'Automate the quote\u2011to\u2011schedule\u2011to\u2011invoice lifecycle for multi\u2011crew B2B field service companies. Get work orders to the field, get completion data back, and close the billing gap.',
+
+  seo: {
+    title:
+      'BeemFlow | Quote\u2011to\u2011Invoice Automation for B2B Field Service Companies',
+    description:
+      'Automate quoting, dispatch, field completion capture, service reporting, and invoicing for multi\u2011crew field service contractors. Deployed in weeks on your existing stack.',
+    ogImageAlt:
+      'BeemFlow field services quote-to-invoice automation overview',
+  },
+
+  hero: {
+    eyebrow: 'B2B field service companies',
+    headline: 'Your service coordinator is the\u00A0system.',
+    headlineAccent: 'Quote to invoice, automated.',
+    body: 'When they\u2019re out, things break. Techs call the office for info that should have been in the work order. Invoices don\u2019t go out until billing chases the field. We deploy production\u2011ready workflow automation across your entire quote\u2011to\u2011invoice lifecycle, starting in 2\u00A0weeks.',
+  },
+
+  fit: {
+    heading: 'Built for field service companies who recognize\u00A0this',
+    bullets: [
+      { text: '$3M\u2013$50M+ revenue in recurring or project\u2011based B2B field services' },
+      { text: 'PE\u2011backed, roll\u2011up, or founder\u2011operated with growth pressure' },
+      { text: '10\u2013200 field techs across multiple crews or service territories' },
+      { text: 'Running a scheduling platform, a shared calendar, or a mix of both' },
+      { text: 'Leadership wants service completion rates and billing visibility without asking the coordinator' },
+    ],
+  },
+
+  before: {
+    heading: 'The workflow you\u2019re actually\u00A0running',
+    narrative:
+      'Your service coordinator is the system. They know which crew is available, which sites have access quirks, which clients have pending proposals, and which contracts are up for renewal. When they\u2019re out, things break. Techs call the office for information that should have been in the work order. Invoices don\u2019t go out until billing chases down the field. Renewal conversations happen late, if at all.',
+    bullets: [
+      'Proposals get built from a template, sent by email, and disappear into a thread. No pipeline, no follow\u2011up',
+      'Scheduling lives in a platform the office uses 60% of. Jobs get double\u2011assigned. Crews show up at the wrong site',
+      'Techs leave the yard without full site info. Wrong equipment, missing access details, outdated scope',
+      'Job completion reaches the office when the tech calls or doesn\u2019t. Billing waits',
+      'Service checklists and sign\u2011offs live on paper forms or not at all. Client\u2011facing reports are a manual scramble',
+      'Invoicing is 10\u201314 days behind because nothing closes until field data makes it back to the office',
+      'Contract renewal dates sit in a spreadsheet. Renewals slip because there was no trigger',
+    ],
+  },
+
+  after: {
+    heading: 'What it looks like after\u00A0BeemFlow',
+    steps: [
+      {
+        label: 'Quote Tracked & Followed Up',
+        description:
+          'Every proposal logged, tracked, and followed up automatically. Renewal quotes triggered before contracts lapse.',
+      },
+      {
+        label: 'Work Order Generated & Dispatched',
+        description:
+          'Accepted jobs auto\u2011generate work orders with scope, site details, access info, and equipment. Techs get what they need before they leave.',
+      },
+      {
+        label: 'Field Completion Captured',
+        description:
+          'Techs mark jobs done from their phone. Notes, photos, and readings captured on site, not reconstructed later.',
+      },
+      {
+        label: 'Service Report Delivered',
+        description:
+          'Completed job data generates a client\u2011facing service report automatically. No formatting, no chasing the tech for notes.',
+      },
+      {
+        label: 'Invoice & Renew',
+        description:
+          'Completion triggers invoicing. Renewal dates trigger outreach in advance. Nothing lapse because nobody remembered to check.',
+      },
+    ],
+  },
+
+  build: {
+    heading: 'What we deploy',
+    items: [
+      {
+        title: 'Quote tracking & follow\u2011up',
+        description:
+          'Every open proposal logged and followed up systematically. Nothing goes cold while it sits in an email thread.',
+      },
+      {
+        title: 'Work order generation',
+        description:
+          'Accepted jobs produce work orders with site details, scope, access info, and tech assignment. The field gets what it needs before dispatch.',
+      },
+      {
+        title: 'Automated dispatch',
+        description:
+          'Techs get job details and site info automatically. No calling the office to find out where to go or what to bring.',
+      },
+      {
+        title: 'Mobile job completion',
+        description:
+          'Simple phone\u2011based forms for notes, photos, and readings. Job data captured on site and fed back to the office in real time.',
+      },
+      {
+        title: 'Service reports & renewal triggers',
+        description:
+          'Completion data generates client\u2011facing reports automatically. Contract renewal dates trigger advance outreach before the window closes.',
+      },
+      {
+        title: 'Completion\u2011to\u2011invoice & reporting',
+        description:
+          'Job sign\u2011off kicks off invoicing the same day. Completion rates, open billing, and renewal pipeline visible without asking the coordinator.',
+      },
+    ],
+  },
+
+  outcomes: {
+    heading: 'What changes',
+    items: [
+      {
+        metric: 'Quote follow\u2011up: sporadic \u2192 systematic',
+        description:
+          'Every open proposal gets a defined follow\u2011up sequence. Renewal quotes go out before the contract window closes.',
+      },
+      {
+        metric: 'Techs arrive prepared',
+        description:
+          'Scope, site access, and equipment in the work order before they leave the yard. Fewer callbacks, fewer wasted trips.',
+      },
+      {
+        metric: 'Invoice lag: 10\u201314 days \u2192 same day',
+        description:
+          'Job completion triggers the invoice. The gap between finishing the work and sending the bill closes.',
+      },
+      {
+        metric: 'Service reports: manual scramble \u2192 auto\u2011generated',
+        description:
+          'Field data flows directly into client\u2011facing reports. No formatting, no chasing techs for notes after the fact.',
+      },
+      {
+        metric: '20\u201340 hours/month reclaimed',
+        description:
+          'Across scheduling, dispatch, admin, and billing. Hours that go back to running the business, not being the system.',
+      },
+    ],
+    footnote:
+      'Metrics are directional based on typical engagement outcomes. Your Ops Audit will identify specific targets for your operation.',
+  },
+
+  timeline: {
+    heading: 'How we get there',
+    phases: [
+      {
+        phase: 'Ops Audit',
+        duration: '2 weeks',
+        description:
+          'We map your live quote\u2011to\u2011invoice workflow in BeemSpec, identify 5\u20137 high\u2011ROI automation targets, and deploy your first production workflow before the audit ends. $3K, credited toward your first Sprint.',
+      },
+      {
+        phase: 'Deployment Sprint',
+        duration: '4 weeks',
+        description:
+          'We deploy 2\u20113 production workflow modules from the BeemFlow template library, configured for your scheduling platform, CRM, and field tools. One function per sprint.',
+      },
+      {
+        phase: 'Managed Automation',
+        duration: 'Ongoing',
+        description:
+          'Monitoring, incident handling, quarterly reviews, and new automation targets as your operation evolves. Clear SLAs so your team knows what BeemFlow manages vs. what they own.',
+      },
+    ],
+  },
+
+  risk: {
+    heading: 'Your operation, your\u00A0systems',
+    points: [
+      'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
+      'If we don\u2019t deploy at least one workflow you keep live and show a realistic path to 10+ hours/month reclaimed, we deploy an additional workflow at our cost.',
+      'All workflows, automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
+      '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
+      'Managed Automation required for critical\u2011path workflows (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
+    ],
+  },
+
+  cta: {
+    heading: 'Map this workflow to your\u00A0operation',
+    body: 'The Ops Audit takes 2 weeks. You\u2019ll get a structured map of your quote\u2011to\u2011invoice workflow, a prioritized list of automation targets, and your first live workflow before the audit ends.',
+    buttonText: 'Book the Ops Audit',
+  },
+};
+
 // ─── All Solutions (used by hub and nav) ───
 
 export const SOLUTIONS: Solution[] = [
   SOLUTION_MANUFACTURING,
+  SOLUTION_FIELD_SERVICES,
   SOLUTION_CLEANING,
   SOLUTION_HOME_SERVICES,
   SOLUTION_HEALTHCARE,
