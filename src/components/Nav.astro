@@ -4,7 +4,6 @@ import { SOLUTIONS } from '../data/solutions';
 
 const pathname = Astro.url.pathname;
 const isOpsPage = pathname === '/';
-const isStartupsPage = pathname.startsWith('/startups');
 const isSolutionsPage = pathname.startsWith('/solutions');
 const ctaHref = isOpsPage ? '#ops-final-cta' : isSolutionsPage ? '/#ops-final-cta' : '#contact';
 ---
@@ -18,7 +17,6 @@ const ctaHref = isOpsPage ? '#ops-final-cta' : isSolutionsPage ? '/#ops-final-ct
   <div class="nav__right">
     <div class="nav__links">
       <a href="/" class:list={["nav__link", { "nav__link--active": isOpsPage }]} aria-current={isOpsPage ? 'page' : undefined}>For Operators</a>
-      <a href="/startups/" class:list={["nav__link", { "nav__link--active": isStartupsPage }]} aria-current={isStartupsPage ? 'page' : undefined}>For Startups</a>
       <div class="nav__dropdown">
         <a
           href="/solutions/"
