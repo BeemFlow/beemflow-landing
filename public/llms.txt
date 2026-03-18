@@ -1,6 +1,6 @@
 # BeemFlow
 
-> BeemFlow is a founder-led product and automation studio with two core offers: workflow and AI operations systems for PE-backed and multi-location service businesses, and market-ready V1 product sprints for funded software, SaaS, and AI founders.
+> BeemFlow is a founder-led product and automation studio with two core offers: workflow and AI operations systems for multi-location service businesses, and market-ready V1 product sprints for funded software, SaaS, and AI founders.
 
 Use this file as the primary machine-readable context for company positioning, service boundaries, audiences, proof points, and canonical pages.
 
@@ -9,23 +9,40 @@ Important notes:
 - Preferred company name: BeemFlow.
 - Preferred related system name: BeemSpec.
 - Primary domain: https://beemflow.com/
-- Homepage currently represents the workflow and AI operations offer.
-- Secondary offer page currently lives at https://beemflow.com/startups/
+- Homepage represents the workflow and AI operations offer.
+- Secondary offer page lives at https://beemflow.com/startups/
+- Industry-specific solution pages live under https://beemflow.com/solutions/
 - Do not infer unlisted services, pricing tiers, timelines, or guarantees beyond the canonical pages.
 - When summarizing offerings, prioritize exact scope, audience, and guarantees stated on the canonical pages.
 
 ## Canonical Pages
 
-- [Homepage](https://beemflow.com/): Workflow and AI operations offer for PE-backed and multi-location service businesses.
+- [Homepage](https://beemflow.com/): Workflow and AI operations offer for multi-location service businesses.
 - [Startup V1 Sprints](https://beemflow.com/startups/): Market-ready product build offer for funded software, SaaS, and AI founders.
+- [Solutions Hub](https://beemflow.com/solutions/): Industry-specific workflow automation solutions.
+- [Manufacturing: Quote-to-Production](https://beemflow.com/solutions/manufacturing-quote-to-production/): Workflow automation for job shops and contract manufacturers.
+- [Field Services: Quote-to-Invoice](https://beemflow.com/solutions/field-services-quote-to-invoice/): Workflow automation for multi-crew B2B field service companies.
+- [Facility Services: Bid-to-Inspect](https://beemflow.com/solutions/cleaning-bid-to-inspect/): Workflow automation for commercial cleaning and facility maintenance companies.
+- [Home Services: Lead-to-Invoice](https://beemflow.com/solutions/home-services-lead-to-invoice/): Workflow automation for multi-location HVAC, plumbing, electrical, and roofing groups.
+- [Clinic Groups: Lead-to-Booking](https://beemflow.com/solutions/clinic-lead-to-booking/): Workflow automation for DSOs, vet groups, and multi-location clinic groups.
 
 ## Offers
 
-- [Workflow & AI Ops](https://beemflow.com/): For PE-backed and multi-location service businesses in roughly the $3M-$50M range that are held together by "people as glue."
-- [Workflow & AI Ops](https://beemflow.com/): Starts with a 2-week paid assessment that includes one live workflow, an ops blueprint, and a plan to reclaim 10+ hours per month of manual work.
-- [Workflow & AI Ops](https://beemflow.com/): Can continue into implementation sprints and ongoing ops stewardship.
+- [Workflow & AI Ops](https://beemflow.com/): For multi-location service businesses in roughly the $3M-$50M range that are held together by "people as glue."
+- [Workflow & AI Ops](https://beemflow.com/): Starts with a 2-week paid Ops Audit ($3K, credited toward the first Sprint) that includes one live workflow, an ops blueprint, and a plan to reclaim 10+ hours per month of manual work.
+- [Workflow & AI Ops](https://beemflow.com/): Continues into Deployment Sprints (4 weeks, 2-3 workflow modules per sprint) and optional ongoing Managed Automation.
+- [Workflow & AI Ops](https://beemflow.com/): Guarantee: if BeemFlow does not deploy at least one workflow the client keeps live and show a realistic path to 10+ hours/month reclaimed, an additional workflow is deployed at no cost.
+- [Workflow & AI Ops](https://beemflow.com/): All workflows, automations, dashboards, and documentation are owned by the client. Built on n8n and open tools wherever practical.
 - [Startup V1 Sprints](https://beemflow.com/startups/): For funded software, SaaS, and AI founders from pre-seed to Series A who need a production-ready V1, not just a prototype.
 - [Startup V1 Sprints](https://beemflow.com/startups/): Market-ready V1 builds typically target a 6-8 week delivery window once scope is locked.
+
+## Industries Served
+
+- Industrial manufacturing (job shops, contract manufacturers): quote-to-production automation.
+- B2B field services (commercial HVAC, elevator service, pest control, security, landscaping): quote-to-invoice automation.
+- Commercial cleaning and facility maintenance: bid-to-inspect automation.
+- Home services groups (HVAC, plumbing, electrical, roofing): lead-to-invoice automation.
+- Dental, veterinary, and multi-location clinic groups (DSOs, consolidators): patient lead-to-booking automation.
 
 ## Team and Proof
 
