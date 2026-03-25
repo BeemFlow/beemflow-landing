@@ -5,28 +5,31 @@ import FadeIn from '../FadeIn.astro';
 <section class="section ops-ai bg-elevated" id="ops-ai-explainer" aria-label="How we use AI">
   <div class="container--narrow">
     <FadeIn>
-      <h2 class="ops-ai__heading">AI powers the platform.<br /><span class="text-accent">Your workflows are the product.</span></h2>
+      <h2 class="ops-ai__heading">AI powers the platform.<br /><span class="text-accent">Automations are what you actually&nbsp;feel.</span></h2>
     </FadeIn>
 
     <FadeIn delay={0.1}>
       <p class="text-body-lg ops-ai__lead">
-        We don&rsquo;t sell &ldquo;AI ideas.&rdquo; AI powers three layers of the BeemFlow&nbsp;platform:
+        We don&rsquo;t sell &ldquo;AI ideas&rdquo; or slide decks. AI runs under the hood of the BeemFlow Automation Platform so your core processes stop depending on humans as&nbsp;glue.
+      </p>
+      <p class="text-body ops-ai__sub-lead">
+        AI in BeemFlow shows up in three&nbsp;layers:
       </p>
     </FadeIn>
 
     <FadeIn delay={0.15}>
       <div class="ops-ai__methods">
         <ul class="list-dash">
-          <li class="text-body"><strong>Map.</strong> <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer">BeemSpec</a> turns your operational reality&nbsp;&ndash; tools, handoffs, edge cases&nbsp;&ndash; into structured stories and workflow specs that everyone can see and agree&nbsp;on.</li>
-          <li class="text-body"><strong>Build.</strong> Our workflow engine deploys supervised AI agents on top of n8n so your existing CRM, scheduling, billing, and inbox tools finally talk to each other&nbsp;&ndash; without ripping and replacing&nbsp;anything.</li>
-          <li class="text-body"><strong>Monitor.</strong> Every deployed workflow runs inside explicit guardrails, with human review checkpoints, audit logs, and exception routing before anything touches production&nbsp;data.</li>
+          <li class="text-body"><strong>Map.</strong> <a href="https://beemspec.com" target="_blank" rel="noopener noreferrer">BeemSpec</a> turns your real operational mess&nbsp;&ndash; tools, handoffs, edge cases&nbsp;&ndash; into structured process stories and specs that everyone can see, comment on, and agree&nbsp;to. This becomes the source of truth for what to automate&nbsp;first.</li>
+          <li class="text-body"><strong>Automate.</strong> Our automation engine runs supervised AI agents on top of managed infrastructure to wire your existing CRM, scheduling, billing, and inbox tools together. We activate and customize BeemFlow automations from our template library instead of &ldquo;vibe coding&rdquo;&nbsp;one&#8209;offs.</li>
+          <li class="text-body"><strong>Monitor.</strong> Every automation on the BeemFlow platform runs inside explicit guardrails, with human review checkpoints where needed, audit logs for every action, and exception routing before anything touches critical production&nbsp;data.</li>
         </ul>
       </div>
     </FadeIn>
 
     <FadeIn delay={0.2}>
       <p class="text-body-lg ops-ai__closer">
-        The result isn&rsquo;t &ldquo;AI in a slide deck.&rdquo; It&rsquo;s pulling humans out of the
+        The result isn&rsquo;t &ldquo;AI in a board slide.&rdquo; It&rsquo;s production automations quietly pulling humans out of the
         10&ndash;20% of work they should never have been doing in the first&nbsp;place.
       </p>
     </FadeIn>
@@ -52,6 +55,10 @@ import FadeIn from '../FadeIn.astro';
   }
 
   .ops-ai__lead {
+    margin-bottom: var(--space-sm);
+  }
+
+  .ops-ai__sub-lead {
     margin-bottom: var(--space-lg);
   }
 

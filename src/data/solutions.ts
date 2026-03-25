@@ -125,7 +125,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
     headline: 'Stop losing money between the quote and the\u00A0floor.',
     headlineAccent:
       'RFQ to delivery, automated.',
-    body: 'Your estimators are also your project managers. Accepted jobs get thrown over the wall with missing specs. Invoices lag weeks behind shipments. We deploy production\u2011ready workflow automation across your entire quote\u2011to\u2011delivery lifecycle, starting in 2\u00A0weeks.',
+    body: 'Your estimators are also your project managers. Accepted jobs get thrown over the wall with missing specs. Invoices lag weeks behind shipments. We deploy production\u2011ready process automation across your entire quote\u2011to\u2011delivery lifecycle, starting in 2\u00A0weeks.',
   },
 
   // ── 2. Who it's for ──
@@ -142,7 +142,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
 
   // ── 3. The ugly "Before" ──
   before: {
-    heading: 'The workflow you\u2019re actually\u00A0running',
+    heading: 'The process you\u2019re actually\u00A0running',
     narrative:
       'You don\u2019t have a \u201Ctechnology problem.\u201D You have a \u201Cpeople\u2011as\u2011glue\u201D problem. Quotes live in inboxes. Accepted jobs become clipboards on the shop floor. Nobody knows where a job stands without walking the floor or calling someone. And leadership asks for weekly throughput numbers that take half a day to compile.',
     bullets: [
@@ -182,7 +182,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
       {
         label: 'Invoice & Report',
         description:
-          'Delivery triggers the invoicing workflow automatically. Weekly production reports are generated without anyone compiling a spreadsheet.',
+          'Delivery triggers invoicing automatically. Weekly production reports are generated without anyone compiling a spreadsheet.',
       },
     ],
   },
@@ -260,7 +260,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
       },
     ],
     footnote:
-      'Metrics are directional based on typical engagement outcomes. Your Ops Audit will identify specific targets for your operation.',
+      'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your operation.',
   },
 
   // ── 7. Implementation & timeline ──
@@ -268,16 +268,16 @@ export const SOLUTION_MANUFACTURING: Solution = {
     heading: 'How we get there',
     phases: [
       {
-        phase: 'Ops Audit',
+        phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live quote\u2011to\u2011delivery workflow in BeemSpec, identify 5\u20137 high\u2011ROI automation targets, and deploy your first production workflow before the audit ends. $3K, credited toward your first Sprint.',
+          'We map your live quote\u2011to\u2011delivery process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
-        phase: 'Deployment Sprint',
+        phase: 'Process Automation Sprint',
         duration: '4 weeks',
         description:
-          'We deploy 2\u20113 production workflow modules from the BeemFlow template library, configured and integrated into your stack. One function per sprint, for example the full quote\u2011to\u2011work\u2011order pipeline.',
+          'We deploy 2\u20113 production automations from the BeemFlow template library, configured and integrated into your stack. One process area per sprint, for example the full quote\u2011to\u2011work\u2011order pipeline.',
       },
       {
         phase: 'Managed Automation',
@@ -293,18 +293,18 @@ export const SOLUTION_MANUFACTURING: Solution = {
     heading: 'Your operation, your\u00A0systems',
     points: [
       'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If we don\u2019t deploy at least one workflow you keep live and show a realistic path to 10+ hours/month reclaimed, we deploy an additional workflow at our cost.',
-      'All workflows, automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
+      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
-      'Managed Automation required for critical\u2011path workflows (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
+      'Managed Automation required for critical\u2011path automations (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
     ],
   },
 
   // ── 9. CTA ──
   cta: {
-    heading: 'Map this workflow to your\u00A0stack',
-    body: 'The Ops Audit takes 2 weeks. You\u2019ll get a structured map of your quote\u2011to\u2011delivery workflow, a prioritized list of automation targets, and your first live workflow before the audit ends.',
-    buttonText: 'Book the Ops Audit',
+    heading: 'Map this process to your\u00A0stack',
+    body: 'The Blueprint takes 2 weeks. You\u2019ll get a structured map of your quote\u2011to\u2011delivery process, a prioritized list of automation targets with ROI projections, and a 90\u2011day automation roadmap.',
+    buttonText: 'Book the Blueprint',
   },
 };
 
@@ -329,7 +329,7 @@ export const SOLUTION_HOME_SERVICES: Solution = {
     eyebrow: 'Home services groups',
     headline: 'Stop letting leads fall through after\u00A0hours.',
     headlineAccent: 'Lead to invoice, automated.',
-    body: 'You\u2019re running a multi\u2011location home services group and the dispatch, follow\u2011up, and invoicing still happen the way they always have: manually, inconsistently, and depending on who remembers. We deploy production\u2011ready workflow automation across your entire lead\u2011to\u2011invoice lifecycle, starting in 2\u00A0weeks.',
+    body: 'You\u2019re running a multi\u2011location home services group and the dispatch, follow\u2011up, and invoicing still happen the way they always have: manually, inconsistently, and depending on who remembers. We deploy production\u2011ready process automation across your entire lead\u2011to\u2011invoice lifecycle, starting in 2\u00A0weeks.',
   },
 
   fit: {
@@ -344,7 +344,7 @@ export const SOLUTION_HOME_SERVICES: Solution = {
   },
 
   before: {
-    heading: 'The workflow you\u2019re actually\u00A0running',
+    heading: 'The process you\u2019re actually\u00A0running',
     narrative:
       'Leads come in from Google, Angi, Thumbtack, referrals, your website, and the office phone. Some get logged. Some don\u2019t. Dispatch is a coordinator juggling a whiteboard, a group text, and the CRM calendar. Open estimates are sitting in a system nobody checks. And every board meeting, someone spends a day pulling numbers from multiple ServiceTitan instances into one deck.',
     bullets: [
@@ -454,23 +454,23 @@ export const SOLUTION_HOME_SERVICES: Solution = {
       },
     ],
     footnote:
-      'Metrics are directional based on typical engagement outcomes. Your Ops Audit will identify specific targets for your operation.',
+      'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your operation.',
   },
 
   timeline: {
     heading: 'How we get there',
     phases: [
       {
-        phase: 'Ops Audit',
+        phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live lead\u2011to\u2011invoice workflow in BeemSpec, identify 5\u20137 high\u2011ROI automation targets, and deploy your first production workflow before the audit ends. $3K, credited toward your first Sprint.',
+          'We map your live lead\u2011to\u2011invoice process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
-        phase: 'Deployment Sprint',
+        phase: 'Process Automation Sprint',
         duration: '4 weeks',
         description:
-          'We deploy 2\u20113 production workflow modules from the BeemFlow template library, configured for your stack (ServiceTitan, Housecall Pro, Jobber, CRM, accounting). One function per sprint.',
+          'We deploy 2\u20113 production automations from the BeemFlow template library, configured for your stack (ServiceTitan, Housecall Pro, Jobber, CRM, accounting). One process area per sprint.',
       },
       {
         phase: 'Managed Automation',
@@ -485,17 +485,17 @@ export const SOLUTION_HOME_SERVICES: Solution = {
     heading: 'Your operation, your\u00A0systems',
     points: [
       'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If we don\u2019t deploy at least one workflow you keep live and show a realistic path to 10+ hours/month reclaimed, we deploy an additional workflow at our cost.',
-      'All workflows, automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
+      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
-      'Managed Automation required for critical\u2011path workflows (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
+      'Managed Automation required for critical\u2011path automations (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
     ],
   },
 
   cta: {
-    heading: 'Map this workflow to your\u00A0stack',
-    body: 'The Ops Audit takes 2 weeks. You\u2019ll get a structured map of your lead\u2011to\u2011invoice workflow, a prioritized list of automation targets, and your first live workflow before the audit ends.',
-    buttonText: 'Book the Ops Audit',
+    heading: 'Map this process to your\u00A0stack',
+    body: 'The Blueprint takes 2 weeks. You\u2019ll get a structured map of your lead\u2011to\u2011invoice process, a prioritized list of automation targets with ROI projections, and a 90\u2011day automation roadmap.',
+    buttonText: 'Book the Blueprint',
   },
 };
 
@@ -520,7 +520,7 @@ export const SOLUTION_HEALTHCARE: Solution = {
     eyebrow: 'Dental, vet & multi\u2011location clinic groups',
     headline: 'Stop losing new patients to whoever picks up the phone\u00A0first.',
     headlineAccent: 'Lead to booked visit, automated.',
-    body: 'You\u2019ve consolidated 12 offices and the front desks are still running like independent practices. New patient calls go to voicemail at lunch. No\u2011show rates vary wildly by location. We deploy production\u2011ready workflow automation across your entire patient acquisition lifecycle, starting in 2\u00A0weeks.',
+    body: 'You\u2019ve consolidated 12 offices and the front desks are still running like independent practices. New patient calls go to voicemail at lunch. No\u2011show rates vary wildly by location. We deploy production\u2011ready process automation across your entire patient acquisition lifecycle, starting in 2\u00A0weeks.',
   },
 
   fit: {
@@ -535,7 +535,7 @@ export const SOLUTION_HEALTHCARE: Solution = {
   },
 
   before: {
-    heading: 'The workflow you\u2019re actually\u00A0running',
+    heading: 'The process you\u2019re actually\u00A0running',
     narrative:
       'Patient inquiries come from Google, insurance directories, social, your website, and the phone. The front desk is already handling check\u2011ins, insurance verification, and in\u2011office questions. New patient calls go to voicemail and get returned hours later, if at all. The patient has already booked with someone else. Across a group of locations, nobody at corporate can see it happening.',
     bullets: [
@@ -564,7 +564,7 @@ export const SOLUTION_HEALTHCARE: Solution = {
       {
         label: 'No\u2011Show Prevention',
         description:
-          'Confirmation and reminder sequences reduce no\u2011shows. Canceled slots trigger backfill workflows from the waitlist.',
+          'Confirmation and reminder sequences reduce no\u2011shows. Canceled slots trigger backfill automation from the waitlist.',
       },
       {
         label: 'Reactivation Running',
@@ -626,7 +626,7 @@ export const SOLUTION_HEALTHCARE: Solution = {
       {
         metric: 'No\u2011show rate: meaningfully reduced',
         description:
-          'Consistent confirmation and reminder sequences across every location, not dependent on individual front desk habits. The Ops Audit will identify your baseline.',
+          'Consistent confirmation and reminder sequences across every location, not dependent on individual front desk habits. The Blueprint will identify your baseline.',
       },
       {
         metric: 'Reactivation: dormant \u2192 systematically contacted',
@@ -645,23 +645,23 @@ export const SOLUTION_HEALTHCARE: Solution = {
       },
     ],
     footnote:
-      'Metrics are directional based on typical engagement outcomes. Your Ops Audit will identify specific targets for your group.',
+      'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your group.',
   },
 
   timeline: {
     heading: 'How we get there',
     phases: [
       {
-        phase: 'Ops Audit',
+        phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live patient acquisition workflow in BeemSpec, identify 5\u20137 high\u2011ROI automation targets, and deploy your first production workflow before the audit ends. $3K, credited toward your first Sprint.',
+          'We map your live patient acquisition process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
-        phase: 'Deployment Sprint',
+        phase: 'Process Automation Sprint',
         duration: '4 weeks',
         description:
-          'We deploy 2\u20113 production workflow modules from the BeemFlow template library, configured for your PMS, CRM, and communication tools. One function per sprint.',
+          'We deploy 2\u20113 production automations from the BeemFlow template library, configured for your PMS, CRM, and communication tools. One process area per sprint.',
       },
       {
         phase: 'Managed Automation',
@@ -676,18 +676,18 @@ export const SOLUTION_HEALTHCARE: Solution = {
     heading: 'Your operation, your\u00A0systems',
     points: [
       'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If we don\u2019t deploy at least one workflow you keep live and show a realistic path to 10+ hours/month reclaimed, we deploy an additional workflow at our cost.',
-      'All workflows, automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
-      'We work around your PMS, not inside clinical records. Early workflows focus on front\u2011office operations: intake, scheduling, reminders, and reporting.',
+      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
+      'We work around your PMS, not inside clinical records. Early automations focus on front\u2011office operations: intake, scheduling, reminders, and reporting.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
-      'Managed Automation required for critical\u2011path workflows (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
+      'Managed Automation required for critical\u2011path automations (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
     ],
   },
 
   cta: {
-    heading: 'Map this workflow to your\u00A0group',
-    body: 'The Ops Audit takes 2 weeks. You\u2019ll get a structured map of your patient acquisition workflow, a prioritized list of automation targets, and your first live workflow before the audit ends.',
-    buttonText: 'Book the Ops Audit',
+    heading: 'Map this process to your\u00A0group',
+    body: 'The Blueprint takes 2 weeks. You\u2019ll get a structured map of your patient acquisition process, a prioritized list of automation targets with ROI projections, and a 90\u2011day automation roadmap.',
+    buttonText: 'Book the Blueprint',
   },
 };
 
@@ -712,7 +712,7 @@ export const SOLUTION_CLEANING: Solution = {
     eyebrow: 'Commercial cleaning & facility services',
     headline: 'Stop managing 60 sites with a spreadsheet and a group\u00A0text.',
     headlineAccent: 'Bid to inspect, automated.',
-    body: 'New contracts get built into schedules by hand. A site gets missed because someone called out and nobody rerouted coverage. The client calls to complain before you know there\u2019s a problem. We deploy production\u2011ready workflow automation across your entire bid\u2011to\u2011inspect lifecycle, starting in 2\u00A0weeks.',
+    body: 'New contracts get built into schedules by hand. A site gets missed because someone called out and nobody rerouted coverage. The client calls to complain before you know there\u2019s a problem. We deploy production\u2011ready process automation across your entire bid\u2011to\u2011inspect lifecycle, starting in 2\u00A0weeks.',
   },
 
   fit: {
@@ -727,7 +727,7 @@ export const SOLUTION_CLEANING: Solution = {
   },
 
   before: {
-    heading: 'The workflow you\u2019re actually\u00A0running',
+    heading: 'The process you\u2019re actually\u00A0running',
     narrative:
       'Bids are built in Word docs. Nobody tracks which ones are pending or what the win rate looks like. A new contract starts and someone manually builds the cleaning schedule from a PDF scope of work. Cleaners don\u2019t always know which site they\u2019re going to until they call in. Inspections happen when a manager has time, which means they don\u2019t. And your monthly P&L by contract is an approximation because time tracking and invoicing don\u2019t talk to each other.',
     bullets: [
@@ -792,7 +792,7 @@ export const SOLUTION_CLEANING: Solution = {
       {
         title: 'Call\u2011out coverage',
         description:
-          'When someone calls out, the workflow finds available coverage and reassigns before the site gets missed. You hear about it, not the client.',
+          'When someone calls out, the automation finds available coverage and reassigns before the site gets missed. You hear about it, not the client.',
       },
       {
         title: 'Inspection checklists',
@@ -837,23 +837,23 @@ export const SOLUTION_CLEANING: Solution = {
       },
     ],
     footnote:
-      'Metrics are directional based on typical engagement outcomes. Your Ops Audit will identify specific targets for your operation.',
+      'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your operation.',
   },
 
   timeline: {
     heading: 'How we get there',
     phases: [
       {
-        phase: 'Ops Audit',
+        phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live bid\u2011to\u2011inspect workflow in BeemSpec, identify 5\u20137 high\u2011ROI automation targets, and deploy your first production workflow before the audit ends. $3K, credited toward your first Sprint.',
+          'We map your live bid\u2011to\u2011inspect process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
-        phase: 'Deployment Sprint',
+        phase: 'Process Automation Sprint',
         duration: '4 weeks',
         description:
-          'We deploy 2\u20113 production workflow modules from the BeemFlow template library, configured for your cleaning management platform, CRM, and scheduling tools. One function per sprint.',
+          'We deploy 2\u20113 production automations from the BeemFlow template library, configured for your cleaning management platform, CRM, and scheduling tools. One process area per sprint.',
       },
       {
         phase: 'Managed Automation',
@@ -868,17 +868,17 @@ export const SOLUTION_CLEANING: Solution = {
     heading: 'Your operation, your\u00A0systems',
     points: [
       'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If we don\u2019t deploy at least one workflow you keep live and show a realistic path to 10+ hours/month reclaimed, we deploy an additional workflow at our cost.',
-      'All workflows, automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
+      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
-      'Managed Automation required for critical\u2011path workflows (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
+      'Managed Automation required for critical\u2011path automations (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
     ],
   },
 
   cta: {
-    heading: 'Map this workflow to your\u00A0operation',
-    body: 'The Ops Audit takes 2 weeks. You\u2019ll get a structured map of your bid\u2011to\u2011inspect workflow, a prioritized list of automation targets, and your first live workflow before the audit ends.',
-    buttonText: 'Book the Ops Audit',
+    heading: 'Map this process to your\u00A0operation',
+    body: 'The Blueprint takes 2 weeks. You\u2019ll get a structured map of your bid\u2011to\u2011inspect process, a prioritized list of automation targets with ROI projections, and a 90\u2011day automation roadmap.',
+    buttonText: 'Book the Blueprint',
   },
 };
 
@@ -903,7 +903,7 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
     eyebrow: 'B2B field service companies',
     headline: 'Stop running your operation through one person\u2019s\u00A0head.',
     headlineAccent: 'Quote to invoice, automated.',
-    body: 'When they\u2019re out, things break. Techs call the office for info that should have been in the work order. Invoices don\u2019t go out until billing chases the field. We deploy production\u2011ready workflow automation across your entire quote\u2011to\u2011invoice lifecycle, starting in 2\u00A0weeks.',
+    body: 'When they\u2019re out, things break. Techs call the office for info that should have been in the work order. Invoices don\u2019t go out until billing chases the field. We deploy production\u2011ready process automation across your entire quote\u2011to\u2011invoice lifecycle, starting in 2\u00A0weeks.',
   },
 
   fit: {
@@ -918,7 +918,7 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
   },
 
   before: {
-    heading: 'The workflow you\u2019re actually\u00A0running',
+    heading: 'The process you\u2019re actually\u00A0running',
     narrative:
       'Your service coordinator is the system. They know which crew is available, which sites have access quirks, which clients have pending proposals, and which contracts are up for renewal. When they\u2019re out, things break. Techs call the office for information that should have been in the work order. Invoices don\u2019t go out until billing chases down the field. Renewal conversations happen late, if at all.',
     bullets: [
@@ -1029,23 +1029,23 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
       },
     ],
     footnote:
-      'Metrics are directional based on typical engagement outcomes. Your Ops Audit will identify specific targets for your operation.',
+      'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your operation.',
   },
 
   timeline: {
     heading: 'How we get there',
     phases: [
       {
-        phase: 'Ops Audit',
+        phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live quote\u2011to\u2011invoice workflow in BeemSpec, identify 5\u20137 high\u2011ROI automation targets, and deploy your first production workflow before the audit ends. $3K, credited toward your first Sprint.',
+          'We map your live quote\u2011to\u2011invoice process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
-        phase: 'Deployment Sprint',
+        phase: 'Process Automation Sprint',
         duration: '4 weeks',
         description:
-          'We deploy 2\u20113 production workflow modules from the BeemFlow template library, configured for your scheduling platform, CRM, and field tools. One function per sprint.',
+          'We deploy 2\u20113 production automations from the BeemFlow template library, configured for your scheduling platform, CRM, and field tools. One process area per sprint.',
       },
       {
         phase: 'Managed Automation',
@@ -1060,17 +1060,17 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
     heading: 'Your operation, your\u00A0systems',
     points: [
       'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If we don\u2019t deploy at least one workflow you keep live and show a realistic path to 10+ hours/month reclaimed, we deploy an additional workflow at our cost.',
-      'All workflows, automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
+      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
-      'Managed Automation required for critical\u2011path workflows (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
+      'Managed Automation required for critical\u2011path automations (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
     ],
   },
 
   cta: {
-    heading: 'Map this workflow to your\u00A0operation',
-    body: 'The Ops Audit takes 2 weeks. You\u2019ll get a structured map of your quote\u2011to\u2011invoice workflow, a prioritized list of automation targets, and your first live workflow before the audit ends.',
-    buttonText: 'Book the Ops Audit',
+    heading: 'Map this process to your\u00A0operation',
+    body: 'The Blueprint takes 2 weeks. You\u2019ll get a structured map of your quote\u2011to\u2011invoice process, a prioritized list of automation targets with ROI projections, and a 90\u2011day automation roadmap.',
+    buttonText: 'Book the Blueprint',
   },
 };
 

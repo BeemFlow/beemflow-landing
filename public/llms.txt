@@ -32,11 +32,11 @@ Important notes:
 
 For multi-location service businesses in roughly the $3M-$50M range that are held together by "people as glue." Engagements follow three phases:
 
-1. **Ops Audit** (2 weeks, $3K credited toward first Sprint): maps the live workflow, identifies 5-7 high-ROI automation targets, and deploys one production workflow before the audit ends.
-2. **Deployment Sprint** (4 weeks): deploys 2-3 workflow modules configured for the client's stack. One function per sprint.
+1. **Ops Automation Blueprint** (2 weeks, $3K credited toward first Sprint): maps 6–12 key processes, identifies 3–5 high-ROI automations, and delivers a prioritized 90-day roadmap.
+2. **Process Automation Sprint** (4-6 weeks): deploys 2–3 production automations configured for the client's stack. One function per sprint.
 3. **Managed Automation** (ongoing): monitoring, incident handling, quarterly reviews, and new automation targets.
 
-Guarantee: if BeemFlow does not deploy at least one workflow the client keeps live and show a realistic path to 10+ hours/month reclaimed, an additional workflow is deployed at no cost. All workflows, automations, dashboards, and documentation are owned by the client. Built on n8n and open tools wherever practical.
+Guarantee: if the Blueprint does not identify at least one automation the client believes is worth deploying and show a realistic path to 10+ hours/month reclaimed, BeemFlow keeps working at no additional cost until it does. All automations, dashboards, and documentation are owned by the client. Built on n8n and open tools wherever practical.
 
 ### [Startup V1 Sprints](https://beemflow.com/startups/)
 

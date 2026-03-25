@@ -11,9 +11,9 @@ interface Props {
 
 const {
   heading = 'Ready to stop being the glue in your own\u00A0operations?',
-  subheading = 'No slide deck. First call is about your actual workflows. Tell us a bit about your business and we\u2019ll come prepared. If the Ops Audit isn\u2019t the right fit, we\u2019ll tell you\u00A0quickly.',
-  checkboxText = 'I understand the Ops Audit is a fixed $3K engagement',
-  submitText = 'Submit & see if the Ops Audit is a fit',
+  subheading = 'No slide deck. First call is about your actual processes. Tell us a bit about your business and we\u2019ll come prepared. If the Blueprint isn\u2019t the right fit, we\u2019ll tell you\u00A0quickly.',
+  checkboxText = 'I understand the Blueprint is a fixed $3K engagement',
+  submitText = 'Submit & see if the Blueprint is a fit',
   id = 'ops-final-cta',
 } = Astro.props;
 ---
@@ -69,7 +69,7 @@ const {
             <input class="ops-contact__input" type="text" id="ops-locations" name="locations" placeholder="1" />
           </div>
           <div class="ops-contact__field">
-            <label class="ops-contact__label" for="ops-team-size">People touching ops/sales workflows</label>
+            <label class="ops-contact__label" for="ops-team-size">People touching ops/sales processes</label>
             <select class="ops-contact__input ops-contact__select" id="ops-team-size" name="team_size" required>
               <option value="" disabled selected>Select&hellip;</option>
               <option value="1-5">1&ndash;5</option>
@@ -118,7 +118,7 @@ const {
       <FadeIn>
         <div class="ops-contact__thanks">
           <h3 class="ops-contact__thanks-heading">Thanks. We'll review and get back to you.</h3>
-          <p class="ops-contact__thanks-body">We'll take a look at what you shared and reach out within 1&ndash;2 business days to see if the Ops Audit is the right fit.</p>
+          <p class="ops-contact__thanks-body">We'll take a look at what you shared and reach out within 1&ndash;2 business days to see if the Blueprint is the right fit.</p>
         </div>
       </FadeIn>
     </div>
