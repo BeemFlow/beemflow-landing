@@ -38,12 +38,11 @@ const { eyebrow, body, ctaHref, ctaText, secondaryHref, secondaryText, id } = As
   const updateHeroViewport = () => {
     const heroes = document.querySelectorAll<HTMLElement>('.hero');
     heroes.forEach((hero) => {
-      const top = hero.getBoundingClientRect().top;
-      hero.style.setProperty('--hero-top-offset', `${Math.max(0, Math.round(top))}px`);
+      hero.style.setProperty('--hero-top-offset', `${hero.offsetTop}px`);
     });
   };
 
-  requestAnimationFrame(updateHeroViewport);
+  updateHeroViewport();
   window.addEventListener('resize', updateHeroViewport);
 </script>
 

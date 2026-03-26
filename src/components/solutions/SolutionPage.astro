@@ -532,11 +532,10 @@ const { hero, fit, before, after, build, outcomes, story, timeline, risk, cta } 
   const updateHeroViewport = () => {
     const heroes = document.querySelectorAll<HTMLElement>('.sol-hero');
     heroes.forEach((hero) => {
-      const top = hero.getBoundingClientRect().top;
-      hero.style.setProperty('--hero-top-offset', `${Math.max(0, Math.round(top))}px`);
+      hero.style.setProperty('--hero-top-offset', `${hero.offsetTop}px`);
     });
   };
 
-  requestAnimationFrame(updateHeroViewport);
+  updateHeroViewport();
   window.addEventListener('resize', updateHeroViewport);
 </script>
