@@ -1,5 +1,5 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">BeemFlow | Workflow &amp; AI Ops</title>
+  <title id="title">BeemFlow | Process &amp; AI Ops</title>
   <desc id="desc">Make AI actually run your operations, not just your board deck.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -11,28 +11,20 @@
   <rect x="48" y="48" width="1104" height="534" rx="12" fill="none" stroke="#C9B6A2" stroke-width="1.5" />
 
   <!-- Brand mark -->
-  <text x="90" y="138" font-size="32" font-family="'IBM Plex Mono', 'Menlo', monospace" font-weight="500" letter-spacing="-0.3">
+  <text x="90" y="138" font-size="36" font-family="'IBM Plex Mono', 'Menlo', monospace" font-weight="500" letter-spacing="-0.3">
     <tspan fill="#1A1714">beemflow</tspan><tspan fill="#B45309">.</tspan>
   </text>
 
-  <!-- Eyebrow -->
-  <text x="90" y="198" font-size="12" font-family="'IBM Plex Mono', monospace" font-weight="500" letter-spacing="2" text-transform="uppercase" fill="#B45309">WORKFLOW &amp; AI OPS</text>
-
   <!-- Headline -->
-  <text x="90" y="270" fill="#1A1714" font-size="64" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" letter-spacing="-2">Make AI actually run</text>
-  <text x="90" y="340" font-size="64" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" letter-spacing="-2">
-    <tspan fill="#1A1714">your operations</tspan><tspan fill="#B45309" font-style="italic">.</tspan>
-  </text>
+  <text x="90" y="270" fill="#1A1714" font-size="84" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" letter-spacing="-2.5">Make AI actually run</text>
+  <text x="90" y="362" fill="#1A1714" font-size="84" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" letter-spacing="-2.5">your operations,</text>
+  <text x="90" y="430" fill="#B45309" font-size="50" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" font-style="italic" letter-spacing="-1">not just your board deck.</text>
 
   <!-- Subline -->
-  <text x="90" y="410" fill="#6B6560" font-size="22" font-family="'Outfit', system-ui, sans-serif" font-weight="400">Production-ready workflow in 2 weeks. A plan to reclaim</text>
-  <text x="90" y="442" fill="#6B6560" font-size="22" font-family="'Outfit', system-ui, sans-serif" font-weight="400">10+ hours/month of manual work. Or we build one free.</text>
-
-  <!-- Proof -->
-  <text x="90" y="530" fill="#8A847D" font-size="12" font-family="'IBM Plex Mono', monospace" font-weight="500" letter-spacing="2">PE-BACKED &amp; MULTI-LOCATION SERVICE BUSINESSES  ·  $3M–$50M</text>
+  <text x="90" y="510" fill="#6B6560" font-size="30" font-family="'Outfit', system-ui, sans-serif" font-weight="400">Map. Automate. Monitor. For PE-backed &amp; multi-location service businesses.</text>
 
   <!-- URL -->
-  <text x="1110" y="530" font-size="14" font-family="'IBM Plex Mono', 'Menlo', monospace" font-weight="500" text-anchor="end">
-    <tspan fill="#1A1714">beemflow</tspan><tspan fill="#B45309">.com/operations</tspan>
+  <text x="1110" y="556" font-size="18" font-family="'IBM Plex Mono', 'Menlo', monospace" font-weight="500" text-anchor="end">
+    <tspan fill="#1A1714">beemflow</tspan><tspan fill="#B45309">.com</tspan>
   </text>
 </svg>
