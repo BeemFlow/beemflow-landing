@@ -291,7 +291,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live quote\u2011to\u2011delivery process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live quote\u2011to\u2011delivery process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $5K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',
@@ -312,8 +312,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
   risk: {
     heading: 'Your operation, your\u00A0systems',
     points: [
-      'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'Everything runs on your infrastructure, your accounts.',
       'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
       'Managed Automation required for critical\u2011path automations (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
@@ -480,7 +479,7 @@ export const SOLUTION_HOME_SERVICES: Solution = {
   story: {
     label: 'What this looks like in practice',
     narrative:
-      'A PE\u2011backed HVAC and plumbing roll\u2011up with 8 locations was losing an estimated 25\u201340 after\u2011hours leads per month to voicemail. Open estimates over $3K were sitting in ServiceTitan with no follow\u2011up. Roughly $80K/month in potential revenue going cold. Invoicing ran 4\u20117 days behind job completion across most locations. After deploying after\u2011hours lead capture, automated estimate follow\u2011up sequences, and job\u2011triggered invoicing, lead response moved to under 15 minutes, estimate close rate improved measurably, and invoice lag dropped to same\u2011day. The ops director estimated the portfolio reclaimed 20\u201325 hours/month across dispatch, admin, and billing.',
+      'A PE\u2011backed HVAC and plumbing roll\u2011up with 8 locations was losing an estimated 25\u201340 after\u2011hours leads per month to voicemail. Open estimates over $5K were sitting in ServiceTitan with no follow\u2011up. Roughly $80K/month in potential revenue going cold. Invoicing ran 4\u20117 days behind job completion across most locations. After deploying after\u2011hours lead capture, automated estimate follow\u2011up sequences, and job\u2011triggered invoicing, lead response moved to under 15 minutes, estimate close rate improved measurably, and invoice lag dropped to same\u2011day. The ops director estimated the portfolio reclaimed 20\u201325 hours/month across dispatch, admin, and billing.',
     footnote:
       'Composite illustration based on common engagement patterns. Specific results depend on your operation\u2019s starting point and scope.',
   },
@@ -492,7 +491,7 @@ export const SOLUTION_HOME_SERVICES: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live lead\u2011to\u2011invoice process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live lead\u2011to\u2011invoice process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $5K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',
@@ -512,8 +511,7 @@ export const SOLUTION_HOME_SERVICES: Solution = {
   risk: {
     heading: 'Your operation, your\u00A0systems',
     points: [
-      'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'Everything runs on your infrastructure, your accounts.',
       'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
       'Managed Automation required for critical\u2011path automations (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
@@ -691,7 +689,7 @@ export const SOLUTION_HEALTHCARE: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live patient acquisition process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live patient acquisition process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $5K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',
@@ -711,8 +709,7 @@ export const SOLUTION_HEALTHCARE: Solution = {
   risk: {
     heading: 'Your operation, your\u00A0systems',
     points: [
-      'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'Everything runs on your infrastructure, your accounts.',
       'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
       'We work around your PMS, not inside clinical records. Early automations focus on front\u2011office operations: intake, scheduling, reminders, and reporting.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
@@ -891,7 +888,7 @@ export const SOLUTION_CLEANING: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live bid\u2011to\u2011inspect process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live bid\u2011to\u2011inspect process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $5K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',
@@ -911,8 +908,7 @@ export const SOLUTION_CLEANING: Solution = {
   risk: {
     heading: 'Your operation, your\u00A0systems',
     points: [
-      'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'Everything runs on your infrastructure, your accounts.',
       'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
       'Managed Automation required for critical\u2011path automations (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',
@@ -1091,7 +1087,7 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live quote\u2011to\u2011invoice process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live quote\u2011to\u2011invoice process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $5K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',
@@ -1111,8 +1107,7 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
   risk: {
     heading: 'Your operation, your\u00A0systems',
     points: [
-      'Everything runs on your infrastructure, your accounts. No vendor lock\u2011in.',
-      'If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do.',
+      'Everything runs on your infrastructure, your accounts.',
       'All automations, dashboards, and documentation are yours. We build on n8n and open tools wherever practical.',
       '30\u2011day stabilization included on every deployment. If something we built breaks under normal use, we fix it.',
       'Managed Automation required for critical\u2011path automations (minimum 6 months). After that, continue month\u2011to\u2011month or transition to per\u2011incident support.',

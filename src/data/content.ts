@@ -64,7 +64,7 @@ export const STEPS: Step[] = [
     title: "Milestone Blueprint",
     subtitle: "Strategy Sprint",
     timeline: "1\u20132 weeks",
-    price: "$8K",
+    price: "$5K",
     description:
       "We map your users, core jobs, and constraints into a story\u2011mapped v1 that is actually buildable by real engineers on a real timeline.",
     deliverables: [
@@ -76,7 +76,7 @@ export const STEPS: Step[] = [
       "A buildable v1 plan your board and engineers can\u2019t easily poke holes in",
       "You can build with us or any team",
     ],
-    callout: { label: "Launch Build credit: ", text: "If we\u2019re a fit and you roll into the Launch Build within 60 days, we credit the full $8K Blueprint fee toward your build." },
+    callout: { label: "Launch Build credit: ", text: "If we\u2019re a fit and you roll into the Launch Build within 60 days, we credit the full $5K Blueprint fee toward your build." },
   },
   {
     title: "Launch Build",
@@ -102,7 +102,7 @@ export const STEPS: Step[] = [
     title: "Scale & Stewardship",
     subtitle: "Optional",
     timeline: "Ongoing",
-    price: "From $8K/mo",
+    price: "From $5K/mo",
     description:
       "Available once your v1 is live. This is for ongoing leadership, operations automation, and fast iteration on the product we\u2019ve shipped together based on real user feedback, not a net\u2011new product build.",
     deliverables: [
@@ -284,15 +284,14 @@ export const OPS_OFFER_STEPS: Step[] = [
     title: "Ops Blueprint",
     subtitle: "",
     timeline: "2 weeks",
-    price: "$3K",
+    price: "$5K",
     description: "BeemFlow runs a focused audit of your live operations, powered by <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> for process mapping and scoping, to identify failure points and surface the highest\u2011ROI automation opportunities.",
     bullets: [
-      "<strong>Ops Blueprint:</strong> 6\u201312 key processes mapped as structured stories (end\u2011to\u2011end flows like Lead \u2192 Booking, Quote \u2192 Cash, or No\u2011Show Rescue, including tools, handoffs, and edge cases)",
-      "<strong>Coordinated in <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a>:</strong> all automations scoped, documented, and tracked in <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> so operators, leadership, and BeemFlow share one source of truth",
-      "<strong>Prioritized automation backlog:</strong> 3\u20115 high\u2011ROI automations (specific, shippable automations inside those processes) prioritized by impact and projected hours/month reclaimed",
+      "<strong>Ops Blueprint:</strong> 6\u201312 key processes mapped as structured stories (end\u2011to\u2011end flows like Lead \u2192 Booking, Quote \u2192 Cash, No\u2011Show Rescue), including tools, handoffs, and edge cases",
+      "<strong>Prioritized automation backlog:</strong> 3\u20115 high\u2011ROI automations, each defined as a specific, shippable workflow with projected hours per month reclaimed",
       "<strong>90\u2011day automation roadmap:</strong> a clear, sequenced plan for the next 1\u20112 Process Automation Sprints, each shipping 2\u20113 automations, with owners and dependencies scoped to your tools and team",
     ],
-    callout: { label: "Our guarantee", text: "If, by the end of the Blueprint, we haven\u2019t identified at least one automation you believe is worth deploying and shown a realistic path to reclaiming 10+ hours/month, we\u2019ll keep working the Blueprint at our cost until we do." },
+    callout: { label: "Guarantee (for multi\u2011location teams with at least 3 FTEs in the scoped function)", text: "If, by the end of the Blueprint, you do not have at least one automation opportunity modeled at 40+ hours per month of savings with a deployment plan your team understands, we will extend the Blueprint work at our cost until you do." },
   },
   {
     title: "Process Automation Sprints",
@@ -305,13 +304,13 @@ export const OPS_OFFER_STEPS: Step[] = [
       "<strong>Template\u2011driven builds:</strong> 2\u20133 production automations (e.g., lead capture & routing, no\u2011show detection & rescheduling, quote follow\u2011up sequences) drawn from BeemFlow\u2019s tested library and wired into your tools (CRM, booking, billing, messaging)",
       "<strong>Stabilization coverage:</strong> 30 days of included stabilization for deployed automations under normal use",
     ],
-    callout: { label: "Blueprint credit", text: "Your $3K Blueprint fee credits toward your first Process Automation Sprint." },
+    callout: { label: "Blueprint credit", text: "Your $5K Blueprint fee credits toward your first Process Automation Sprint." },
   },
   {
     title: "Managed Automation",
     subtitle: "",
     timeline: "Ongoing",
-    price: "From $3K\u20136K/mo",
+    price: "From $5K\u20136K/mo",
     description: "Ongoing monitoring and maintenance of your deployed automations, plus continued <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> access.",
     bullets: [
       "<strong>Automation monitoring &amp; incident handling:</strong> we watch critical automations, handle break/fix, and update as APIs and tools change",
