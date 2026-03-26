@@ -310,7 +310,7 @@ export const OPS_OFFER_STEPS: Step[] = [
     title: "Managed Automation",
     subtitle: "",
     timeline: "Ongoing",
-    price: "From $5K\u20136K/mo",
+    price: "From $3K\u20136K/mo",
     description: "Ongoing monitoring and maintenance of your deployed automations, plus continued <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> access.",
     bullets: [
       "<strong>Automation monitoring &amp; incident handling:</strong> we watch critical automations, handle break/fix, and update as APIs and tools change",
