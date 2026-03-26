@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { solution } = Astro.props;
-const { hero, fit, before, after, build, outcomes, timeline, risk, cta } = solution;
+const { hero, fit, before, after, build, outcomes, story, timeline, risk, cta } = solution;
 ---
 
 <!-- 1. Hero -->
@@ -126,6 +126,23 @@ const { hero, fit, before, after, build, outcomes, timeline, risk, cta } = solut
     )}
   </div>
 </section>
+
+{/* 6b. Story / composite case study */}
+{story && (
+  <section class="section bg-base sol-story" id="sol-story" aria-label="Case study">
+    <div class="container">
+      <SectionHeader label={story.label}>In the field</SectionHeader>
+      <FadeIn delay={0.1}>
+        <blockquote class="sol-story__narrative text-body-lg">
+          {story.narrative}
+        </blockquote>
+      </FadeIn>
+      <FadeIn delay={0.2}>
+        <p class="sol-story__footnote text-mono-sm">{story.footnote}</p>
+      </FadeIn>
+    </div>
+  </section>
+)}
 
 <!-- 7. Implementation & timeline -->
 <section class="section bg-base sol-timeline" id="sol-timeline" aria-label="Implementation timeline">
@@ -382,6 +399,24 @@ const { hero, fit, before, after, build, outcomes, timeline, risk, cta } = solut
   }
 
   .sol-outcomes__footnote {
+    color: var(--color-text-faint);
+    font-style: italic;
+    max-width: var(--content-measure);
+  }
+
+  /* ── 6b. Story ── */
+
+  .sol-story__narrative {
+    max-width: var(--content-measure);
+    margin-bottom: var(--space-md);
+    border-left: 3px solid var(--color-accent);
+    padding-left: 24px;
+    font-style: italic;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+
+  .sol-story__footnote {
     color: var(--color-text-faint);
     font-style: italic;
     max-width: var(--content-measure);

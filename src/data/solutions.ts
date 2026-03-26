@@ -25,6 +25,15 @@ export interface TimelinePhase {
   description: string;
 }
 
+export interface Story {
+  /** One-line label, e.g. "Composite case study" */
+  label: string;
+  /** Short narrative: the situation, what changed, the result */
+  narrative: string;
+  /** Disclaimer footnote */
+  footnote: string;
+}
+
 export interface Solution {
   /** URL slug (used in routing: /solutions/[slug]/) */
   slug: string;
@@ -82,6 +91,9 @@ export interface Solution {
     footnote?: string;
   };
 
+  /** Section 6b: Composite case study / story (optional) */
+  story?: Story;
+
   /** Section 7: Implementation & timeline */
   timeline: {
     heading: string;
@@ -108,7 +120,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
   slug: 'manufacturing-quote-to-production',
   navLabel: 'Manufacturing: Quote\u2011to\u2011Production',
   hubDescription:
-    'Automate the RFQ\u2011to\u2011delivery lifecycle for job shops and contract manufacturers. Eliminate re\u2011keying, close the invoice gap, and give leadership real\u2011time production visibility.',
+    'Job shops lose 25\u201350 hours/month to re\u2011keying quotes, chasing job status, and compiling reports by hand. We automate the full RFQ\u2011to\u2011delivery lifecycle so that time goes back to the floor.',
 
   seo: {
     title:
@@ -146,12 +158,12 @@ export const SOLUTION_MANUFACTURING: Solution = {
     narrative:
       'You don\u2019t have a \u201Ctechnology problem.\u201D You have a \u201Cpeople\u2011as\u2011glue\u201D problem. Quotes live in inboxes. Accepted jobs become clipboards on the shop floor. Nobody knows where a job stands without walking the floor or calling someone. And leadership asks for weekly throughput numbers that take half a day to compile.',
     bullets: [
-      'RFQs arrive by email, phone, and text with no single intake and no follow\u2011up system',
-      'Estimating happens in spreadsheets or the owner\u2019s head; quotes go cold',
-      'Job handoff to production is a printout, a verbal walk, or a forwarded email. Missing specs, wrong materials, rework',
-      'Job status on the floor is a whiteboard, a shared spreadsheet, or \u201Cask Dave\u201D',
-      'Invoicing lags 2\u20133 weeks behind delivery, so cash sits in limbo',
-      'Monthly reporting to leadership is a scramble to merge 4 different systems into one spreadsheet',
+      'RFQs arrive by email, phone, and text with no single intake and no follow\u2011up system. Every missed or late quote is $5K\u2013$50K in potential work that goes to a competitor',
+      'Estimating happens in spreadsheets or the owner\u2019s head; quotes go cold. A 10% improvement in close rate on a $3M pipeline is $300K',
+      'Job handoff to production is a printout, a verbal walk, or a forwarded email. Missing specs and wrong materials drive 5\u201310% rework costs on affected jobs',
+      'Job status on the floor is a whiteboard, a shared spreadsheet, or \u201Cask Dave.\u201D Leadership can\u2019t see throughput without a 30\u2011minute walk or a phone call',
+      'Invoicing lags 2\u20113 weeks behind delivery. On a $500K/month shop, that\u2019s $250K\u2013$375K perpetually sitting in unbilled limbo',
+      'Monthly reporting to leadership is a half\u2011day scramble to merge 4 different systems. That\u2019s 6+ hours of admin time that repeats every single month',
     ],
   },
 
@@ -192,32 +204,32 @@ export const SOLUTION_MANUFACTURING: Solution = {
     heading: 'What we deploy',
     items: [
       {
-        title: 'RFQ intake & routing',
+        title: 'No more RFQs dying in inboxes',
         description:
           'Every RFQ from email, phone, and web forms lands in one queue. Specs are parsed and routed to the right estimator automatically.',
       },
       {
-        title: 'Quote follow\u2011up sequences',
+        title: 'Quotes that don\u2019t go cold',
         description:
           'Open quotes get systematic multi\u2011touch follow\u2011up until they close or you kill them. No estimate dies from neglect.',
       },
       {
-        title: 'Work order generation',
+        title: 'Clean handoffs, zero re\u2011keying',
         description:
           'Accepted quotes produce work orders with validated specs, materials, and routing. The shop floor gets what it needs without re\u2011keying.',
       },
       {
-        title: 'Shop floor tracking',
+        title: 'The whiteboard, replaced',
         description:
           'Techs update job status from a phone or tablet. Scan, tap, done. Real\u2011time backlog and throughput replace the whiteboard.',
       },
       {
-        title: 'Delivery\u2011to\u2011invoice',
+        title: 'Invoices that go out when the truck does',
         description:
           'Shipping confirmation triggers invoicing. BOLs, packing slips, and line items flow through without anyone re\u2011entering data.',
       },
       {
-        title: 'Reporting & alerts',
+        title: 'Reports that build themselves',
         description:
           'Throughput, backlog, pipeline, and cash conversion reports generated automatically. Overdue jobs and stalled quotes trigger alerts early.',
       },
@@ -254,13 +266,21 @@ export const SOLUTION_MANUFACTURING: Solution = {
           'Leadership gets the numbers they need without anyone pulling data from 4 systems.',
       },
       {
-        metric: '20\u201340 hours/month reclaimed',
+        metric: '25\u201350 hours/month reclaimed',
         description:
           'Across estimating, scheduling, admin, and reporting. Hours that go back to running the business.',
       },
     ],
     footnote:
       'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your operation.',
+  },
+
+  story: {
+    label: 'What this looks like in practice',
+    narrative:
+      'A 45\u2011employee contract machine shop was quoting $6M/year but closing under 30%. RFQs sat in the owner\u2019s inbox for 2\u20113 days before anyone touched them. Accepted jobs were handed off on paper; the shop ran roughly 8% rework on missing\u2011spec errors. Invoicing lagged shipments by 18 days on average, leaving $200K+ in perpetual AR float. After deploying automated RFQ intake, quote follow\u2011up sequences, and delivery\u2011triggered invoicing, quote response dropped to under 4 hours, rework from handoff errors fell to near zero, and invoicing moved to same\u2011day. The owner estimated the automation reclaimed 35\u201340 hours/month of admin time across estimating, production, and billing.',
+    footnote:
+      'Composite illustration based on common engagement patterns. Specific results depend on your operation\u2019s starting point and scope.',
   },
 
   // ── 7. Implementation & timeline ──
@@ -271,7 +291,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live quote\u2011to\u2011delivery process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live quote\u2011to\u2011delivery process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',
@@ -314,7 +334,7 @@ export const SOLUTION_HOME_SERVICES: Solution = {
   slug: 'home-services-lead-to-invoice',
   navLabel: 'Home Services: Lead\u2011to\u2011Invoice',
   hubDescription:
-    'Automate the lead\u2011to\u2011dispatch\u2011to\u2011invoice lifecycle for HVAC, plumbing, electrical, and roofing groups. Close the gap between the phone ringing and the invoice getting paid.',
+    'Multi\u2011location home services groups lose 15\u201330 hours/month to missed after\u2011hours leads, manual dispatch, and dead estimates. We automate lead\u2011to\u2011invoice so nothing falls through.',
 
   seo: {
     title:
@@ -348,12 +368,12 @@ export const SOLUTION_HOME_SERVICES: Solution = {
     narrative:
       'Leads come in from Google, Angi, Thumbtack, referrals, your website, and the office phone. Some get logged. Some don\u2019t. Dispatch is a coordinator juggling a whiteboard, a group text, and the CRM calendar. Open estimates are sitting in a system nobody checks. And every board meeting, someone spends a day pulling numbers from multiple ServiceTitan instances into one deck.',
     bullets: [
-      'Leads arrive from 5+ channels with no single intake. After\u2011hours calls go to voicemail and get returned whenever someone remembers',
-      'Dispatch is manual: coordinators juggle availability, geography, and skill sets by memory. Techs get double\u2011booked or sit idle',
-      'Open estimates die because nobody called back. A $5K roof job goes cold while it sits in the CRM',
-      'Job completion to invoice has a gap. Techs finish the work, paperwork trickles in days later',
-      'Multi\u2011brand reporting is a monthly fire drill. Each location runs their own version of the process',
-      'Leadership wants consolidated revenue, close rates, and dispatch efficiency. Compiling it takes half a day',
+      'Leads arrive from 5+ channels with no single intake. After\u2011hours calls go to voicemail and get returned whenever someone remembers. Each missed lead is $500\u2013$3,000 in lifetime job value',
+      'Dispatch is manual: coordinators juggle availability, geography, and skill sets by memory. Techs get double\u2011booked or sit idle. One empty truck day costs $800\u20111,200 in lost revenue',
+      'Open estimates die because nobody called back. A $5K roof job goes cold while it sits in the CRM. At 20 dead estimates/month, that\u2019s $100K in annual revenue left on the table',
+      'Job completion to invoice has a gap. Techs finish the work, paperwork trickles in days later. That\u2019s 5\u201310 days of cash float on every job',
+      'Multi\u2011brand reporting is a monthly fire drill. Each location runs their own version of the process. Nobody trusts the numbers',
+      'Leadership wants consolidated revenue, close rates, and dispatch efficiency. Compiling it takes half a day every week',
     ],
   },
 
@@ -392,32 +412,32 @@ export const SOLUTION_HOME_SERVICES: Solution = {
     heading: 'What we deploy',
     items: [
       {
-        title: 'Lead intake & triage',
+        title: 'Every lead in one place, instantly',
         description:
           'Every call, web form, and marketplace lead lands in one queue. Automatic routing by service type, zip code, and urgency.',
       },
       {
-        title: 'After\u2011hours capture',
+        title: 'After\u2011hours calls that don\u2019t go to voicemail',
         description:
           'Calls and forms outside business hours get logged and acknowledged instantly. Your morning crew sees a clean queue, not a voicemail backlog.',
       },
       {
-        title: 'Estimate follow\u2011up',
+        title: 'Dead estimates that come back to life',
         description:
           'Open estimates get systematic multi\u2011touch outreach until they close or you kill them. That $5K roof job stops dying in a CRM nobody checks.',
       },
       {
-        title: 'Dispatch coordination',
+        title: 'Dispatch without the juggling act',
         description:
           'Jobs matched to available techs by skill, location, and capacity. Conflicts and double\u2011bookings get flagged before they reach the customer.',
       },
       {
-        title: 'Job\u2011to\u2011invoice',
+        title: 'Invoices the same day the job\u2019s done',
         description:
           'Tech marks a job complete, invoicing kicks off. Hours, materials, and job details flow through without anyone re\u2011entering paperwork.',
       },
       {
-        title: 'Portfolio reporting & alerts',
+        title: 'One dashboard for the whole portfolio',
         description:
           'Revenue, close rates, and dispatch efficiency across every location and brand. Stalled estimates and missed callbacks trigger alerts early.',
       },
@@ -457,6 +477,14 @@ export const SOLUTION_HOME_SERVICES: Solution = {
       'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your operation.',
   },
 
+  story: {
+    label: 'What this looks like in practice',
+    narrative:
+      'A PE\u2011backed HVAC and plumbing roll\u2011up with 8 locations was losing an estimated 25\u201340 after\u2011hours leads per month to voicemail. Open estimates over $3K were sitting in ServiceTitan with no follow\u2011up. Roughly $80K/month in potential revenue going cold. Invoicing ran 4\u20117 days behind job completion across most locations. After deploying after\u2011hours lead capture, automated estimate follow\u2011up sequences, and job\u2011triggered invoicing, lead response moved to under 15 minutes, estimate close rate improved measurably, and invoice lag dropped to same\u2011day. The ops director estimated the portfolio reclaimed 20\u201325 hours/month across dispatch, admin, and billing.',
+    footnote:
+      'Composite illustration based on common engagement patterns. Specific results depend on your operation\u2019s starting point and scope.',
+  },
+
   timeline: {
     heading: 'How we get there',
     phases: [
@@ -464,7 +492,7 @@ export const SOLUTION_HOME_SERVICES: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live lead\u2011to\u2011invoice process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live lead\u2011to\u2011invoice process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',
@@ -505,7 +533,7 @@ export const SOLUTION_HEALTHCARE: Solution = {
   slug: 'clinic-lead-to-booking',
   navLabel: 'Clinic Groups: Lead\u2011to\u2011Booking',
   hubDescription:
-    'Automate patient inquiry to booked visit for DSOs, vet consolidators, urgent care groups, and multi\u2011location practices. Reduce no\u2011shows, reactivate lapsed patients, and give corporate real\u2011time visibility.',
+    'Clinic groups lose an estimated 30\u201350 new patients/month to slow callbacks and inconsistent follow\u2011up. We automate inquiry\u2011to\u2011booked\u2011visit so patients book with you, not whoever answers first.',
 
   seo: {
     title:
@@ -539,12 +567,12 @@ export const SOLUTION_HEALTHCARE: Solution = {
     narrative:
       'Patient inquiries come from Google, insurance directories, social, your website, and the phone. The front desk is already handling check\u2011ins, insurance verification, and in\u2011office questions. New patient calls go to voicemail and get returned hours later, if at all. The patient has already booked with someone else. Across a group of locations, nobody at corporate can see it happening.',
     bullets: [
-      'New patient inquiries arrive across 5+ channels. Front desk can\u2019t chase every one while handling in\u2011office patients',
-      'Callback speed is hours or next\u2011day. Patients book with whoever answers first',
-      'No\u2011show rates run 10\u201320% at some locations. Reminder systems are inconsistent or nonexistent across the group',
-      'Lapsed patients sit in dormant charts. Recall and reactivation don\u2019t happen systematically',
-      'Canceled appointment slots go unfilled. No waitlist backfill process',
-      'Corporate compiles new patient counts and no\u2011show rates by calling each office manager',
+      'New patient inquiries arrive across 5+ channels. Front desk can\u2019t chase every one while handling in\u2011office patients. Each lost new patient is $500\u2013$1,200 in first\u2011year revenue',
+      'Callback speed is hours or next\u2011day. Patients book with whoever answers first. That\u2019s $200\u2013$400 in lifetime patient value walking out the door every time',
+      'No\u2011show rates run 10\u201320% at some locations. At $150\u2013$300/visit, a 15\u2011location group with 10 no\u2011shows/week is bleeding $80K\u2013$230K/year in empty chair time',
+      'Lapsed patients sit in dormant charts. A group with 50,000 patients and 20% lapsed has 10,000 potential reactivations nobody is working',
+      'Canceled appointment slots go unfilled. No waitlist backfill process. Every empty slot is $150\u2013$300 in revenue that evaporates',
+      'Corporate compiles new patient counts and no\u2011show rates by calling each office manager. That\u2019s 4\u20118 hours of phone tag every month for a number that\u2019s still approximate',
     ],
   },
 
@@ -583,32 +611,32 @@ export const SOLUTION_HEALTHCARE: Solution = {
     heading: 'What we deploy',
     items: [
       {
-        title: 'Patient intake & routing',
+        title: 'No inquiry left in voicemail',
         description:
           'Every inquiry from web, phone, and insurance directories lands in one queue. Automatic routing to the right office with full context.',
       },
       {
-        title: 'Booking sequences',
+        title: 'Patients booked in hours, not days',
         description:
           'Multi\u2011touch outreach via SMS and email gets patients scheduled within hours. Escalation if they don\u2019t respond, not silence.',
       },
       {
-        title: 'No\u2011show prevention',
+        title: 'No\u2011shows that actually get prevented',
         description:
           'Confirmation and reminder sequences timed to each appointment. Configurable by location, provider, or visit type.',
       },
       {
-        title: 'Cancellation backfill',
+        title: 'Empty chairs that fill themselves',
         description:
           'Canceled slots trigger automatic outreach to your waitlist. Empty chair time gets filled before it becomes lost revenue.',
       },
       {
-        title: 'Patient reactivation',
+        title: 'Dormant charts that actually get worked',
         description:
           'Lapsed patients get systematic recall for hygiene, follow\u2011ups, and annuals. Dormant charts get worked instead of forgotten.',
       },
       {
-        title: 'Group dashboard & alerts',
+        title: 'Corporate visibility without the phone calls',
         description:
           'New patient pipeline, no\u2011show rates, booking speed, and reactivation across every location. Spikes and drops trigger alerts early.',
       },
@@ -639,13 +667,21 @@ export const SOLUTION_HEALTHCARE: Solution = {
           'Corporate sees real\u2011time patient volume, no\u2011show rates, and new patient pipeline across the group.',
       },
       {
-        metric: '20\u201340 hours/month reclaimed',
+        metric: '15\u201335 hours/month reclaimed',
         description:
           'Across front desk staff, office managers, and corporate ops. Hours that go back to patient care and practice growth.',
       },
     ],
     footnote:
       'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your group.',
+  },
+
+  story: {
+    label: 'What this looks like in practice',
+    narrative:
+      'A 12\u2011location dental group was losing an estimated 30\u201350 new patients per month to slow callback times. Front desks were too busy with in\u2011office patients to chase web inquiries; after\u2011hours calls went to voicemail and sat until the next morning. No\u2011show rates averaged 15% across the group, with some offices as high as 22%. Dormant patient charts numbered in the tens of thousands, and nobody was working them. After deploying automated inquiry capture, same\u2011day booking sequences, confirmation/reminder workflows, and a reactivation drip, new patient booking speed dropped from next\u2011day to under 2 hours, no\u2011show rates fell meaningfully group\u2011wide, and the reactivation campaign booked several hundred lapsed patients in its first quarter. Corporate gained real\u2011time visibility into new patient volume and no\u2011show rates without calling individual offices.',
+    footnote:
+      'Composite illustration based on common engagement patterns. Specific results depend on your group\u2019s starting point and scope.',
   },
 
   timeline: {
@@ -655,7 +691,7 @@ export const SOLUTION_HEALTHCARE: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live patient acquisition process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live patient acquisition process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',
@@ -697,7 +733,7 @@ export const SOLUTION_CLEANING: Solution = {
   slug: 'cleaning-bid-to-inspect',
   navLabel: 'Facility Services: Bid\u2011to\u2011Inspect',
   hubDescription:
-    'Automate the bid\u2011to\u2011schedule\u2011to\u2011inspect lifecycle for commercial cleaning and facility maintenance companies. Track every bid, schedule every site, inspect every visit.',
+    'Commercial cleaning companies lose 20\u201340 hours/month to manual scheduling, missed\u2011site scrambles, and invoice reconciliation. We automate bid\u2011to\u2011inspect so every site is covered and every contract is profitable.',
 
   seo: {
     title:
@@ -731,12 +767,12 @@ export const SOLUTION_CLEANING: Solution = {
     narrative:
       'Bids are built in Word docs. Nobody tracks which ones are pending or what the win rate looks like. A new contract starts and someone manually builds the cleaning schedule from a PDF scope of work. Cleaners don\u2019t always know which site they\u2019re going to until they call in. Inspections happen when a manager has time, which means they don\u2019t. And your monthly P&L by contract is an approximation because time tracking and invoicing don\u2019t talk to each other.',
     bullets: [
-      'Bids and proposals are built in Word or spreadsheets. No standard template, no pipeline tracking, no systematic follow\u2011up',
-      'Contract\u2011to\u2011schedule is manual. Someone reads the contract and builds the recurring schedule by hand. Scope changes don\u2019t propagate',
-      'Daily scheduling is a group text or a clipboard. Cleaners don\u2019t always know their assignment until they call the office',
-      'Call\u2011outs leave sites uncovered. Nobody reroutes coverage until the client complains',
-      'Quality inspections are inconsistent. Some sites get checked, some don\u2019t. Client complaints are the de facto QA system',
-      'Hours worked don\u2019t reconcile cleanly with contract terms. Margin visibility by contract is poor',
+      'Bids and proposals are built in Word or spreadsheets. No standard template, no pipeline tracking, no systematic follow\u2011up. You don\u2019t even know your win rate',
+      'Contract\u2011to\u2011schedule is manual. Someone reads the contract and builds the recurring schedule by hand. Scope changes don\u2019t propagate. One missed schedule change can cost a $10K\u2013$50K contract',
+      'Daily scheduling is a group text or a clipboard. Cleaners don\u2019t always know their assignment until they call the office. That\u2019s 15\u201320 minutes of dead time per crew, per day',
+      'Call\u2011outs leave sites uncovered. Nobody reroutes coverage until the client complains. Every missed\u2011site incident puts the contract relationship at risk',
+      'Quality inspections are inconsistent. Some sites get checked, some don\u2019t. Client complaints are the de facto QA system, and complaints drive churn',
+      'Hours worked don\u2019t reconcile cleanly with contract terms. You\u2019re guessing at margin by contract. A 3\u20115% margin miss across a $5M book of business is $150K\u2013$250K in invisible leakage',
     ],
   },
 
@@ -775,32 +811,32 @@ export const SOLUTION_CLEANING: Solution = {
     heading: 'What we deploy',
     items: [
       {
-        title: 'Bid tracking & follow\u2011up',
+        title: 'A pipeline you can actually see',
         description:
           'Every open bid logged and followed up systematically. Win/loss data captured so you can see what\u2019s converting and what\u2019s not.',
       },
       {
-        title: 'Contract\u2011to\u2011schedule',
+        title: 'New contracts that schedule themselves',
         description:
           'New contracts auto\u2011generate recurring schedules with site details, scope, and staffing. Scope changes propagate without manual rework.',
       },
       {
-        title: 'Daily dispatch',
+        title: 'Crews that know where to go',
         description:
           'Cleaners get site assignments via SMS or app with location, scope, and access notes. No calling the office to find out where to go.',
       },
       {
-        title: 'Call\u2011out coverage',
+        title: 'Call\u2011outs handled before the client knows',
         description:
           'When someone calls out, the automation finds available coverage and reassigns before the site gets missed. You hear about it, not the client.',
       },
       {
-        title: 'Inspection checklists',
+        title: 'Quality that\u2019s tracked, not assumed',
         description:
           'Scheduled inspections on mobile with photo capture and issue routing. Results feed a quality dashboard you can share with clients.',
       },
       {
-        title: 'Margin reporting & alerts',
+        title: 'Margin you can see by contract',
         description:
           'Hours reconciled against contract terms automatically. Per\u2011contract margin and portfolio P&L in real time. Missed sites and renewals trigger alerts early.',
       },
@@ -831,13 +867,21 @@ export const SOLUTION_CLEANING: Solution = {
           'Hours and contract terms match. Margin visibility by contract, by site, in real time.',
       },
       {
-        metric: '20\u201340 hours/month reclaimed',
+        metric: '25\u201345 hours/month reclaimed',
         description:
           'Across ops managers, schedulers, and admin. Hours that go back to winning new contracts and managing quality.',
       },
     ],
     footnote:
       'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your operation.',
+  },
+
+  story: {
+    label: 'What this looks like in practice',
+    narrative:
+      'A PE\u2011backed commercial cleaning company managing 85 sites was running scheduling through a shared spreadsheet and a group text. Call\u2011outs left 2\u20113 sites uncovered per week on average. The client usually reported the problem before the ops team knew. Inspections happened when a manager had time, which was roughly 40% of contracted sites. Invoice reconciliation against contract terms took the office manager a full day each month, and margin by contract was largely a guess. After deploying contract\u2011to\u2011schedule automation, call\u2011out coverage reassignment, scheduled inspection workflows, and automated hour/contract reconciliation, missed\u2011site incidents dropped to near zero, inspection coverage reached 95%+, and the company gained per\u2011contract margin visibility for the first time. The ops team estimated 30\u201335 hours/month reclaimed across scheduling, dispatch, and admin.',
+    footnote:
+      'Composite illustration based on common engagement patterns. Specific results depend on your operation\u2019s starting point and scope.',
   },
 
   timeline: {
@@ -847,7 +891,7 @@ export const SOLUTION_CLEANING: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live bid\u2011to\u2011inspect process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live bid\u2011to\u2011inspect process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',
@@ -888,7 +932,7 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
   slug: 'field-services-quote-to-invoice',
   navLabel: 'Field Services: Quote\u2011to\u2011Invoice',
   hubDescription:
-    'Automate the quote\u2011to\u2011schedule\u2011to\u2011invoice lifecycle for multi\u2011crew B2B field service companies. Get work orders to the field, get completion data back, and close the billing gap.',
+    'B2B field service companies lose 20\u201340 hours/month to manual dispatch, missing field data, and 10\u201114\u2011day invoice lag. We automate quote\u2011to\u2011invoice so the office stops being the bottleneck.',
 
   seo: {
     title:
@@ -922,13 +966,13 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
     narrative:
       'Your service coordinator is the system. They know which crew is available, which sites have access quirks, which clients have pending proposals, and which contracts are up for renewal. When they\u2019re out, things break. Techs call the office for information that should have been in the work order. Invoices don\u2019t go out until billing chases down the field. Renewal conversations happen late, if at all.',
     bullets: [
-      'Proposals get built from a template, sent by email, and disappear into a thread. No pipeline, no follow\u2011up',
-      'Scheduling lives in a platform the office uses 60% of. Jobs get double\u2011assigned. Crews show up at the wrong site',
-      'Techs leave the yard without full site info. Wrong equipment, missing access details, outdated scope',
-      'Job completion reaches the office when the tech calls or doesn\u2019t. Billing waits',
-      'Service checklists and sign\u2011offs live on paper forms or not at all. Client\u2011facing reports are a manual scramble',
-      'Invoicing is 10\u201314 days behind because nothing closes until field data makes it back to the office',
-      'Contract renewal dates sit in a spreadsheet. Renewals slip because there was no trigger',
+      'Proposals get built from a template, sent by email, and disappear into a thread. No pipeline, no follow\u2011up. At a 30% close rate, every 10 unfollowed proposals is $50K\u2013$200K in lost annual contract value',
+      'Scheduling lives in a platform the office uses 60% of. Jobs get double\u2011assigned. Crews show up at the wrong site. Each wasted truck roll is $200\u2013$500 in labor and fuel',
+      'Techs leave the yard without full site info. Wrong equipment, missing access details, outdated scope. Return trips and callbacks eat 5\u201310% of field capacity',
+      'Job completion reaches the office when the tech calls or doesn\u2019t. Billing waits. That\u2019s $50K\u2013$150K in unbilled work sitting in limbo at any given time',
+      'Service checklists and sign\u2011offs live on paper forms or not at all. Client\u2011facing reports are a manual scramble that takes 2\u20114 hours per major account',
+      'Invoicing is 10\u201314 days behind because nothing closes until field data makes it back to the office. On a $500K/month operation, that\u2019s $250K perpetually in AR float',
+      'Contract renewal dates sit in a spreadsheet. Renewals slip because there was no trigger. Lost renewals are the most expensive kind of churn',
     ],
   },
 
@@ -967,32 +1011,32 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
     heading: 'What we deploy',
     items: [
       {
-        title: 'Quote tracking & follow\u2011up',
+        title: 'Proposals that don\u2019t disappear into email',
         description:
           'Every open proposal logged and followed up systematically. Nothing goes cold while it sits in an email thread.',
       },
       {
-        title: 'Work order generation',
+        title: 'Work orders the field can actually use',
         description:
           'Accepted jobs produce work orders with site details, scope, access info, and tech assignment. The field gets what it needs before dispatch.',
       },
       {
-        title: 'Automated dispatch',
+        title: 'Dispatch without calling the office',
         description:
           'Techs get job details and site info automatically. No calling the office to find out where to go or what to bring.',
       },
       {
-        title: 'Mobile job completion',
+        title: 'Job data captured on site, not reconstructed later',
         description:
           'Simple phone\u2011based forms for notes, photos, and readings. Job data captured on site and fed back to the office in real time.',
       },
       {
-        title: 'Service reports & renewal triggers',
+        title: 'Client reports that write themselves',
         description:
           'Completion data generates client\u2011facing reports automatically. Contract renewal dates trigger advance outreach before the window closes.',
       },
       {
-        title: 'Completion\u2011to\u2011invoice & reporting',
+        title: 'Invoices out the same day the job closes',
         description:
           'Job sign\u2011off kicks off invoicing the same day. Completion rates, open billing, and renewal pipeline visible without asking the coordinator.',
       },
@@ -1023,13 +1067,21 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
           'Field data flows directly into client\u2011facing reports. No formatting, no chasing techs for notes after the fact.',
       },
       {
-        metric: '20\u201340 hours/month reclaimed',
+        metric: '20\u201335 hours/month reclaimed',
         description:
           'Across scheduling, dispatch, admin, and billing. Hours that go back to running the business, not being the system.',
       },
     ],
     footnote:
       'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your operation.',
+  },
+
+  story: {
+    label: 'What this looks like in practice',
+    narrative:
+      'A B2B mechanical services contractor with 35 field techs was running the entire operation through one service coordinator\u2019s head. Proposals disappeared into email. The team didn\u2019t track win rates and had no follow\u2011up process. Techs regularly left the yard without complete site info, driving 2\u20113 return trips per week at $300\u2013$500 each. Invoicing ran 12 days behind job completion on average, creating a persistent $120K AR float. Contract renewals were tracked on a spreadsheet that nobody checked. After deploying proposal tracking with follow\u2011up sequences, auto\u2011generated work orders with site details, mobile job completion forms, and completion\u2011triggered invoicing, invoice lag dropped to same\u2011day, return trips fell by roughly 80%, and the company caught three contract renewals that would have lapsed. The coordinator estimated 25\u201330 hours/month freed up across the office and billing team.',
+    footnote:
+      'Composite illustration based on common engagement patterns. Specific results depend on your operation\u2019s starting point and scope.',
   },
 
   timeline: {
@@ -1039,7 +1091,7 @@ export const SOLUTION_FIELD_SERVICES: Solution = {
         phase: 'Blueprint',
         duration: '2 weeks',
         description:
-          'We map your live quote\u2011to\u2011invoice process in BeemSpec, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
+          'We map your live quote\u2011to\u2011invoice process, identify 3\u20115 high\u2011ROI automation targets, and deliver an ROI snapshot with a 90\u2011day automation roadmap. $3K, credited toward your first Sprint.',
       },
       {
         phase: 'Process Automation Sprint',

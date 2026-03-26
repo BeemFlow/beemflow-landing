@@ -346,12 +346,12 @@ export const OPS_PROCESS_STEPS: OpsProcessStep[] = [
 ];
 
 export const OPS_PROBLEM_BULLETS: string[] = [
+  "The manual glue work costs 10\u201340 hours/month per location, and nobody\u2019s tracking it",
   "Quotes and leads only get followed up when someone remembers",
   "Every location runs \u201Ctheir own version\u201D of the process",
   "CRMs, inboxes, spreadsheets, and booking tools all disagree",
   "You\u2019re paying good people to move data between tools all day",
   "Everyone talks about \u201Cusing AI\u201D but nothing in your business actually changed",
-  "The manual glue work costs 10\u201340 hours/month per location",
 ];
 
 export const OPS_FIT_BULLETS: string[] = [
