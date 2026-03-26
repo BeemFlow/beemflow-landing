@@ -4,7 +4,6 @@ import FadeIn from '../FadeIn.astro';
 interface Props {
   heading?: string;
   subheading?: string;
-  checkboxText?: string;
   submitText?: string;
   id?: string;
 }
@@ -12,7 +11,6 @@ interface Props {
 const {
   heading = 'Ready to stop being the glue in your own\u00A0operations?',
   subheading = 'No slide deck. First call is about your actual processes. Tell us a bit about your business and we\u2019ll come prepared. If the Blueprint isn\u2019t the right fit, we\u2019ll tell you\u00A0quickly.',
-  checkboxText = 'I understand the Blueprint is a fixed $5K engagement',
   submitText = 'Submit & see if the Blueprint is a fit',
   id = 'ops-final-cta',
 } = Astro.props;
@@ -83,13 +81,6 @@ const {
         <div class="ops-contact__field">
           <label class="ops-contact__label" for="ops-pain">What feels most broken or manual right now?</label>
           <textarea class="ops-contact__input ops-contact__textarea" id="ops-pain" name="pain" rows="4" required></textarea>
-        </div>
-
-        <div class="ops-contact__field ops-contact__field--checkbox">
-          <label class="ops-contact__checkbox-label">
-            <input type="checkbox" name="acknowledge" required class="ops-contact__checkbox" />
-            <span class="text-body-sm">{checkboxText}</span>
-          </label>
         </div>
 
         <button type="submit" class="btn-primary ops-contact__submit">{submitText} &rarr;</button>
@@ -314,27 +305,6 @@ const {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-  }
-
-  .ops-contact__field--checkbox {
-    margin-bottom: 32px;
-  }
-
-  .ops-contact__checkbox-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    cursor: pointer;
-  }
-
-  .ops-contact__checkbox {
-    margin-top: 3px;
-    accent-color: var(--color-accent-on-dark);
-    flex-shrink: 0;
-  }
-
-  .ops-contact__checkbox-label span {
-    color: var(--color-text-muted-on-dark);
   }
 
   .ops-contact__submit {
