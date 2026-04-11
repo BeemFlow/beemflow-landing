@@ -28,7 +28,7 @@ const { hero, fit, before, after, build, outcomes, story, timeline, risk, cta } 
     <FadeIn delay={0.3}>
       <div class="sol-hero__actions">
         <a href="#sol-cta" class="btn-primary">{cta.buttonText} &rarr;</a>
-        <a href="#sol-before" class="sol-hero__link">See the problem &darr;</a>
+        <a href="#sol-before" class="sol-hero__link">{hero.secondaryCta ?? 'See the problem'} &darr;</a>
       </div>
     </FadeIn>
   </div>
@@ -58,13 +58,41 @@ const { hero, fit, before, after, build, outcomes, story, timeline, risk, cta } 
     <FadeIn delay={0.1}>
       <p class="sol-before__narrative text-body-lg">{before.narrative}</p>
     </FadeIn>
-    <FadeIn delay={0.15}>
-      <ul class="sol-before__list list-dash">
-        {before.bullets.map((b) => (
-          <li class="text-body">{b}</li>
+    {before.embedUrl && (
+      <FadeIn delay={0.12}>
+        <div class="sol-embed">
+          <iframe
+            src={before.embedUrl}
+            title="Current-state process flow"
+            loading="lazy"
+            allowfullscreen
+            class="sol-embed__iframe"
+          />
+        </div>
+      </FadeIn>
+    )}
+    {before.phases && before.phases.length > 0 ? (
+      <div class="sol-phases">
+        {before.phases.map((p, i) => (
+          <FadeIn delay={0.15 + i * 0.04}>
+            <div class="sol-phases__block">
+              <h3 class="sol-phases__heading">
+                {p.phase} <span class="sol-phases__tagline">&mdash; {p.tagline}</span>
+              </h3>
+              <p class="sol-phases__body text-body">{p.body}</p>
+            </div>
+          </FadeIn>
         ))}
-      </ul>
-    </FadeIn>
+      </div>
+    ) : before.bullets.length > 0 && (
+      <FadeIn delay={0.15}>
+        <ul class="sol-before__list list-dash">
+          {before.bullets.map((b) => (
+            <li class="text-body">{b}</li>
+          ))}
+        </ul>
+      </FadeIn>
+    )}
   </div>
 </section>
 
@@ -72,19 +100,52 @@ const { hero, fit, before, after, build, outcomes, story, timeline, risk, cta } 
 <section class="section bg-elevated sol-after" id="sol-after" aria-label="Automated workflow">
   <div class="container">
     <SectionHeader label="The process, automated">{after.heading}</SectionHeader>
-    <div class="sol-after__steps">
-      {after.steps.map((step, i) => (
-        <FadeIn delay={0.1 + i * 0.05}>
-          <div class="sol-after__step">
-            <div class="sol-after__step-number">{String(i + 1).padStart(2, '0')}</div>
-            <div class="sol-after__step-content">
-              <h3 class="sol-after__step-label">{step.label}</h3>
-              <p class="sol-after__step-desc text-body">{step.description}</p>
+    {after.narrative && (
+      <FadeIn delay={0.1}>
+        <p class="sol-after__narrative text-body-lg">{after.narrative}</p>
+      </FadeIn>
+    )}
+    {after.embedUrl && (
+      <FadeIn delay={0.12}>
+        <div class="sol-embed">
+          <iframe
+            src={after.embedUrl}
+            title="Automated process flow"
+            loading="lazy"
+            allowfullscreen
+            class="sol-embed__iframe"
+          />
+        </div>
+      </FadeIn>
+    )}
+    {after.phases && after.phases.length > 0 ? (
+      <div class="sol-phases">
+        {after.phases.map((p, i) => (
+          <FadeIn delay={0.15 + i * 0.04}>
+            <div class="sol-phases__block">
+              <h3 class="sol-phases__heading">
+                {p.phase} <span class="sol-phases__tagline">&mdash; {p.tagline}</span>
+              </h3>
+              <p class="sol-phases__body text-body">{p.body}</p>
             </div>
-          </div>
-        </FadeIn>
-      ))}
-    </div>
+          </FadeIn>
+        ))}
+      </div>
+    ) : after.steps.length > 0 && (
+      <div class="sol-after__steps">
+        {after.steps.map((step, i) => (
+          <FadeIn delay={0.1 + i * 0.05}>
+            <div class="sol-after__step">
+              <div class="sol-after__step-number">{String(i + 1).padStart(2, '0')}</div>
+              <div class="sol-after__step-content">
+                <h3 class="sol-after__step-label">{step.label}</h3>
+                <p class="sol-after__step-desc text-body">{step.description}</p>
+              </div>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    )}
   </div>
 </section>
 
@@ -133,9 +194,7 @@ const { hero, fit, before, after, build, outcomes, story, timeline, risk, cta } 
     <div class="container">
       <SectionHeader label={story.label}>In the field</SectionHeader>
       <FadeIn delay={0.1}>
-        <blockquote class="sol-story__narrative text-body-lg">
-          {story.narrative}
-        </blockquote>
+        <blockquote class="sol-story__narrative text-body-lg" set:html={story.narrative} />
       </FadeIn>
       <FadeIn delay={0.2}>
         <p class="sol-story__footnote text-mono-sm">{story.footnote}</p>
@@ -296,7 +355,7 @@ const { hero, fit, before, after, build, outcomes, story, timeline, risk, cta } 
 
   .sol-before__narrative {
     max-width: var(--content-measure);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
 
   .sol-before__list {
@@ -307,7 +366,65 @@ const { hero, fit, before, after, build, outcomes, story, timeline, risk, cta } 
     margin-bottom: 14px;
   }
 
+  /* ── Embedded process flows ── */
+
+  .sol-embed {
+    margin: var(--space-md) 0 var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--color-bg-elevated);
+  }
+
+  /* On elevated (white) sections, use the base parchment bg so the embed stands out */
+  .bg-elevated .sol-embed {
+    background: var(--color-bg);
+  }
+
+  .sol-embed__iframe {
+    display: block;
+    width: 100%;
+    height: 600px;
+    border: none;
+  }
+
+  /* ── Phase blocks (before & after) ── */
+
+  .sol-phases {
+    max-width: var(--content-measure);
+    margin: var(--space-md) auto 0;
+  }
+
+  .sol-phases__block {
+    padding: 28px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .sol-phases__block:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sol-phases__heading {
+    font-size: var(--fs-title-sm);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .sol-phases__tagline {
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  .sol-phases__body {
+    line-height: 1.7;
+  }
+
   /* ── 4. After (workflow steps) ── */
+
+  .sol-after__narrative {
+    max-width: var(--content-measure);
+    margin-bottom: var(--space-md);
+  }
 
   .sol-after__steps {
     display: flex;
@@ -523,6 +640,14 @@ const { hero, fit, before, after, build, outcomes, story, timeline, risk, cta } 
     .sol-outcomes__grid {
       grid-template-columns: 1fr;
       gap: 20px;
+    }
+
+    .sol-embed__iframe {
+      height: 400px;
+    }
+
+    .sol-phases__block {
+      padding: 20px 0;
     }
 
   }

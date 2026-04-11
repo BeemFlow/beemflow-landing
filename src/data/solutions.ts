@@ -9,6 +9,16 @@ export interface WorkflowStep {
   description: string;
 }
 
+/** Phase-based pain point / change description (for richer before/after sections) */
+export interface PhaseBlock {
+  /** Bold phase name, e.g. "RFQ Intake" */
+  phase: string;
+  /** Metric tagline shown next to the phase name, e.g. "20–35 hours/month wasted" */
+  tagline: string;
+  /** One or more paragraphs of body copy (rendered as HTML) */
+  body: string;
+}
+
 export interface BuildItem {
   title: string;
   description: string;
@@ -57,6 +67,8 @@ export interface Solution {
     headline: string;
     headlineAccent: string;
     body: string;
+    /** Override for the secondary CTA link text (default: "See the problem ↓") */
+    secondaryCta?: string;
   };
 
   /** Section 2: Who it's for */
@@ -70,12 +82,22 @@ export interface Solution {
     heading: string;
     narrative: string;
     bullets: string[];
+    /** Optional BeemSpec embed URL for a "current state" process flow */
+    embedUrl?: string;
+    /** Optional phase-based pain points (replaces bullets when present) */
+    phases?: PhaseBlock[];
   };
 
   /** Section 4: The "After" workflow map */
   after: {
     heading: string;
+    /** Intro paragraph shown above the embed / steps (optional) */
+    narrative?: string;
     steps: WorkflowStep[];
+    /** Optional BeemSpec embed URL for an "automated" process flow */
+    embedUrl?: string;
+    /** Optional phase-based change descriptions (replaces numbered steps when present) */
+    phases?: PhaseBlock[];
   };
 
   /** Section 5: What we actually build */
@@ -120,7 +142,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
   slug: 'manufacturing-quote-to-production',
   navLabel: 'Manufacturing: Quote\u2011to\u2011Production',
   hubDescription:
-    'Job shops lose 25\u201350 hours/month to re\u2011keying quotes, chasing job status, and compiling reports by hand. We automate the full RFQ\u2011to\u2011delivery lifecycle so that time goes back to the floor.',
+    'Job shops lose 100\u2013200 hours/month to re\u2011keying quotes, chasing job status, and compiling reports by hand. We automate the full RFQ\u2011to\u2011delivery lifecycle so that time goes back to the floor.',
 
   seo: {
     title:
@@ -137,7 +159,8 @@ export const SOLUTION_MANUFACTURING: Solution = {
     headline: 'Stop losing money between the quote and the\u00A0floor.',
     headlineAccent:
       'RFQ to delivery, automated.',
-    body: 'Your estimators are also your project managers. Accepted jobs get thrown over the wall with missing specs. Invoices lag weeks behind shipments. We deploy production\u2011ready process automation across your entire quote\u2011to\u2011delivery lifecycle, starting in 2\u00A0weeks.',
+    body: 'Your estimators are also your project managers. Accepted jobs get thrown over the wall with missing specs. Invoices lag weeks behind shipments. We deploy production\u2011ready process automation across your entire quote\u2011to\u2011delivery lifecycle\u00A0\u2014 reclaiming 100\u2013200 hours per month across estimating, production, and admin. Starting in 2\u00A0weeks.',
+    secondaryCta: 'See the process',
   },
 
   // ── 2. Who it's for ──
@@ -156,45 +179,90 @@ export const SOLUTION_MANUFACTURING: Solution = {
   before: {
     heading: 'The process you\u2019re actually\u00A0running',
     narrative:
-      'You don\u2019t have a \u201Ctechnology problem.\u201D You have a \u201Cpeople\u2011as\u2011glue\u201D problem. Quotes live in inboxes. Accepted jobs become clipboards on the shop floor. Nobody knows where a job stands without walking the floor or calling someone. And leadership asks for weekly throughput numbers that take half a day to compile.',
-    bullets: [
-      'RFQs arrive by email, phone, and text with no single intake and no follow\u2011up system. Every missed or late quote is $5K\u2013$50K in potential work that goes to a competitor',
-      'Estimating happens in spreadsheets or the owner\u2019s head; quotes go cold. A 10% improvement in close rate on a $3M pipeline is $300K',
-      'Job handoff to production is a printout, a verbal walk, or a forwarded email. Missing specs and wrong materials drive 5\u201310% rework costs on affected jobs',
-      'Job status on the floor is a whiteboard, a shared spreadsheet, or \u201Cask Dave.\u201D Leadership can\u2019t see throughput without a 30\u2011minute walk or a phone call',
-      'Invoicing lags 2\u20113 weeks behind delivery. On a $500K/month shop, that\u2019s $250K\u2013$375K perpetually sitting in unbilled limbo',
-      'Monthly reporting to leadership is a half\u2011day scramble to merge 4 different systems. That\u2019s 6+ hours of admin time that repeats every single month',
+      'You don\u2019t have a \u201Ctechnology problem.\u201D You have a \u201Cpeople\u2011as\u2011glue\u201D problem. Every step below depends on someone remembering, someone re\u2011keying, or someone walking the floor. We mapped the real process\u00A0\u2014 not the idealized version\u00A0\u2014 across 7 phases and 5 roles. Here\u2019s what it looks like.',
+    embedUrl: 'https://beemspec.com/embed/process-flows/eyJ2IjoxLCJyZXNvdXJjZSI6InByb2Nlc3MtZmxvdyIsInJlc291cmNlSWQiOiI2NTg0OWQyOS05MTdkLTQyMjEtODU5Zi05NTlmYWEwZmMzMDAifQ.oQ8xAO91LIGQDwxYqPl1Q3z67u2MYh3bzrvbxZRLnRY',
+    bullets: [],
+    phases: [
+      {
+        phase: 'RFQ Intake',
+        tagline: '20\u201335 hours/month wasted',
+        body: 'RFQs arrive by email, phone, text, and customer portal with no single intake queue. The owner and a sales rep are both checking inboxes independently. Drawing packages sit for 1\u20133 days before anyone reviews them. Every late or missed quote is $5K\u2013$50K in potential work that goes to a competitor.',
+      },
+      {
+        phase: 'Estimating',
+        tagline: '40\u201380 hours/month of owner capacity locked up',
+        body: 'The owner doubles as the lead estimator. Each quote requires manually reviewing multi\u2011sheet drawings, searching for similar past jobs from memory or old folders, calling material suppliers for current pricing, walking the floor to check machine availability, and building a one\u2011off spreadsheet. A complex quote can take 3\u20137 hours. Different estimators produce different numbers for the same part. When estimators retire, pricing knowledge walks out the door.',
+      },
+      {
+        phase: 'Quote Follow\u2011up',
+        tagline: 'sporadic at best',
+        body: 'There\u2019s no systematic follow\u2011up. The owner might remember to check in, or the quote dies. Close rates under 30% are common. A 10% improvement in close rate on a $3M pipeline is $300K.',
+      },
+      {
+        phase: 'Job Handoff',
+        tagline: '16\u201346 hours/month of re\u2011keying and coordination',
+        body: 'This is the wall between the office and the shop floor. Accepted quotes become work orders that are manually re\u2011keyed into the ERP (or a spreadsheet). Job travelers are printed. Material is ordered separately. The handoff to the foreman is a verbal conversation or a forwarded email. Missing specs and transcription errors drive 5\u201310% rework costs on affected jobs.',
+      },
+      {
+        phase: 'Shop Floor Tracking',
+        tagline: '13\u201329 hours/month of \u201Cwhere\u2019s this job?\u201D',
+        body: 'Job status lives on a whiteboard, in a shared spreadsheet, or in the foreman\u2019s head. The owner interrupts the foreman multiple times daily for status checks. Leadership can\u2019t see throughput without a 30\u2011minute walk or a phone call. Nobody knows which jobs are actually at risk of being late.',
+      },
+      {
+        phase: 'Invoicing',
+        tagline: '$250K+ perpetually sitting in unbilled limbo',
+        body: 'Admin doesn\u2019t know parts shipped until someone tells them\u00A0\u2014 which takes 2\u20113 weeks on average. Invoice data must be manually reconciled against the quote and PO. On a $500K/month shop, that\u2019s $250K\u2013$375K perpetually floating in accounts receivable.',
+      },
+      {
+        phase: 'Reporting',
+        tagline: '6+ hours/month of manual compilation',
+        body: 'Monthly reporting to leadership is a half\u2011day scramble to merge data from the ERP, QuickBooks, quoting spreadsheets, and the whiteboard. The report is stale by the time it\u2019s delivered.',
+      },
     ],
   },
 
   // ── 4. The "After" workflow map ──
   after: {
     heading: 'What it looks like after\u00A0BeemFlow',
-    steps: [
+    narrative:
+      'Same lifecycle. Fewer steps. Automation handles data movement, reminders, and reporting. Humans handle judgment, relationships, and physical work. We mapped the automated process side by side\u00A0\u2014 21 steps vs.\u00A031, 2 system nodes replacing 2 human roles entirely.',
+    embedUrl: 'https://beemspec.com/embed/process-flows/eyJ2IjoxLCJyZXNvdXJjZSI6InByb2Nlc3MtZmxvdyIsInJlc291cmNlSWQiOiJmMGJkYmQwMy0wMzU1LTQ0ZTMtODA4Yy0xMzI0Y2Y0OGUzOTUifQ.DwGNtWKRK2vVRUBKHOu7aTEdvDkO_mtoPjeVoyXK2vo',
+    steps: [],
+    phases: [
       {
-        label: 'RFQ Captured & Triaged',
-        description:
-          'Inbound requests auto\u2011logged from email and web forms, routed to the right estimator with job specs pre\u2011parsed by AI.',
+        phase: 'RFQ Intake',
+        tagline: 'automated',
+        body: 'Every inbound RFQ from email, web forms, and customer portals lands in one centralized queue automatically. AI parses the drawing package and extracts material grades, tolerances, finish requirements, quantities, and revision levels. The estimator receives a clean queue entry with specs pre\u2011parsed, gaps flagged, and similar past jobs surfaced. No digging through email.',
       },
       {
-        label: 'Quote Tracked & Followed Up',
-        description:
-          'Automated follow\u2011up sequences keep quotes alive. Win/loss tracking and quote\u2011to\u2011close metrics are visible without asking anyone.',
+        phase: 'Estimating',
+        tagline: 'human judgment, not human data entry',
+        body: 'The estimator still makes the pricing decision\u00A0\u2014 that\u2019s judgment you don\u2019t automate. But the data gathering is done. Pre\u2011parsed specs, past job matching, and material pricing feeds mean the estimator spends 30\u201360 minutes reviewing and adjusting instead of 3\u20137 hours building from scratch. When specs are incomplete, the system generates targeted clarification questions\u00A0\u2014 not a generic \u201Cplease send more info\u201D email.',
       },
       {
-        label: 'Job Handoff to Production',
-        description:
-          'Accepted quotes auto\u2011generate work orders with full specs, materials, and routing. No re\u2011keying, no missing information.',
+        phase: 'Quote Follow\u2011up',
+        tagline: '100% systematic',
+        body: 'Every open quote gets a defined multi\u2011touch follow\u2011up sequence: day\u00A03, day\u00A07, day\u00A014. Stale quotes escalate to the pipeline dashboard. Win/loss tracking and quote\u2011to\u2011close metrics are visible without asking anyone. Nothing falls through because someone got busy.',
       },
       {
-        label: 'Floor Visibility',
-        description:
-          'Job status updated from simple shop floor inputs (scan, tap, or phone form). Real\u2011time backlog and throughput dashboards replace the whiteboard.',
+        phase: 'Job Handoff',
+        tagline: 'zero re\u2011keying',
+        body: 'Accepted quotes auto\u2011generate work orders with the same specs, materials, and routing from the quote. Material POs auto\u2011trigger to preferred suppliers. A digital work order appears in the foreman\u2019s queue with full specs, material status, and estimated delivery. No printouts. No verbal walk\u2011throughs. No telephone game.',
       },
       {
-        label: 'Invoice & Report',
-        description:
-          'Delivery triggers invoicing automatically. Weekly production reports are generated without anyone compiling a spreadsheet.',
+        phase: 'Shop Floor Tracking',
+        tagline: 'the whiteboard, replaced',
+        body: 'Operators update job status by scanning a barcode or tapping a button on a tablet. Five seconds. Minimal friction. Real\u2011time backlog and throughput dashboards replace the whiteboard. The foreman still makes scheduling decisions\u00A0\u2014 but now with real\u2011time capacity data and WIP visibility instead of gut feel.',
+      },
+      {
+        phase: 'Invoicing',
+        tagline: 'same day the truck leaves',
+        body: 'Shipping confirmation triggers invoice generation automatically. Line items, PO numbers, and pricing flow through from the work order. The 2\u20113 week lag between shipment and billing closes to zero. AR aging alerts and payment reminders run on their own. Admin only intervenes for problem accounts.',
+      },
+      {
+        phase: 'Reporting',
+        tagline: 'always current',
+        body: 'Throughput, backlog, pipeline, and cash conversion dashboards are generated in real time from integrated systems. Stalled quotes and overdue jobs trigger alerts automatically. No monthly scramble. No stale data.',
       },
     ],
   },
@@ -243,44 +311,54 @@ export const SOLUTION_MANUFACTURING: Solution = {
       {
         metric: 'Quote response: days \u2192 hours',
         description:
-          'RFQs are logged and routed the moment they arrive. Estimators see a clean queue, not a buried inbox.',
+          'RFQs are logged and routed the moment they arrive. AI pre\u2011parses specs so estimators see a clean queue, not a buried inbox. 20\u201335 hours/month of intake time reclaimed.',
+      },
+      {
+        metric: 'Estimating capacity unlocked: 40\u201380 hours/month',
+        description:
+          'Estimators shift from data gathering to decision\u2011making. The owner stops being the bottleneck. The shop can quote more work\u00A0\u2014 or the same work faster.',
       },
       {
         metric: 'Follow\u2011up rate: sporadic \u2192 100% systematic',
         description:
-          'Every open quote gets a defined follow\u2011up sequence. Nothing falls through because someone got busy.',
+          'Every open quote gets a defined follow\u2011up sequence. Close rate improvements of even 5% on an $8M pipeline = $400K in additional revenue.',
       },
       {
-        metric: 'Job handoff errors: eliminated',
+        metric: 'Job handoff errors: near zero',
         description:
-          'Work orders are generated from the accepted quote. Same specs, same materials, no telephone game.',
+          'Work orders are generated from the accepted quote. Same specs, same materials. Rework from handoff errors drops to near zero. 16\u201346 hours/month of re\u2011keying and coordination eliminated.',
       },
       {
-        metric: 'Invoice lag: 2\u20113 weeks \u2192 same day it ships',
+        metric: 'Floor visibility: real\u2011time',
         description:
-          'Delivery confirmation triggers the invoice automatically. The delay between shipment and billing closes.',
+          'Scan/tap status updates replace \u201Cask Dave.\u201D 13\u201329 hours/month of status\u2011check interruptions returned to productive work\u00A0\u2014 for the foreman and the owner.',
       },
       {
-        metric: 'Reporting: half\u2011day scramble \u2192 auto\u2011generated',
+        metric: 'Invoice lag: 2\u20113 weeks \u2192 same day',
         description:
-          'Leadership gets the numbers they need without anyone pulling data from 4 systems.',
+          'Delivery confirmation triggers the invoice automatically. $250K+ in AR float reclaimed. 8\u201317 hours/month of manual invoicing and payment chasing eliminated.',
       },
       {
-        metric: '25\u201350 hours/month reclaimed',
+        metric: 'Reporting: always on',
         description:
-          'Across estimating, scheduling, admin, and reporting. Hours that go back to running the business.',
+          'Leadership gets live dashboards. 5\u20137 hours/month of compilation time gone. Data is never stale.',
+      },
+      {
+        metric: 'Total: 100\u2013200 hours/month reclaimed',
+        description:
+          'Across estimating, production scheduling, admin, and reporting. The conservative floor is 100 hours. Shops with higher RFQ volume or more complex quoting see 150\u2013200+.',
       },
     ],
     footnote:
-      'Metrics are directional based on typical engagement outcomes. Your Blueprint will identify specific targets for your operation.',
+      'Hour savings are estimated based on a $8M revenue, 45\u2011employee contract CNC shop processing ~40 quotes/month at a ~30% close rate. Your Blueprint will identify specific targets for your operation.',
   },
 
   story: {
     label: 'What this looks like in practice',
     narrative:
-      'A 45\u2011employee contract machine shop was quoting $6M/year but closing under 30%. RFQs sat in the owner\u2019s inbox for 2\u20113 days before anyone touched them. Accepted jobs were handed off on paper; the shop ran roughly 8% rework on missing\u2011spec errors. Invoicing lagged shipments by 18 days on average, leaving $200K+ in perpetual AR float. After deploying automated RFQ intake, quote follow\u2011up sequences, and delivery\u2011triggered invoicing, quote response dropped to under 4 hours, rework from handoff errors fell to near zero, and invoicing moved to same\u2011day. The owner estimated the automation reclaimed 35\u201340 hours/month of admin time across estimating, production, and billing.',
+      'A 45\u2011employee contract machine shop was quoting $6M/year but closing under 30%. RFQs sat in the owner\u2019s inbox for 2\u20113 days before anyone touched them. Accepted jobs were handed off on paper; the shop ran roughly 8% rework on missing\u2011spec errors. Invoicing lagged shipments by 18 days on average, leaving $200K+ in perpetual AR float.<br><br>After deploying automated RFQ intake, quote follow\u2011up sequences, and delivery\u2011triggered invoicing, quote response dropped to under 4 hours, rework from handoff errors dropped significantly, and invoicing moved to same\u2011day.<br><br>The owner estimated the automation reclaimed 35\u201340 hours/month of admin time across estimating, production, and billing\u00A0\u2014 and an additional 60\u201380 hours/month when counting reduced estimating time and eliminated status\u2011check interruptions.',
     footnote:
-      'Composite illustration based on common engagement patterns. Specific results depend on your operation\u2019s starting point and scope.',
+      'Composite illustration based on common engagement patterns. The 35\u201340 hour figure reflects direct admin time savings, consistent with the conservative end of our estimates. Total operational time savings including estimating, scheduling, and floor management typically reach 100\u2013200 hours/month depending on shop size and RFQ volume.',
   },
 
   // ── 7. Implementation & timeline ──
@@ -322,7 +400,7 @@ export const SOLUTION_MANUFACTURING: Solution = {
   // ── 9. CTA ──
   cta: {
     heading: 'Map this process to your\u00A0stack',
-    body: 'The Blueprint takes 2 weeks. You\u2019ll get a structured map of your quote\u2011to\u2011delivery process, a prioritized list of automation targets with ROI projections, and a 90\u2011day automation roadmap.',
+    body: 'You just saw the before and after. The Blueprint takes 2 weeks. You\u2019ll get a structured map of your quote\u2011to\u2011delivery process\u00A0\u2014 mapped to your actual people, systems, and pain points\u00A0\u2014 plus a prioritized list of automation targets with ROI projections and a 90\u2011day roadmap.',
     buttonText: 'Book the Blueprint',
   },
 };
