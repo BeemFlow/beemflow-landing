@@ -4,7 +4,7 @@ export interface Step {
   title: string;
   subtitle: string;
   timeline: string;
-  price: string;
+  price?: string;
   description: string;
   deliverables?: string[];
   bullets?: string[];
@@ -297,7 +297,6 @@ export const OPS_OFFER_STEPS: Step[] = [
     title: "Process Automation Sprints",
     subtitle: "",
     timeline: "4\u20116 weeks",
-    price: "$30K\u201360K each",
     description: "Each Sprint turns part of your Blueprint into production automations by implementing 2\u20113 of the prioritized workflows.",
     bullets: [
       "<strong>One process area per sprint:</strong> e.g., Lead \u2192 Booking, Quote \u2192 Cash, multi\u2011location reporting, or another high\u2011leverage process from your Blueprint",
@@ -310,7 +309,6 @@ export const OPS_OFFER_STEPS: Step[] = [
     title: "Managed Automation",
     subtitle: "",
     timeline: "Ongoing",
-    price: "From $3K\u20116K/mo",
     description: "Ongoing monitoring and maintenance of your deployed automations, plus continued <a href=\"https://beemspec.com\" target=\"_blank\" rel=\"noopener noreferrer\">BeemSpec</a> access.",
     bullets: [
       "<strong>Automation monitoring &amp; incident handling:</strong> we watch critical automations, handle break/fix, and update as APIs and tools change",

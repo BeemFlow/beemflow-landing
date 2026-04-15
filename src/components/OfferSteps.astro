@@ -4,7 +4,7 @@ import FadeIn from './FadeIn.astro';
 interface StepLike {
   title: string;
   subtitle?: string;
-  price: string;
+  price?: string;
   timeline?: string;
   description: string;
   deliverables?: string[];
@@ -34,7 +34,7 @@ const { steps } = Astro.props;
             <div class="step-card__header">
               <h3 class="step-card__title">{step.title}{step.subtitle && <span class="step-card__subtitle"> ({step.subtitle})</span>}</h3>
               <div class="step-card__meta">
-                <span class="text-mono-sm step-card__price">{step.price}</span>
+                {step.price && <span class="text-mono-sm step-card__price">{step.price}</span>}
                 {step.timeline && <span class="text-mono-sm step-card__timeline">{step.timeline}</span>}
               </div>
             </div>
