@@ -291,7 +291,7 @@ export const OPS_OFFER_STEPS: Step[] = [
       "<strong>Prioritized automation backlog:</strong> 3\u20115 high\u2011ROI automations, each defined as a specific, shippable workflow with <strong>projected hours/month reclaimed</strong>",
       "<strong>90\u2011day automation roadmap:</strong> a clear, sequenced plan for the next 1\u20112 Process Automation Sprints, each shipping 2\u20113 automations, with owners and dependencies tied to your tools and team",
     ],
-    callout: { label: "Guarantee (for multi\u2011location teams with 3+ FTE in the scoped function)", text: "If, by the end of the Blueprint, you do not have at least one automation opportunity modeled at 40+ hours per month of savings with a deployment plan your team understands, we will extend the Blueprint work at our cost until you do." },
+    callout: { label: "Guarantee (for multi\u2011location teams with 3+ FTE in the scoped function)", text: "If, by the end of the Blueprint, you do not have at least one automation opportunity modeled at 200+ hours per month of savings with a deployment plan your team understands, we will extend the Blueprint work at our cost until you do." },
   },
   {
     title: "Process Automation Sprints",

@@ -36,7 +36,7 @@ For multi-location service businesses in roughly the $3M-$50M range that are hel
 2. **Process Automation Sprint** (4-6 weeks): deploys 2–3 production automations configured for the client's stack. One function per sprint.
 3. **Managed Automation** (ongoing): monitoring, incident handling, quarterly reviews, and new automation targets.
 
-Guarantee (for multi-location teams with 3+ FTE in the scoped function): if, by the end of the Blueprint, the client does not have at least one automation opportunity modeled at 40+ hours per month of savings with a deployment plan the team understands, BeemFlow will extend the Blueprint work at no additional cost until they do. All automations, dashboards, and documentation are owned by the client. Built on n8n and open tools wherever practical.
+Guarantee (for multi-location teams with 3+ FTE in the scoped function): if, by the end of the Blueprint, the client does not have at least one automation opportunity modeled at 200+ hours per month of savings with a deployment plan the team understands, BeemFlow will extend the Blueprint work at no additional cost until they do. All automations, dashboards, and documentation are owned by the client. Built on n8n and open tools wherever practical.
 
 ## Industries Served
 

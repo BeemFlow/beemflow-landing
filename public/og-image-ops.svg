@@ -21,7 +21,7 @@
   <text x="90" y="430" fill="#B45309" font-size="50" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-weight="400" font-style="italic" letter-spacing="-1">not just your board deck.</text>
 
   <!-- Subline -->
-  <text x="90" y="510" fill="#6B6560" font-size="30" font-family="'Outfit', system-ui, sans-serif" font-weight="400">We map your ops and automate to free 40+ hours/month.</text>
+  <text x="90" y="510" fill="#6B6560" font-size="30" font-family="'Outfit', system-ui, sans-serif" font-weight="400">We map your ops and automate to free 200+ hours/month.</text>
 
   <!-- URL -->
   <text x="1110" y="556" font-size="18" font-family="'IBM Plex Mono', 'Menlo', monospace" font-weight="500" text-anchor="end">
