@@ -1,8 +1,14 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { APIRoute } from 'astro';
 
 const ATTIO_API_KEY = process.env.ATTIO_API_KEY ?? '';
 const ATTIO_BASE = 'https://api.attio.com/v2';
 const SLACK_WEBHOOK_URL = process.env.SLACK_OPS_WEBHOOK_URL ?? '';
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
 
 interface FormPayload {
   name: string;
@@ -15,8 +21,12 @@ interface FormPayload {
   pain: string;
 }
 
+function json(data: unknown, status: number): Response {
+  return Response.json(data, { status, headers: corsHeaders });
+}
+
 async function attioFetch(method: 'POST' | 'PUT', path: string, body: unknown) {
-  const res = await fetch(`${ATTIO_BASE}${path}`, {
+  const response = await fetch(`${ATTIO_BASE}${path}`, {
     method,
     headers: {
       Authorization: `Bearer ${ATTIO_API_KEY}`,
@@ -25,12 +35,12 @@ async function attioFetch(method: 'POST' | 'PUT', path: string, body: unknown) {
     body: JSON.stringify(body),
   });
 
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Attio ${path} failed (${res.status}): ${text}`);
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Attio ${path} failed (${response.status}): ${text}`);
   }
 
-  return res.json();
+  return response.json();
 }
 
 function domainFromUrl(raw?: string): string | null {
@@ -43,45 +53,34 @@ function domainFromUrl(raw?: string): string | null {
   }
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // CORS preflight
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+export const OPTIONS: APIRoute = async () =>
+  new Response(null, { status: 204, headers: corsHeaders });
 
-  if (req.method === 'OPTIONS') {
-    return res.status(204).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
+export const POST: APIRoute = async ({ request }) => {
   if (!ATTIO_API_KEY) {
     console.error('ATTIO_API_KEY is not set');
-    return res.status(500).json({ error: 'Server misconfigured' });
+    return json({ error: 'Server misconfigured' }, 500);
   }
 
-  const payload = req.body as FormPayload;
+  let payload: FormPayload;
+  try {
+    payload = await request.json();
+  } catch {
+    return json({ error: 'Invalid JSON body' }, 400);
+  }
 
   if (!payload.name || !payload.email || !payload.company || !payload.revenue || !payload.team_size || !payload.pain) {
-    return res.status(400).json({ error: 'Missing required fields' });
+    return json({ error: 'Missing required fields' }, 400);
   }
 
-  // Run Attio and Slack independently — neither blocks the other
   const attioPromise = (async () => {
-    if (!ATTIO_API_KEY) return;
-
-    // 1. Assert (upsert) the company
     const domain = domainFromUrl(payload.website);
     const companyValues: Record<string, unknown> = {
       name: [{ value: payload.company }],
     };
-    if (domain) {
-      companyValues.domains = [{ domain }];
-    }
+    if (domain) companyValues.domains = [{ domain }];
 
-    const companyRes = domain
+    const companyResponse = domain
       ? await attioFetch(
           'PUT',
           '/objects/companies/records?matching_attribute=domains',
@@ -94,13 +93,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         );
 
     const companyRecordId: string =
-      companyRes.data?.id?.record_id ?? companyRes.data?.id;
-
-    // 2. Assert (upsert) the person, linked to company
+      companyResponse.data?.id?.record_id ?? companyResponse.data?.id;
     const nameParts = payload.name.trim().split(/\s+/);
     const firstName = nameParts[0] ?? '';
-    const lastName = nameParts.slice(1).join(' ') || '';
-    const fullName = payload.name.trim();
+    const lastName = nameParts.slice(1).join(' ');
 
     await attioFetch(
       'PUT',
@@ -109,7 +105,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         data: {
           values: {
             email_addresses: [{ email_address: payload.email }],
-            name: [{ first_name: firstName, last_name: lastName, full_name: fullName }],
+            name: [{ first_name: firstName, last_name: lastName, full_name: payload.name.trim() }],
             ...(companyRecordId
               ? { company: [{ target_object: 'companies', target_record_id: companyRecordId }] }
               : {}),
@@ -118,25 +114,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
     );
 
-    // 3. Create a note on the company
-    const noteLines = [
-      `## Ops Assessment Lead`,
-      '',
-      `**Contact:** ${payload.name} (${payload.email})`,
-      `**Company:** ${payload.company}`,
-      payload.website ? `**Website:** ${payload.website}` : null,
-      `**Revenue:** ${payload.revenue}`,
-      payload.locations ? `**Locations:** ${payload.locations}` : null,
-      `**Team size (ops/sales):** ${payload.team_size}`,
-      '',
-      `## What feels most broken or manual`,
-      '',
-      payload.pain,
-    ]
-      .filter(Boolean)
-      .join('\n');
-
     if (companyRecordId) {
+      const noteLines = [
+        '## Ops Assessment Lead',
+        '',
+        `**Contact:** ${payload.name} (${payload.email})`,
+        `**Company:** ${payload.company}`,
+        payload.website ? `**Website:** ${payload.website}` : null,
+        `**Revenue:** ${payload.revenue}`,
+        payload.locations ? `**Locations:** ${payload.locations}` : null,
+        `**Team size (ops/sales):** ${payload.team_size}`,
+        '',
+        '## What feels most broken or manual',
+        '',
+        payload.pain,
+      ].filter(Boolean).join('\n');
+
       await attioFetch('POST', '/notes', {
         data: {
           parent_object: 'companies',
@@ -147,7 +140,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         },
       });
     }
-  })().catch((err) => console.error('Attio error:', err));
+  })().catch((error) => console.error('Attio error:', error));
 
   const slackPromise = (async () => {
     if (!SLACK_WEBHOOK_URL) return;
@@ -166,9 +159,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         pain: payload.pain.slice(0, 500),
       }),
     });
-  })().catch((err) => console.error('Slack error:', err));
+  })().catch((error) => console.error('Slack error:', error));
 
   await Promise.allSettled([attioPromise, slackPromise]);
+  return json({ ok: true }, 200);
+};
 
-  return res.status(200).json({ ok: true });
-}
+export const ALL: APIRoute = async () => json({ error: 'Method not allowed' }, 405);

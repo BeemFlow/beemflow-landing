@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import type { TrustPage } from '../data/trust';
+
+interface Props {
+  page: TrustPage;
+  path: string;
+  emailCta?: boolean;
+}
+
+const { page, path, emailCta = false } = Astro.props;
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': path === '/about/' ? 'AboutPage' : path === '/contact/' ? 'ContactPage' : 'WebPage',
+  name: page.title,
+  description: page.description,
+  url: `https://beemflow.com${path}`,
+  inLanguage: 'en-US',
+  isPartOf: { '@id': 'https://beemflow.com/#website' },
+  about: { '@id': 'https://beemflow.com/#organization' },
+};
+---
+
+<BaseLayout title={page.title} description={page.description} schemas={[webPageSchema]}>
+  <Nav />
+  <main id="main-content" class="trust-page">
+    <header class="trust-page__hero">
+      <div class="container--narrow">
+        <p class="label-mono section-label">{page.eyebrow}</p>
+        <h1>{page.heading}</h1>
+        <p class="trust-page__intro">{page.intro}</p>
+        {emailCta && (
+          <a class="btn-primary trust-page__cta" href="mailto:alec@beemflow.com">Email BeemFlow &rarr;</a>
+        )}
+      </div>
+    </header>
+    <section class="trust-page__content bg-elevated" aria-label={`${page.eyebrow} details`}>
+      <div class="container--narrow">
+        {page.sections.map((section) => (
+          <section class="trust-page__section">
+            <h2>{section.heading}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </section>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .trust-page__hero {
+    padding: 120px 32px 88px;
+  }
+
+  .trust-page__hero h1 {
+    max-width: 760px;
+    margin-bottom: 28px;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+
+  .trust-page__intro {
+    font-size: var(--fs-body-xl);
+    line-height: 1.75;
+  }
+
+  .trust-page__cta {
+    display: inline-block;
+    margin-top: 32px;
+  }
+
+  .trust-page__content {
+    padding: 88px 32px 112px;
+  }
+
+  .trust-page__section + .trust-page__section {
+    margin-top: 56px;
+    padding-top: 56px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .trust-page__section h2 {
+    margin-bottom: 20px;
+    font-size: var(--fs-title-lg);
+    font-weight: 500;
+  }
+
+  .trust-page__section p {
+    font-size: var(--fs-body);
+    line-height: 1.8;
+  }
+
+  .trust-page__section p + p {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .trust-page__hero {
+      padding: 88px 20px 64px;
+    }
+
+    .trust-page__content {
+      padding: 64px 20px 88px;
+    }
+  }
+</style>

@@ -5,6 +5,11 @@ import BrandMark from './BrandMark.astro';
 <footer class="footer bg-invert">
   <div class="footer__inner">
     <p class="text-mono-sm footer__brand"><BrandMark /></p>
+    <nav class="footer__links" aria-label="Company information">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
     <p class="text-mono-sm footer__text">&copy; 2026 AW Ops LLC</p>
   </div>
 </footer>
@@ -36,5 +41,25 @@ import BrandMark from './BrandMark.astro';
   .footer__text {
     color: var(--color-text-muted-on-dark);
     letter-spacing: 0.02em;
+  }
+
+  .footer__links {
+    display: flex;
+    gap: 20px;
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono);
+    color: var(--color-text-muted-on-dark);
+  }
+
+  .footer__links a:hover {
+    color: var(--color-text-on-dark);
+  }
+
+  @media (max-width: 640px) {
+    .footer__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
   }
 </style>

@@ -6,13 +6,20 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "verify": "npm run build && node scripts/verify-agent-readiness.mjs",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.1",
-    "astro": "^5.17.1"
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/vercel": "^11.0.7",
+    "astro": "^7.2.4",
+    "turndown": "^7.2.4"
   },
   "devDependencies": {
-    "@vercel/node": "^5.6.15"
+    "@types/turndown": "^5.0.6"
+  },
+  "overrides": {
+    "path-to-regexp": "^6.3.0"
   }
 }

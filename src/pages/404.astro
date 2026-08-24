@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | BeemFlow"
+  description="The requested BeemFlow page does not exist. Use the recovery links to find company, service, and machine-readable site information."
+  noindex
+>
+  <Nav />
+  <main id="main-content" class="not-found">
+    <div class="container--narrow">
+      <p class="label-mono section-label">404 / Not found</p>
+      <h1>This page doesn&rsquo;t exist.</h1>
+      <p class="not-found__intro">
+        The URL may be outdated or mistyped. Continue from one of these canonical resources:
+      </p>
+      <ul class="not-found__links">
+        <li><a href="/">Homepage and workflow automation services</a></li>
+        <li><a href="/solutions/">Industry solutions index</a></li>
+        <li><a href="/about/">About BeemFlow</a></li>
+        <li><a href="/contact/">Contact BeemFlow</a></li>
+        <li><a href="/llms.txt">Agent guidance (llms.txt)</a></li>
+        <li><a href="/sitemap.xml">XML sitemap</a></li>
+      </ul>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 68vh;
+    padding: 120px 32px;
+  }
+
+  .not-found h1 {
+    margin-bottom: 20px;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 400;
+    line-height: 1.08;
+  }
+
+  .not-found__intro {
+    margin-bottom: 28px;
+    font-size: var(--fs-body-lg);
+  }
+
+  .not-found__links {
+    padding-left: 22px;
+  }
+
+  .not-found__links li + li {
+    margin-top: 10px;
+  }
+
+  .not-found__links a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 768px) {
+    .not-found {
+      padding: 88px 20px;
+    }
+  }
+</style>

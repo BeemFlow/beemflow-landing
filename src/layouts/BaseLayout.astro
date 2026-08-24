@@ -5,7 +5,10 @@ interface Props {
   ogImage?: string;
   ogImageAlt?: string;
   schemas?: Record<string, unknown>[];
+  noindex?: boolean;
 }
+
+import { organizationSchema, SITE_URL, websiteSchema } from '../data/schema';
 
 const {
   title,
@@ -13,25 +16,18 @@ const {
   ogImage = '/og-image.png',
   ogImageAlt = 'BeemFlow overview card',
   schemas = [],
+  noindex = false,
 } = Astro.props;
 
-const siteUrl = 'https://beemflow.com';
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const siteUrl = SITE_URL;
+const canonicalPath = Astro.url.pathname === '/' || Astro.url.pathname.includes('.')
+  ? Astro.url.pathname
+  : `${Astro.url.pathname.replace(/\/+$/, '')}/`;
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 const ogImageUrl = new URL(ogImage, siteUrl).toString();
-const robotsContent = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
-const orgSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'BeemFlow',
-  url: siteUrl,
-  logo: new URL('/favicon.svg', siteUrl).toString(),
-};
-const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'BeemFlow',
-  url: siteUrl,
-};
+const robotsContent = noindex
+  ? 'noindex,nofollow'
+  : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 ---
 
 <html lang="en">
@@ -88,7 +84,7 @@ const websiteSchema = {
       rel="stylesheet"
     />
     <title>{title}</title>
-    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
     {schemas.map((schema) => (
       <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
